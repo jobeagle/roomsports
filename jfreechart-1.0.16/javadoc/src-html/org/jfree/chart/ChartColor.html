@@ -1,0 +1,255 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /* ===========================================================<a name="line.1"></a>
+<FONT color="green">002</FONT>     * JFreeChart : a free chart library for the Java(tm) platform<a name="line.2"></a>
+<FONT color="green">003</FONT>     * ===========================================================<a name="line.3"></a>
+<FONT color="green">004</FONT>     *<a name="line.4"></a>
+<FONT color="green">005</FONT>     * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors.<a name="line.5"></a>
+<FONT color="green">006</FONT>     *<a name="line.6"></a>
+<FONT color="green">007</FONT>     * Project Info:  http://www.jfree.org/jfreechart/index.html<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     * This library is free software; you can redistribute it and/or modify it<a name="line.9"></a>
+<FONT color="green">010</FONT>     * under the terms of the GNU Lesser General Public License as published by<a name="line.10"></a>
+<FONT color="green">011</FONT>     * the Free Software Foundation; either version 2.1 of the License, or<a name="line.11"></a>
+<FONT color="green">012</FONT>     * (at your option) any later version.<a name="line.12"></a>
+<FONT color="green">013</FONT>     *<a name="line.13"></a>
+<FONT color="green">014</FONT>     * This library is distributed in the hope that it will be useful, but<a name="line.14"></a>
+<FONT color="green">015</FONT>     * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<a name="line.15"></a>
+<FONT color="green">016</FONT>     * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public<a name="line.16"></a>
+<FONT color="green">017</FONT>     * License for more details.<a name="line.17"></a>
+<FONT color="green">018</FONT>     *<a name="line.18"></a>
+<FONT color="green">019</FONT>     * You should have received a copy of the GNU Lesser General Public<a name="line.19"></a>
+<FONT color="green">020</FONT>     * License along with this library; if not, write to the Free Software<a name="line.20"></a>
+<FONT color="green">021</FONT>     * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,<a name="line.21"></a>
+<FONT color="green">022</FONT>     * USA.<a name="line.22"></a>
+<FONT color="green">023</FONT>     *<a name="line.23"></a>
+<FONT color="green">024</FONT>     * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.24"></a>
+<FONT color="green">025</FONT>     * Other names may be trademarks of their respective owners.]<a name="line.25"></a>
+<FONT color="green">026</FONT>     *<a name="line.26"></a>
+<FONT color="green">027</FONT>     * ---------------<a name="line.27"></a>
+<FONT color="green">028</FONT>     * ChartColor.java<a name="line.28"></a>
+<FONT color="green">029</FONT>     * ---------------<a name="line.29"></a>
+<FONT color="green">030</FONT>     * (C) Copyright 2003-2011, by Cameron Riley and Contributors.<a name="line.30"></a>
+<FONT color="green">031</FONT>     *<a name="line.31"></a>
+<FONT color="green">032</FONT>     * Original Author:  Cameron Riley;<a name="line.32"></a>
+<FONT color="green">033</FONT>     * Contributor(s):   David Gilbert (for Object Refinery Limited);<a name="line.33"></a>
+<FONT color="green">034</FONT>     *<a name="line.34"></a>
+<FONT color="green">035</FONT>     * Changes<a name="line.35"></a>
+<FONT color="green">036</FONT>     * -------<a name="line.36"></a>
+<FONT color="green">037</FONT>     * 23-Jan-2003 : Version 1, contributed by Cameron Riley (DG);<a name="line.37"></a>
+<FONT color="green">038</FONT>     * 25-Nov-2004 : Changed first 7 colors to softer shades (DG);<a name="line.38"></a>
+<FONT color="green">039</FONT>     * 03-Nov-2005 : Removed orange color, too close to yellow - see bug<a name="line.39"></a>
+<FONT color="green">040</FONT>     *               report 1328408 (DG);<a name="line.40"></a>
+<FONT color="green">041</FONT>     * ------------- JFREECHART 1.0.x ---------------------------------------------<a name="line.41"></a>
+<FONT color="green">042</FONT>     * 02-Feb-2007 : Removed author tags all over JFreeChart sources (DG);<a name="line.42"></a>
+<FONT color="green">043</FONT>     *<a name="line.43"></a>
+<FONT color="green">044</FONT>     */<a name="line.44"></a>
+<FONT color="green">045</FONT>    <a name="line.45"></a>
+<FONT color="green">046</FONT>    package org.jfree.chart;<a name="line.46"></a>
+<FONT color="green">047</FONT>    <a name="line.47"></a>
+<FONT color="green">048</FONT>    import java.awt.Color;<a name="line.48"></a>
+<FONT color="green">049</FONT>    import java.awt.Paint;<a name="line.49"></a>
+<FONT color="green">050</FONT>    <a name="line.50"></a>
+<FONT color="green">051</FONT>    /**<a name="line.51"></a>
+<FONT color="green">052</FONT>     * Class to extend the number of Colors available to the charts. This<a name="line.52"></a>
+<FONT color="green">053</FONT>     * extends the java.awt.Color object and extends the number of final<a name="line.53"></a>
+<FONT color="green">054</FONT>     * Colors publically accessible.<a name="line.54"></a>
+<FONT color="green">055</FONT>     */<a name="line.55"></a>
+<FONT color="green">056</FONT>    public class ChartColor extends Color {<a name="line.56"></a>
+<FONT color="green">057</FONT>    <a name="line.57"></a>
+<FONT color="green">058</FONT>        /** A very dark red color. */<a name="line.58"></a>
+<FONT color="green">059</FONT>        public static final Color VERY_DARK_RED = new Color(0x80, 0x00, 0x00);<a name="line.59"></a>
+<FONT color="green">060</FONT>    <a name="line.60"></a>
+<FONT color="green">061</FONT>        /** A dark red color. */<a name="line.61"></a>
+<FONT color="green">062</FONT>        public static final Color DARK_RED = new Color(0xc0, 0x00, 0x00);<a name="line.62"></a>
+<FONT color="green">063</FONT>    <a name="line.63"></a>
+<FONT color="green">064</FONT>        /** A light red color. */<a name="line.64"></a>
+<FONT color="green">065</FONT>        public static final Color LIGHT_RED = new Color(0xFF, 0x40, 0x40);<a name="line.65"></a>
+<FONT color="green">066</FONT>    <a name="line.66"></a>
+<FONT color="green">067</FONT>        /** A very light red color. */<a name="line.67"></a>
+<FONT color="green">068</FONT>        public static final Color VERY_LIGHT_RED = new Color(0xFF, 0x80, 0x80);<a name="line.68"></a>
+<FONT color="green">069</FONT>    <a name="line.69"></a>
+<FONT color="green">070</FONT>        /** A very dark yellow color. */<a name="line.70"></a>
+<FONT color="green">071</FONT>        public static final Color VERY_DARK_YELLOW = new Color(0x80, 0x80, 0x00);<a name="line.71"></a>
+<FONT color="green">072</FONT>    <a name="line.72"></a>
+<FONT color="green">073</FONT>        /** A dark yellow color. */<a name="line.73"></a>
+<FONT color="green">074</FONT>        public static final Color DARK_YELLOW = new Color(0xC0, 0xC0, 0x00);<a name="line.74"></a>
+<FONT color="green">075</FONT>    <a name="line.75"></a>
+<FONT color="green">076</FONT>        /** A light yellow color. */<a name="line.76"></a>
+<FONT color="green">077</FONT>        public static final Color LIGHT_YELLOW = new Color(0xFF, 0xFF, 0x40);<a name="line.77"></a>
+<FONT color="green">078</FONT>    <a name="line.78"></a>
+<FONT color="green">079</FONT>        /** A very light yellow color. */<a name="line.79"></a>
+<FONT color="green">080</FONT>        public static final Color VERY_LIGHT_YELLOW = new Color(0xFF, 0xFF, 0x80);<a name="line.80"></a>
+<FONT color="green">081</FONT>    <a name="line.81"></a>
+<FONT color="green">082</FONT>        /** A very dark green color. */<a name="line.82"></a>
+<FONT color="green">083</FONT>        public static final Color VERY_DARK_GREEN = new Color(0x00, 0x80, 0x00);<a name="line.83"></a>
+<FONT color="green">084</FONT>    <a name="line.84"></a>
+<FONT color="green">085</FONT>        /** A dark green color. */<a name="line.85"></a>
+<FONT color="green">086</FONT>        public static final Color DARK_GREEN = new Color(0x00, 0xC0, 0x00);<a name="line.86"></a>
+<FONT color="green">087</FONT>    <a name="line.87"></a>
+<FONT color="green">088</FONT>        /** A light green color. */<a name="line.88"></a>
+<FONT color="green">089</FONT>        public static final Color LIGHT_GREEN = new Color(0x40, 0xFF, 0x40);<a name="line.89"></a>
+<FONT color="green">090</FONT>    <a name="line.90"></a>
+<FONT color="green">091</FONT>        /** A very light green color. */<a name="line.91"></a>
+<FONT color="green">092</FONT>        public static final Color VERY_LIGHT_GREEN = new Color(0x80, 0xFF, 0x80);<a name="line.92"></a>
+<FONT color="green">093</FONT>    <a name="line.93"></a>
+<FONT color="green">094</FONT>        /** A very dark cyan color. */<a name="line.94"></a>
+<FONT color="green">095</FONT>        public static final Color VERY_DARK_CYAN = new Color(0x00, 0x80, 0x80);<a name="line.95"></a>
+<FONT color="green">096</FONT>    <a name="line.96"></a>
+<FONT color="green">097</FONT>        /** A dark cyan color. */<a name="line.97"></a>
+<FONT color="green">098</FONT>        public static final Color DARK_CYAN = new Color(0x00, 0xC0, 0xC0);<a name="line.98"></a>
+<FONT color="green">099</FONT>    <a name="line.99"></a>
+<FONT color="green">100</FONT>        /** A light cyan color. */<a name="line.100"></a>
+<FONT color="green">101</FONT>        public static final Color LIGHT_CYAN = new Color(0x40, 0xFF, 0xFF);<a name="line.101"></a>
+<FONT color="green">102</FONT>    <a name="line.102"></a>
+<FONT color="green">103</FONT>        /** Aa very light cyan color. */<a name="line.103"></a>
+<FONT color="green">104</FONT>        public static final Color VERY_LIGHT_CYAN = new Color(0x80, 0xFF, 0xFF);<a name="line.104"></a>
+<FONT color="green">105</FONT>    <a name="line.105"></a>
+<FONT color="green">106</FONT>        /** A very dark blue color. */<a name="line.106"></a>
+<FONT color="green">107</FONT>        public static final Color VERY_DARK_BLUE = new Color(0x00, 0x00, 0x80);<a name="line.107"></a>
+<FONT color="green">108</FONT>    <a name="line.108"></a>
+<FONT color="green">109</FONT>        /** A dark blue color. */<a name="line.109"></a>
+<FONT color="green">110</FONT>        public static final Color DARK_BLUE = new Color(0x00, 0x00, 0xC0);<a name="line.110"></a>
+<FONT color="green">111</FONT>    <a name="line.111"></a>
+<FONT color="green">112</FONT>        /** A light blue color. */<a name="line.112"></a>
+<FONT color="green">113</FONT>        public static final Color LIGHT_BLUE = new Color(0x40, 0x40, 0xFF);<a name="line.113"></a>
+<FONT color="green">114</FONT>    <a name="line.114"></a>
+<FONT color="green">115</FONT>        /** A very light blue color. */<a name="line.115"></a>
+<FONT color="green">116</FONT>        public static final Color VERY_LIGHT_BLUE = new Color(0x80, 0x80, 0xFF);<a name="line.116"></a>
+<FONT color="green">117</FONT>    <a name="line.117"></a>
+<FONT color="green">118</FONT>        /** A very dark magenta/purple color. */<a name="line.118"></a>
+<FONT color="green">119</FONT>        public static final Color VERY_DARK_MAGENTA = new Color(0x80, 0x00, 0x80);<a name="line.119"></a>
+<FONT color="green">120</FONT>    <a name="line.120"></a>
+<FONT color="green">121</FONT>        /** A dark magenta color. */<a name="line.121"></a>
+<FONT color="green">122</FONT>        public static final Color DARK_MAGENTA = new Color(0xC0, 0x00, 0xC0);<a name="line.122"></a>
+<FONT color="green">123</FONT>    <a name="line.123"></a>
+<FONT color="green">124</FONT>        /** A light magenta color. */<a name="line.124"></a>
+<FONT color="green">125</FONT>        public static final Color LIGHT_MAGENTA = new Color(0xFF, 0x40, 0xFF);<a name="line.125"></a>
+<FONT color="green">126</FONT>    <a name="line.126"></a>
+<FONT color="green">127</FONT>        /** A very light magenta color. */<a name="line.127"></a>
+<FONT color="green">128</FONT>        public static final Color VERY_LIGHT_MAGENTA = new Color(0xFF, 0x80, 0xFF);<a name="line.128"></a>
+<FONT color="green">129</FONT>    <a name="line.129"></a>
+<FONT color="green">130</FONT>        /**<a name="line.130"></a>
+<FONT color="green">131</FONT>         * Creates a Color with an opaque sRGB with red, green and blue values in<a name="line.131"></a>
+<FONT color="green">132</FONT>         * range 0-255.<a name="line.132"></a>
+<FONT color="green">133</FONT>         *<a name="line.133"></a>
+<FONT color="green">134</FONT>         * @param r  the red component in range 0x00-0xFF.<a name="line.134"></a>
+<FONT color="green">135</FONT>         * @param g  the green component in range 0x00-0xFF.<a name="line.135"></a>
+<FONT color="green">136</FONT>         * @param b  the blue component in range 0x00-0xFF.<a name="line.136"></a>
+<FONT color="green">137</FONT>         */<a name="line.137"></a>
+<FONT color="green">138</FONT>        public ChartColor(int r, int g, int b) {<a name="line.138"></a>
+<FONT color="green">139</FONT>            super(r, g, b);<a name="line.139"></a>
+<FONT color="green">140</FONT>        }<a name="line.140"></a>
+<FONT color="green">141</FONT>    <a name="line.141"></a>
+<FONT color="green">142</FONT>        /**<a name="line.142"></a>
+<FONT color="green">143</FONT>         * Convenience method to return an array of &lt;code&gt;Paint&lt;/code&gt; objects that<a name="line.143"></a>
+<FONT color="green">144</FONT>         * represent the pre-defined colors in the &lt;code&gt;Color&lt;/code&gt; and<a name="line.144"></a>
+<FONT color="green">145</FONT>         * &lt;code&gt;ChartColor&lt;/code&gt; objects.<a name="line.145"></a>
+<FONT color="green">146</FONT>         *<a name="line.146"></a>
+<FONT color="green">147</FONT>         * @return An array of objects with the &lt;code&gt;Paint&lt;/code&gt; interface.<a name="line.147"></a>
+<FONT color="green">148</FONT>         */<a name="line.148"></a>
+<FONT color="green">149</FONT>        public static Paint[] createDefaultPaintArray() {<a name="line.149"></a>
+<FONT color="green">150</FONT>    <a name="line.150"></a>
+<FONT color="green">151</FONT>            return new Paint[] {<a name="line.151"></a>
+<FONT color="green">152</FONT>                new Color(0xFF, 0x55, 0x55),<a name="line.152"></a>
+<FONT color="green">153</FONT>                new Color(0x55, 0x55, 0xFF),<a name="line.153"></a>
+<FONT color="green">154</FONT>                new Color(0x55, 0xFF, 0x55),<a name="line.154"></a>
+<FONT color="green">155</FONT>                new Color(0xFF, 0xFF, 0x55),<a name="line.155"></a>
+<FONT color="green">156</FONT>                new Color(0xFF, 0x55, 0xFF),<a name="line.156"></a>
+<FONT color="green">157</FONT>                new Color(0x55, 0xFF, 0xFF),<a name="line.157"></a>
+<FONT color="green">158</FONT>                Color.pink,<a name="line.158"></a>
+<FONT color="green">159</FONT>                Color.gray,<a name="line.159"></a>
+<FONT color="green">160</FONT>                ChartColor.DARK_RED,<a name="line.160"></a>
+<FONT color="green">161</FONT>                ChartColor.DARK_BLUE,<a name="line.161"></a>
+<FONT color="green">162</FONT>                ChartColor.DARK_GREEN,<a name="line.162"></a>
+<FONT color="green">163</FONT>                ChartColor.DARK_YELLOW,<a name="line.163"></a>
+<FONT color="green">164</FONT>                ChartColor.DARK_MAGENTA,<a name="line.164"></a>
+<FONT color="green">165</FONT>                ChartColor.DARK_CYAN,<a name="line.165"></a>
+<FONT color="green">166</FONT>                Color.darkGray,<a name="line.166"></a>
+<FONT color="green">167</FONT>                ChartColor.LIGHT_RED,<a name="line.167"></a>
+<FONT color="green">168</FONT>                ChartColor.LIGHT_BLUE,<a name="line.168"></a>
+<FONT color="green">169</FONT>                ChartColor.LIGHT_GREEN,<a name="line.169"></a>
+<FONT color="green">170</FONT>                ChartColor.LIGHT_YELLOW,<a name="line.170"></a>
+<FONT color="green">171</FONT>                ChartColor.LIGHT_MAGENTA,<a name="line.171"></a>
+<FONT color="green">172</FONT>                ChartColor.LIGHT_CYAN,<a name="line.172"></a>
+<FONT color="green">173</FONT>                Color.lightGray,<a name="line.173"></a>
+<FONT color="green">174</FONT>                ChartColor.VERY_DARK_RED,<a name="line.174"></a>
+<FONT color="green">175</FONT>                ChartColor.VERY_DARK_BLUE,<a name="line.175"></a>
+<FONT color="green">176</FONT>                ChartColor.VERY_DARK_GREEN,<a name="line.176"></a>
+<FONT color="green">177</FONT>                ChartColor.VERY_DARK_YELLOW,<a name="line.177"></a>
+<FONT color="green">178</FONT>                ChartColor.VERY_DARK_MAGENTA,<a name="line.178"></a>
+<FONT color="green">179</FONT>                ChartColor.VERY_DARK_CYAN,<a name="line.179"></a>
+<FONT color="green">180</FONT>                ChartColor.VERY_LIGHT_RED,<a name="line.180"></a>
+<FONT color="green">181</FONT>                ChartColor.VERY_LIGHT_BLUE,<a name="line.181"></a>
+<FONT color="green">182</FONT>                ChartColor.VERY_LIGHT_GREEN,<a name="line.182"></a>
+<FONT color="green">183</FONT>                ChartColor.VERY_LIGHT_YELLOW,<a name="line.183"></a>
+<FONT color="green">184</FONT>                ChartColor.VERY_LIGHT_MAGENTA,<a name="line.184"></a>
+<FONT color="green">185</FONT>                ChartColor.VERY_LIGHT_CYAN<a name="line.185"></a>
+<FONT color="green">186</FONT>            };<a name="line.186"></a>
+<FONT color="green">187</FONT>        }<a name="line.187"></a>
+<FONT color="green">188</FONT>    <a name="line.188"></a>
+<FONT color="green">189</FONT>    }<a name="line.189"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

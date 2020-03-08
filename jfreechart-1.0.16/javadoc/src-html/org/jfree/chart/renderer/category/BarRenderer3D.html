@@ -1,0 +1,898 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /* ===========================================================<a name="line.1"></a>
+<FONT color="green">002</FONT>     * JFreeChart : a free chart library for the Java(tm) platform<a name="line.2"></a>
+<FONT color="green">003</FONT>     * ===========================================================<a name="line.3"></a>
+<FONT color="green">004</FONT>     *<a name="line.4"></a>
+<FONT color="green">005</FONT>     * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors.<a name="line.5"></a>
+<FONT color="green">006</FONT>     *<a name="line.6"></a>
+<FONT color="green">007</FONT>     * Project Info:  http://www.jfree.org/jfreechart/index.html<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     * This library is free software; you can redistribute it and/or modify it<a name="line.9"></a>
+<FONT color="green">010</FONT>     * under the terms of the GNU Lesser General Public License as published by<a name="line.10"></a>
+<FONT color="green">011</FONT>     * the Free Software Foundation; either version 2.1 of the License, or<a name="line.11"></a>
+<FONT color="green">012</FONT>     * (at your option) any later version.<a name="line.12"></a>
+<FONT color="green">013</FONT>     *<a name="line.13"></a>
+<FONT color="green">014</FONT>     * This library is distributed in the hope that it will be useful, but<a name="line.14"></a>
+<FONT color="green">015</FONT>     * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<a name="line.15"></a>
+<FONT color="green">016</FONT>     * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public<a name="line.16"></a>
+<FONT color="green">017</FONT>     * License for more details.<a name="line.17"></a>
+<FONT color="green">018</FONT>     *<a name="line.18"></a>
+<FONT color="green">019</FONT>     * You should have received a copy of the GNU Lesser General Public<a name="line.19"></a>
+<FONT color="green">020</FONT>     * License along with this library; if not, write to the Free Software<a name="line.20"></a>
+<FONT color="green">021</FONT>     * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,<a name="line.21"></a>
+<FONT color="green">022</FONT>     * USA.<a name="line.22"></a>
+<FONT color="green">023</FONT>     *<a name="line.23"></a>
+<FONT color="green">024</FONT>     * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.24"></a>
+<FONT color="green">025</FONT>     * Other names may be trademarks of their respective owners.]<a name="line.25"></a>
+<FONT color="green">026</FONT>     *<a name="line.26"></a>
+<FONT color="green">027</FONT>     * ------------------<a name="line.27"></a>
+<FONT color="green">028</FONT>     * BarRenderer3D.java<a name="line.28"></a>
+<FONT color="green">029</FONT>     * ------------------<a name="line.29"></a>
+<FONT color="green">030</FONT>     * (C) Copyright 2001-2013, by Serge V. Grachov and Contributors.<a name="line.30"></a>
+<FONT color="green">031</FONT>     *<a name="line.31"></a>
+<FONT color="green">032</FONT>     * Original Author:  Serge V. Grachov;<a name="line.32"></a>
+<FONT color="green">033</FONT>     * Contributor(s):   David Gilbert (for Object Refinery Limited);<a name="line.33"></a>
+<FONT color="green">034</FONT>     *                   Tin Luu;<a name="line.34"></a>
+<FONT color="green">035</FONT>     *                   Milo Simpson;<a name="line.35"></a>
+<FONT color="green">036</FONT>     *                   Richard Atkinson;<a name="line.36"></a>
+<FONT color="green">037</FONT>     *                   Rich Unger;<a name="line.37"></a>
+<FONT color="green">038</FONT>     *                   Christian W. Zuckschwerdt;<a name="line.38"></a>
+<FONT color="green">039</FONT>     *                   DaveLaw (dave ATT davelaw DOTT de) - patch 3204823;<a name="line.39"></a>
+<FONT color="green">040</FONT>     *<a name="line.40"></a>
+<FONT color="green">041</FONT>     * Changes<a name="line.41"></a>
+<FONT color="green">042</FONT>     * -------<a name="line.42"></a>
+<FONT color="green">043</FONT>     * 31-Oct-2001 : First version, contributed by Serge V. Grachov (DG);<a name="line.43"></a>
+<FONT color="green">044</FONT>     * 15-Nov-2001 : Modified to allow for null data values (DG);<a name="line.44"></a>
+<FONT color="green">045</FONT>     * 13-Dec-2001 : Added tooltips (DG);<a name="line.45"></a>
+<FONT color="green">046</FONT>     * 16-Jan-2002 : Added fix for single category or single series datasets,<a name="line.46"></a>
+<FONT color="green">047</FONT>     *               pointed out by Taoufik Romdhane (DG);<a name="line.47"></a>
+<FONT color="green">048</FONT>     * 24-May-2002 : Incorporated tooltips into chart entities (DG);<a name="line.48"></a>
+<FONT color="green">049</FONT>     * 11-Jun-2002 : Added check for (permitted) null info object, bug and fix<a name="line.49"></a>
+<FONT color="green">050</FONT>     *               reported by David Basten.  Also updated Javadocs. (DG);<a name="line.50"></a>
+<FONT color="green">051</FONT>     * 19-Jun-2002 : Added code to draw labels on bars (TL);<a name="line.51"></a>
+<FONT color="green">052</FONT>     * 26-Jun-2002 : Added bar clipping to avoid PRExceptions (DG);<a name="line.52"></a>
+<FONT color="green">053</FONT>     * 05-Aug-2002 : Small modification to drawCategoryItem method to support URLs<a name="line.53"></a>
+<FONT color="green">054</FONT>     *               for HTML image maps (RA);<a name="line.54"></a>
+<FONT color="green">055</FONT>     * 06-Aug-2002 : Value labels now use number formatter, thanks to Milo<a name="line.55"></a>
+<FONT color="green">056</FONT>     *               Simpson (DG);<a name="line.56"></a>
+<FONT color="green">057</FONT>     * 08-Aug-2002 : Applied fixed in bug id 592218 (DG);<a name="line.57"></a>
+<FONT color="green">058</FONT>     * 20-Sep-2002 : Added fix for categoryPaint by Rich Unger, and fixed errors<a name="line.58"></a>
+<FONT color="green">059</FONT>     *               reported by Checkstyle (DG);<a name="line.59"></a>
+<FONT color="green">060</FONT>     * 24-Oct-2002 : Amendments for changes in CategoryDataset interface and<a name="line.60"></a>
+<FONT color="green">061</FONT>     *               CategoryToolTipGenerator interface (DG);<a name="line.61"></a>
+<FONT color="green">062</FONT>     * 05-Nov-2002 : Replaced references to CategoryDataset with TableDataset (DG);<a name="line.62"></a>
+<FONT color="green">063</FONT>     * 06-Nov-2002 : Moved to the com.jrefinery.chart.renderer package (DG);<a name="line.63"></a>
+<FONT color="green">064</FONT>     * 28-Jan-2003 : Added an attribute to control the shading of the left and<a name="line.64"></a>
+<FONT color="green">065</FONT>     *               bottom walls in the plot background (DG);<a name="line.65"></a>
+<FONT color="green">066</FONT>     * 25-Mar-2003 : Implemented Serializable (DG);<a name="line.66"></a>
+<FONT color="green">067</FONT>     * 10-Apr-2003 : Removed category paint usage (DG);<a name="line.67"></a>
+<FONT color="green">068</FONT>     * 13-May-2003 : Renamed VerticalBarRenderer3D --&gt; BarRenderer3D and merged with<a name="line.68"></a>
+<FONT color="green">069</FONT>     *               HorizontalBarRenderer3D (DG);<a name="line.69"></a>
+<FONT color="green">070</FONT>     * 30-Jul-2003 : Modified entity constructor (CZ);<a name="line.70"></a>
+<FONT color="green">071</FONT>     * 19-Aug-2003 : Implemented Cloneable and PublicCloneable (DG);<a name="line.71"></a>
+<FONT color="green">072</FONT>     * 07-Oct-2003 : Added renderer state (DG);<a name="line.72"></a>
+<FONT color="green">073</FONT>     * 08-Oct-2003 : Removed clipping (replaced with flag in CategoryPlot to<a name="line.73"></a>
+<FONT color="green">074</FONT>     *               control order in which the data items are processed) (DG);<a name="line.74"></a>
+<FONT color="green">075</FONT>     * 20-Oct-2003 : Fixed bug (outline stroke not being used for bar<a name="line.75"></a>
+<FONT color="green">076</FONT>     *               outlines) (DG);<a name="line.76"></a>
+<FONT color="green">077</FONT>     * 21-Oct-2003 : Bar width moved into CategoryItemRendererState (DG);<a name="line.77"></a>
+<FONT color="green">078</FONT>     * 24-Nov-2003 : Fixed bug 846324 (item labels not showing) (DG);<a name="line.78"></a>
+<FONT color="green">079</FONT>     * 27-Nov-2003 : Added code to respect maxBarWidth setting (DG);<a name="line.79"></a>
+<FONT color="green">080</FONT>     * 02-Feb-2004 : Fixed bug where 'drawBarOutline' flag is not respected (DG);<a name="line.80"></a>
+<FONT color="green">081</FONT>     * 10-Feb-2004 : Small change to drawItem() method to make cut-and-paste<a name="line.81"></a>
+<FONT color="green">082</FONT>     *               overriding easier (DG);<a name="line.82"></a>
+<FONT color="green">083</FONT>     * 04-Oct-2004 : Fixed bug with item label positioning when plot alignment is<a name="line.83"></a>
+<FONT color="green">084</FONT>     *               horizontal (DG);<a name="line.84"></a>
+<FONT color="green">085</FONT>     * 05-Nov-2004 : Modified drawItem() signature (DG);<a name="line.85"></a>
+<FONT color="green">086</FONT>     * 20-Apr-2005 : Renamed CategoryLabelGenerator<a name="line.86"></a>
+<FONT color="green">087</FONT>     *               --&gt; CategoryItemLabelGenerator (DG);<a name="line.87"></a>
+<FONT color="green">088</FONT>     * 25-Apr-2005 : Override initialise() method to fix bug 1189642 (DG);<a name="line.88"></a>
+<FONT color="green">089</FONT>     * 09-Jun-2005 : Use addEntityItem from super class (DG);<a name="line.89"></a>
+<FONT color="green">090</FONT>     * ------------- JFREECHART 1.0.x ---------------------------------------------<a name="line.90"></a>
+<FONT color="green">091</FONT>     * 07-Dec-2006 : Implemented equals() override (DG);<a name="line.91"></a>
+<FONT color="green">092</FONT>     * 17-Jan-2007 : Fixed bug in drawDomainGridline() method (DG);<a name="line.92"></a>
+<FONT color="green">093</FONT>     * 03-Apr-2007 : Fixed bugs in drawBackground() method (DG);<a name="line.93"></a>
+<FONT color="green">094</FONT>     * 16-Oct-2007 : Fixed bug in range marker drawing (DG);<a name="line.94"></a>
+<FONT color="green">095</FONT>     * 19-Mar-2009 : Override for drawRangeLine() method (DG);<a name="line.95"></a>
+<FONT color="green">096</FONT>     * 11-Jun-2012 : Utilise new PaintAlpha class - patch 3204823 from DaveLaw (DG);<a name="line.96"></a>
+<FONT color="green">097</FONT>     * 03-Jul-2013 : Use ParamChecks (DG);<a name="line.97"></a>
+<FONT color="green">098</FONT>     * <a name="line.98"></a>
+<FONT color="green">099</FONT>     */<a name="line.99"></a>
+<FONT color="green">100</FONT>    <a name="line.100"></a>
+<FONT color="green">101</FONT>    package org.jfree.chart.renderer.category;<a name="line.101"></a>
+<FONT color="green">102</FONT>    <a name="line.102"></a>
+<FONT color="green">103</FONT>    import java.awt.AlphaComposite;<a name="line.103"></a>
+<FONT color="green">104</FONT>    import java.awt.Color;<a name="line.104"></a>
+<FONT color="green">105</FONT>    import java.awt.Composite;<a name="line.105"></a>
+<FONT color="green">106</FONT>    import java.awt.Font;<a name="line.106"></a>
+<FONT color="green">107</FONT>    import java.awt.Graphics2D;<a name="line.107"></a>
+<FONT color="green">108</FONT>    import java.awt.Image;<a name="line.108"></a>
+<FONT color="green">109</FONT>    import java.awt.Paint;<a name="line.109"></a>
+<FONT color="green">110</FONT>    import java.awt.Stroke;<a name="line.110"></a>
+<FONT color="green">111</FONT>    import java.awt.geom.GeneralPath;<a name="line.111"></a>
+<FONT color="green">112</FONT>    import java.awt.geom.Line2D;<a name="line.112"></a>
+<FONT color="green">113</FONT>    import java.awt.geom.Point2D;<a name="line.113"></a>
+<FONT color="green">114</FONT>    import java.awt.geom.Rectangle2D;<a name="line.114"></a>
+<FONT color="green">115</FONT>    import java.io.IOException;<a name="line.115"></a>
+<FONT color="green">116</FONT>    import java.io.ObjectInputStream;<a name="line.116"></a>
+<FONT color="green">117</FONT>    import java.io.ObjectOutputStream;<a name="line.117"></a>
+<FONT color="green">118</FONT>    import java.io.Serializable;<a name="line.118"></a>
+<FONT color="green">119</FONT>    <a name="line.119"></a>
+<FONT color="green">120</FONT>    import org.jfree.chart.Effect3D;<a name="line.120"></a>
+<FONT color="green">121</FONT>    import org.jfree.chart.axis.CategoryAxis;<a name="line.121"></a>
+<FONT color="green">122</FONT>    import org.jfree.chart.axis.ValueAxis;<a name="line.122"></a>
+<FONT color="green">123</FONT>    import org.jfree.chart.entity.EntityCollection;<a name="line.123"></a>
+<FONT color="green">124</FONT>    import org.jfree.chart.event.RendererChangeEvent;<a name="line.124"></a>
+<FONT color="green">125</FONT>    import org.jfree.chart.labels.CategoryItemLabelGenerator;<a name="line.125"></a>
+<FONT color="green">126</FONT>    import org.jfree.chart.labels.ItemLabelAnchor;<a name="line.126"></a>
+<FONT color="green">127</FONT>    import org.jfree.chart.labels.ItemLabelPosition;<a name="line.127"></a>
+<FONT color="green">128</FONT>    import org.jfree.chart.plot.CategoryPlot;<a name="line.128"></a>
+<FONT color="green">129</FONT>    import org.jfree.chart.plot.Marker;<a name="line.129"></a>
+<FONT color="green">130</FONT>    import org.jfree.chart.plot.Plot;<a name="line.130"></a>
+<FONT color="green">131</FONT>    import org.jfree.chart.plot.PlotOrientation;<a name="line.131"></a>
+<FONT color="green">132</FONT>    import org.jfree.chart.plot.PlotRenderingInfo;<a name="line.132"></a>
+<FONT color="green">133</FONT>    import org.jfree.chart.plot.ValueMarker;<a name="line.133"></a>
+<FONT color="green">134</FONT>    import org.jfree.chart.util.PaintAlpha;<a name="line.134"></a>
+<FONT color="green">135</FONT>    import org.jfree.chart.util.ParamChecks;<a name="line.135"></a>
+<FONT color="green">136</FONT>    import org.jfree.data.Range;<a name="line.136"></a>
+<FONT color="green">137</FONT>    import org.jfree.data.category.CategoryDataset;<a name="line.137"></a>
+<FONT color="green">138</FONT>    import org.jfree.io.SerialUtilities;<a name="line.138"></a>
+<FONT color="green">139</FONT>    import org.jfree.text.TextUtilities;<a name="line.139"></a>
+<FONT color="green">140</FONT>    import org.jfree.ui.LengthAdjustmentType;<a name="line.140"></a>
+<FONT color="green">141</FONT>    import org.jfree.ui.RectangleAnchor;<a name="line.141"></a>
+<FONT color="green">142</FONT>    import org.jfree.ui.RectangleEdge;<a name="line.142"></a>
+<FONT color="green">143</FONT>    import org.jfree.ui.TextAnchor;<a name="line.143"></a>
+<FONT color="green">144</FONT>    import org.jfree.util.PaintUtilities;<a name="line.144"></a>
+<FONT color="green">145</FONT>    import org.jfree.util.PublicCloneable;<a name="line.145"></a>
+<FONT color="green">146</FONT>    <a name="line.146"></a>
+<FONT color="green">147</FONT>    /**<a name="line.147"></a>
+<FONT color="green">148</FONT>     * A renderer for bars with a 3D effect, for use with the<a name="line.148"></a>
+<FONT color="green">149</FONT>     * {@link CategoryPlot} class.  The example shown here is generated<a name="line.149"></a>
+<FONT color="green">150</FONT>     * by the &lt;code&gt;BarChart3DDemo1.java&lt;/code&gt; program included in the JFreeChart<a name="line.150"></a>
+<FONT color="green">151</FONT>     * Demo Collection:<a name="line.151"></a>
+<FONT color="green">152</FONT>     * &lt;br&gt;&lt;br&gt;<a name="line.152"></a>
+<FONT color="green">153</FONT>     * &lt;img src="../../../../../images/BarRenderer3DSample.png"<a name="line.153"></a>
+<FONT color="green">154</FONT>     * alt="BarRenderer3DSample.png" /&gt;<a name="line.154"></a>
+<FONT color="green">155</FONT>     */<a name="line.155"></a>
+<FONT color="green">156</FONT>    public class BarRenderer3D extends BarRenderer<a name="line.156"></a>
+<FONT color="green">157</FONT>            implements Effect3D, Cloneable, PublicCloneable, Serializable {<a name="line.157"></a>
+<FONT color="green">158</FONT>    <a name="line.158"></a>
+<FONT color="green">159</FONT>        /** For serialization. */<a name="line.159"></a>
+<FONT color="green">160</FONT>        private static final long serialVersionUID = 7686976503536003636L;<a name="line.160"></a>
+<FONT color="green">161</FONT>    <a name="line.161"></a>
+<FONT color="green">162</FONT>        /** The default x-offset for the 3D effect. */<a name="line.162"></a>
+<FONT color="green">163</FONT>        public static final double DEFAULT_X_OFFSET = 12.0;<a name="line.163"></a>
+<FONT color="green">164</FONT>    <a name="line.164"></a>
+<FONT color="green">165</FONT>        /** The default y-offset for the 3D effect. */<a name="line.165"></a>
+<FONT color="green">166</FONT>        public static final double DEFAULT_Y_OFFSET = 8.0;<a name="line.166"></a>
+<FONT color="green">167</FONT>    <a name="line.167"></a>
+<FONT color="green">168</FONT>        /** The default wall paint. */<a name="line.168"></a>
+<FONT color="green">169</FONT>        public static final Paint DEFAULT_WALL_PAINT = new Color(0xDD, 0xDD, 0xDD);<a name="line.169"></a>
+<FONT color="green">170</FONT>    <a name="line.170"></a>
+<FONT color="green">171</FONT>        /** The size of x-offset for the 3D effect. */<a name="line.171"></a>
+<FONT color="green">172</FONT>        private double xOffset;<a name="line.172"></a>
+<FONT color="green">173</FONT>    <a name="line.173"></a>
+<FONT color="green">174</FONT>        /** The size of y-offset for the 3D effect. */<a name="line.174"></a>
+<FONT color="green">175</FONT>        private double yOffset;<a name="line.175"></a>
+<FONT color="green">176</FONT>    <a name="line.176"></a>
+<FONT color="green">177</FONT>        /** The paint used to shade the left and lower 3D wall. */<a name="line.177"></a>
+<FONT color="green">178</FONT>        private transient Paint wallPaint;<a name="line.178"></a>
+<FONT color="green">179</FONT>    <a name="line.179"></a>
+<FONT color="green">180</FONT>        /**<a name="line.180"></a>
+<FONT color="green">181</FONT>         * Default constructor, creates a renderer with a default '3D effect'.<a name="line.181"></a>
+<FONT color="green">182</FONT>         */<a name="line.182"></a>
+<FONT color="green">183</FONT>        public BarRenderer3D() {<a name="line.183"></a>
+<FONT color="green">184</FONT>            this(DEFAULT_X_OFFSET, DEFAULT_Y_OFFSET);<a name="line.184"></a>
+<FONT color="green">185</FONT>        }<a name="line.185"></a>
+<FONT color="green">186</FONT>    <a name="line.186"></a>
+<FONT color="green">187</FONT>        /**<a name="line.187"></a>
+<FONT color="green">188</FONT>         * Constructs a new renderer with the specified '3D effect'.<a name="line.188"></a>
+<FONT color="green">189</FONT>         *<a name="line.189"></a>
+<FONT color="green">190</FONT>         * @param xOffset  the x-offset for the 3D effect.<a name="line.190"></a>
+<FONT color="green">191</FONT>         * @param yOffset  the y-offset for the 3D effect.<a name="line.191"></a>
+<FONT color="green">192</FONT>         */<a name="line.192"></a>
+<FONT color="green">193</FONT>        public BarRenderer3D(double xOffset, double yOffset) {<a name="line.193"></a>
+<FONT color="green">194</FONT>    <a name="line.194"></a>
+<FONT color="green">195</FONT>            super();<a name="line.195"></a>
+<FONT color="green">196</FONT>            this.xOffset = xOffset;<a name="line.196"></a>
+<FONT color="green">197</FONT>            this.yOffset = yOffset;<a name="line.197"></a>
+<FONT color="green">198</FONT>            this.wallPaint = DEFAULT_WALL_PAINT;<a name="line.198"></a>
+<FONT color="green">199</FONT>            // set the default item label positions<a name="line.199"></a>
+<FONT color="green">200</FONT>            ItemLabelPosition p1 = new ItemLabelPosition(ItemLabelAnchor.INSIDE12,<a name="line.200"></a>
+<FONT color="green">201</FONT>                    TextAnchor.TOP_CENTER);<a name="line.201"></a>
+<FONT color="green">202</FONT>            setBasePositiveItemLabelPosition(p1);<a name="line.202"></a>
+<FONT color="green">203</FONT>            ItemLabelPosition p2 = new ItemLabelPosition(ItemLabelAnchor.INSIDE12,<a name="line.203"></a>
+<FONT color="green">204</FONT>                    TextAnchor.TOP_CENTER);<a name="line.204"></a>
+<FONT color="green">205</FONT>            setBaseNegativeItemLabelPosition(p2);<a name="line.205"></a>
+<FONT color="green">206</FONT>    <a name="line.206"></a>
+<FONT color="green">207</FONT>        }<a name="line.207"></a>
+<FONT color="green">208</FONT>    <a name="line.208"></a>
+<FONT color="green">209</FONT>        /**<a name="line.209"></a>
+<FONT color="green">210</FONT>         * Returns the x-offset for the 3D effect.<a name="line.210"></a>
+<FONT color="green">211</FONT>         *<a name="line.211"></a>
+<FONT color="green">212</FONT>         * @return The 3D effect.<a name="line.212"></a>
+<FONT color="green">213</FONT>         *<a name="line.213"></a>
+<FONT color="green">214</FONT>         * @see #getYOffset()<a name="line.214"></a>
+<FONT color="green">215</FONT>         */<a name="line.215"></a>
+<FONT color="green">216</FONT>        public double getXOffset() {<a name="line.216"></a>
+<FONT color="green">217</FONT>            return this.xOffset;<a name="line.217"></a>
+<FONT color="green">218</FONT>        }<a name="line.218"></a>
+<FONT color="green">219</FONT>    <a name="line.219"></a>
+<FONT color="green">220</FONT>        /**<a name="line.220"></a>
+<FONT color="green">221</FONT>         * Returns the y-offset for the 3D effect.<a name="line.221"></a>
+<FONT color="green">222</FONT>         *<a name="line.222"></a>
+<FONT color="green">223</FONT>         * @return The 3D effect.<a name="line.223"></a>
+<FONT color="green">224</FONT>         */<a name="line.224"></a>
+<FONT color="green">225</FONT>        public double getYOffset() {<a name="line.225"></a>
+<FONT color="green">226</FONT>            return this.yOffset;<a name="line.226"></a>
+<FONT color="green">227</FONT>        }<a name="line.227"></a>
+<FONT color="green">228</FONT>    <a name="line.228"></a>
+<FONT color="green">229</FONT>        /**<a name="line.229"></a>
+<FONT color="green">230</FONT>         * Returns the paint used to highlight the left and bottom wall in the plot<a name="line.230"></a>
+<FONT color="green">231</FONT>         * background.<a name="line.231"></a>
+<FONT color="green">232</FONT>         *<a name="line.232"></a>
+<FONT color="green">233</FONT>         * @return The paint.<a name="line.233"></a>
+<FONT color="green">234</FONT>         *<a name="line.234"></a>
+<FONT color="green">235</FONT>         * @see #setWallPaint(Paint)<a name="line.235"></a>
+<FONT color="green">236</FONT>         */<a name="line.236"></a>
+<FONT color="green">237</FONT>        public Paint getWallPaint() {<a name="line.237"></a>
+<FONT color="green">238</FONT>            return this.wallPaint;<a name="line.238"></a>
+<FONT color="green">239</FONT>        }<a name="line.239"></a>
+<FONT color="green">240</FONT>    <a name="line.240"></a>
+<FONT color="green">241</FONT>        /**<a name="line.241"></a>
+<FONT color="green">242</FONT>         * Sets the paint used to hightlight the left and bottom walls in the plot<a name="line.242"></a>
+<FONT color="green">243</FONT>         * background, and sends a {@link RendererChangeEvent} to all registered<a name="line.243"></a>
+<FONT color="green">244</FONT>         * listeners.<a name="line.244"></a>
+<FONT color="green">245</FONT>         *<a name="line.245"></a>
+<FONT color="green">246</FONT>         * @param paint  the paint (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.246"></a>
+<FONT color="green">247</FONT>         *<a name="line.247"></a>
+<FONT color="green">248</FONT>         * @see #getWallPaint()<a name="line.248"></a>
+<FONT color="green">249</FONT>         */<a name="line.249"></a>
+<FONT color="green">250</FONT>        public void setWallPaint(Paint paint) {<a name="line.250"></a>
+<FONT color="green">251</FONT>            ParamChecks.nullNotPermitted(paint, "paint");<a name="line.251"></a>
+<FONT color="green">252</FONT>            this.wallPaint = paint;<a name="line.252"></a>
+<FONT color="green">253</FONT>            fireChangeEvent();<a name="line.253"></a>
+<FONT color="green">254</FONT>        }<a name="line.254"></a>
+<FONT color="green">255</FONT>    <a name="line.255"></a>
+<FONT color="green">256</FONT>    <a name="line.256"></a>
+<FONT color="green">257</FONT>        /**<a name="line.257"></a>
+<FONT color="green">258</FONT>         * Initialises the renderer and returns a state object that will be passed<a name="line.258"></a>
+<FONT color="green">259</FONT>         * to subsequent calls to the drawItem method.  This method gets called<a name="line.259"></a>
+<FONT color="green">260</FONT>         * once at the start of the process of drawing a chart.<a name="line.260"></a>
+<FONT color="green">261</FONT>         *<a name="line.261"></a>
+<FONT color="green">262</FONT>         * @param g2  the graphics device.<a name="line.262"></a>
+<FONT color="green">263</FONT>         * @param dataArea  the area in which the data is to be plotted.<a name="line.263"></a>
+<FONT color="green">264</FONT>         * @param plot  the plot.<a name="line.264"></a>
+<FONT color="green">265</FONT>         * @param rendererIndex  the renderer index.<a name="line.265"></a>
+<FONT color="green">266</FONT>         * @param info  collects chart rendering information for return to caller.<a name="line.266"></a>
+<FONT color="green">267</FONT>         *<a name="line.267"></a>
+<FONT color="green">268</FONT>         * @return The renderer state.<a name="line.268"></a>
+<FONT color="green">269</FONT>         */<a name="line.269"></a>
+<FONT color="green">270</FONT>        public CategoryItemRendererState initialise(Graphics2D g2,<a name="line.270"></a>
+<FONT color="green">271</FONT>                                                    Rectangle2D dataArea,<a name="line.271"></a>
+<FONT color="green">272</FONT>                                                    CategoryPlot plot,<a name="line.272"></a>
+<FONT color="green">273</FONT>                                                    int rendererIndex,<a name="line.273"></a>
+<FONT color="green">274</FONT>                                                    PlotRenderingInfo info) {<a name="line.274"></a>
+<FONT color="green">275</FONT>    <a name="line.275"></a>
+<FONT color="green">276</FONT>            Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX(),<a name="line.276"></a>
+<FONT color="green">277</FONT>                    dataArea.getY() + getYOffset(), dataArea.getWidth()<a name="line.277"></a>
+<FONT color="green">278</FONT>                    - getXOffset(), dataArea.getHeight() - getYOffset());<a name="line.278"></a>
+<FONT color="green">279</FONT>            CategoryItemRendererState state = super.initialise(g2, adjusted, plot,<a name="line.279"></a>
+<FONT color="green">280</FONT>                    rendererIndex, info);<a name="line.280"></a>
+<FONT color="green">281</FONT>            return state;<a name="line.281"></a>
+<FONT color="green">282</FONT>    <a name="line.282"></a>
+<FONT color="green">283</FONT>        }<a name="line.283"></a>
+<FONT color="green">284</FONT>    <a name="line.284"></a>
+<FONT color="green">285</FONT>        /**<a name="line.285"></a>
+<FONT color="green">286</FONT>         * Draws the background for the plot.<a name="line.286"></a>
+<FONT color="green">287</FONT>         *<a name="line.287"></a>
+<FONT color="green">288</FONT>         * @param g2  the graphics device.<a name="line.288"></a>
+<FONT color="green">289</FONT>         * @param plot  the plot.<a name="line.289"></a>
+<FONT color="green">290</FONT>         * @param dataArea  the area inside the axes.<a name="line.290"></a>
+<FONT color="green">291</FONT>         */<a name="line.291"></a>
+<FONT color="green">292</FONT>        public void drawBackground(Graphics2D g2, CategoryPlot plot,<a name="line.292"></a>
+<FONT color="green">293</FONT>                                   Rectangle2D dataArea) {<a name="line.293"></a>
+<FONT color="green">294</FONT>    <a name="line.294"></a>
+<FONT color="green">295</FONT>            float x0 = (float) dataArea.getX();<a name="line.295"></a>
+<FONT color="green">296</FONT>            float x1 = x0 + (float) Math.abs(this.xOffset);<a name="line.296"></a>
+<FONT color="green">297</FONT>            float x3 = (float) dataArea.getMaxX();<a name="line.297"></a>
+<FONT color="green">298</FONT>            float x2 = x3 - (float) Math.abs(this.xOffset);<a name="line.298"></a>
+<FONT color="green">299</FONT>    <a name="line.299"></a>
+<FONT color="green">300</FONT>            float y0 = (float) dataArea.getMaxY();<a name="line.300"></a>
+<FONT color="green">301</FONT>            float y1 = y0 - (float) Math.abs(this.yOffset);<a name="line.301"></a>
+<FONT color="green">302</FONT>            float y3 = (float) dataArea.getMinY();<a name="line.302"></a>
+<FONT color="green">303</FONT>            float y2 = y3 + (float) Math.abs(this.yOffset);<a name="line.303"></a>
+<FONT color="green">304</FONT>    <a name="line.304"></a>
+<FONT color="green">305</FONT>            GeneralPath clip = new GeneralPath();<a name="line.305"></a>
+<FONT color="green">306</FONT>            clip.moveTo(x0, y0);<a name="line.306"></a>
+<FONT color="green">307</FONT>            clip.lineTo(x0, y2);<a name="line.307"></a>
+<FONT color="green">308</FONT>            clip.lineTo(x1, y3);<a name="line.308"></a>
+<FONT color="green">309</FONT>            clip.lineTo(x3, y3);<a name="line.309"></a>
+<FONT color="green">310</FONT>            clip.lineTo(x3, y1);<a name="line.310"></a>
+<FONT color="green">311</FONT>            clip.lineTo(x2, y0);<a name="line.311"></a>
+<FONT color="green">312</FONT>            clip.closePath();<a name="line.312"></a>
+<FONT color="green">313</FONT>    <a name="line.313"></a>
+<FONT color="green">314</FONT>            Composite originalComposite = g2.getComposite();<a name="line.314"></a>
+<FONT color="green">315</FONT>            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,<a name="line.315"></a>
+<FONT color="green">316</FONT>                    plot.getBackgroundAlpha()));<a name="line.316"></a>
+<FONT color="green">317</FONT>    <a name="line.317"></a>
+<FONT color="green">318</FONT>            // fill background...<a name="line.318"></a>
+<FONT color="green">319</FONT>            Paint backgroundPaint = plot.getBackgroundPaint();<a name="line.319"></a>
+<FONT color="green">320</FONT>            if (backgroundPaint != null) {<a name="line.320"></a>
+<FONT color="green">321</FONT>                g2.setPaint(backgroundPaint);<a name="line.321"></a>
+<FONT color="green">322</FONT>                g2.fill(clip);<a name="line.322"></a>
+<FONT color="green">323</FONT>            }<a name="line.323"></a>
+<FONT color="green">324</FONT>    <a name="line.324"></a>
+<FONT color="green">325</FONT>            GeneralPath leftWall = new GeneralPath();<a name="line.325"></a>
+<FONT color="green">326</FONT>            leftWall.moveTo(x0, y0);<a name="line.326"></a>
+<FONT color="green">327</FONT>            leftWall.lineTo(x0, y2);<a name="line.327"></a>
+<FONT color="green">328</FONT>            leftWall.lineTo(x1, y3);<a name="line.328"></a>
+<FONT color="green">329</FONT>            leftWall.lineTo(x1, y1);<a name="line.329"></a>
+<FONT color="green">330</FONT>            leftWall.closePath();<a name="line.330"></a>
+<FONT color="green">331</FONT>            g2.setPaint(getWallPaint());<a name="line.331"></a>
+<FONT color="green">332</FONT>            g2.fill(leftWall);<a name="line.332"></a>
+<FONT color="green">333</FONT>    <a name="line.333"></a>
+<FONT color="green">334</FONT>            GeneralPath bottomWall = new GeneralPath();<a name="line.334"></a>
+<FONT color="green">335</FONT>            bottomWall.moveTo(x0, y0);<a name="line.335"></a>
+<FONT color="green">336</FONT>            bottomWall.lineTo(x1, y1);<a name="line.336"></a>
+<FONT color="green">337</FONT>            bottomWall.lineTo(x3, y1);<a name="line.337"></a>
+<FONT color="green">338</FONT>            bottomWall.lineTo(x2, y0);<a name="line.338"></a>
+<FONT color="green">339</FONT>            bottomWall.closePath();<a name="line.339"></a>
+<FONT color="green">340</FONT>            g2.setPaint(getWallPaint());<a name="line.340"></a>
+<FONT color="green">341</FONT>            g2.fill(bottomWall);<a name="line.341"></a>
+<FONT color="green">342</FONT>    <a name="line.342"></a>
+<FONT color="green">343</FONT>            // highlight the background corners...<a name="line.343"></a>
+<FONT color="green">344</FONT>            g2.setPaint(Color.lightGray);<a name="line.344"></a>
+<FONT color="green">345</FONT>            Line2D corner = new Line2D.Double(x0, y0, x1, y1);<a name="line.345"></a>
+<FONT color="green">346</FONT>            g2.draw(corner);<a name="line.346"></a>
+<FONT color="green">347</FONT>            corner.setLine(x1, y1, x1, y3);<a name="line.347"></a>
+<FONT color="green">348</FONT>            g2.draw(corner);<a name="line.348"></a>
+<FONT color="green">349</FONT>            corner.setLine(x1, y1, x3, y1);<a name="line.349"></a>
+<FONT color="green">350</FONT>            g2.draw(corner);<a name="line.350"></a>
+<FONT color="green">351</FONT>    <a name="line.351"></a>
+<FONT color="green">352</FONT>            // draw background image, if there is one...<a name="line.352"></a>
+<FONT color="green">353</FONT>            Image backgroundImage = plot.getBackgroundImage();<a name="line.353"></a>
+<FONT color="green">354</FONT>            if (backgroundImage != null) {<a name="line.354"></a>
+<FONT color="green">355</FONT>                Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX()<a name="line.355"></a>
+<FONT color="green">356</FONT>                        + getXOffset(), dataArea.getY(),<a name="line.356"></a>
+<FONT color="green">357</FONT>                        dataArea.getWidth() - getXOffset(),<a name="line.357"></a>
+<FONT color="green">358</FONT>                        dataArea.getHeight() - getYOffset());<a name="line.358"></a>
+<FONT color="green">359</FONT>                plot.drawBackgroundImage(g2, adjusted);<a name="line.359"></a>
+<FONT color="green">360</FONT>            }<a name="line.360"></a>
+<FONT color="green">361</FONT>    <a name="line.361"></a>
+<FONT color="green">362</FONT>            g2.setComposite(originalComposite);<a name="line.362"></a>
+<FONT color="green">363</FONT>    <a name="line.363"></a>
+<FONT color="green">364</FONT>        }<a name="line.364"></a>
+<FONT color="green">365</FONT>    <a name="line.365"></a>
+<FONT color="green">366</FONT>        /**<a name="line.366"></a>
+<FONT color="green">367</FONT>         * Draws the outline for the plot.<a name="line.367"></a>
+<FONT color="green">368</FONT>         *<a name="line.368"></a>
+<FONT color="green">369</FONT>         * @param g2  the graphics device.<a name="line.369"></a>
+<FONT color="green">370</FONT>         * @param plot  the plot.<a name="line.370"></a>
+<FONT color="green">371</FONT>         * @param dataArea  the area inside the axes.<a name="line.371"></a>
+<FONT color="green">372</FONT>         */<a name="line.372"></a>
+<FONT color="green">373</FONT>        public void drawOutline(Graphics2D g2, CategoryPlot plot,<a name="line.373"></a>
+<FONT color="green">374</FONT>                                Rectangle2D dataArea) {<a name="line.374"></a>
+<FONT color="green">375</FONT>    <a name="line.375"></a>
+<FONT color="green">376</FONT>            float x0 = (float) dataArea.getX();<a name="line.376"></a>
+<FONT color="green">377</FONT>            float x1 = x0 + (float) Math.abs(this.xOffset);<a name="line.377"></a>
+<FONT color="green">378</FONT>            float x3 = (float) dataArea.getMaxX();<a name="line.378"></a>
+<FONT color="green">379</FONT>            float x2 = x3 - (float) Math.abs(this.xOffset);<a name="line.379"></a>
+<FONT color="green">380</FONT>    <a name="line.380"></a>
+<FONT color="green">381</FONT>            float y0 = (float) dataArea.getMaxY();<a name="line.381"></a>
+<FONT color="green">382</FONT>            float y1 = y0 - (float) Math.abs(this.yOffset);<a name="line.382"></a>
+<FONT color="green">383</FONT>            float y3 = (float) dataArea.getMinY();<a name="line.383"></a>
+<FONT color="green">384</FONT>            float y2 = y3 + (float) Math.abs(this.yOffset);<a name="line.384"></a>
+<FONT color="green">385</FONT>    <a name="line.385"></a>
+<FONT color="green">386</FONT>            GeneralPath clip = new GeneralPath();<a name="line.386"></a>
+<FONT color="green">387</FONT>            clip.moveTo(x0, y0);<a name="line.387"></a>
+<FONT color="green">388</FONT>            clip.lineTo(x0, y2);<a name="line.388"></a>
+<FONT color="green">389</FONT>            clip.lineTo(x1, y3);<a name="line.389"></a>
+<FONT color="green">390</FONT>            clip.lineTo(x3, y3);<a name="line.390"></a>
+<FONT color="green">391</FONT>            clip.lineTo(x3, y1);<a name="line.391"></a>
+<FONT color="green">392</FONT>            clip.lineTo(x2, y0);<a name="line.392"></a>
+<FONT color="green">393</FONT>            clip.closePath();<a name="line.393"></a>
+<FONT color="green">394</FONT>    <a name="line.394"></a>
+<FONT color="green">395</FONT>            // put an outline around the data area...<a name="line.395"></a>
+<FONT color="green">396</FONT>            Stroke outlineStroke = plot.getOutlineStroke();<a name="line.396"></a>
+<FONT color="green">397</FONT>            Paint outlinePaint = plot.getOutlinePaint();<a name="line.397"></a>
+<FONT color="green">398</FONT>            if ((outlineStroke != null) &amp;&amp; (outlinePaint != null)) {<a name="line.398"></a>
+<FONT color="green">399</FONT>                g2.setStroke(outlineStroke);<a name="line.399"></a>
+<FONT color="green">400</FONT>                g2.setPaint(outlinePaint);<a name="line.400"></a>
+<FONT color="green">401</FONT>                g2.draw(clip);<a name="line.401"></a>
+<FONT color="green">402</FONT>            }<a name="line.402"></a>
+<FONT color="green">403</FONT>    <a name="line.403"></a>
+<FONT color="green">404</FONT>        }<a name="line.404"></a>
+<FONT color="green">405</FONT>    <a name="line.405"></a>
+<FONT color="green">406</FONT>        /**<a name="line.406"></a>
+<FONT color="green">407</FONT>         * Draws a grid line against the domain axis.<a name="line.407"></a>
+<FONT color="green">408</FONT>         *<a name="line.408"></a>
+<FONT color="green">409</FONT>         * @param g2  the graphics device.<a name="line.409"></a>
+<FONT color="green">410</FONT>         * @param plot  the plot.<a name="line.410"></a>
+<FONT color="green">411</FONT>         * @param dataArea  the area for plotting data (not yet adjusted for any<a name="line.411"></a>
+<FONT color="green">412</FONT>         *                  3D effect).<a name="line.412"></a>
+<FONT color="green">413</FONT>         * @param value  the Java2D value at which the grid line should be drawn.<a name="line.413"></a>
+<FONT color="green">414</FONT>         *<a name="line.414"></a>
+<FONT color="green">415</FONT>         */<a name="line.415"></a>
+<FONT color="green">416</FONT>        public void drawDomainGridline(Graphics2D g2,<a name="line.416"></a>
+<FONT color="green">417</FONT>                                       CategoryPlot plot,<a name="line.417"></a>
+<FONT color="green">418</FONT>                                       Rectangle2D dataArea,<a name="line.418"></a>
+<FONT color="green">419</FONT>                                       double value) {<a name="line.419"></a>
+<FONT color="green">420</FONT>    <a name="line.420"></a>
+<FONT color="green">421</FONT>            Line2D line1 = null;<a name="line.421"></a>
+<FONT color="green">422</FONT>            Line2D line2 = null;<a name="line.422"></a>
+<FONT color="green">423</FONT>            PlotOrientation orientation = plot.getOrientation();<a name="line.423"></a>
+<FONT color="green">424</FONT>            if (orientation == PlotOrientation.HORIZONTAL) {<a name="line.424"></a>
+<FONT color="green">425</FONT>                double y0 = value;<a name="line.425"></a>
+<FONT color="green">426</FONT>                double y1 = value - getYOffset();<a name="line.426"></a>
+<FONT color="green">427</FONT>                double x0 = dataArea.getMinX();<a name="line.427"></a>
+<FONT color="green">428</FONT>                double x1 = x0 + getXOffset();<a name="line.428"></a>
+<FONT color="green">429</FONT>                double x2 = dataArea.getMaxX();<a name="line.429"></a>
+<FONT color="green">430</FONT>                line1 = new Line2D.Double(x0, y0, x1, y1);<a name="line.430"></a>
+<FONT color="green">431</FONT>                line2 = new Line2D.Double(x1, y1, x2, y1);<a name="line.431"></a>
+<FONT color="green">432</FONT>            }<a name="line.432"></a>
+<FONT color="green">433</FONT>            else if (orientation == PlotOrientation.VERTICAL) {<a name="line.433"></a>
+<FONT color="green">434</FONT>                double x0 = value;<a name="line.434"></a>
+<FONT color="green">435</FONT>                double x1 = value + getXOffset();<a name="line.435"></a>
+<FONT color="green">436</FONT>                double y0 = dataArea.getMaxY();<a name="line.436"></a>
+<FONT color="green">437</FONT>                double y1 = y0 - getYOffset();<a name="line.437"></a>
+<FONT color="green">438</FONT>                double y2 = dataArea.getMinY();<a name="line.438"></a>
+<FONT color="green">439</FONT>                line1 = new Line2D.Double(x0, y0, x1, y1);<a name="line.439"></a>
+<FONT color="green">440</FONT>                line2 = new Line2D.Double(x1, y1, x1, y2);<a name="line.440"></a>
+<FONT color="green">441</FONT>            }<a name="line.441"></a>
+<FONT color="green">442</FONT>            Paint paint = plot.getDomainGridlinePaint();<a name="line.442"></a>
+<FONT color="green">443</FONT>            Stroke stroke = plot.getDomainGridlineStroke();<a name="line.443"></a>
+<FONT color="green">444</FONT>            g2.setPaint(paint != null ? paint : Plot.DEFAULT_OUTLINE_PAINT);<a name="line.444"></a>
+<FONT color="green">445</FONT>            g2.setStroke(stroke != null ? stroke : Plot.DEFAULT_OUTLINE_STROKE);<a name="line.445"></a>
+<FONT color="green">446</FONT>            g2.draw(line1);<a name="line.446"></a>
+<FONT color="green">447</FONT>            g2.draw(line2);<a name="line.447"></a>
+<FONT color="green">448</FONT>    <a name="line.448"></a>
+<FONT color="green">449</FONT>        }<a name="line.449"></a>
+<FONT color="green">450</FONT>    <a name="line.450"></a>
+<FONT color="green">451</FONT>        /**<a name="line.451"></a>
+<FONT color="green">452</FONT>         * Draws a grid line against the range axis.<a name="line.452"></a>
+<FONT color="green">453</FONT>         *<a name="line.453"></a>
+<FONT color="green">454</FONT>         * @param g2  the graphics device.<a name="line.454"></a>
+<FONT color="green">455</FONT>         * @param plot  the plot.<a name="line.455"></a>
+<FONT color="green">456</FONT>         * @param axis  the value axis.<a name="line.456"></a>
+<FONT color="green">457</FONT>         * @param dataArea  the area for plotting data (not yet adjusted for any<a name="line.457"></a>
+<FONT color="green">458</FONT>         *                  3D effect).<a name="line.458"></a>
+<FONT color="green">459</FONT>         * @param value  the value at which the grid line should be drawn.<a name="line.459"></a>
+<FONT color="green">460</FONT>         *<a name="line.460"></a>
+<FONT color="green">461</FONT>         */<a name="line.461"></a>
+<FONT color="green">462</FONT>        public void drawRangeGridline(Graphics2D g2, CategoryPlot plot,<a name="line.462"></a>
+<FONT color="green">463</FONT>                ValueAxis axis, Rectangle2D dataArea, double value) {<a name="line.463"></a>
+<FONT color="green">464</FONT>    <a name="line.464"></a>
+<FONT color="green">465</FONT>            Range range = axis.getRange();<a name="line.465"></a>
+<FONT color="green">466</FONT>    <a name="line.466"></a>
+<FONT color="green">467</FONT>            if (!range.contains(value)) {<a name="line.467"></a>
+<FONT color="green">468</FONT>                return;<a name="line.468"></a>
+<FONT color="green">469</FONT>            }<a name="line.469"></a>
+<FONT color="green">470</FONT>    <a name="line.470"></a>
+<FONT color="green">471</FONT>            Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX(),<a name="line.471"></a>
+<FONT color="green">472</FONT>                    dataArea.getY() + getYOffset(), dataArea.getWidth()<a name="line.472"></a>
+<FONT color="green">473</FONT>                    - getXOffset(), dataArea.getHeight() - getYOffset());<a name="line.473"></a>
+<FONT color="green">474</FONT>    <a name="line.474"></a>
+<FONT color="green">475</FONT>            Line2D line1 = null;<a name="line.475"></a>
+<FONT color="green">476</FONT>            Line2D line2 = null;<a name="line.476"></a>
+<FONT color="green">477</FONT>            PlotOrientation orientation = plot.getOrientation();<a name="line.477"></a>
+<FONT color="green">478</FONT>            if (orientation == PlotOrientation.HORIZONTAL) {<a name="line.478"></a>
+<FONT color="green">479</FONT>                double x0 = axis.valueToJava2D(value, adjusted,<a name="line.479"></a>
+<FONT color="green">480</FONT>                        plot.getRangeAxisEdge());<a name="line.480"></a>
+<FONT color="green">481</FONT>                double x1 = x0 + getXOffset();<a name="line.481"></a>
+<FONT color="green">482</FONT>                double y0 = dataArea.getMaxY();<a name="line.482"></a>
+<FONT color="green">483</FONT>                double y1 = y0 - getYOffset();<a name="line.483"></a>
+<FONT color="green">484</FONT>                double y2 = dataArea.getMinY();<a name="line.484"></a>
+<FONT color="green">485</FONT>                line1 = new Line2D.Double(x0, y0, x1, y1);<a name="line.485"></a>
+<FONT color="green">486</FONT>                line2 = new Line2D.Double(x1, y1, x1, y2);<a name="line.486"></a>
+<FONT color="green">487</FONT>            }<a name="line.487"></a>
+<FONT color="green">488</FONT>            else if (orientation == PlotOrientation.VERTICAL) {<a name="line.488"></a>
+<FONT color="green">489</FONT>                double y0 = axis.valueToJava2D(value, adjusted,<a name="line.489"></a>
+<FONT color="green">490</FONT>                        plot.getRangeAxisEdge());<a name="line.490"></a>
+<FONT color="green">491</FONT>                double y1 = y0 - getYOffset();<a name="line.491"></a>
+<FONT color="green">492</FONT>                double x0 = dataArea.getMinX();<a name="line.492"></a>
+<FONT color="green">493</FONT>                double x1 = x0 + getXOffset();<a name="line.493"></a>
+<FONT color="green">494</FONT>                double x2 = dataArea.getMaxX();<a name="line.494"></a>
+<FONT color="green">495</FONT>                line1 = new Line2D.Double(x0, y0, x1, y1);<a name="line.495"></a>
+<FONT color="green">496</FONT>                line2 = new Line2D.Double(x1, y1, x2, y1);<a name="line.496"></a>
+<FONT color="green">497</FONT>            }<a name="line.497"></a>
+<FONT color="green">498</FONT>            Paint paint = plot.getRangeGridlinePaint();<a name="line.498"></a>
+<FONT color="green">499</FONT>            Stroke stroke = plot.getRangeGridlineStroke();<a name="line.499"></a>
+<FONT color="green">500</FONT>            g2.setPaint(paint != null ? paint : Plot.DEFAULT_OUTLINE_PAINT);<a name="line.500"></a>
+<FONT color="green">501</FONT>            g2.setStroke(stroke != null ? stroke : Plot.DEFAULT_OUTLINE_STROKE);<a name="line.501"></a>
+<FONT color="green">502</FONT>            g2.draw(line1);<a name="line.502"></a>
+<FONT color="green">503</FONT>            g2.draw(line2);<a name="line.503"></a>
+<FONT color="green">504</FONT>    <a name="line.504"></a>
+<FONT color="green">505</FONT>        }<a name="line.505"></a>
+<FONT color="green">506</FONT>    <a name="line.506"></a>
+<FONT color="green">507</FONT>        /**<a name="line.507"></a>
+<FONT color="green">508</FONT>         * Draws a line perpendicular to the range axis.<a name="line.508"></a>
+<FONT color="green">509</FONT>         *<a name="line.509"></a>
+<FONT color="green">510</FONT>         * @param g2  the graphics device.<a name="line.510"></a>
+<FONT color="green">511</FONT>         * @param plot  the plot.<a name="line.511"></a>
+<FONT color="green">512</FONT>         * @param axis  the value axis.<a name="line.512"></a>
+<FONT color="green">513</FONT>         * @param dataArea  the area for plotting data (not yet adjusted for any 3D<a name="line.513"></a>
+<FONT color="green">514</FONT>         *                  effect).<a name="line.514"></a>
+<FONT color="green">515</FONT>         * @param value  the value at which the grid line should be drawn.<a name="line.515"></a>
+<FONT color="green">516</FONT>         * @param paint  the paint.<a name="line.516"></a>
+<FONT color="green">517</FONT>         * @param stroke  the stroke.<a name="line.517"></a>
+<FONT color="green">518</FONT>         *<a name="line.518"></a>
+<FONT color="green">519</FONT>         * @see #drawRangeGridline<a name="line.519"></a>
+<FONT color="green">520</FONT>         *<a name="line.520"></a>
+<FONT color="green">521</FONT>         * @since 1.0.13<a name="line.521"></a>
+<FONT color="green">522</FONT>         */<a name="line.522"></a>
+<FONT color="green">523</FONT>        public void drawRangeLine(Graphics2D g2, CategoryPlot plot, ValueAxis axis,<a name="line.523"></a>
+<FONT color="green">524</FONT>                Rectangle2D dataArea, double value, Paint paint, Stroke stroke) {<a name="line.524"></a>
+<FONT color="green">525</FONT>    <a name="line.525"></a>
+<FONT color="green">526</FONT>            Range range = axis.getRange();<a name="line.526"></a>
+<FONT color="green">527</FONT>            if (!range.contains(value)) {<a name="line.527"></a>
+<FONT color="green">528</FONT>                return;<a name="line.528"></a>
+<FONT color="green">529</FONT>            }<a name="line.529"></a>
+<FONT color="green">530</FONT>    <a name="line.530"></a>
+<FONT color="green">531</FONT>            Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX(),<a name="line.531"></a>
+<FONT color="green">532</FONT>                    dataArea.getY() + getYOffset(), dataArea.getWidth()<a name="line.532"></a>
+<FONT color="green">533</FONT>                    - getXOffset(), dataArea.getHeight() - getYOffset());<a name="line.533"></a>
+<FONT color="green">534</FONT>    <a name="line.534"></a>
+<FONT color="green">535</FONT>            Line2D line1 = null;<a name="line.535"></a>
+<FONT color="green">536</FONT>            Line2D line2 = null;<a name="line.536"></a>
+<FONT color="green">537</FONT>            PlotOrientation orientation = plot.getOrientation();<a name="line.537"></a>
+<FONT color="green">538</FONT>            if (orientation == PlotOrientation.HORIZONTAL) {<a name="line.538"></a>
+<FONT color="green">539</FONT>                double x0 = axis.valueToJava2D(value, adjusted,<a name="line.539"></a>
+<FONT color="green">540</FONT>                        plot.getRangeAxisEdge());<a name="line.540"></a>
+<FONT color="green">541</FONT>                double x1 = x0 + getXOffset();<a name="line.541"></a>
+<FONT color="green">542</FONT>                double y0 = dataArea.getMaxY();<a name="line.542"></a>
+<FONT color="green">543</FONT>                double y1 = y0 - getYOffset();<a name="line.543"></a>
+<FONT color="green">544</FONT>                double y2 = dataArea.getMinY();<a name="line.544"></a>
+<FONT color="green">545</FONT>                line1 = new Line2D.Double(x0, y0, x1, y1);<a name="line.545"></a>
+<FONT color="green">546</FONT>                line2 = new Line2D.Double(x1, y1, x1, y2);<a name="line.546"></a>
+<FONT color="green">547</FONT>            }<a name="line.547"></a>
+<FONT color="green">548</FONT>            else if (orientation == PlotOrientation.VERTICAL) {<a name="line.548"></a>
+<FONT color="green">549</FONT>                double y0 = axis.valueToJava2D(value, adjusted,<a name="line.549"></a>
+<FONT color="green">550</FONT>                        plot.getRangeAxisEdge());<a name="line.550"></a>
+<FONT color="green">551</FONT>                double y1 = y0 - getYOffset();<a name="line.551"></a>
+<FONT color="green">552</FONT>                double x0 = dataArea.getMinX();<a name="line.552"></a>
+<FONT color="green">553</FONT>                double x1 = x0 + getXOffset();<a name="line.553"></a>
+<FONT color="green">554</FONT>                double x2 = dataArea.getMaxX();<a name="line.554"></a>
+<FONT color="green">555</FONT>                line1 = new Line2D.Double(x0, y0, x1, y1);<a name="line.555"></a>
+<FONT color="green">556</FONT>                line2 = new Line2D.Double(x1, y1, x2, y1);<a name="line.556"></a>
+<FONT color="green">557</FONT>            }<a name="line.557"></a>
+<FONT color="green">558</FONT>            g2.setPaint(paint);<a name="line.558"></a>
+<FONT color="green">559</FONT>            g2.setStroke(stroke);<a name="line.559"></a>
+<FONT color="green">560</FONT>            g2.draw(line1);<a name="line.560"></a>
+<FONT color="green">561</FONT>            g2.draw(line2);<a name="line.561"></a>
+<FONT color="green">562</FONT>    <a name="line.562"></a>
+<FONT color="green">563</FONT>        }<a name="line.563"></a>
+<FONT color="green">564</FONT>    <a name="line.564"></a>
+<FONT color="green">565</FONT>        /**<a name="line.565"></a>
+<FONT color="green">566</FONT>         * Draws a range marker.<a name="line.566"></a>
+<FONT color="green">567</FONT>         *<a name="line.567"></a>
+<FONT color="green">568</FONT>         * @param g2  the graphics device.<a name="line.568"></a>
+<FONT color="green">569</FONT>         * @param plot  the plot.<a name="line.569"></a>
+<FONT color="green">570</FONT>         * @param axis  the value axis.<a name="line.570"></a>
+<FONT color="green">571</FONT>         * @param marker  the marker.<a name="line.571"></a>
+<FONT color="green">572</FONT>         * @param dataArea  the area for plotting data (not including 3D effect).<a name="line.572"></a>
+<FONT color="green">573</FONT>         */<a name="line.573"></a>
+<FONT color="green">574</FONT>        public void drawRangeMarker(Graphics2D g2,<a name="line.574"></a>
+<FONT color="green">575</FONT>                                    CategoryPlot plot,<a name="line.575"></a>
+<FONT color="green">576</FONT>                                    ValueAxis axis,<a name="line.576"></a>
+<FONT color="green">577</FONT>                                    Marker marker,<a name="line.577"></a>
+<FONT color="green">578</FONT>                                    Rectangle2D dataArea) {<a name="line.578"></a>
+<FONT color="green">579</FONT>    <a name="line.579"></a>
+<FONT color="green">580</FONT>    <a name="line.580"></a>
+<FONT color="green">581</FONT>            Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX(),<a name="line.581"></a>
+<FONT color="green">582</FONT>                    dataArea.getY() + getYOffset(), dataArea.getWidth()<a name="line.582"></a>
+<FONT color="green">583</FONT>                    - getXOffset(), dataArea.getHeight() - getYOffset());<a name="line.583"></a>
+<FONT color="green">584</FONT>            if (marker instanceof ValueMarker) {<a name="line.584"></a>
+<FONT color="green">585</FONT>                ValueMarker vm = (ValueMarker) marker;<a name="line.585"></a>
+<FONT color="green">586</FONT>                double value = vm.getValue();<a name="line.586"></a>
+<FONT color="green">587</FONT>                Range range = axis.getRange();<a name="line.587"></a>
+<FONT color="green">588</FONT>                if (!range.contains(value)) {<a name="line.588"></a>
+<FONT color="green">589</FONT>                    return;<a name="line.589"></a>
+<FONT color="green">590</FONT>                }<a name="line.590"></a>
+<FONT color="green">591</FONT>    <a name="line.591"></a>
+<FONT color="green">592</FONT>                GeneralPath path = null;<a name="line.592"></a>
+<FONT color="green">593</FONT>                PlotOrientation orientation = plot.getOrientation();<a name="line.593"></a>
+<FONT color="green">594</FONT>                if (orientation == PlotOrientation.HORIZONTAL) {<a name="line.594"></a>
+<FONT color="green">595</FONT>                    float x = (float) axis.valueToJava2D(value, adjusted,<a name="line.595"></a>
+<FONT color="green">596</FONT>                            plot.getRangeAxisEdge());<a name="line.596"></a>
+<FONT color="green">597</FONT>                    float y = (float) adjusted.getMaxY();<a name="line.597"></a>
+<FONT color="green">598</FONT>                    path = new GeneralPath();<a name="line.598"></a>
+<FONT color="green">599</FONT>                    path.moveTo(x, y);<a name="line.599"></a>
+<FONT color="green">600</FONT>                    path.lineTo((float) (x + getXOffset()),<a name="line.600"></a>
+<FONT color="green">601</FONT>                            y - (float) getYOffset());<a name="line.601"></a>
+<FONT color="green">602</FONT>                    path.lineTo((float) (x + getXOffset()),<a name="line.602"></a>
+<FONT color="green">603</FONT>                            (float) (adjusted.getMinY() - getYOffset()));<a name="line.603"></a>
+<FONT color="green">604</FONT>                    path.lineTo(x, (float) adjusted.getMinY());<a name="line.604"></a>
+<FONT color="green">605</FONT>                    path.closePath();<a name="line.605"></a>
+<FONT color="green">606</FONT>                }<a name="line.606"></a>
+<FONT color="green">607</FONT>                else if (orientation == PlotOrientation.VERTICAL) {<a name="line.607"></a>
+<FONT color="green">608</FONT>                    float y = (float) axis.valueToJava2D(value, adjusted,<a name="line.608"></a>
+<FONT color="green">609</FONT>                            plot.getRangeAxisEdge());<a name="line.609"></a>
+<FONT color="green">610</FONT>                    float x = (float) dataArea.getX();<a name="line.610"></a>
+<FONT color="green">611</FONT>                    path = new GeneralPath();<a name="line.611"></a>
+<FONT color="green">612</FONT>                    path.moveTo(x, y);<a name="line.612"></a>
+<FONT color="green">613</FONT>                    path.lineTo(x + (float) this.xOffset, y - (float) this.yOffset);<a name="line.613"></a>
+<FONT color="green">614</FONT>                    path.lineTo((float) (adjusted.getMaxX() + this.xOffset),<a name="line.614"></a>
+<FONT color="green">615</FONT>                            y - (float) this.yOffset);<a name="line.615"></a>
+<FONT color="green">616</FONT>                    path.lineTo((float) (adjusted.getMaxX()), y);<a name="line.616"></a>
+<FONT color="green">617</FONT>                    path.closePath();<a name="line.617"></a>
+<FONT color="green">618</FONT>                }<a name="line.618"></a>
+<FONT color="green">619</FONT>                g2.setPaint(marker.getPaint());<a name="line.619"></a>
+<FONT color="green">620</FONT>                g2.fill(path);<a name="line.620"></a>
+<FONT color="green">621</FONT>                g2.setPaint(marker.getOutlinePaint());<a name="line.621"></a>
+<FONT color="green">622</FONT>                g2.draw(path);<a name="line.622"></a>
+<FONT color="green">623</FONT>    <a name="line.623"></a>
+<FONT color="green">624</FONT>                String label = marker.getLabel();<a name="line.624"></a>
+<FONT color="green">625</FONT>                RectangleAnchor anchor = marker.getLabelAnchor();<a name="line.625"></a>
+<FONT color="green">626</FONT>                if (label != null) {<a name="line.626"></a>
+<FONT color="green">627</FONT>                    Font labelFont = marker.getLabelFont();<a name="line.627"></a>
+<FONT color="green">628</FONT>                    g2.setFont(labelFont);<a name="line.628"></a>
+<FONT color="green">629</FONT>                    g2.setPaint(marker.getLabelPaint());<a name="line.629"></a>
+<FONT color="green">630</FONT>                    Point2D coordinates = calculateRangeMarkerTextAnchorPoint(<a name="line.630"></a>
+<FONT color="green">631</FONT>                            g2, orientation, dataArea, path.getBounds2D(),<a name="line.631"></a>
+<FONT color="green">632</FONT>                            marker.getLabelOffset(), LengthAdjustmentType.EXPAND,<a name="line.632"></a>
+<FONT color="green">633</FONT>                            anchor);<a name="line.633"></a>
+<FONT color="green">634</FONT>                    TextUtilities.drawAlignedString(label, g2,<a name="line.634"></a>
+<FONT color="green">635</FONT>                            (float) coordinates.getX(), (float) coordinates.getY(),<a name="line.635"></a>
+<FONT color="green">636</FONT>                            marker.getLabelTextAnchor());<a name="line.636"></a>
+<FONT color="green">637</FONT>                }<a name="line.637"></a>
+<FONT color="green">638</FONT>    <a name="line.638"></a>
+<FONT color="green">639</FONT>            }<a name="line.639"></a>
+<FONT color="green">640</FONT>            else {<a name="line.640"></a>
+<FONT color="green">641</FONT>                super.drawRangeMarker(g2, plot, axis, marker, adjusted);<a name="line.641"></a>
+<FONT color="green">642</FONT>                // TODO: draw the interval marker with a 3D effect<a name="line.642"></a>
+<FONT color="green">643</FONT>            }<a name="line.643"></a>
+<FONT color="green">644</FONT>        }<a name="line.644"></a>
+<FONT color="green">645</FONT>    <a name="line.645"></a>
+<FONT color="green">646</FONT>        /**<a name="line.646"></a>
+<FONT color="green">647</FONT>         * Draws a 3D bar to represent one data item.<a name="line.647"></a>
+<FONT color="green">648</FONT>         *<a name="line.648"></a>
+<FONT color="green">649</FONT>         * @param g2  the graphics device.<a name="line.649"></a>
+<FONT color="green">650</FONT>         * @param state  the renderer state.<a name="line.650"></a>
+<FONT color="green">651</FONT>         * @param dataArea  the area for plotting the data.<a name="line.651"></a>
+<FONT color="green">652</FONT>         * @param plot  the plot.<a name="line.652"></a>
+<FONT color="green">653</FONT>         * @param domainAxis  the domain axis.<a name="line.653"></a>
+<FONT color="green">654</FONT>         * @param rangeAxis  the range axis.<a name="line.654"></a>
+<FONT color="green">655</FONT>         * @param dataset  the dataset.<a name="line.655"></a>
+<FONT color="green">656</FONT>         * @param row  the row index (zero-based).<a name="line.656"></a>
+<FONT color="green">657</FONT>         * @param column  the column index (zero-based).<a name="line.657"></a>
+<FONT color="green">658</FONT>         * @param pass  the pass index.<a name="line.658"></a>
+<FONT color="green">659</FONT>         */<a name="line.659"></a>
+<FONT color="green">660</FONT>        public void drawItem(Graphics2D g2,<a name="line.660"></a>
+<FONT color="green">661</FONT>                             CategoryItemRendererState state,<a name="line.661"></a>
+<FONT color="green">662</FONT>                             Rectangle2D dataArea,<a name="line.662"></a>
+<FONT color="green">663</FONT>                             CategoryPlot plot,<a name="line.663"></a>
+<FONT color="green">664</FONT>                             CategoryAxis domainAxis,<a name="line.664"></a>
+<FONT color="green">665</FONT>                             ValueAxis rangeAxis,<a name="line.665"></a>
+<FONT color="green">666</FONT>                             CategoryDataset dataset,<a name="line.666"></a>
+<FONT color="green">667</FONT>                             int row,<a name="line.667"></a>
+<FONT color="green">668</FONT>                             int column,<a name="line.668"></a>
+<FONT color="green">669</FONT>                             int pass) {<a name="line.669"></a>
+<FONT color="green">670</FONT>    <a name="line.670"></a>
+<FONT color="green">671</FONT>            // check the value we are plotting...<a name="line.671"></a>
+<FONT color="green">672</FONT>            Number dataValue = dataset.getValue(row, column);<a name="line.672"></a>
+<FONT color="green">673</FONT>            if (dataValue == null) {<a name="line.673"></a>
+<FONT color="green">674</FONT>                return;<a name="line.674"></a>
+<FONT color="green">675</FONT>            }<a name="line.675"></a>
+<FONT color="green">676</FONT>    <a name="line.676"></a>
+<FONT color="green">677</FONT>            double value = dataValue.doubleValue();<a name="line.677"></a>
+<FONT color="green">678</FONT>    <a name="line.678"></a>
+<FONT color="green">679</FONT>            Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX(),<a name="line.679"></a>
+<FONT color="green">680</FONT>                    dataArea.getY() + getYOffset(),<a name="line.680"></a>
+<FONT color="green">681</FONT>                    dataArea.getWidth() - getXOffset(),<a name="line.681"></a>
+<FONT color="green">682</FONT>                    dataArea.getHeight() - getYOffset());<a name="line.682"></a>
+<FONT color="green">683</FONT>    <a name="line.683"></a>
+<FONT color="green">684</FONT>            PlotOrientation orientation = plot.getOrientation();<a name="line.684"></a>
+<FONT color="green">685</FONT>    <a name="line.685"></a>
+<FONT color="green">686</FONT>            double barW0 = calculateBarW0(plot, orientation, adjusted, domainAxis,<a name="line.686"></a>
+<FONT color="green">687</FONT>                    state, row, column);<a name="line.687"></a>
+<FONT color="green">688</FONT>            double[] barL0L1 = calculateBarL0L1(value);<a name="line.688"></a>
+<FONT color="green">689</FONT>            if (barL0L1 == null) {<a name="line.689"></a>
+<FONT color="green">690</FONT>                return;  // the bar is not visible<a name="line.690"></a>
+<FONT color="green">691</FONT>            }<a name="line.691"></a>
+<FONT color="green">692</FONT>    <a name="line.692"></a>
+<FONT color="green">693</FONT>            RectangleEdge edge = plot.getRangeAxisEdge();<a name="line.693"></a>
+<FONT color="green">694</FONT>            double transL0 = rangeAxis.valueToJava2D(barL0L1[0], adjusted, edge);<a name="line.694"></a>
+<FONT color="green">695</FONT>            double transL1 = rangeAxis.valueToJava2D(barL0L1[1], adjusted, edge);<a name="line.695"></a>
+<FONT color="green">696</FONT>            double barL0 = Math.min(transL0, transL1);<a name="line.696"></a>
+<FONT color="green">697</FONT>            double barLength = Math.abs(transL1 - transL0);<a name="line.697"></a>
+<FONT color="green">698</FONT>    <a name="line.698"></a>
+<FONT color="green">699</FONT>            // draw the bar...<a name="line.699"></a>
+<FONT color="green">700</FONT>            Rectangle2D bar = null;<a name="line.700"></a>
+<FONT color="green">701</FONT>            if (orientation == PlotOrientation.HORIZONTAL) {<a name="line.701"></a>
+<FONT color="green">702</FONT>                bar = new Rectangle2D.Double(barL0, barW0, barLength,<a name="line.702"></a>
+<FONT color="green">703</FONT>                        state.getBarWidth());<a name="line.703"></a>
+<FONT color="green">704</FONT>            }<a name="line.704"></a>
+<FONT color="green">705</FONT>            else {<a name="line.705"></a>
+<FONT color="green">706</FONT>                bar = new Rectangle2D.Double(barW0, barL0, state.getBarWidth(),<a name="line.706"></a>
+<FONT color="green">707</FONT>                        barLength);<a name="line.707"></a>
+<FONT color="green">708</FONT>            }<a name="line.708"></a>
+<FONT color="green">709</FONT>            Paint itemPaint = getItemPaint(row, column);<a name="line.709"></a>
+<FONT color="green">710</FONT>            g2.setPaint(itemPaint);<a name="line.710"></a>
+<FONT color="green">711</FONT>            g2.fill(bar);<a name="line.711"></a>
+<FONT color="green">712</FONT>    <a name="line.712"></a>
+<FONT color="green">713</FONT>            double x0 = bar.getMinX();<a name="line.713"></a>
+<FONT color="green">714</FONT>            double x1 = x0 + getXOffset();<a name="line.714"></a>
+<FONT color="green">715</FONT>            double x2 = bar.getMaxX();<a name="line.715"></a>
+<FONT color="green">716</FONT>            double x3 = x2 + getXOffset();<a name="line.716"></a>
+<FONT color="green">717</FONT>    <a name="line.717"></a>
+<FONT color="green">718</FONT>            double y0 = bar.getMinY() - getYOffset();<a name="line.718"></a>
+<FONT color="green">719</FONT>            double y1 = bar.getMinY();<a name="line.719"></a>
+<FONT color="green">720</FONT>            double y2 = bar.getMaxY() - getYOffset();<a name="line.720"></a>
+<FONT color="green">721</FONT>            double y3 = bar.getMaxY();<a name="line.721"></a>
+<FONT color="green">722</FONT>    <a name="line.722"></a>
+<FONT color="green">723</FONT>            GeneralPath bar3dRight = null;<a name="line.723"></a>
+<FONT color="green">724</FONT>            GeneralPath bar3dTop = null;<a name="line.724"></a>
+<FONT color="green">725</FONT>            if (barLength &gt; 0.0) {<a name="line.725"></a>
+<FONT color="green">726</FONT>                bar3dRight = new GeneralPath();<a name="line.726"></a>
+<FONT color="green">727</FONT>                bar3dRight.moveTo((float) x2, (float) y3);<a name="line.727"></a>
+<FONT color="green">728</FONT>                bar3dRight.lineTo((float) x2, (float) y1);<a name="line.728"></a>
+<FONT color="green">729</FONT>                bar3dRight.lineTo((float) x3, (float) y0);<a name="line.729"></a>
+<FONT color="green">730</FONT>                bar3dRight.lineTo((float) x3, (float) y2);<a name="line.730"></a>
+<FONT color="green">731</FONT>                bar3dRight.closePath();<a name="line.731"></a>
+<FONT color="green">732</FONT>    <a name="line.732"></a>
+<FONT color="green">733</FONT>                g2.setPaint(PaintAlpha.darker(itemPaint));<a name="line.733"></a>
+<FONT color="green">734</FONT>                g2.fill(bar3dRight);<a name="line.734"></a>
+<FONT color="green">735</FONT>            }<a name="line.735"></a>
+<FONT color="green">736</FONT>    <a name="line.736"></a>
+<FONT color="green">737</FONT>            bar3dTop = new GeneralPath();<a name="line.737"></a>
+<FONT color="green">738</FONT>            bar3dTop.moveTo((float) x0, (float) y1);<a name="line.738"></a>
+<FONT color="green">739</FONT>            bar3dTop.lineTo((float) x1, (float) y0);<a name="line.739"></a>
+<FONT color="green">740</FONT>            bar3dTop.lineTo((float) x3, (float) y0);<a name="line.740"></a>
+<FONT color="green">741</FONT>            bar3dTop.lineTo((float) x2, (float) y1);<a name="line.741"></a>
+<FONT color="green">742</FONT>            bar3dTop.closePath();<a name="line.742"></a>
+<FONT color="green">743</FONT>            g2.fill(bar3dTop);<a name="line.743"></a>
+<FONT color="green">744</FONT>    <a name="line.744"></a>
+<FONT color="green">745</FONT>            if (isDrawBarOutline()<a name="line.745"></a>
+<FONT color="green">746</FONT>                    &amp;&amp; state.getBarWidth() &gt; BAR_OUTLINE_WIDTH_THRESHOLD) {<a name="line.746"></a>
+<FONT color="green">747</FONT>                g2.setStroke(getItemOutlineStroke(row, column));<a name="line.747"></a>
+<FONT color="green">748</FONT>                g2.setPaint(getItemOutlinePaint(row, column));<a name="line.748"></a>
+<FONT color="green">749</FONT>                g2.draw(bar);<a name="line.749"></a>
+<FONT color="green">750</FONT>                if (bar3dRight != null) {<a name="line.750"></a>
+<FONT color="green">751</FONT>                    g2.draw(bar3dRight);<a name="line.751"></a>
+<FONT color="green">752</FONT>                }<a name="line.752"></a>
+<FONT color="green">753</FONT>                g2.draw(bar3dTop);<a name="line.753"></a>
+<FONT color="green">754</FONT>            }<a name="line.754"></a>
+<FONT color="green">755</FONT>    <a name="line.755"></a>
+<FONT color="green">756</FONT>            CategoryItemLabelGenerator generator<a name="line.756"></a>
+<FONT color="green">757</FONT>                = getItemLabelGenerator(row, column);<a name="line.757"></a>
+<FONT color="green">758</FONT>            if (generator != null &amp;&amp; isItemLabelVisible(row, column)) {<a name="line.758"></a>
+<FONT color="green">759</FONT>                drawItemLabel(g2, dataset, row, column, plot, generator, bar,<a name="line.759"></a>
+<FONT color="green">760</FONT>                        (value &lt; 0.0));<a name="line.760"></a>
+<FONT color="green">761</FONT>            }<a name="line.761"></a>
+<FONT color="green">762</FONT>    <a name="line.762"></a>
+<FONT color="green">763</FONT>            // add an item entity, if this information is being collected<a name="line.763"></a>
+<FONT color="green">764</FONT>            EntityCollection entities = state.getEntityCollection();<a name="line.764"></a>
+<FONT color="green">765</FONT>            if (entities != null) {<a name="line.765"></a>
+<FONT color="green">766</FONT>                GeneralPath barOutline = new GeneralPath();<a name="line.766"></a>
+<FONT color="green">767</FONT>                barOutline.moveTo((float) x0, (float) y3);<a name="line.767"></a>
+<FONT color="green">768</FONT>                barOutline.lineTo((float) x0, (float) y1);<a name="line.768"></a>
+<FONT color="green">769</FONT>                barOutline.lineTo((float) x1, (float) y0);<a name="line.769"></a>
+<FONT color="green">770</FONT>                barOutline.lineTo((float) x3, (float) y0);<a name="line.770"></a>
+<FONT color="green">771</FONT>                barOutline.lineTo((float) x3, (float) y2);<a name="line.771"></a>
+<FONT color="green">772</FONT>                barOutline.lineTo((float) x2, (float) y3);<a name="line.772"></a>
+<FONT color="green">773</FONT>                barOutline.closePath();<a name="line.773"></a>
+<FONT color="green">774</FONT>                addItemEntity(entities, dataset, row, column, barOutline);<a name="line.774"></a>
+<FONT color="green">775</FONT>            }<a name="line.775"></a>
+<FONT color="green">776</FONT>    <a name="line.776"></a>
+<FONT color="green">777</FONT>        }<a name="line.777"></a>
+<FONT color="green">778</FONT>    <a name="line.778"></a>
+<FONT color="green">779</FONT>        /**<a name="line.779"></a>
+<FONT color="green">780</FONT>         * Tests this renderer for equality with an arbitrary object.<a name="line.780"></a>
+<FONT color="green">781</FONT>         *<a name="line.781"></a>
+<FONT color="green">782</FONT>         * @param obj  the object (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.782"></a>
+<FONT color="green">783</FONT>         *<a name="line.783"></a>
+<FONT color="green">784</FONT>         * @return A boolean.<a name="line.784"></a>
+<FONT color="green">785</FONT>         */<a name="line.785"></a>
+<FONT color="green">786</FONT>        public boolean equals(Object obj) {<a name="line.786"></a>
+<FONT color="green">787</FONT>            if (obj == this) {<a name="line.787"></a>
+<FONT color="green">788</FONT>                return true;<a name="line.788"></a>
+<FONT color="green">789</FONT>            }<a name="line.789"></a>
+<FONT color="green">790</FONT>            if (!(obj instanceof BarRenderer3D)) {<a name="line.790"></a>
+<FONT color="green">791</FONT>                return false;<a name="line.791"></a>
+<FONT color="green">792</FONT>            }<a name="line.792"></a>
+<FONT color="green">793</FONT>            BarRenderer3D that = (BarRenderer3D) obj;<a name="line.793"></a>
+<FONT color="green">794</FONT>            if (this.xOffset != that.xOffset) {<a name="line.794"></a>
+<FONT color="green">795</FONT>                return false;<a name="line.795"></a>
+<FONT color="green">796</FONT>            }<a name="line.796"></a>
+<FONT color="green">797</FONT>            if (this.yOffset != that.yOffset) {<a name="line.797"></a>
+<FONT color="green">798</FONT>                return false;<a name="line.798"></a>
+<FONT color="green">799</FONT>            }<a name="line.799"></a>
+<FONT color="green">800</FONT>            if (!PaintUtilities.equal(this.wallPaint, that.wallPaint)) {<a name="line.800"></a>
+<FONT color="green">801</FONT>                return false;<a name="line.801"></a>
+<FONT color="green">802</FONT>            }<a name="line.802"></a>
+<FONT color="green">803</FONT>            return super.equals(obj);<a name="line.803"></a>
+<FONT color="green">804</FONT>        }<a name="line.804"></a>
+<FONT color="green">805</FONT>    <a name="line.805"></a>
+<FONT color="green">806</FONT>        /**<a name="line.806"></a>
+<FONT color="green">807</FONT>         * Provides serialization support.<a name="line.807"></a>
+<FONT color="green">808</FONT>         *<a name="line.808"></a>
+<FONT color="green">809</FONT>         * @param stream  the output stream.<a name="line.809"></a>
+<FONT color="green">810</FONT>         *<a name="line.810"></a>
+<FONT color="green">811</FONT>         * @throws IOException  if there is an I/O error.<a name="line.811"></a>
+<FONT color="green">812</FONT>         */<a name="line.812"></a>
+<FONT color="green">813</FONT>        private void writeObject(ObjectOutputStream stream) throws IOException {<a name="line.813"></a>
+<FONT color="green">814</FONT>            stream.defaultWriteObject();<a name="line.814"></a>
+<FONT color="green">815</FONT>            SerialUtilities.writePaint(this.wallPaint, stream);<a name="line.815"></a>
+<FONT color="green">816</FONT>        }<a name="line.816"></a>
+<FONT color="green">817</FONT>    <a name="line.817"></a>
+<FONT color="green">818</FONT>        /**<a name="line.818"></a>
+<FONT color="green">819</FONT>         * Provides serialization support.<a name="line.819"></a>
+<FONT color="green">820</FONT>         *<a name="line.820"></a>
+<FONT color="green">821</FONT>         * @param stream  the input stream.<a name="line.821"></a>
+<FONT color="green">822</FONT>         *<a name="line.822"></a>
+<FONT color="green">823</FONT>         * @throws IOException  if there is an I/O error.<a name="line.823"></a>
+<FONT color="green">824</FONT>         * @throws ClassNotFoundException  if there is a classpath problem.<a name="line.824"></a>
+<FONT color="green">825</FONT>         */<a name="line.825"></a>
+<FONT color="green">826</FONT>        private void readObject(ObjectInputStream stream)<a name="line.826"></a>
+<FONT color="green">827</FONT>            throws IOException, ClassNotFoundException {<a name="line.827"></a>
+<FONT color="green">828</FONT>            stream.defaultReadObject();<a name="line.828"></a>
+<FONT color="green">829</FONT>            this.wallPaint = SerialUtilities.readPaint(stream);<a name="line.829"></a>
+<FONT color="green">830</FONT>        }<a name="line.830"></a>
+<FONT color="green">831</FONT>    <a name="line.831"></a>
+<FONT color="green">832</FONT>    }<a name="line.832"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

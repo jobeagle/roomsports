@@ -1,0 +1,498 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /* ===========================================================<a name="line.1"></a>
+<FONT color="green">002</FONT>     * JFreeChart : a free chart library for the Java(tm) platform<a name="line.2"></a>
+<FONT color="green">003</FONT>     * ===========================================================<a name="line.3"></a>
+<FONT color="green">004</FONT>     *<a name="line.4"></a>
+<FONT color="green">005</FONT>     * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors.<a name="line.5"></a>
+<FONT color="green">006</FONT>     *<a name="line.6"></a>
+<FONT color="green">007</FONT>     * Project Info:  http://www.jfree.org/jfreechart/index.html<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     * This library is free software; you can redistribute it and/or modify it<a name="line.9"></a>
+<FONT color="green">010</FONT>     * under the terms of the GNU Lesser General Public License as published by<a name="line.10"></a>
+<FONT color="green">011</FONT>     * the Free Software Foundation; either version 2.1 of the License, or<a name="line.11"></a>
+<FONT color="green">012</FONT>     * (at your option) any later version.<a name="line.12"></a>
+<FONT color="green">013</FONT>     *<a name="line.13"></a>
+<FONT color="green">014</FONT>     * This library is distributed in the hope that it will be useful, but<a name="line.14"></a>
+<FONT color="green">015</FONT>     * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<a name="line.15"></a>
+<FONT color="green">016</FONT>     * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public<a name="line.16"></a>
+<FONT color="green">017</FONT>     * License for more details.<a name="line.17"></a>
+<FONT color="green">018</FONT>     *<a name="line.18"></a>
+<FONT color="green">019</FONT>     * You should have received a copy of the GNU Lesser General Public<a name="line.19"></a>
+<FONT color="green">020</FONT>     * License along with this library; if not, write to the Free Software<a name="line.20"></a>
+<FONT color="green">021</FONT>     * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,<a name="line.21"></a>
+<FONT color="green">022</FONT>     * USA.<a name="line.22"></a>
+<FONT color="green">023</FONT>     *<a name="line.23"></a>
+<FONT color="green">024</FONT>     * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.24"></a>
+<FONT color="green">025</FONT>     * Other names may be trademarks of their respective owners.]<a name="line.25"></a>
+<FONT color="green">026</FONT>     *<a name="line.26"></a>
+<FONT color="green">027</FONT>     * ---------------------<a name="line.27"></a>
+<FONT color="green">028</FONT>     * ServletUtilities.java<a name="line.28"></a>
+<FONT color="green">029</FONT>     * ---------------------<a name="line.29"></a>
+<FONT color="green">030</FONT>     * (C) Copyright 2002-2013, by Richard Atkinson and Contributors.<a name="line.30"></a>
+<FONT color="green">031</FONT>     *<a name="line.31"></a>
+<FONT color="green">032</FONT>     * Original Author:  Richard Atkinson;<a name="line.32"></a>
+<FONT color="green">033</FONT>     * Contributor(s):   J?rgen Hoffman;<a name="line.33"></a>
+<FONT color="green">034</FONT>     *                   David Gilbert (for Object Refinery Limited);<a name="line.34"></a>
+<FONT color="green">035</FONT>     *                   Douglas Clayton;<a name="line.35"></a>
+<FONT color="green">036</FONT>     *<a name="line.36"></a>
+<FONT color="green">037</FONT>     * Changes<a name="line.37"></a>
+<FONT color="green">038</FONT>     * -------<a name="line.38"></a>
+<FONT color="green">039</FONT>     * 19-Aug-2002 : Version 1;<a name="line.39"></a>
+<FONT color="green">040</FONT>     * 20-Apr-2003 : Added additional sendTempFile method to allow MIME type<a name="line.40"></a>
+<FONT color="green">041</FONT>     *               specification and modified original sendTempFile method to<a name="line.41"></a>
+<FONT color="green">042</FONT>     *               automatically set MIME type for JPEG and PNG files<a name="line.42"></a>
+<FONT color="green">043</FONT>     * 23-Jun-2003 : Added additional sendTempFile method at the request of<a name="line.43"></a>
+<FONT color="green">044</FONT>     *               J?rgen Hoffman;<a name="line.44"></a>
+<FONT color="green">045</FONT>     * 07-Jul-2003 : Added more header information to streamed images;<a name="line.45"></a>
+<FONT color="green">046</FONT>     * 19-Aug-2003 : Forced images to be stored in the temporary directory defined<a name="line.46"></a>
+<FONT color="green">047</FONT>     *               by System property java.io.tmpdir, rather than default (RA);<a name="line.47"></a>
+<FONT color="green">048</FONT>     * 24-Mar-2004 : Added temp filename prefix attribute (DG);<a name="line.48"></a>
+<FONT color="green">049</FONT>     * 09-Mar-2005 : Added "one time" file option (DG);<a name="line.49"></a>
+<FONT color="green">050</FONT>     * ------------- JFREECHART 1.0.x RELEASED ------------------------------------<a name="line.50"></a>
+<FONT color="green">051</FONT>     * 10-Jan-2006 : Updated API docs and reformatted (DG);<a name="line.51"></a>
+<FONT color="green">052</FONT>     * 13-Sep-2006 : Format date in response header in English, not locale default<a name="line.52"></a>
+<FONT color="green">053</FONT>     *               (see bug 1557141) (DG);<a name="line.53"></a>
+<FONT color="green">054</FONT>     * 03-Jul-2013 : Use ParamChecks (DG);<a name="line.54"></a>
+<FONT color="green">055</FONT>     *<a name="line.55"></a>
+<FONT color="green">056</FONT>     */<a name="line.56"></a>
+<FONT color="green">057</FONT>    <a name="line.57"></a>
+<FONT color="green">058</FONT>    package org.jfree.chart.servlet;<a name="line.58"></a>
+<FONT color="green">059</FONT>    <a name="line.59"></a>
+<FONT color="green">060</FONT>    import java.io.BufferedInputStream;<a name="line.60"></a>
+<FONT color="green">061</FONT>    import java.io.BufferedOutputStream;<a name="line.61"></a>
+<FONT color="green">062</FONT>    import java.io.File;<a name="line.62"></a>
+<FONT color="green">063</FONT>    import java.io.FileInputStream;<a name="line.63"></a>
+<FONT color="green">064</FONT>    import java.io.FileNotFoundException;<a name="line.64"></a>
+<FONT color="green">065</FONT>    import java.io.IOException;<a name="line.65"></a>
+<FONT color="green">066</FONT>    import java.text.SimpleDateFormat;<a name="line.66"></a>
+<FONT color="green">067</FONT>    import java.util.Date;<a name="line.67"></a>
+<FONT color="green">068</FONT>    import java.util.Locale;<a name="line.68"></a>
+<FONT color="green">069</FONT>    import java.util.TimeZone;<a name="line.69"></a>
+<FONT color="green">070</FONT>    <a name="line.70"></a>
+<FONT color="green">071</FONT>    import javax.servlet.http.HttpServletResponse;<a name="line.71"></a>
+<FONT color="green">072</FONT>    import javax.servlet.http.HttpSession;<a name="line.72"></a>
+<FONT color="green">073</FONT>    <a name="line.73"></a>
+<FONT color="green">074</FONT>    import org.jfree.chart.ChartRenderingInfo;<a name="line.74"></a>
+<FONT color="green">075</FONT>    import org.jfree.chart.ChartUtilities;<a name="line.75"></a>
+<FONT color="green">076</FONT>    import org.jfree.chart.JFreeChart;<a name="line.76"></a>
+<FONT color="green">077</FONT>    import org.jfree.chart.util.ParamChecks;<a name="line.77"></a>
+<FONT color="green">078</FONT>    <a name="line.78"></a>
+<FONT color="green">079</FONT>    /**<a name="line.79"></a>
+<FONT color="green">080</FONT>     * Utility class used for servlet related JFreeChart operations.<a name="line.80"></a>
+<FONT color="green">081</FONT>     */<a name="line.81"></a>
+<FONT color="green">082</FONT>    public class ServletUtilities {<a name="line.82"></a>
+<FONT color="green">083</FONT>    <a name="line.83"></a>
+<FONT color="green">084</FONT>        /** The filename prefix. */<a name="line.84"></a>
+<FONT color="green">085</FONT>        private static String tempFilePrefix = "jfreechart-";<a name="line.85"></a>
+<FONT color="green">086</FONT>    <a name="line.86"></a>
+<FONT color="green">087</FONT>        /** A prefix for "one time" charts. */<a name="line.87"></a>
+<FONT color="green">088</FONT>        private static String tempOneTimeFilePrefix = "jfreechart-onetime-";<a name="line.88"></a>
+<FONT color="green">089</FONT>    <a name="line.89"></a>
+<FONT color="green">090</FONT>        /**<a name="line.90"></a>
+<FONT color="green">091</FONT>         * Returns the prefix for the temporary file names generated by this class.<a name="line.91"></a>
+<FONT color="green">092</FONT>         *<a name="line.92"></a>
+<FONT color="green">093</FONT>         * @return The prefix (never &lt;code&gt;null&lt;/code&gt;).<a name="line.93"></a>
+<FONT color="green">094</FONT>         */<a name="line.94"></a>
+<FONT color="green">095</FONT>        public static String getTempFilePrefix() {<a name="line.95"></a>
+<FONT color="green">096</FONT>            return ServletUtilities.tempFilePrefix;<a name="line.96"></a>
+<FONT color="green">097</FONT>        }<a name="line.97"></a>
+<FONT color="green">098</FONT>    <a name="line.98"></a>
+<FONT color="green">099</FONT>        /**<a name="line.99"></a>
+<FONT color="green">100</FONT>         * Sets the prefix for the temporary file names generated by this class.<a name="line.100"></a>
+<FONT color="green">101</FONT>         *<a name="line.101"></a>
+<FONT color="green">102</FONT>         * @param prefix  the prefix (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.102"></a>
+<FONT color="green">103</FONT>         */<a name="line.103"></a>
+<FONT color="green">104</FONT>        public static void setTempFilePrefix(String prefix) {<a name="line.104"></a>
+<FONT color="green">105</FONT>            ParamChecks.nullNotPermitted(prefix, "prefix");<a name="line.105"></a>
+<FONT color="green">106</FONT>            ServletUtilities.tempFilePrefix = prefix;<a name="line.106"></a>
+<FONT color="green">107</FONT>        }<a name="line.107"></a>
+<FONT color="green">108</FONT>    <a name="line.108"></a>
+<FONT color="green">109</FONT>        /**<a name="line.109"></a>
+<FONT color="green">110</FONT>         * Returns the prefix for "one time" temporary file names generated by<a name="line.110"></a>
+<FONT color="green">111</FONT>         * this class.<a name="line.111"></a>
+<FONT color="green">112</FONT>         *<a name="line.112"></a>
+<FONT color="green">113</FONT>         * @return The prefix.<a name="line.113"></a>
+<FONT color="green">114</FONT>         */<a name="line.114"></a>
+<FONT color="green">115</FONT>        public static String getTempOneTimeFilePrefix() {<a name="line.115"></a>
+<FONT color="green">116</FONT>            return ServletUtilities.tempOneTimeFilePrefix;<a name="line.116"></a>
+<FONT color="green">117</FONT>        }<a name="line.117"></a>
+<FONT color="green">118</FONT>    <a name="line.118"></a>
+<FONT color="green">119</FONT>        /**<a name="line.119"></a>
+<FONT color="green">120</FONT>         * Sets the prefix for the "one time" temporary file names generated by<a name="line.120"></a>
+<FONT color="green">121</FONT>         * this class.<a name="line.121"></a>
+<FONT color="green">122</FONT>         *<a name="line.122"></a>
+<FONT color="green">123</FONT>         * @param prefix  the prefix (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.123"></a>
+<FONT color="green">124</FONT>         */<a name="line.124"></a>
+<FONT color="green">125</FONT>        public static void setTempOneTimeFilePrefix(String prefix) {<a name="line.125"></a>
+<FONT color="green">126</FONT>            ParamChecks.nullNotPermitted(prefix, "prefix");<a name="line.126"></a>
+<FONT color="green">127</FONT>            ServletUtilities.tempOneTimeFilePrefix = prefix;<a name="line.127"></a>
+<FONT color="green">128</FONT>        }<a name="line.128"></a>
+<FONT color="green">129</FONT>    <a name="line.129"></a>
+<FONT color="green">130</FONT>        /**<a name="line.130"></a>
+<FONT color="green">131</FONT>         * Saves the chart as a PNG format file in the temporary directory.<a name="line.131"></a>
+<FONT color="green">132</FONT>         *<a name="line.132"></a>
+<FONT color="green">133</FONT>         * @param chart  the JFreeChart to be saved.<a name="line.133"></a>
+<FONT color="green">134</FONT>         * @param width  the width of the chart.<a name="line.134"></a>
+<FONT color="green">135</FONT>         * @param height  the height of the chart.<a name="line.135"></a>
+<FONT color="green">136</FONT>         * @param session  the HttpSession of the client (if &lt;code&gt;null&lt;/code&gt;, the<a name="line.136"></a>
+<FONT color="green">137</FONT>         *                 temporary file is marked as "one-time" and deleted by<a name="line.137"></a>
+<FONT color="green">138</FONT>         *                 the {@link DisplayChart} servlet right after it is<a name="line.138"></a>
+<FONT color="green">139</FONT>         *                 streamed to the client).<a name="line.139"></a>
+<FONT color="green">140</FONT>         *<a name="line.140"></a>
+<FONT color="green">141</FONT>         * @return The filename of the chart saved in the temporary directory.<a name="line.141"></a>
+<FONT color="green">142</FONT>         *<a name="line.142"></a>
+<FONT color="green">143</FONT>         * @throws IOException if there is a problem saving the file.<a name="line.143"></a>
+<FONT color="green">144</FONT>         */<a name="line.144"></a>
+<FONT color="green">145</FONT>        public static String saveChartAsPNG(JFreeChart chart, int width, int height,<a name="line.145"></a>
+<FONT color="green">146</FONT>                HttpSession session) throws IOException {<a name="line.146"></a>
+<FONT color="green">147</FONT>    <a name="line.147"></a>
+<FONT color="green">148</FONT>            return ServletUtilities.saveChartAsPNG(chart, width, height, null,<a name="line.148"></a>
+<FONT color="green">149</FONT>                    session);<a name="line.149"></a>
+<FONT color="green">150</FONT>    <a name="line.150"></a>
+<FONT color="green">151</FONT>        }<a name="line.151"></a>
+<FONT color="green">152</FONT>    <a name="line.152"></a>
+<FONT color="green">153</FONT>        /**<a name="line.153"></a>
+<FONT color="green">154</FONT>         * Saves the chart as a PNG format file in the temporary directory and<a name="line.154"></a>
+<FONT color="green">155</FONT>         * populates the {@link ChartRenderingInfo} object which can be used to<a name="line.155"></a>
+<FONT color="green">156</FONT>         * generate an HTML image map.<a name="line.156"></a>
+<FONT color="green">157</FONT>         *<a name="line.157"></a>
+<FONT color="green">158</FONT>         * @param chart  the chart to be saved (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.158"></a>
+<FONT color="green">159</FONT>         * @param width  the width of the chart.<a name="line.159"></a>
+<FONT color="green">160</FONT>         * @param height  the height of the chart.<a name="line.160"></a>
+<FONT color="green">161</FONT>         * @param info  the ChartRenderingInfo object to be populated<a name="line.161"></a>
+<FONT color="green">162</FONT>         *              (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.162"></a>
+<FONT color="green">163</FONT>         * @param session  the HttpSession of the client (if &lt;code&gt;null&lt;/code&gt;, the<a name="line.163"></a>
+<FONT color="green">164</FONT>         *                 temporary file is marked as "one-time" and deleted by<a name="line.164"></a>
+<FONT color="green">165</FONT>         *                 the {@link DisplayChart} servlet right after it is<a name="line.165"></a>
+<FONT color="green">166</FONT>         *                 streamed to the client).<a name="line.166"></a>
+<FONT color="green">167</FONT>         *<a name="line.167"></a>
+<FONT color="green">168</FONT>         * @return The filename of the chart saved in the temporary directory.<a name="line.168"></a>
+<FONT color="green">169</FONT>         *<a name="line.169"></a>
+<FONT color="green">170</FONT>         * @throws IOException if there is a problem saving the file.<a name="line.170"></a>
+<FONT color="green">171</FONT>         */<a name="line.171"></a>
+<FONT color="green">172</FONT>        public static String saveChartAsPNG(JFreeChart chart, int width, int height,<a name="line.172"></a>
+<FONT color="green">173</FONT>                ChartRenderingInfo info, HttpSession session) throws IOException {<a name="line.173"></a>
+<FONT color="green">174</FONT>    <a name="line.174"></a>
+<FONT color="green">175</FONT>            ParamChecks.nullNotPermitted(chart, "chart");<a name="line.175"></a>
+<FONT color="green">176</FONT>            ServletUtilities.createTempDir();<a name="line.176"></a>
+<FONT color="green">177</FONT>            String prefix = ServletUtilities.tempFilePrefix;<a name="line.177"></a>
+<FONT color="green">178</FONT>            if (session == null) {<a name="line.178"></a>
+<FONT color="green">179</FONT>                prefix = ServletUtilities.tempOneTimeFilePrefix;<a name="line.179"></a>
+<FONT color="green">180</FONT>            }<a name="line.180"></a>
+<FONT color="green">181</FONT>            File tempFile = File.createTempFile(prefix, ".png",<a name="line.181"></a>
+<FONT color="green">182</FONT>                    new File(System.getProperty("java.io.tmpdir")));<a name="line.182"></a>
+<FONT color="green">183</FONT>            ChartUtilities.saveChartAsPNG(tempFile, chart, width, height, info);<a name="line.183"></a>
+<FONT color="green">184</FONT>            if (session != null) {<a name="line.184"></a>
+<FONT color="green">185</FONT>                ServletUtilities.registerChartForDeletion(tempFile, session);<a name="line.185"></a>
+<FONT color="green">186</FONT>            }<a name="line.186"></a>
+<FONT color="green">187</FONT>            return tempFile.getName();<a name="line.187"></a>
+<FONT color="green">188</FONT>    <a name="line.188"></a>
+<FONT color="green">189</FONT>        }<a name="line.189"></a>
+<FONT color="green">190</FONT>    <a name="line.190"></a>
+<FONT color="green">191</FONT>        /**<a name="line.191"></a>
+<FONT color="green">192</FONT>         * Saves the chart as a JPEG format file in the temporary directory.<a name="line.192"></a>
+<FONT color="green">193</FONT>         * &lt;p&gt;<a name="line.193"></a>
+<FONT color="green">194</FONT>         * SPECIAL NOTE: Please avoid using JPEG as an image format for charts,<a name="line.194"></a>
+<FONT color="green">195</FONT>         * it is a "lossy" format that introduces visible distortions in the<a name="line.195"></a>
+<FONT color="green">196</FONT>         * resulting image - use PNG instead.  In addition, note that JPEG output<a name="line.196"></a>
+<FONT color="green">197</FONT>         * is supported by JFreeChart only for JRE 1.4.2 or later.<a name="line.197"></a>
+<FONT color="green">198</FONT>         *<a name="line.198"></a>
+<FONT color="green">199</FONT>         * @param chart  the JFreeChart to be saved.<a name="line.199"></a>
+<FONT color="green">200</FONT>         * @param width  the width of the chart.<a name="line.200"></a>
+<FONT color="green">201</FONT>         * @param height  the height of the chart.<a name="line.201"></a>
+<FONT color="green">202</FONT>         * @param session  the HttpSession of the client (if &lt;code&gt;null&lt;/code&gt;, the<a name="line.202"></a>
+<FONT color="green">203</FONT>         *                 temporary file is marked as "one-time" and deleted by<a name="line.203"></a>
+<FONT color="green">204</FONT>         *                 the {@link DisplayChart} servlet right after it is<a name="line.204"></a>
+<FONT color="green">205</FONT>         *                 streamed to the client).<a name="line.205"></a>
+<FONT color="green">206</FONT>         *<a name="line.206"></a>
+<FONT color="green">207</FONT>         * @return The filename of the chart saved in the temporary directory.<a name="line.207"></a>
+<FONT color="green">208</FONT>         *<a name="line.208"></a>
+<FONT color="green">209</FONT>         * @throws IOException if there is a problem saving the file.<a name="line.209"></a>
+<FONT color="green">210</FONT>         */<a name="line.210"></a>
+<FONT color="green">211</FONT>        public static String saveChartAsJPEG(JFreeChart chart, int width,<a name="line.211"></a>
+<FONT color="green">212</FONT>                                             int height, HttpSession session)<a name="line.212"></a>
+<FONT color="green">213</FONT>                throws IOException {<a name="line.213"></a>
+<FONT color="green">214</FONT>    <a name="line.214"></a>
+<FONT color="green">215</FONT>            return ServletUtilities.saveChartAsJPEG(chart, width, height, null,<a name="line.215"></a>
+<FONT color="green">216</FONT>                    session);<a name="line.216"></a>
+<FONT color="green">217</FONT>    <a name="line.217"></a>
+<FONT color="green">218</FONT>        }<a name="line.218"></a>
+<FONT color="green">219</FONT>    <a name="line.219"></a>
+<FONT color="green">220</FONT>        /**<a name="line.220"></a>
+<FONT color="green">221</FONT>         * Saves the chart as a JPEG format file in the temporary directory and<a name="line.221"></a>
+<FONT color="green">222</FONT>         * populates the &lt;code&gt;ChartRenderingInfo&lt;/code&gt; object which can be used<a name="line.222"></a>
+<FONT color="green">223</FONT>         * to generate an HTML image map.<a name="line.223"></a>
+<FONT color="green">224</FONT>         * &lt;p&gt;<a name="line.224"></a>
+<FONT color="green">225</FONT>         * SPECIAL NOTE: Please avoid using JPEG as an image format for charts,<a name="line.225"></a>
+<FONT color="green">226</FONT>         * it is a "lossy" format that introduces visible distortions in the<a name="line.226"></a>
+<FONT color="green">227</FONT>         * resulting image - use PNG instead.  In addition, note that JPEG output<a name="line.227"></a>
+<FONT color="green">228</FONT>         * is supported by JFreeChart only for JRE 1.4.2 or later.<a name="line.228"></a>
+<FONT color="green">229</FONT>         *<a name="line.229"></a>
+<FONT color="green">230</FONT>         * @param chart  the chart to be saved (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.230"></a>
+<FONT color="green">231</FONT>         * @param width  the width of the chart<a name="line.231"></a>
+<FONT color="green">232</FONT>         * @param height  the height of the chart<a name="line.232"></a>
+<FONT color="green">233</FONT>         * @param info  the ChartRenderingInfo object to be populated<a name="line.233"></a>
+<FONT color="green">234</FONT>         * @param session  the HttpSession of the client (if &lt;code&gt;null&lt;/code&gt;, the<a name="line.234"></a>
+<FONT color="green">235</FONT>         *                 temporary file is marked as "one-time" and deleted by<a name="line.235"></a>
+<FONT color="green">236</FONT>         *                 the {@link DisplayChart} servlet right after it is<a name="line.236"></a>
+<FONT color="green">237</FONT>         *                 streamed to the client).<a name="line.237"></a>
+<FONT color="green">238</FONT>         *<a name="line.238"></a>
+<FONT color="green">239</FONT>         * @return The filename of the chart saved in the temporary directory<a name="line.239"></a>
+<FONT color="green">240</FONT>         *<a name="line.240"></a>
+<FONT color="green">241</FONT>         * @throws IOException if there is a problem saving the file.<a name="line.241"></a>
+<FONT color="green">242</FONT>         */<a name="line.242"></a>
+<FONT color="green">243</FONT>        public static String saveChartAsJPEG(JFreeChart chart, int width,<a name="line.243"></a>
+<FONT color="green">244</FONT>                int height, ChartRenderingInfo info, HttpSession session)<a name="line.244"></a>
+<FONT color="green">245</FONT>                throws IOException {<a name="line.245"></a>
+<FONT color="green">246</FONT>    <a name="line.246"></a>
+<FONT color="green">247</FONT>            ParamChecks.nullNotPermitted(chart, "chart");<a name="line.247"></a>
+<FONT color="green">248</FONT>            ServletUtilities.createTempDir();<a name="line.248"></a>
+<FONT color="green">249</FONT>            String prefix = ServletUtilities.tempFilePrefix;<a name="line.249"></a>
+<FONT color="green">250</FONT>            if (session == null) {<a name="line.250"></a>
+<FONT color="green">251</FONT>                prefix = ServletUtilities.tempOneTimeFilePrefix;<a name="line.251"></a>
+<FONT color="green">252</FONT>            }<a name="line.252"></a>
+<FONT color="green">253</FONT>            File tempFile = File.createTempFile(prefix, ".jpeg",<a name="line.253"></a>
+<FONT color="green">254</FONT>                    new File(System.getProperty("java.io.tmpdir")));<a name="line.254"></a>
+<FONT color="green">255</FONT>            ChartUtilities.saveChartAsJPEG(tempFile, chart, width, height, info);<a name="line.255"></a>
+<FONT color="green">256</FONT>            if (session != null) {<a name="line.256"></a>
+<FONT color="green">257</FONT>                ServletUtilities.registerChartForDeletion(tempFile, session);<a name="line.257"></a>
+<FONT color="green">258</FONT>            }<a name="line.258"></a>
+<FONT color="green">259</FONT>            return tempFile.getName();<a name="line.259"></a>
+<FONT color="green">260</FONT>    <a name="line.260"></a>
+<FONT color="green">261</FONT>        }<a name="line.261"></a>
+<FONT color="green">262</FONT>    <a name="line.262"></a>
+<FONT color="green">263</FONT>        /**<a name="line.263"></a>
+<FONT color="green">264</FONT>         * Creates the temporary directory if it does not exist.  Throws a<a name="line.264"></a>
+<FONT color="green">265</FONT>         * &lt;code&gt;RuntimeException&lt;/code&gt; if the temporary directory is<a name="line.265"></a>
+<FONT color="green">266</FONT>         * &lt;code&gt;null&lt;/code&gt;.  Uses the system property &lt;code&gt;java.io.tmpdir&lt;/code&gt;<a name="line.266"></a>
+<FONT color="green">267</FONT>         * as the temporary directory.  This sounds like a strange thing to do but<a name="line.267"></a>
+<FONT color="green">268</FONT>         * my temporary directory was not created on my default Tomcat 4.0.3<a name="line.268"></a>
+<FONT color="green">269</FONT>         * installation.  Could save some questions on the forum if it is created<a name="line.269"></a>
+<FONT color="green">270</FONT>         * when not present.<a name="line.270"></a>
+<FONT color="green">271</FONT>         */<a name="line.271"></a>
+<FONT color="green">272</FONT>        protected static void createTempDir() {<a name="line.272"></a>
+<FONT color="green">273</FONT>            String tempDirName = System.getProperty("java.io.tmpdir");<a name="line.273"></a>
+<FONT color="green">274</FONT>            if (tempDirName == null) {<a name="line.274"></a>
+<FONT color="green">275</FONT>                throw new RuntimeException("Temporary directory system property "<a name="line.275"></a>
+<FONT color="green">276</FONT>                        + "(java.io.tmpdir) is null.");<a name="line.276"></a>
+<FONT color="green">277</FONT>            }<a name="line.277"></a>
+<FONT color="green">278</FONT>    <a name="line.278"></a>
+<FONT color="green">279</FONT>            // create the temporary directory if it doesn't exist<a name="line.279"></a>
+<FONT color="green">280</FONT>            File tempDir = new File(tempDirName);<a name="line.280"></a>
+<FONT color="green">281</FONT>            if (!tempDir.exists()) {<a name="line.281"></a>
+<FONT color="green">282</FONT>                tempDir.mkdirs();<a name="line.282"></a>
+<FONT color="green">283</FONT>            }<a name="line.283"></a>
+<FONT color="green">284</FONT>        }<a name="line.284"></a>
+<FONT color="green">285</FONT>    <a name="line.285"></a>
+<FONT color="green">286</FONT>        /**<a name="line.286"></a>
+<FONT color="green">287</FONT>         * Adds a {@link ChartDeleter} object to the session object with the name<a name="line.287"></a>
+<FONT color="green">288</FONT>         * &lt;code&gt;JFreeChart_Deleter&lt;/code&gt; if there is not already one bound to the<a name="line.288"></a>
+<FONT color="green">289</FONT>         * session and adds the filename to the list of charts to be deleted.<a name="line.289"></a>
+<FONT color="green">290</FONT>         *<a name="line.290"></a>
+<FONT color="green">291</FONT>         * @param tempFile  the file to be deleted.<a name="line.291"></a>
+<FONT color="green">292</FONT>         * @param session  the HTTP session of the client.<a name="line.292"></a>
+<FONT color="green">293</FONT>         */<a name="line.293"></a>
+<FONT color="green">294</FONT>        protected static void registerChartForDeletion(File tempFile,<a name="line.294"></a>
+<FONT color="green">295</FONT>                HttpSession session) {<a name="line.295"></a>
+<FONT color="green">296</FONT>    <a name="line.296"></a>
+<FONT color="green">297</FONT>            //  Add chart to deletion list in session<a name="line.297"></a>
+<FONT color="green">298</FONT>            if (session != null) {<a name="line.298"></a>
+<FONT color="green">299</FONT>                ChartDeleter chartDeleter<a name="line.299"></a>
+<FONT color="green">300</FONT>                    = (ChartDeleter) session.getAttribute("JFreeChart_Deleter");<a name="line.300"></a>
+<FONT color="green">301</FONT>                if (chartDeleter == null) {<a name="line.301"></a>
+<FONT color="green">302</FONT>                    chartDeleter = new ChartDeleter();<a name="line.302"></a>
+<FONT color="green">303</FONT>                    session.setAttribute("JFreeChart_Deleter", chartDeleter);<a name="line.303"></a>
+<FONT color="green">304</FONT>                }<a name="line.304"></a>
+<FONT color="green">305</FONT>                chartDeleter.addChart(tempFile.getName());<a name="line.305"></a>
+<FONT color="green">306</FONT>            }<a name="line.306"></a>
+<FONT color="green">307</FONT>            else {<a name="line.307"></a>
+<FONT color="green">308</FONT>                System.out.println("Session is null - chart will not be deleted");<a name="line.308"></a>
+<FONT color="green">309</FONT>            }<a name="line.309"></a>
+<FONT color="green">310</FONT>        }<a name="line.310"></a>
+<FONT color="green">311</FONT>    <a name="line.311"></a>
+<FONT color="green">312</FONT>        /**<a name="line.312"></a>
+<FONT color="green">313</FONT>         * Binary streams the specified file in the temporary directory to the<a name="line.313"></a>
+<FONT color="green">314</FONT>         * HTTP response in 1KB chunks.<a name="line.314"></a>
+<FONT color="green">315</FONT>         *<a name="line.315"></a>
+<FONT color="green">316</FONT>         * @param filename  the name of the file in the temporary directory.<a name="line.316"></a>
+<FONT color="green">317</FONT>         * @param response  the HTTP response object.<a name="line.317"></a>
+<FONT color="green">318</FONT>         *<a name="line.318"></a>
+<FONT color="green">319</FONT>         * @throws IOException  if there is an I/O problem.<a name="line.319"></a>
+<FONT color="green">320</FONT>         */<a name="line.320"></a>
+<FONT color="green">321</FONT>        public static void sendTempFile(String filename,<a name="line.321"></a>
+<FONT color="green">322</FONT>                HttpServletResponse response) throws IOException {<a name="line.322"></a>
+<FONT color="green">323</FONT>    <a name="line.323"></a>
+<FONT color="green">324</FONT>            File file = new File(System.getProperty("java.io.tmpdir"), filename);<a name="line.324"></a>
+<FONT color="green">325</FONT>            ServletUtilities.sendTempFile(file, response);<a name="line.325"></a>
+<FONT color="green">326</FONT>        }<a name="line.326"></a>
+<FONT color="green">327</FONT>    <a name="line.327"></a>
+<FONT color="green">328</FONT>        /**<a name="line.328"></a>
+<FONT color="green">329</FONT>         * Binary streams the specified file to the HTTP response in 1KB chunks.<a name="line.329"></a>
+<FONT color="green">330</FONT>         *<a name="line.330"></a>
+<FONT color="green">331</FONT>         * @param file  the file to be streamed.<a name="line.331"></a>
+<FONT color="green">332</FONT>         * @param response  the HTTP response object.<a name="line.332"></a>
+<FONT color="green">333</FONT>         *<a name="line.333"></a>
+<FONT color="green">334</FONT>         * @throws IOException if there is an I/O problem.<a name="line.334"></a>
+<FONT color="green">335</FONT>         */<a name="line.335"></a>
+<FONT color="green">336</FONT>        public static void sendTempFile(File file, HttpServletResponse response)<a name="line.336"></a>
+<FONT color="green">337</FONT>                throws IOException {<a name="line.337"></a>
+<FONT color="green">338</FONT>    <a name="line.338"></a>
+<FONT color="green">339</FONT>            String mimeType = null;<a name="line.339"></a>
+<FONT color="green">340</FONT>            String filename = file.getName();<a name="line.340"></a>
+<FONT color="green">341</FONT>            if (filename.length() &gt; 5) {<a name="line.341"></a>
+<FONT color="green">342</FONT>                if (filename.substring(filename.length() - 5,<a name="line.342"></a>
+<FONT color="green">343</FONT>                        filename.length()).equals(".jpeg")) {<a name="line.343"></a>
+<FONT color="green">344</FONT>                    mimeType = "image/jpeg";<a name="line.344"></a>
+<FONT color="green">345</FONT>                }<a name="line.345"></a>
+<FONT color="green">346</FONT>                else if (filename.substring(filename.length() - 4,<a name="line.346"></a>
+<FONT color="green">347</FONT>                        filename.length()).equals(".png")) {<a name="line.347"></a>
+<FONT color="green">348</FONT>                    mimeType = "image/png";<a name="line.348"></a>
+<FONT color="green">349</FONT>                }<a name="line.349"></a>
+<FONT color="green">350</FONT>            }<a name="line.350"></a>
+<FONT color="green">351</FONT>            ServletUtilities.sendTempFile(file, response, mimeType);<a name="line.351"></a>
+<FONT color="green">352</FONT>        }<a name="line.352"></a>
+<FONT color="green">353</FONT>    <a name="line.353"></a>
+<FONT color="green">354</FONT>        /**<a name="line.354"></a>
+<FONT color="green">355</FONT>         * Binary streams the specified file to the HTTP response in 1KB chunks.<a name="line.355"></a>
+<FONT color="green">356</FONT>         *<a name="line.356"></a>
+<FONT color="green">357</FONT>         * @param file  the file to be streamed.<a name="line.357"></a>
+<FONT color="green">358</FONT>         * @param response  the HTTP response object.<a name="line.358"></a>
+<FONT color="green">359</FONT>         * @param mimeType  the mime type of the file, null allowed.<a name="line.359"></a>
+<FONT color="green">360</FONT>         *<a name="line.360"></a>
+<FONT color="green">361</FONT>         * @throws IOException if there is an I/O problem.<a name="line.361"></a>
+<FONT color="green">362</FONT>         */<a name="line.362"></a>
+<FONT color="green">363</FONT>        public static void sendTempFile(File file, HttpServletResponse response,<a name="line.363"></a>
+<FONT color="green">364</FONT>                                        String mimeType) throws IOException {<a name="line.364"></a>
+<FONT color="green">365</FONT>    <a name="line.365"></a>
+<FONT color="green">366</FONT>            if (file.exists()) {<a name="line.366"></a>
+<FONT color="green">367</FONT>                BufferedInputStream bis = new BufferedInputStream(<a name="line.367"></a>
+<FONT color="green">368</FONT>                        new FileInputStream(file));<a name="line.368"></a>
+<FONT color="green">369</FONT>    <a name="line.369"></a>
+<FONT color="green">370</FONT>                //  Set HTTP headers<a name="line.370"></a>
+<FONT color="green">371</FONT>                if (mimeType != null) {<a name="line.371"></a>
+<FONT color="green">372</FONT>                    response.setHeader("Content-Type", mimeType);<a name="line.372"></a>
+<FONT color="green">373</FONT>                }<a name="line.373"></a>
+<FONT color="green">374</FONT>                response.setHeader("Content-Length", String.valueOf(file.length()));<a name="line.374"></a>
+<FONT color="green">375</FONT>                SimpleDateFormat sdf = new SimpleDateFormat(<a name="line.375"></a>
+<FONT color="green">376</FONT>                        "EEE, dd MMM yyyy HH:mm:ss z", Locale.ENGLISH);<a name="line.376"></a>
+<FONT color="green">377</FONT>                sdf.setTimeZone(TimeZone.getTimeZone("GMT"));<a name="line.377"></a>
+<FONT color="green">378</FONT>                response.setHeader("Last-Modified",<a name="line.378"></a>
+<FONT color="green">379</FONT>                        sdf.format(new Date(file.lastModified())));<a name="line.379"></a>
+<FONT color="green">380</FONT>    <a name="line.380"></a>
+<FONT color="green">381</FONT>                BufferedOutputStream bos = new BufferedOutputStream(<a name="line.381"></a>
+<FONT color="green">382</FONT>                        response.getOutputStream());<a name="line.382"></a>
+<FONT color="green">383</FONT>                byte[] input = new byte[1024];<a name="line.383"></a>
+<FONT color="green">384</FONT>                boolean eof = false;<a name="line.384"></a>
+<FONT color="green">385</FONT>                while (!eof) {<a name="line.385"></a>
+<FONT color="green">386</FONT>                    int length = bis.read(input);<a name="line.386"></a>
+<FONT color="green">387</FONT>                    if (length == -1) {<a name="line.387"></a>
+<FONT color="green">388</FONT>                        eof = true;<a name="line.388"></a>
+<FONT color="green">389</FONT>                    }<a name="line.389"></a>
+<FONT color="green">390</FONT>                    else {<a name="line.390"></a>
+<FONT color="green">391</FONT>                        bos.write(input, 0, length);<a name="line.391"></a>
+<FONT color="green">392</FONT>                    }<a name="line.392"></a>
+<FONT color="green">393</FONT>                }<a name="line.393"></a>
+<FONT color="green">394</FONT>                bos.flush();<a name="line.394"></a>
+<FONT color="green">395</FONT>                bis.close();<a name="line.395"></a>
+<FONT color="green">396</FONT>                bos.close();<a name="line.396"></a>
+<FONT color="green">397</FONT>            }<a name="line.397"></a>
+<FONT color="green">398</FONT>            else {<a name="line.398"></a>
+<FONT color="green">399</FONT>                throw new FileNotFoundException(file.getAbsolutePath());<a name="line.399"></a>
+<FONT color="green">400</FONT>            }<a name="line.400"></a>
+<FONT color="green">401</FONT>        }<a name="line.401"></a>
+<FONT color="green">402</FONT>    <a name="line.402"></a>
+<FONT color="green">403</FONT>        /**<a name="line.403"></a>
+<FONT color="green">404</FONT>         * Perform a search/replace operation on a String<a name="line.404"></a>
+<FONT color="green">405</FONT>         * There are String methods to do this since (JDK 1.4)<a name="line.405"></a>
+<FONT color="green">406</FONT>         *<a name="line.406"></a>
+<FONT color="green">407</FONT>         * @param inputString  the String to have the search/replace operation.<a name="line.407"></a>
+<FONT color="green">408</FONT>         * @param searchString  the search String.<a name="line.408"></a>
+<FONT color="green">409</FONT>         * @param replaceString  the replace String.<a name="line.409"></a>
+<FONT color="green">410</FONT>         *<a name="line.410"></a>
+<FONT color="green">411</FONT>         * @return The String with the replacements made.<a name="line.411"></a>
+<FONT color="green">412</FONT>         */<a name="line.412"></a>
+<FONT color="green">413</FONT>        public static String searchReplace(String inputString,<a name="line.413"></a>
+<FONT color="green">414</FONT>                                           String searchString,<a name="line.414"></a>
+<FONT color="green">415</FONT>                                           String replaceString) {<a name="line.415"></a>
+<FONT color="green">416</FONT>    <a name="line.416"></a>
+<FONT color="green">417</FONT>            int i = inputString.indexOf(searchString);<a name="line.417"></a>
+<FONT color="green">418</FONT>            if (i == -1) {<a name="line.418"></a>
+<FONT color="green">419</FONT>                return inputString;<a name="line.419"></a>
+<FONT color="green">420</FONT>            }<a name="line.420"></a>
+<FONT color="green">421</FONT>    <a name="line.421"></a>
+<FONT color="green">422</FONT>            String r = "";<a name="line.422"></a>
+<FONT color="green">423</FONT>            r += inputString.substring(0, i) + replaceString;<a name="line.423"></a>
+<FONT color="green">424</FONT>            if (i + searchString.length() &lt; inputString.length()) {<a name="line.424"></a>
+<FONT color="green">425</FONT>                r += searchReplace(inputString.substring(i + searchString.length()),<a name="line.425"></a>
+<FONT color="green">426</FONT>                        searchString, replaceString);<a name="line.426"></a>
+<FONT color="green">427</FONT>            }<a name="line.427"></a>
+<FONT color="green">428</FONT>    <a name="line.428"></a>
+<FONT color="green">429</FONT>            return r;<a name="line.429"></a>
+<FONT color="green">430</FONT>        }<a name="line.430"></a>
+<FONT color="green">431</FONT>    <a name="line.431"></a>
+<FONT color="green">432</FONT>    }<a name="line.432"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

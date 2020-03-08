@@ -1,0 +1,7012 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="GPS-Track-Analyse.NET 6.0.0.4" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" xmlns:gpxx="http://www.gps-freeware.de/xmlschema/TrackPointExtension/v1">
+<metadata>
+<link href="http://www.gps-freeware.de">
+<text>Download GPS-Track-Analyse</text>
+</link>
+<time>2013-02-03T03:59:00Z</time>
+<bounds maxlat="49.645222" maxlon="11.343199" minlat="49.559025" minlon="11.252730" />
+</metadata>
+<trk>
+<name>Frankenweg2</name>
+<trkseg>
+<trkpt lat="49.645222" lon="11.255843">
+<ele>440.400000</ele>
+<time>2012-05-18T14:30:46Z</time>
+</trkpt>
+<trkpt lat="49.645125" lon="11.255763">
+<ele>440.600000</ele>
+<time>2012-05-18T14:30:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.645066" lon="11.255741">
+<ele>440.800000</ele>
+<time>2012-05-18T14:30:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.644846" lon="11.255674">
+<ele>442.200000</ele>
+<time>2012-05-18T14:31:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.77</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.644585" lon="11.255594">
+<ele>444.400000</ele>
+<time>2012-05-18T14:31:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.644352" lon="11.255526">
+<ele>446.200000</ele>
+<time>2012-05-18T14:31:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.644144" lon="11.255489">
+<ele>447.000000</ele>
+<time>2012-05-18T14:31:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.643979" lon="11.255484">
+<ele>447.600000</ele>
+<time>2012-05-18T14:31:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.643796" lon="11.255453">
+<ele>449.000000</ele>
+<time>2012-05-18T14:31:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.643536" lon="11.255378">
+<ele>451.200000</ele>
+<time>2012-05-18T14:31:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.643280" lon="11.255288">
+<ele>453.600000</ele>
+<time>2012-05-18T14:32:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.92</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.643037" lon="11.255230">
+<ele>456.400000</ele>
+<time>2012-05-18T14:32:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.642863" lon="11.255215">
+<ele>458.400000</ele>
+<time>2012-05-18T14:32:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.43</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.642648" lon="11.255230">
+<ele>461.200000</ele>
+<time>2012-05-18T14:32:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.642461" lon="11.255334">
+<ele>463.000000</ele>
+<time>2012-05-18T14:32:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.46</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.642312" lon="11.255391">
+<ele>464.600000</ele>
+<time>2012-05-18T14:32:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.642069" lon="11.255396">
+<ele>466.400000</ele>
+<time>2012-05-18T14:32:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.71</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.641755" lon="11.255401">
+<ele>468.000000</ele>
+<time>2012-05-18T14:33:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.641561" lon="11.255477">
+<ele>469.200000</ele>
+<time>2012-05-18T14:33:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.641417" lon="11.255657">
+<ele>471.400000</ele>
+<time>2012-05-18T14:33:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.641276" lon="11.255791">
+<ele>473.000000</ele>
+<time>2012-05-18T14:33:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.641188" lon="11.255776">
+<ele>474.000000</ele>
+<time>2012-05-18T14:33:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.641076" lon="11.255664">
+<ele>475.800000</ele>
+<time>2012-05-18T14:33:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640946" lon="11.255494">
+<ele>477.800000</ele>
+<time>2012-05-18T14:33:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.37</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640795" lon="11.255460">
+<ele>479.800000</ele>
+<time>2012-05-18T14:34:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.43</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640705" lon="11.255550">
+<ele>481.000000</ele>
+<time>2012-05-18T14:34:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640569" lon="11.255764">
+<ele>483.200000</ele>
+<time>2012-05-18T14:34:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640399" lon="11.256036">
+<ele>485.200000</ele>
+<time>2012-05-18T14:34:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640289" lon="11.256284">
+<ele>487.200000</ele>
+<time>2012-05-18T14:34:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640187" lon="11.256626">
+<ele>489.000000</ele>
+<time>2012-05-18T14:34:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.71</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.640080" lon="11.256926">
+<ele>490.800000</ele>
+<time>2012-05-18T14:34:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.639891" lon="11.257173">
+<ele>493.000000</ele>
+<time>2012-05-18T14:35:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.639701" lon="11.257421">
+<ele>494.000000</ele>
+<time>2012-05-18T14:35:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.639488" lon="11.257767">
+<ele>496.200000</ele>
+<time>2012-05-18T14:35:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.13</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.639306" lon="11.258198">
+<ele>498.200000</ele>
+<time>2012-05-18T14:35:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.37</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.639109" lon="11.258579">
+<ele>500.000000</ele>
+<time>2012-05-18T14:35:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.51</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.638873" lon="11.259064">
+<ele>501.000000</ele>
+<time>2012-05-18T14:35:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.638836" lon="11.259129">
+<ele>501.400000</ele>
+<time>2012-05-18T14:35:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.638692" lon="11.259053">
+<ele>501.400000</ele>
+<time>2012-05-18T14:36:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.638432" lon="11.258826">
+<ele>500.600000</ele>
+<time>2012-05-18T14:36:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.637963" lon="11.258425">
+<ele>498.800000</ele>
+<time>2012-05-18T14:36:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.637468" lon="11.257977">
+<ele>496.800000</ele>
+<time>2012-05-18T14:36:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.637091" lon="11.257706">
+<ele>494.400000</ele>
+<time>2012-05-18T14:36:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.636637" lon="11.257378">
+<ele>490.400000</ele>
+<time>2012-05-18T14:36:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.636313" lon="11.257195">
+<ele>486.800000</ele>
+<time>2012-05-18T14:36:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.68</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635957" lon="11.257014">
+<ele>482.600000</ele>
+<time>2012-05-18T14:36:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635777" lon="11.256848">
+<ele>479.400000</ele>
+<time>2012-05-18T14:36:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.83</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635707" lon="11.256744">
+<ele>477.200000</ele>
+<time>2012-05-18T14:36:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635619" lon="11.256502">
+<ele>472.800000</ele>
+<time>2012-05-18T14:36:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635605" lon="11.256192">
+<ele>466.600000</ele>
+<time>2012-05-18T14:37:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635495" lon="11.256215">
+<ele>464.400000</ele>
+<time>2012-05-18T14:37:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635326" lon="11.256284">
+<ele>462.400000</ele>
+<time>2012-05-18T14:37:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635131" lon="11.256590">
+<ele>459.200000</ele>
+<time>2012-05-18T14:37:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.635018" lon="11.256686">
+<ele>455.800000</ele>
+<time>2012-05-18T14:37:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634810" lon="11.256812">
+<ele>449.200000</ele>
+<time>2012-05-18T14:37:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634722" lon="11.256876">
+<ele>445.200000</ele>
+<time>2012-05-18T14:37:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.71</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634703" lon="11.256768">
+<ele>443.800000</ele>
+<time>2012-05-18T14:37:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634714" lon="11.256597">
+<ele>442.800000</ele>
+<time>2012-05-18T14:37:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.13</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634666" lon="11.256253">
+<ele>439.800000</ele>
+<time>2012-05-18T14:37:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634534" lon="11.255881">
+<ele>435.600000</ele>
+<time>2012-05-18T14:37:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634434" lon="11.255478">
+<ele>430.600000</ele>
+<time>2012-05-18T14:37:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634426" lon="11.255339">
+<ele>428.200000</ele>
+<time>2012-05-18T14:37:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634458" lon="11.255212">
+<ele>427.200000</ele>
+<time>2012-05-18T14:38:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.46</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634477" lon="11.255010">
+<ele>426.000000</ele>
+<time>2012-05-18T14:38:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634488" lon="11.254772">
+<ele>423.000000</ele>
+<time>2012-05-18T14:38:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634461" lon="11.254447">
+<ele>418.800000</ele>
+<time>2012-05-18T14:38:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634391" lon="11.254143">
+<ele>414.200000</ele>
+<time>2012-05-18T14:38:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634227" lon="11.253845">
+<ele>407.600000</ele>
+<time>2012-05-18T14:38:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634097" lon="11.253811">
+<ele>401.400000</ele>
+<time>2012-05-18T14:38:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.634050" lon="11.253773">
+<ele>400.800000</ele>
+<time>2012-05-18T14:38:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.95</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.633944" lon="11.253647">
+<ele>399.600000</ele>
+<time>2012-05-18T14:38:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.633747" lon="11.253613">
+<ele>397.800000</ele>
+<time>2012-05-18T14:38:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.633282" lon="11.253723">
+<ele>392.400000</ele>
+<time>2012-05-18T14:38:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.633079" lon="11.253846">
+<ele>389.200000</ele>
+<time>2012-05-18T14:38:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.632915" lon="11.253938">
+<ele>386.400000</ele>
+<time>2012-05-18T14:38:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.88</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.632828" lon="11.253991">
+<ele>384.800000</ele>
+<time>2012-05-18T14:38:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.632711" lon="11.254050">
+<ele>383.800000</ele>
+<time>2012-05-18T14:39:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.43</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.632410" lon="11.254282">
+<ele>382.000000</ele>
+<time>2012-05-18T14:39:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.35</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.632137" lon="11.254364">
+<ele>381.600000</ele>
+<time>2012-05-18T14:39:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.631978" lon="11.254308">
+<ele>380.800000</ele>
+<time>2012-05-18T14:39:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.05</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.631780" lon="11.254184">
+<ele>379.800000</ele>
+<time>2012-05-18T14:39:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.95</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.631480" lon="11.254083">
+<ele>378.200000</ele>
+<time>2012-05-18T14:39:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.631182" lon="11.253799">
+<ele>375.600000</ele>
+<time>2012-05-18T14:39:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.80</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630886" lon="11.253308">
+<ele>371.400000</ele>
+<time>2012-05-18T14:39:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630605" lon="11.252889">
+<ele>366.600000</ele>
+<time>2012-05-18T14:39:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.25</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630438" lon="11.252730">
+<ele>363.600000</ele>
+<time>2012-05-18T14:39:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.37</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630348" lon="11.252893">
+<ele>363.200000</ele>
+<time>2012-05-18T14:39:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.86</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630354" lon="11.253086">
+<ele>363.800000</ele>
+<time>2012-05-18T14:39:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630375" lon="11.253514">
+<ele>366.000000</ele>
+<time>2012-05-18T14:40:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630316" lon="11.253858">
+<ele>368.000000</ele>
+<time>2012-05-18T14:40:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.630126" lon="11.254184">
+<ele>368.200000</ele>
+<time>2012-05-18T14:40:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.629891" lon="11.254586">
+<ele>367.400000</ele>
+<time>2012-05-18T14:40:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.58</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.629795" lon="11.254649">
+<ele>366.800000</ele>
+<time>2012-05-18T14:40:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.629623" lon="11.254650">
+<ele>365.200000</ele>
+<time>2012-05-18T14:40:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.629419" lon="11.254667">
+<ele>363.400000</ele>
+<time>2012-05-18T14:40:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.629259" lon="11.254852">
+<ele>362.000000</ele>
+<time>2012-05-18T14:40:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.56</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.629138" lon="11.254953">
+<ele>361.400000</ele>
+<time>2012-05-18T14:40:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.629052" lon="11.254939">
+<ele>360.800000</ele>
+<time>2012-05-18T14:40:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.81</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.628920" lon="11.254874">
+<ele>360.400000</ele>
+<time>2012-05-18T14:40:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.628552" lon="11.254715">
+<ele>360.000000</ele>
+<time>2012-05-18T14:40:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.628420" lon="11.254626">
+<ele>360.600000</ele>
+<time>2012-05-18T14:40:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.628353" lon="11.254405">
+<ele>361.600000</ele>
+<time>2012-05-18T14:41:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.628211" lon="11.254201">
+<ele>362.600000</ele>
+<time>2012-05-18T14:41:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.627996" lon="11.254134">
+<ele>363.800000</ele>
+<time>2012-05-18T14:41:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.627732" lon="11.254114">
+<ele>366.400000</ele>
+<time>2012-05-18T14:41:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.27</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.627520" lon="11.254093">
+<ele>369.000000</ele>
+<time>2012-05-18T14:41:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.627358" lon="11.254022">
+<ele>371.400000</ele>
+<time>2012-05-18T14:41:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.627149" lon="11.253843">
+<ele>374.400000</ele>
+<time>2012-05-18T14:41:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.42</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626934" lon="11.253674">
+<ele>376.800000</ele>
+<time>2012-05-18T14:42:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626760" lon="11.253587">
+<ele>378.600000</ele>
+<time>2012-05-18T14:42:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.55</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626681" lon="11.253700">
+<ele>379.800000</ele>
+<time>2012-05-18T14:42:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626638" lon="11.254152">
+<ele>381.600000</ele>
+<time>2012-05-18T14:42:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.99</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626638" lon="11.254375">
+<ele>382.200000</ele>
+<time>2012-05-18T14:42:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.22</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626611" lon="11.254846">
+<ele>382.600000</ele>
+<time>2012-05-18T14:42:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626570" lon="11.255380">
+<ele>383.600000</ele>
+<time>2012-05-18T14:42:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.31</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626539" lon="11.255869">
+<ele>384.800000</ele>
+<time>2012-05-18T14:43:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626496" lon="11.256440">
+<ele>385.400000</ele>
+<time>2012-05-18T14:43:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.15</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626425" lon="11.257069">
+<ele>386.200000</ele>
+<time>2012-05-18T14:43:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626328" lon="11.257707">
+<ele>387.200000</ele>
+<time>2012-05-18T14:43:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626237" lon="11.258009">
+<ele>387.800000</ele>
+<time>2012-05-18T14:43:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626154" lon="11.258551">
+<ele>388.400000</ele>
+<time>2012-05-18T14:43:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626105" lon="11.258902">
+<ele>389.000000</ele>
+<time>2012-05-18T14:43:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626169" lon="11.259159">
+<ele>388.000000</ele>
+<time>2012-05-18T14:43:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626175" lon="11.259487">
+<ele>386.600000</ele>
+<time>2012-05-18T14:44:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.92</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626106" lon="11.259713">
+<ele>386.200000</ele>
+<time>2012-05-18T14:44:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626070" lon="11.259875">
+<ele>386.000000</ele>
+<time>2012-05-18T14:44:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.18</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626121" lon="11.260207">
+<ele>384.600000</ele>
+<time>2012-05-18T14:44:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.15</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626185" lon="11.260494">
+<ele>382.400000</ele>
+<time>2012-05-18T14:44:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.47</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.626100" lon="11.260778">
+<ele>382.000000</ele>
+<time>2012-05-18T14:44:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.625947" lon="11.260956">
+<ele>382.600000</ele>
+<time>2012-05-18T14:44:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.625595" lon="11.260853">
+<ele>386.000000</ele>
+<time>2012-05-18T14:44:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.43</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.625265" lon="11.260762">
+<ele>389.400000</ele>
+<time>2012-05-18T14:44:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.625014" lon="11.260818">
+<ele>392.000000</ele>
+<time>2012-05-18T14:44:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.53</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624673" lon="11.261010">
+<ele>394.800000</ele>
+<time>2012-05-18T14:45:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624340" lon="11.261226">
+<ele>397.400000</ele>
+<time>2012-05-18T14:45:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.66</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624245" lon="11.261368">
+<ele>398.000000</ele>
+<time>2012-05-18T14:45:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624225" lon="11.261743">
+<ele>396.000000</ele>
+<time>2012-05-18T14:45:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624276" lon="11.261885">
+<ele>395.200000</ele>
+<time>2012-05-18T14:45:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.85</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624375" lon="11.262084">
+<ele>394.000000</ele>
+<time>2012-05-18T14:45:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624433" lon="11.262402">
+<ele>393.400000</ele>
+<time>2012-05-18T14:45:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624421" lon="11.262720">
+<ele>391.800000</ele>
+<time>2012-05-18T14:45:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624455" lon="11.262973">
+<ele>390.600000</ele>
+<time>2012-05-18T14:45:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624478" lon="11.263274">
+<ele>389.400000</ele>
+<time>2012-05-18T14:45:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624466" lon="11.263708">
+<ele>388.800000</ele>
+<time>2012-05-18T14:45:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.27</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624450" lon="11.264068">
+<ele>389.600000</ele>
+<time>2012-05-18T14:45:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624394" lon="11.264386">
+<ele>389.200000</ele>
+<time>2012-05-18T14:45:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.75</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624269" lon="11.264729">
+<ele>390.200000</ele>
+<time>2012-05-18T14:46:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.05</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.624116" lon="11.265288">
+<ele>392.000000</ele>
+<time>2012-05-18T14:46:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623924" lon="11.265832">
+<ele>393.400000</ele>
+<time>2012-05-18T14:46:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623802" lon="11.266263">
+<ele>395.400000</ele>
+<time>2012-05-18T14:46:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.77</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623676" lon="11.266857">
+<ele>396.600000</ele>
+<time>2012-05-18T14:46:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623620" lon="11.267200">
+<ele>397.800000</ele>
+<time>2012-05-18T14:46:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623572" lon="11.267426">
+<ele>399.600000</ele>
+<time>2012-05-18T14:47:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623519" lon="11.267670">
+<ele>402.800000</ele>
+<time>2012-05-18T14:47:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623468" lon="11.267883">
+<ele>405.600000</ele>
+<time>2012-05-18T14:47:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623430" lon="11.268037">
+<ele>408.200000</ele>
+<time>2012-05-18T14:47:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623382" lon="11.268193">
+<ele>410.600000</ele>
+<time>2012-05-18T14:47:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.56</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623320" lon="11.268338">
+<ele>412.600000</ele>
+<time>2012-05-18T14:47:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.57</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623254" lon="11.268447">
+<ele>414.600000</ele>
+<time>2012-05-18T14:47:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623210" lon="11.268514">
+<ele>416.200000</ele>
+<time>2012-05-18T14:47:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.15</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623161" lon="11.268635">
+<ele>418.400000</ele>
+<time>2012-05-18T14:48:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623134" lon="11.268695">
+<ele>419.600000</ele>
+<time>2012-05-18T14:48:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.623046" lon="11.268804">
+<ele>422.400000</ele>
+<time>2012-05-18T14:48:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622999" lon="11.268894">
+<ele>424.400000</ele>
+<time>2012-05-18T14:48:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.04</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622915" lon="11.269016">
+<ele>426.400000</ele>
+<time>2012-05-18T14:48:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.28</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622821" lon="11.269075">
+<ele>427.800000</ele>
+<time>2012-05-18T14:48:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622751" lon="11.269145">
+<ele>429.600000</ele>
+<time>2012-05-18T14:48:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622668" lon="11.269248">
+<ele>431.200000</ele>
+<time>2012-05-18T14:49:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622620" lon="11.269386">
+<ele>433.200000</ele>
+<time>2012-05-18T14:49:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622599" lon="11.269510">
+<ele>434.800000</ele>
+<time>2012-05-18T14:49:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622587" lon="11.269647">
+<ele>437.000000</ele>
+<time>2012-05-18T14:49:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.11</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622608" lon="11.269771">
+<ele>439.000000</ele>
+<time>2012-05-18T14:49:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622646" lon="11.269920">
+<ele>441.000000</ele>
+<time>2012-05-18T14:49:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.28</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622646" lon="11.269980">
+<ele>442.000000</ele>
+<time>2012-05-18T14:49:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622652" lon="11.270074">
+<ele>443.000000</ele>
+<time>2012-05-18T14:49:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.36</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622667" lon="11.270203">
+<ele>444.400000</ele>
+<time>2012-05-18T14:50:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.18</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622686" lon="11.270296">
+<ele>445.600000</ele>
+<time>2012-05-18T14:50:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622707" lon="11.270512">
+<ele>447.600000</ele>
+<time>2012-05-18T14:50:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.58</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622685" lon="11.270664">
+<ele>449.400000</ele>
+<time>2012-05-18T14:50:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622677" lon="11.270715">
+<ele>450.200000</ele>
+<time>2012-05-18T14:50:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622621" lon="11.270809">
+<ele>451.400000</ele>
+<time>2012-05-18T14:50:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622535" lon="11.271027">
+<ele>453.400000</ele>
+<time>2012-05-18T14:50:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622435" lon="11.271290">
+<ele>455.600000</ele>
+<time>2012-05-18T14:50:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622370" lon="11.271575">
+<ele>458.600000</ele>
+<time>2012-05-18T14:51:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622359" lon="11.271857">
+<ele>461.600000</ele>
+<time>2012-05-18T14:51:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.04</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622378" lon="11.272212">
+<ele>464.800000</ele>
+<time>2012-05-18T14:51:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622425" lon="11.272477">
+<ele>467.200000</ele>
+<time>2012-05-18T14:51:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622495" lon="11.272773">
+<ele>469.800000</ele>
+<time>2012-05-18T14:51:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622536" lon="11.272998">
+<ele>472.400000</ele>
+<time>2012-05-18T14:52:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622566" lon="11.273223">
+<ele>474.400000</ele>
+<time>2012-05-18T14:52:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622565" lon="11.273458">
+<ele>476.600000</ele>
+<time>2012-05-18T14:52:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622502" lon="11.273627">
+<ele>478.800000</ele>
+<time>2012-05-18T14:52:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.56</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622372" lon="11.273832">
+<ele>481.600000</ele>
+<time>2012-05-18T14:52:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622256" lon="11.274084">
+<ele>484.800000</ele>
+<time>2012-05-18T14:52:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622169" lon="11.274267">
+<ele>487.800000</ele>
+<time>2012-05-18T14:52:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.622062" lon="11.274488">
+<ele>490.600000</ele>
+<time>2012-05-18T14:53:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.81</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.621979" lon="11.274663">
+<ele>492.200000</ele>
+<time>2012-05-18T14:53:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.621864" lon="11.274877">
+<ele>494.800000</ele>
+<time>2012-05-18T14:53:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.621717" lon="11.275106">
+<ele>497.200000</ele>
+<time>2012-05-18T14:53:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.11</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.621503" lon="11.275374">
+<ele>500.400000</ele>
+<time>2012-05-18T14:53:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.621323" lon="11.275587">
+<ele>502.600000</ele>
+<time>2012-05-18T14:54:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.621142" lon="11.275777">
+<ele>504.600000</ele>
+<time>2012-05-18T14:54:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.620966" lon="11.275984">
+<ele>506.400000</ele>
+<time>2012-05-18T14:54:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.46</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.620802" lon="11.276183">
+<ele>507.400000</ele>
+<time>2012-05-18T14:54:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.58</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.620661" lon="11.276250">
+<ele>508.200000</ele>
+<time>2012-05-18T14:54:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.620454" lon="11.276148">
+<ele>508.600000</ele>
+<time>2012-05-18T14:54:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.620187" lon="11.275998">
+<ele>509.800000</ele>
+<time>2012-05-18T14:54:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.88</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.619903" lon="11.275829">
+<ele>511.000000</ele>
+<time>2012-05-18T14:55:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.619711" lon="11.275730">
+<ele>511.400000</ele>
+<time>2012-05-18T14:55:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.619586" lon="11.275671">
+<ele>511.800000</ele>
+<time>2012-05-18T14:55:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.43</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.619344" lon="11.275548">
+<ele>512.200000</ele>
+<time>2012-05-18T14:55:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.619164" lon="11.275436">
+<ele>513.000000</ele>
+<time>2012-05-18T14:55:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.09</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.618912" lon="11.275335">
+<ele>513.600000</ele>
+<time>2012-05-18T14:55:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.22</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.618607" lon="11.275228">
+<ele>514.200000</ele>
+<time>2012-05-18T14:55:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.618306" lon="11.275134">
+<ele>515.400000</ele>
+<time>2012-05-18T14:56:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.42</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.618111" lon="11.275083">
+<ele>515.200000</ele>
+<time>2012-05-18T14:56:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617933" lon="11.274976">
+<ele>514.600000</ele>
+<time>2012-05-18T14:56:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.25</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617855" lon="11.274908">
+<ele>514.600000</ele>
+<time>2012-05-18T14:56:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.99</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617604" lon="11.274829">
+<ele>516.200000</ele>
+<time>2012-05-18T14:56:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617313" lon="11.274827">
+<ele>516.400000</ele>
+<time>2012-05-18T14:56:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.05</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617201" lon="11.274790">
+<ele>516.000000</ele>
+<time>2012-05-18T14:56:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.25</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617113" lon="11.274572">
+<ele>515.000000</ele>
+<time>2012-05-18T14:56:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617024" lon="11.273898">
+<ele>513.600000</ele>
+<time>2012-05-18T14:56:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.20</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.616974" lon="11.273443">
+<ele>512.400000</ele>
+<time>2012-05-18T14:56:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.66</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617033" lon="11.272899">
+<ele>512.400000</ele>
+<time>2012-05-18T14:57:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617063" lon="11.272711">
+<ele>512.200000</ele>
+<time>2012-05-18T14:57:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.617067" lon="11.272335">
+<ele>512.000000</ele>
+<time>2012-05-18T14:57:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.78</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.616999" lon="11.271619">
+<ele>511.000000</ele>
+<time>2012-05-18T14:57:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.616907" lon="11.270754">
+<ele>511.600000</ele>
+<time>2012-05-18T14:57:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.616890" lon="11.270595">
+<ele>511.600000</ele>
+<time>2012-05-18T14:57:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.81</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.616786" lon="11.270393">
+<ele>511.800000</ele>
+<time>2012-05-18T14:57:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.616695" lon="11.270377">
+<ele>511.800000</ele>
+<time>2012-05-18T14:57:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.616281" lon="11.270368">
+<ele>510.200000</ele>
+<time>2012-05-18T14:57:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.58</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.615391" lon="11.270350">
+<ele>506.000000</ele>
+<time>2012-05-18T14:57:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.62</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.614961" lon="11.270342">
+<ele>503.800000</ele>
+<time>2012-05-18T14:58:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.57</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.614398" lon="11.270319">
+<ele>498.800000</ele>
+<time>2012-05-18T14:58:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.614260" lon="11.270316">
+<ele>497.400000</ele>
+<time>2012-05-18T14:58:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.68</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.614115" lon="11.270500">
+<ele>495.000000</ele>
+<time>2012-05-18T14:58:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.22</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.614125" lon="11.270760">
+<ele>495.000000</ele>
+<time>2012-05-18T14:58:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.614181" lon="11.271294">
+<ele>495.000000</ele>
+<time>2012-05-18T14:58:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.50</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.614137" lon="11.271748">
+<ele>494.800000</ele>
+<time>2012-05-18T14:58:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.62</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.613920" lon="11.272307">
+<ele>495.200000</ele>
+<time>2012-05-18T14:58:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.88</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.613712" lon="11.272777">
+<ele>495.000000</ele>
+<time>2012-05-18T14:58:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.86</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.613532" lon="11.273141">
+<ele>494.600000</ele>
+<time>2012-05-18T14:58:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.61</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.613304" lon="11.273454">
+<ele>493.600000</ele>
+<time>2012-05-18T14:58:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.66</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.613155" lon="11.273613">
+<ele>494.200000</ele>
+<time>2012-05-18T14:58:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.612953" lon="11.273748">
+<ele>496.200000</ele>
+<time>2012-05-18T14:59:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.50</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.612723" lon="11.273888">
+<ele>497.800000</ele>
+<time>2012-05-18T14:59:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.612458" lon="11.274033">
+<ele>500.000000</ele>
+<time>2012-05-18T14:59:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.13</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.612292" lon="11.274052">
+<ele>501.000000</ele>
+<time>2012-05-18T14:59:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.09</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.612031" lon="11.274016">
+<ele>502.400000</ele>
+<time>2012-05-18T14:59:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.24</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.611784" lon="11.273976">
+<ele>504.400000</ele>
+<time>2012-05-18T14:59:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.611518" lon="11.273942">
+<ele>507.000000</ele>
+<time>2012-05-18T14:59:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.611251" lon="11.273918">
+<ele>509.600000</ele>
+<time>2012-05-18T15:00:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.610953" lon="11.273920">
+<ele>511.200000</ele>
+<time>2012-05-18T15:00:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.610643" lon="11.273927">
+<ele>513.400000</ele>
+<time>2012-05-18T15:00:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.610366" lon="11.273888">
+<ele>515.600000</ele>
+<time>2012-05-18T15:00:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.610211" lon="11.273925">
+<ele>517.400000</ele>
+<time>2012-05-18T15:00:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.610094" lon="11.274169">
+<ele>518.600000</ele>
+<time>2012-05-18T15:00:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.13</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.609927" lon="11.274607">
+<ele>519.200000</ele>
+<time>2012-05-18T15:01:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.609777" lon="11.274798">
+<ele>520.000000</ele>
+<time>2012-05-18T15:01:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.61</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.609479" lon="11.275052">
+<ele>522.200000</ele>
+<time>2012-05-18T15:01:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.609090" lon="11.275367">
+<ele>524.200000</ele>
+<time>2012-05-18T15:01:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.608770" lon="11.275629">
+<ele>526.400000</ele>
+<time>2012-05-18T15:01:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.36</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.608386" lon="11.275936">
+<ele>528.600000</ele>
+<time>2012-05-18T15:01:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.608073" lon="11.276231">
+<ele>530.800000</ele>
+<time>2012-05-18T15:02:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.607859" lon="11.276494">
+<ele>532.000000</ele>
+<time>2012-05-18T15:02:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.607614" lon="11.276823">
+<ele>534.200000</ele>
+<time>2012-05-18T15:02:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.607307" lon="11.277149">
+<ele>536.000000</ele>
+<time>2012-05-18T15:02:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.46</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.607010" lon="11.277426">
+<ele>536.200000</ele>
+<time>2012-05-18T15:02:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.86</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.606790" lon="11.277623">
+<ele>535.000000</ele>
+<time>2012-05-18T15:02:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.66</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.606572" lon="11.278002">
+<ele>533.200000</ele>
+<time>2012-05-18T15:03:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.31</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.606502" lon="11.278195">
+<ele>532.600000</ele>
+<time>2012-05-18T15:03:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.606255" lon="11.278619">
+<ele>530.400000</ele>
+<time>2012-05-18T15:03:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605919" lon="11.278994">
+<ele>529.000000</ele>
+<time>2012-05-18T15:03:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605724" lon="11.279245">
+<ele>529.000000</ele>
+<time>2012-05-18T15:03:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605423" lon="11.279511">
+<ele>529.600000</ele>
+<time>2012-05-18T15:03:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605204" lon="11.279661">
+<ele>531.000000</ele>
+<time>2012-05-18T15:03:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604989" lon="11.279716">
+<ele>532.800000</ele>
+<time>2012-05-18T15:03:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.04</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604601" lon="11.279733">
+<ele>532.000000</ele>
+<time>2012-05-18T15:03:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604254" lon="11.279903">
+<ele>531.800000</ele>
+<time>2012-05-18T15:03:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603985" lon="11.280130">
+<ele>532.600000</ele>
+<time>2012-05-18T15:03:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.88</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603687" lon="11.280404">
+<ele>533.200000</ele>
+<time>2012-05-18T15:04:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.83</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603505" lon="11.280549">
+<ele>534.000000</ele>
+<time>2012-05-18T15:04:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.56</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603172" lon="11.280785">
+<ele>535.000000</ele>
+<time>2012-05-18T15:04:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.53</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603110" lon="11.281005">
+<ele>535.400000</ele>
+<time>2012-05-18T15:04:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603025" lon="11.281260">
+<ele>536.200000</ele>
+<time>2012-05-18T15:04:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602995" lon="11.281295">
+<ele>536.200000</ele>
+<time>2012-05-18T15:04:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602925" lon="11.281360">
+<ele>536.200000</ele>
+<time>2012-05-18T15:04:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.55</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602688" lon="11.281631">
+<ele>536.800000</ele>
+<time>2012-05-18T15:04:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602429" lon="11.281916">
+<ele>538.000000</ele>
+<time>2012-05-18T15:04:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602190" lon="11.281993">
+<ele>538.200000</ele>
+<time>2012-05-18T15:04:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.53</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601771" lon="11.282120">
+<ele>537.200000</ele>
+<time>2012-05-18T15:05:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.28</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601676" lon="11.282129">
+<ele>536.400000</ele>
+<time>2012-05-18T15:05:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601542" lon="11.282267">
+<ele>535.000000</ele>
+<time>2012-05-18T15:05:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601520" lon="11.282407">
+<ele>534.200000</ele>
+<time>2012-05-18T15:05:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.20</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601463" lon="11.282962">
+<ele>533.000000</ele>
+<time>2012-05-18T15:05:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601454" lon="11.283306">
+<ele>533.400000</ele>
+<time>2012-05-18T15:05:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601401" lon="11.283787">
+<ele>533.800000</ele>
+<time>2012-05-18T15:05:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601368" lon="11.284360">
+<ele>534.000000</ele>
+<time>2012-05-18T15:05:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601380" lon="11.284606">
+<ele>533.800000</ele>
+<time>2012-05-18T15:05:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601543" lon="11.285274">
+<ele>531.800000</ele>
+<time>2012-05-18T15:05:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601723" lon="11.285967">
+<ele>531.600000</ele>
+<time>2012-05-18T15:05:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601864" lon="11.286214">
+<ele>531.800000</ele>
+<time>2012-05-18T15:06:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602060" lon="11.286295">
+<ele>532.200000</ele>
+<time>2012-05-18T15:06:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602551" lon="11.286290">
+<ele>534.400000</ele>
+<time>2012-05-18T15:06:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.47</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603002" lon="11.286175">
+<ele>536.400000</ele>
+<time>2012-05-18T15:06:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603485" lon="11.286028">
+<ele>538.200000</ele>
+<time>2012-05-18T15:06:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603679" lon="11.286005">
+<ele>538.600000</ele>
+<time>2012-05-18T15:06:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.42</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603942" lon="11.286140">
+<ele>539.800000</ele>
+<time>2012-05-18T15:06:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604255" lon="11.286548">
+<ele>541.200000</ele>
+<time>2012-05-18T15:06:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604593" lon="11.287052">
+<ele>541.800000</ele>
+<time>2012-05-18T15:07:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604766" lon="11.287467">
+<ele>542.600000</ele>
+<time>2012-05-18T15:07:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.09</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604836" lon="11.287992">
+<ele>543.000000</ele>
+<time>2012-05-18T15:07:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604938" lon="11.288649">
+<ele>541.600000</ele>
+<time>2012-05-18T15:07:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605112" lon="11.289470">
+<ele>539.600000</ele>
+<time>2012-05-18T15:07:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605262" lon="11.290307">
+<ele>538.600000</ele>
+<time>2012-05-18T15:07:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.95</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605450" lon="11.291114">
+<ele>537.600000</ele>
+<time>2012-05-18T15:07:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605684" lon="11.291707">
+<ele>537.200000</ele>
+<time>2012-05-18T15:07:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.35</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.606036" lon="11.292320">
+<ele>535.400000</ele>
+<time>2012-05-18T15:08:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.606077" lon="11.292596">
+<ele>533.400000</ele>
+<time>2012-05-18T15:08:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.11</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605986" lon="11.292679">
+<ele>533.000000</ele>
+<time>2012-05-18T15:08:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.88</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605590" lon="11.292927">
+<ele>529.800000</ele>
+<time>2012-05-18T15:08:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605438" lon="11.293018">
+<ele>529.000000</ele>
+<time>2012-05-18T15:08:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.605137" lon="11.293206">
+<ele>525.600000</ele>
+<time>2012-05-18T15:08:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.04</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604870" lon="11.293440">
+<ele>522.800000</ele>
+<time>2012-05-18T15:08:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.55</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604666" lon="11.293527">
+<ele>519.000000</ele>
+<time>2012-05-18T15:08:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.89</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604510" lon="11.293818">
+<ele>516.000000</ele>
+<time>2012-05-18T15:08:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604412" lon="11.294109">
+<ele>512.400000</ele>
+<time>2012-05-18T15:08:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.89</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604283" lon="11.294602">
+<ele>509.200000</ele>
+<time>2012-05-18T15:08:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>12.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604209" lon="11.295096">
+<ele>506.400000</ele>
+<time>2012-05-18T15:08:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604203" lon="11.295580">
+<ele>506.800000</ele>
+<time>2012-05-18T15:08:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604220" lon="11.296021">
+<ele>508.200000</ele>
+<time>2012-05-18T15:08:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.55</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604148" lon="11.296399">
+<ele>509.800000</ele>
+<time>2012-05-18T15:09:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.604025" lon="11.296590">
+<ele>510.200000</ele>
+<time>2012-05-18T15:09:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.89</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603775" lon="11.296668">
+<ele>508.800000</ele>
+<time>2012-05-18T15:09:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.68</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.603430" lon="11.296799">
+<ele>506.000000</ele>
+<time>2012-05-18T15:09:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602919" lon="11.296927">
+<ele>505.000000</ele>
+<time>2012-05-18T15:09:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.61</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602795" lon="11.296987">
+<ele>504.600000</ele>
+<time>2012-05-18T15:09:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602544" lon="11.297126">
+<ele>503.200000</ele>
+<time>2012-05-18T15:09:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.42</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602309" lon="11.297258">
+<ele>502.000000</ele>
+<time>2012-05-18T15:09:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.28</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.602031" lon="11.297542">
+<ele>502.600000</ele>
+<time>2012-05-18T15:09:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601927" lon="11.297668">
+<ele>504.000000</ele>
+<time>2012-05-18T15:09:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.68</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601833" lon="11.297737">
+<ele>503.600000</ele>
+<time>2012-05-18T15:09:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601667" lon="11.297899">
+<ele>501.600000</ele>
+<time>2012-05-18T15:09:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601549" lon="11.298012">
+<ele>500.600000</ele>
+<time>2012-05-18T15:09:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601424" lon="11.298133">
+<ele>499.200000</ele>
+<time>2012-05-18T15:09:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601333" lon="11.298265">
+<ele>498.600000</ele>
+<time>2012-05-18T15:09:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.95</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.601256" lon="11.298377">
+<ele>498.600000</ele>
+<time>2012-05-18T15:09:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.89</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600971" lon="11.298647">
+<ele>498.800000</ele>
+<time>2012-05-18T15:10:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600860" lon="11.298843">
+<ele>498.600000</ele>
+<time>2012-05-18T15:10:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600689" lon="11.299180">
+<ele>498.200000</ele>
+<time>2012-05-18T15:10:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.18</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600443" lon="11.299563">
+<ele>496.200000</ele>
+<time>2012-05-18T15:10:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.78</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600303" lon="11.299729">
+<ele>495.400000</ele>
+<time>2012-05-18T15:10:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.83</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600110" lon="11.299970">
+<ele>494.400000</ele>
+<time>2012-05-18T15:10:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.599939" lon="11.300387">
+<ele>493.000000</ele>
+<time>2012-05-18T15:10:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>11.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.599921" lon="11.300962">
+<ele>491.000000</ele>
+<time>2012-05-18T15:10:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600129" lon="11.301734">
+<ele>484.800000</ele>
+<time>2012-05-18T15:10:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>12.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600190" lon="11.302180">
+<ele>483.600000</ele>
+<time>2012-05-18T15:10:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600179" lon="11.302610">
+<ele>483.200000</ele>
+<time>2012-05-18T15:10:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.35</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600250" lon="11.303130">
+<ele>483.800000</ele>
+<time>2012-05-18T15:10:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600324" lon="11.303552">
+<ele>483.200000</ele>
+<time>2012-05-18T15:10:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.89</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600393" lon="11.303896">
+<ele>481.800000</ele>
+<time>2012-05-18T15:10:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.66</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600468" lon="11.304460">
+<ele>480.800000</ele>
+<time>2012-05-18T15:10:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600474" lon="11.304862">
+<ele>481.000000</ele>
+<time>2012-05-18T15:10:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>14.51</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600305" lon="11.305245">
+<ele>480.800000</ele>
+<time>2012-05-18T15:10:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.36</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600115" lon="11.305701">
+<ele>476.200000</ele>
+<time>2012-05-18T15:11:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600123" lon="11.305954">
+<ele>474.000000</ele>
+<time>2012-05-18T15:11:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.57</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600179" lon="11.306368">
+<ele>474.200000</ele>
+<time>2012-05-18T15:11:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.09</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600168" lon="11.306753">
+<ele>474.600000</ele>
+<time>2012-05-18T15:11:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.600086" lon="11.307000">
+<ele>474.800000</ele>
+<time>2012-05-18T15:11:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.599930" lon="11.307170">
+<ele>474.000000</ele>
+<time>2012-05-18T15:11:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.599706" lon="11.307475">
+<ele>472.000000</ele>
+<time>2012-05-18T15:11:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.31</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.599433" lon="11.307729">
+<ele>470.000000</ele>
+<time>2012-05-18T15:11:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.599071" lon="11.307926">
+<ele>470.000000</ele>
+<time>2012-05-18T15:11:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.598766" lon="11.307984">
+<ele>471.200000</ele>
+<time>2012-05-18T15:11:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.70</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.598542" lon="11.307998">
+<ele>472.200000</ele>
+<time>2012-05-18T15:11:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.598363" lon="11.308026">
+<ele>473.600000</ele>
+<time>2012-05-18T15:12:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.598177" lon="11.308092">
+<ele>475.200000</ele>
+<time>2012-05-18T15:12:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.597921" lon="11.308180">
+<ele>476.800000</ele>
+<time>2012-05-18T15:12:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.597632" lon="11.308296">
+<ele>478.600000</ele>
+<time>2012-05-18T15:12:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.597470" lon="11.308372">
+<ele>480.000000</ele>
+<time>2012-05-18T15:12:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.597294" lon="11.308463">
+<ele>481.400000</ele>
+<time>2012-05-18T15:12:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.597069" lon="11.308532">
+<ele>481.600000</ele>
+<time>2012-05-18T15:12:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.596848" lon="11.308628">
+<ele>480.200000</ele>
+<time>2012-05-18T15:12:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.596479" lon="11.308810">
+<ele>477.200000</ele>
+<time>2012-05-18T15:12:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.78</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.596315" lon="11.308729">
+<ele>475.400000</ele>
+<time>2012-05-18T15:12:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.596033" lon="11.308457">
+<ele>475.400000</ele>
+<time>2012-05-18T15:12:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.595784" lon="11.308083">
+<ele>476.600000</ele>
+<time>2012-05-18T15:13:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.595686" lon="11.307934">
+<ele>477.600000</ele>
+<time>2012-05-18T15:13:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.11</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.595499" lon="11.307632">
+<ele>477.600000</ele>
+<time>2012-05-18T15:13:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.595325" lon="11.307518">
+<ele>477.600000</ele>
+<time>2012-05-18T15:13:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.595215" lon="11.307581">
+<ele>478.600000</ele>
+<time>2012-05-18T15:13:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.35</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.595145" lon="11.307677">
+<ele>479.000000</ele>
+<time>2012-05-18T15:13:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.595024" lon="11.307846">
+<ele>478.400000</ele>
+<time>2012-05-18T15:13:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594953" lon="11.308099">
+<ele>478.200000</ele>
+<time>2012-05-18T15:13:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594911" lon="11.308422">
+<ele>479.000000</ele>
+<time>2012-05-18T15:13:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.75</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594906" lon="11.308563">
+<ele>479.000000</ele>
+<time>2012-05-18T15:13:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.09</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594871" lon="11.308857">
+<ele>478.400000</ele>
+<time>2012-05-18T15:13:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594724" lon="11.309286">
+<ele>476.600000</ele>
+<time>2012-05-18T15:13:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594610" lon="11.309591">
+<ele>475.600000</ele>
+<time>2012-05-18T15:13:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.47</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594442" lon="11.309784">
+<ele>474.600000</ele>
+<time>2012-05-18T15:13:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.77</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.594169" lon="11.310261">
+<ele>472.200000</ele>
+<time>2012-05-18T15:13:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593905" lon="11.310699">
+<ele>469.400000</ele>
+<time>2012-05-18T15:14:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593688" lon="11.310913">
+<ele>466.800000</ele>
+<time>2012-05-18T15:14:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593451" lon="11.311028">
+<ele>460.600000</ele>
+<time>2012-05-18T15:14:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.61</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593387" lon="11.311134">
+<ele>457.800000</ele>
+<time>2012-05-18T15:14:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593348" lon="11.311229">
+<ele>456.600000</ele>
+<time>2012-05-18T15:14:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593250" lon="11.311310">
+<ele>455.000000</ele>
+<time>2012-05-18T15:14:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.13</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593152" lon="11.311410">
+<ele>453.000000</ele>
+<time>2012-05-18T15:14:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.36</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.593039" lon="11.311492">
+<ele>450.200000</ele>
+<time>2012-05-18T15:14:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.592934" lon="11.311544">
+<ele>449.200000</ele>
+<time>2012-05-18T15:14:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.592625" lon="11.311768">
+<ele>448.200000</ele>
+<time>2012-05-18T15:14:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.592514" lon="11.311890">
+<ele>447.600000</ele>
+<time>2012-05-18T15:14:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.592360" lon="11.312083">
+<ele>447.000000</ele>
+<time>2012-05-18T15:14:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.36</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.592107" lon="11.312365">
+<ele>447.600000</ele>
+<time>2012-05-18T15:14:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.591974" lon="11.312505">
+<ele>447.600000</ele>
+<time>2012-05-18T15:14:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.591847" lon="11.312631">
+<ele>448.000000</ele>
+<time>2012-05-18T15:14:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.591639" lon="11.312875">
+<ele>448.800000</ele>
+<time>2012-05-18T15:14:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.85</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.591543" lon="11.312995">
+<ele>449.000000</ele>
+<time>2012-05-18T15:14:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.591282" lon="11.313294">
+<ele>449.600000</ele>
+<time>2012-05-18T15:15:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.17</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.591085" lon="11.313522">
+<ele>449.200000</ele>
+<time>2012-05-18T15:15:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.590874" lon="11.313760">
+<ele>450.200000</ele>
+<time>2012-05-18T15:15:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.85</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.590809" lon="11.313838">
+<ele>450.200000</ele>
+<time>2012-05-18T15:15:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.58</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.590638" lon="11.314022">
+<ele>448.600000</ele>
+<time>2012-05-18T15:15:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.80</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.590463" lon="11.314222">
+<ele>446.000000</ele>
+<time>2012-05-18T15:15:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.590261" lon="11.314240">
+<ele>443.600000</ele>
+<time>2012-05-18T15:15:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589998" lon="11.314144">
+<ele>443.600000</ele>
+<time>2012-05-18T15:15:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589938" lon="11.314168">
+<ele>444.200000</ele>
+<time>2012-05-18T15:15:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589804" lon="11.314202">
+<ele>444.000000</ele>
+<time>2012-05-18T15:15:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589694" lon="11.314223">
+<ele>444.200000</ele>
+<time>2012-05-18T15:15:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.47</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589605" lon="11.314238">
+<ele>444.000000</ele>
+<time>2012-05-18T15:15:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589497" lon="11.314325">
+<ele>443.600000</ele>
+<time>2012-05-18T15:16:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.71</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589325" lon="11.314398">
+<ele>444.000000</ele>
+<time>2012-05-18T15:16:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.31</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.589184" lon="11.314443">
+<ele>444.200000</ele>
+<time>2012-05-18T15:16:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.588947" lon="11.314396">
+<ele>442.400000</ele>
+<time>2012-05-18T15:16:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.588833" lon="11.314339">
+<ele>440.800000</ele>
+<time>2012-05-18T15:16:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.588583" lon="11.314178">
+<ele>437.000000</ele>
+<time>2012-05-18T15:16:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.588504" lon="11.314112">
+<ele>436.400000</ele>
+<time>2012-05-18T15:16:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.588356" lon="11.314059">
+<ele>434.400000</ele>
+<time>2012-05-18T15:16:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.588257" lon="11.314153">
+<ele>432.400000</ele>
+<time>2012-05-18T15:16:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.587994" lon="11.314354">
+<ele>430.600000</ele>
+<time>2012-05-18T15:16:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.587777" lon="11.314514">
+<ele>429.800000</ele>
+<time>2012-05-18T15:16:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.587622" lon="11.314642">
+<ele>429.400000</ele>
+<time>2012-05-18T15:16:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.587499" lon="11.314712">
+<ele>429.400000</ele>
+<time>2012-05-18T15:16:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.587257" lon="11.314847">
+<ele>428.800000</ele>
+<time>2012-05-18T15:16:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.586994" lon="11.314880">
+<ele>428.200000</ele>
+<time>2012-05-18T15:16:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.586581" lon="11.314847">
+<ele>426.600000</ele>
+<time>2012-05-18T15:17:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.586182" lon="11.314831">
+<ele>424.600000</ele>
+<time>2012-05-18T15:17:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.585772" lon="11.314879">
+<ele>422.600000</ele>
+<time>2012-05-18T15:17:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.585533" lon="11.314959">
+<ele>421.400000</ele>
+<time>2012-05-18T15:17:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.81</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.585293" lon="11.315138">
+<ele>421.400000</ele>
+<time>2012-05-18T15:17:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.585061" lon="11.315335">
+<ele>422.800000</ele>
+<time>2012-05-18T15:17:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.584762" lon="11.315600">
+<ele>423.600000</ele>
+<time>2012-05-18T15:17:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.584662" lon="11.315768">
+<ele>423.600000</ele>
+<time>2012-05-18T15:17:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.584604" lon="11.315790">
+<ele>423.000000</ele>
+<time>2012-05-18T15:17:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.66</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.584531" lon="11.315765">
+<ele>423.200000</ele>
+<time>2012-05-18T15:17:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.77</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.584437" lon="11.315825">
+<ele>423.400000</ele>
+<time>2012-05-18T15:17:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.83</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.584250" lon="11.316051">
+<ele>423.200000</ele>
+<time>2012-05-18T15:17:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.78</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.584072" lon="11.316168">
+<ele>423.200000</ele>
+<time>2012-05-18T15:18:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.31</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583800" lon="11.316451">
+<ele>423.800000</ele>
+<time>2012-05-18T15:18:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583613" lon="11.316753">
+<ele>424.800000</ele>
+<time>2012-05-18T15:18:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.77</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583569" lon="11.316860">
+<ele>425.400000</ele>
+<time>2012-05-18T15:18:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.05</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583482" lon="11.317106">
+<ele>426.800000</ele>
+<time>2012-05-18T15:18:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.37</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583459" lon="11.317389">
+<ele>427.600000</ele>
+<time>2012-05-18T15:18:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583511" lon="11.317664">
+<ele>428.000000</ele>
+<time>2012-05-18T15:18:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583558" lon="11.317922">
+<ele>428.800000</ele>
+<time>2012-05-18T15:18:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583571" lon="11.318235">
+<ele>429.400000</ele>
+<time>2012-05-18T15:18:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583599" lon="11.318391">
+<ele>429.600000</ele>
+<time>2012-05-18T15:18:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.92</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583602" lon="11.318567">
+<ele>430.600000</ele>
+<time>2012-05-18T15:19:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583595" lon="11.318634">
+<ele>431.000000</ele>
+<time>2012-05-18T15:19:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583557" lon="11.318841">
+<ele>432.200000</ele>
+<time>2012-05-18T15:19:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583502" lon="11.319067">
+<ele>433.400000</ele>
+<time>2012-05-18T15:19:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583421" lon="11.319354">
+<ele>435.400000</ele>
+<time>2012-05-18T15:19:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583359" lon="11.319520">
+<ele>436.600000</ele>
+<time>2012-05-18T15:19:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583310" lon="11.319697">
+<ele>437.800000</ele>
+<time>2012-05-18T15:19:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583260" lon="11.319808">
+<ele>439.000000</ele>
+<time>2012-05-18T15:19:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583186" lon="11.320059">
+<ele>441.000000</ele>
+<time>2012-05-18T15:19:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583156" lon="11.320262">
+<ele>442.400000</ele>
+<time>2012-05-18T15:19:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.50</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583115" lon="11.320533">
+<ele>444.000000</ele>
+<time>2012-05-18T15:20:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583092" lon="11.320719">
+<ele>445.200000</ele>
+<time>2012-05-18T15:20:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583103" lon="11.320917">
+<ele>446.200000</ele>
+<time>2012-05-18T15:20:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583142" lon="11.321159">
+<ele>447.200000</ele>
+<time>2012-05-18T15:20:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583116" lon="11.321414">
+<ele>447.200000</ele>
+<time>2012-05-18T15:20:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583067" lon="11.321632">
+<ele>447.800000</ele>
+<time>2012-05-18T15:20:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583056" lon="11.321919">
+<ele>448.400000</ele>
+<time>2012-05-18T15:20:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.46</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583040" lon="11.322179">
+<ele>449.200000</ele>
+<time>2012-05-18T15:20:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583051" lon="11.322522">
+<ele>449.400000</ele>
+<time>2012-05-18T15:20:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.13</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583062" lon="11.322947">
+<ele>449.600000</ele>
+<time>2012-05-18T15:20:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.583045" lon="11.323285">
+<ele>450.400000</ele>
+<time>2012-05-18T15:20:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582931" lon="11.323500">
+<ele>451.200000</ele>
+<time>2012-05-18T15:21:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582791" lon="11.323624">
+<ele>452.000000</ele>
+<time>2012-05-18T15:21:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582550" lon="11.323705">
+<ele>452.200000</ele>
+<time>2012-05-18T15:21:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.92</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582424" lon="11.323735">
+<ele>451.400000</ele>
+<time>2012-05-18T15:21:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582355" lon="11.323696">
+<ele>452.200000</ele>
+<time>2012-05-18T15:21:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582276" lon="11.323639">
+<ele>455.400000</ele>
+<time>2012-05-18T15:21:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582221" lon="11.323638">
+<ele>456.800000</ele>
+<time>2012-05-18T15:21:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.22</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582180" lon="11.323617">
+<ele>457.800000</ele>
+<time>2012-05-18T15:21:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.80</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582105" lon="11.323569">
+<ele>459.600000</ele>
+<time>2012-05-18T15:21:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.582032" lon="11.323508">
+<ele>462.000000</ele>
+<time>2012-05-18T15:22:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581976" lon="11.323488">
+<ele>463.400000</ele>
+<time>2012-05-18T15:22:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581875" lon="11.323455">
+<ele>464.400000</ele>
+<time>2012-05-18T15:22:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581834" lon="11.323474">
+<ele>464.600000</ele>
+<time>2012-05-18T15:22:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581779" lon="11.323462">
+<ele>465.600000</ele>
+<time>2012-05-18T15:22:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581702" lon="11.323451">
+<ele>466.800000</ele>
+<time>2012-05-18T15:22:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581640" lon="11.323461">
+<ele>468.400000</ele>
+<time>2012-05-18T15:22:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.99</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581597" lon="11.323467">
+<ele>469.400000</ele>
+<time>2012-05-18T15:22:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581560" lon="11.323530">
+<ele>471.200000</ele>
+<time>2012-05-18T15:22:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.77</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581510" lon="11.323617">
+<ele>473.000000</ele>
+<time>2012-05-18T15:23:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.76</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581440" lon="11.323632">
+<ele>473.600000</ele>
+<time>2012-05-18T15:23:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581364" lon="11.323669">
+<ele>474.400000</ele>
+<time>2012-05-18T15:23:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.27</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581342" lon="11.323674">
+<ele>474.600000</ele>
+<time>2012-05-18T15:23:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.24</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581244" lon="11.323700">
+<ele>475.800000</ele>
+<time>2012-05-18T15:23:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581148" lon="11.323767">
+<ele>477.200000</ele>
+<time>2012-05-18T15:23:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.581027" lon="11.323865">
+<ele>479.000000</ele>
+<time>2012-05-18T15:23:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580912" lon="11.324025">
+<ele>481.600000</ele>
+<time>2012-05-18T15:23:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.57</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580807" lon="11.324116">
+<ele>482.800000</ele>
+<time>2012-05-18T15:24:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580736" lon="11.324176">
+<ele>484.200000</ele>
+<time>2012-05-18T15:24:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580671" lon="11.324225">
+<ele>485.600000</ele>
+<time>2012-05-18T15:24:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.15</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580593" lon="11.324309">
+<ele>487.000000</ele>
+<time>2012-05-18T15:24:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.32</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580507" lon="11.324359">
+<ele>489.000000</ele>
+<time>2012-05-18T15:24:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.28</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580454" lon="11.324418">
+<ele>490.800000</ele>
+<time>2012-05-18T15:24:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580400" lon="11.324463">
+<ele>492.400000</ele>
+<time>2012-05-18T15:24:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580344" lon="11.324478">
+<ele>493.600000</ele>
+<time>2012-05-18T15:24:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580279" lon="11.324501">
+<ele>496.600000</ele>
+<time>2012-05-18T15:25:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.62</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580208" lon="11.324549">
+<ele>499.400000</ele>
+<time>2012-05-18T15:25:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.72</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580149" lon="11.324639">
+<ele>500.000000</ele>
+<time>2012-05-18T15:25:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.15</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580103" lon="11.324649">
+<ele>500.000000</ele>
+<time>2012-05-18T15:25:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.86</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.580061" lon="11.324639">
+<ele>500.200000</ele>
+<time>2012-05-18T15:25:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>0.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579960" lon="11.324629">
+<ele>500.800000</ele>
+<time>2012-05-18T15:25:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.61</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579886" lon="11.324589">
+<ele>502.200000</ele>
+<time>2012-05-18T15:25:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.25</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579789" lon="11.324567">
+<ele>504.000000</ele>
+<time>2012-05-18T15:26:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.36</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579653" lon="11.324527">
+<ele>504.200000</ele>
+<time>2012-05-18T15:26:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.20</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579549" lon="11.324517">
+<ele>503.200000</ele>
+<time>2012-05-18T15:26:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579447" lon="11.324514">
+<ele>502.200000</ele>
+<time>2012-05-18T15:26:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579359" lon="11.324339">
+<ele>500.800000</ele>
+<time>2012-05-18T15:26:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.66</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579324" lon="11.324247">
+<ele>499.800000</ele>
+<time>2012-05-18T15:26:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.85</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579268" lon="11.323807">
+<ele>496.200000</ele>
+<time>2012-05-18T15:26:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.47</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579264" lon="11.323626">
+<ele>495.800000</ele>
+<time>2012-05-18T15:26:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579249" lon="11.323455">
+<ele>495.400000</ele>
+<time>2012-05-18T15:26:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579175" lon="11.323192">
+<ele>493.600000</ele>
+<time>2012-05-18T15:26:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.17</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579128" lon="11.322939">
+<ele>491.000000</ele>
+<time>2012-05-18T15:26:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.75</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579084" lon="11.322781">
+<ele>489.200000</ele>
+<time>2012-05-18T15:26:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579096" lon="11.322661">
+<ele>487.400000</ele>
+<time>2012-05-18T15:26:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.75</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579151" lon="11.322463">
+<ele>484.200000</ele>
+<time>2012-05-18T15:27:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579199" lon="11.322270">
+<ele>480.200000</ele>
+<time>2012-05-18T15:27:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579297" lon="11.322031">
+<ele>475.400000</ele>
+<time>2012-05-18T15:27:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579341" lon="11.321856">
+<ele>471.800000</ele>
+<time>2012-05-18T15:27:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.71</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579385" lon="11.321547">
+<ele>465.200000</ele>
+<time>2012-05-18T15:27:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579368" lon="11.321298">
+<ele>460.600000</ele>
+<time>2012-05-18T15:27:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.61</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579392" lon="11.321059">
+<ele>457.200000</ele>
+<time>2012-05-18T15:27:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579434" lon="11.320789">
+<ele>454.400000</ele>
+<time>2012-05-18T15:27:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579390" lon="11.320625">
+<ele>452.400000</ele>
+<time>2012-05-18T15:27:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.20</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579270" lon="11.320439">
+<ele>451.000000</ele>
+<time>2012-05-18T15:27:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579184" lon="11.320256">
+<ele>450.200000</ele>
+<time>2012-05-18T15:27:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579135" lon="11.320102">
+<ele>449.600000</ele>
+<time>2012-05-18T15:27:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.579082" lon="11.319916">
+<ele>448.800000</ele>
+<time>2012-05-18T15:27:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.578951" lon="11.319596">
+<ele>447.400000</ele>
+<time>2012-05-18T15:28:02Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.11</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.578791" lon="11.319152">
+<ele>445.000000</ele>
+<time>2012-05-18T15:28:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.17</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.578698" lon="11.318954">
+<ele>443.800000</ele>
+<time>2012-05-18T15:28:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.578526" lon="11.318679">
+<ele>442.200000</ele>
+<time>2012-05-18T15:28:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.578195" lon="11.318378">
+<ele>440.200000</ele>
+<time>2012-05-18T15:28:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.56</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.578044" lon="11.318335">
+<ele>439.800000</ele>
+<time>2012-05-18T15:28:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.55</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.577672" lon="11.318217">
+<ele>439.400000</ele>
+<time>2012-05-18T15:28:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.04</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.577451" lon="11.318130">
+<ele>438.800000</ele>
+<time>2012-05-18T15:28:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.35</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.577191" lon="11.318009">
+<ele>436.800000</ele>
+<time>2012-05-18T15:28:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.56</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.577004" lon="11.317873">
+<ele>435.200000</ele>
+<time>2012-05-18T15:28:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.576795" lon="11.317622">
+<ele>430.800000</ele>
+<time>2012-05-18T15:28:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.576634" lon="11.317458">
+<ele>427.400000</ele>
+<time>2012-05-18T15:28:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.37</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.576442" lon="11.317374">
+<ele>424.400000</ele>
+<time>2012-05-18T15:28:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.576283" lon="11.317164">
+<ele>420.000000</ele>
+<time>2012-05-18T15:28:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.576175" lon="11.317155">
+<ele>418.800000</ele>
+<time>2012-05-18T15:29:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.575914" lon="11.317329">
+<ele>418.400000</ele>
+<time>2012-05-18T15:29:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.28</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.575637" lon="11.317583">
+<ele>416.200000</ele>
+<time>2012-05-18T15:29:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.18</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.575445" lon="11.317750">
+<ele>415.000000</ele>
+<time>2012-05-18T15:29:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.18</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.575200" lon="11.317920">
+<ele>413.800000</ele>
+<time>2012-05-18T15:29:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.575063" lon="11.317860">
+<ele>413.800000</ele>
+<time>2012-05-18T15:29:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.574961" lon="11.317450">
+<ele>412.600000</ele>
+<time>2012-05-18T15:29:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.574800" lon="11.316892">
+<ele>409.600000</ele>
+<time>2012-05-18T15:29:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.574750" lon="11.316696">
+<ele>408.200000</ele>
+<time>2012-05-18T15:29:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.574672" lon="11.316526">
+<ele>406.400000</ele>
+<time>2012-05-18T15:29:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.01</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.574597" lon="11.316530">
+<ele>405.600000</ele>
+<time>2012-05-18T15:29:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.18</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.574203" lon="11.316705">
+<ele>405.000000</ele>
+<time>2012-05-18T15:29:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573914" lon="11.316845">
+<ele>403.400000</ele>
+<time>2012-05-18T15:29:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573450" lon="11.317063">
+<ele>399.800000</ele>
+<time>2012-05-18T15:30:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.71</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573294" lon="11.317145">
+<ele>397.400000</ele>
+<time>2012-05-18T15:30:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573206" lon="11.317328">
+<ele>395.400000</ele>
+<time>2012-05-18T15:30:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.11</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573394" lon="11.318145">
+<ele>397.400000</ele>
+<time>2012-05-18T15:30:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.81</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573552" lon="11.318805">
+<ele>397.400000</ele>
+<time>2012-05-18T15:30:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573645" lon="11.319188">
+<ele>396.400000</ele>
+<time>2012-05-18T15:30:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573625" lon="11.319395">
+<ele>394.800000</ele>
+<time>2012-05-18T15:30:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.78</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573537" lon="11.319625">
+<ele>393.200000</ele>
+<time>2012-05-18T15:30:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573367" lon="11.319836">
+<ele>390.600000</ele>
+<time>2012-05-18T15:30:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573133" lon="11.319815">
+<ele>389.000000</ele>
+<time>2012-05-18T15:30:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.573044" lon="11.319710">
+<ele>388.200000</ele>
+<time>2012-05-18T15:30:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.24</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572903" lon="11.319445">
+<ele>386.200000</ele>
+<time>2012-05-18T15:31:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572631" lon="11.318875">
+<ele>384.000000</ele>
+<time>2012-05-18T15:31:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572523" lon="11.318675">
+<ele>383.000000</ele>
+<time>2012-05-18T15:31:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.26</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572387" lon="11.318494">
+<ele>381.800000</ele>
+<time>2012-05-18T15:31:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572299" lon="11.318268">
+<ele>380.600000</ele>
+<time>2012-05-18T15:31:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572278" lon="11.318116">
+<ele>380.800000</ele>
+<time>2012-05-18T15:31:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572255" lon="11.318008">
+<ele>382.000000</ele>
+<time>2012-05-18T15:31:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.05</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572243" lon="11.317930">
+<ele>383.000000</ele>
+<time>2012-05-18T15:31:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572186" lon="11.317849">
+<ele>383.000000</ele>
+<time>2012-05-18T15:31:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.572023" lon="11.317774">
+<ele>381.600000</ele>
+<time>2012-05-18T15:31:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.73</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.571791" lon="11.317564">
+<ele>379.200000</ele>
+<time>2012-05-18T15:31:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.99</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.571670" lon="11.317487">
+<ele>378.400000</ele>
+<time>2012-05-18T15:31:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.571383" lon="11.317279">
+<ele>376.600000</ele>
+<time>2012-05-18T15:31:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.571142" lon="11.317119">
+<ele>375.600000</ele>
+<time>2012-05-18T15:31:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570906" lon="11.317060">
+<ele>374.200000</ele>
+<time>2012-05-18T15:31:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570601" lon="11.317185">
+<ele>372.600000</ele>
+<time>2012-05-18T15:32:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570445" lon="11.317283">
+<ele>371.600000</ele>
+<time>2012-05-18T15:32:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570357" lon="11.317289">
+<ele>371.200000</ele>
+<time>2012-05-18T15:32:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570229" lon="11.317290">
+<ele>371.200000</ele>
+<time>2012-05-18T15:32:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.75</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570152" lon="11.317389">
+<ele>371.400000</ele>
+<time>2012-05-18T15:32:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.72</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570171" lon="11.317577">
+<ele>372.200000</ele>
+<time>2012-05-18T15:32:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.58</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570196" lon="11.317716">
+<ele>372.400000</ele>
+<time>2012-05-18T15:32:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.570095" lon="11.318064">
+<ele>373.600000</ele>
+<time>2012-05-18T15:32:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569963" lon="11.318208">
+<ele>374.800000</ele>
+<time>2012-05-18T15:32:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.50</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569834" lon="11.318316">
+<ele>375.400000</ele>
+<time>2012-05-18T15:32:32Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.09</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569681" lon="11.318490">
+<ele>376.400000</ele>
+<time>2012-05-18T15:32:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569529" lon="11.318647">
+<ele>377.600000</ele>
+<time>2012-05-18T15:32:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.07</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569400" lon="11.318781">
+<ele>379.000000</ele>
+<time>2012-05-18T15:32:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.46</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569293" lon="11.318950">
+<ele>380.400000</ele>
+<time>2012-05-18T15:32:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569210" lon="11.319145">
+<ele>381.800000</ele>
+<time>2012-05-18T15:32:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.37</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569189" lon="11.319362">
+<ele>383.400000</ele>
+<time>2012-05-18T15:33:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569212" lon="11.319510">
+<ele>384.200000</ele>
+<time>2012-05-18T15:33:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.20</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569257" lon="11.319730">
+<ele>385.400000</ele>
+<time>2012-05-18T15:33:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569294" lon="11.320001">
+<ele>386.600000</ele>
+<time>2012-05-18T15:33:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.86</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569314" lon="11.320132">
+<ele>387.400000</ele>
+<time>2012-05-18T15:33:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.43</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569321" lon="11.320274">
+<ele>388.400000</ele>
+<time>2012-05-18T15:33:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569366" lon="11.320408">
+<ele>389.200000</ele>
+<time>2012-05-18T15:33:35Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.72</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569372" lon="11.320556">
+<ele>390.200000</ele>
+<time>2012-05-18T15:33:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569382" lon="11.320797">
+<ele>391.800000</ele>
+<time>2012-05-18T15:33:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.18</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569367" lon="11.320895">
+<ele>392.600000</ele>
+<time>2012-05-18T15:33:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.82</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569343" lon="11.321144">
+<ele>393.800000</ele>
+<time>2012-05-18T15:34:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.27</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569292" lon="11.321305">
+<ele>394.600000</ele>
+<time>2012-05-18T15:34:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569292" lon="11.321440">
+<ele>395.400000</ele>
+<time>2012-05-18T15:34:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.95</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569328" lon="11.321598">
+<ele>396.400000</ele>
+<time>2012-05-18T15:34:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.42</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569364" lon="11.321804">
+<ele>397.000000</ele>
+<time>2012-05-18T15:34:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569411" lon="11.322050">
+<ele>397.800000</ele>
+<time>2012-05-18T15:34:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.70</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569419" lon="11.322188">
+<ele>398.200000</ele>
+<time>2012-05-18T15:34:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569418" lon="11.322568">
+<ele>398.800000</ele>
+<time>2012-05-18T15:34:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.92</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569363" lon="11.322834">
+<ele>399.000000</ele>
+<time>2012-05-18T15:34:41Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.03</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569358" lon="11.323135">
+<ele>399.000000</ele>
+<time>2012-05-18T15:34:46Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.35</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569341" lon="11.323507">
+<ele>399.000000</ele>
+<time>2012-05-18T15:34:52Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569315" lon="11.323894">
+<ele>398.800000</ele>
+<time>2012-05-18T15:34:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.68</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569305" lon="11.324029">
+<ele>398.600000</ele>
+<time>2012-05-18T15:35:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569228" lon="11.324321">
+<ele>398.000000</ele>
+<time>2012-05-18T15:35:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569205" lon="11.324663">
+<ele>397.200000</ele>
+<time>2012-05-18T15:35:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.21</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569226" lon="11.325026">
+<ele>396.400000</ele>
+<time>2012-05-18T15:35:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.58</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569277" lon="11.325564">
+<ele>395.400000</ele>
+<time>2012-05-18T15:35:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569368" lon="11.325856">
+<ele>395.200000</ele>
+<time>2012-05-18T15:35:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.80</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569402" lon="11.326241">
+<ele>394.600000</ele>
+<time>2012-05-18T15:35:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.61</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569214" lon="11.326194">
+<ele>393.600000</ele>
+<time>2012-05-18T15:35:30Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.569022" lon="11.326130">
+<ele>392.800000</ele>
+<time>2012-05-18T15:35:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.568599" lon="11.326018">
+<ele>390.600000</ele>
+<time>2012-05-18T15:35:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.568190" lon="11.325962">
+<ele>388.200000</ele>
+<time>2012-05-18T15:35:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.567630" lon="11.325886">
+<ele>384.400000</ele>
+<time>2012-05-18T15:35:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.43</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.567536" lon="11.325872">
+<ele>384.200000</ele>
+<time>2012-05-18T15:35:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>10.51</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.567102" lon="11.326036">
+<ele>381.800000</ele>
+<time>2012-05-18T15:35:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.95</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.567045" lon="11.326137">
+<ele>381.400000</ele>
+<time>2012-05-18T15:35:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566953" lon="11.326323">
+<ele>380.800000</ele>
+<time>2012-05-18T15:35:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.44</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566808" lon="11.326521">
+<ele>378.800000</ele>
+<time>2012-05-18T15:36:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.39</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566739" lon="11.326532">
+<ele>378.000000</ele>
+<time>2012-05-18T15:36:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.86</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566659" lon="11.326384">
+<ele>377.800000</ele>
+<time>2012-05-18T15:36:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.64</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566605" lon="11.326068">
+<ele>377.400000</ele>
+<time>2012-05-18T15:36:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566588" lon="11.325284">
+<ele>376.800000</ele>
+<time>2012-05-18T15:36:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566496" lon="11.324996">
+<ele>376.600000</ele>
+<time>2012-05-18T15:36:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.79</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566338" lon="11.325029">
+<ele>376.800000</ele>
+<time>2012-05-18T15:36:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.92</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.566199" lon="11.325178">
+<ele>376.800000</ele>
+<time>2012-05-18T15:36:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.28</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.565988" lon="11.325613">
+<ele>376.400000</ele>
+<time>2012-05-18T15:36:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.565695" lon="11.326267">
+<ele>376.400000</ele>
+<time>2012-05-18T15:36:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.17</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.565257" lon="11.327108">
+<ele>377.200000</ele>
+<time>2012-05-18T15:36:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.565145" lon="11.327024">
+<ele>377.200000</ele>
+<time>2012-05-18T15:36:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.62</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.564954" lon="11.326077">
+<ele>374.400000</ele>
+<time>2012-05-18T15:37:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.96</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.564877" lon="11.325273">
+<ele>372.800000</ele>
+<time>2012-05-18T15:37:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.564773" lon="11.324268">
+<ele>372.000000</ele>
+<time>2012-05-18T15:37:24Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.564595" lon="11.323161">
+<ele>370.400000</ele>
+<time>2012-05-18T15:37:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.564396" lon="11.322120">
+<ele>369.800000</ele>
+<time>2012-05-18T15:37:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.564151" lon="11.321182">
+<ele>368.200000</ele>
+<time>2012-05-18T15:37:53Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.11</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.563922" lon="11.320548">
+<ele>367.400000</ele>
+<time>2012-05-18T15:38:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.49</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.563820" lon="11.320230">
+<ele>366.800000</ele>
+<time>2012-05-18T15:38:04Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.563786" lon="11.320078">
+<ele>366.600000</ele>
+<time>2012-05-18T15:38:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.80</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.563701" lon="11.320023">
+<ele>366.600000</ele>
+<time>2012-05-18T15:38:09Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.42</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.563288" lon="11.320562">
+<ele>369.000000</ele>
+<time>2012-05-18T15:38:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.63</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.563071" lon="11.320926">
+<ele>370.000000</ele>
+<time>2012-05-18T15:38:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.10</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562695" lon="11.321667">
+<ele>371.400000</ele>
+<time>2012-05-18T15:38:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562570" lon="11.321942">
+<ele>372.600000</ele>
+<time>2012-05-18T15:38:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.04</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562398" lon="11.322331">
+<ele>373.800000</ele>
+<time>2012-05-18T15:38:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.78</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562257" lon="11.322676">
+<ele>375.200000</ele>
+<time>2012-05-18T15:39:05Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.68</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562172" lon="11.322888">
+<ele>376.400000</ele>
+<time>2012-05-18T15:39:11Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.00</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562056" lon="11.323076">
+<ele>377.400000</ele>
+<time>2012-05-18T15:39:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561990" lon="11.323208">
+<ele>378.400000</ele>
+<time>2012-05-18T15:39:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561896" lon="11.323361">
+<ele>379.800000</ele>
+<time>2012-05-18T15:39:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561801" lon="11.323488">
+<ele>381.200000</ele>
+<time>2012-05-18T15:39:34Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.33</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561704" lon="11.323641">
+<ele>383.000000</ele>
+<time>2012-05-18T15:39:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.57</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561593" lon="11.323816">
+<ele>384.400000</ele>
+<time>2012-05-18T15:39:47Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.52</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561495" lon="11.324002">
+<ele>386.400000</ele>
+<time>2012-05-18T15:39:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561429" lon="11.324161">
+<ele>388.000000</ele>
+<time>2012-05-18T15:40:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.27</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561331" lon="11.324307">
+<ele>389.800000</ele>
+<time>2012-05-18T15:40:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.17</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561245" lon="11.324410">
+<ele>391.200000</ele>
+<time>2012-05-18T15:40:14Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561128" lon="11.324508">
+<ele>392.800000</ele>
+<time>2012-05-18T15:40:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561029" lon="11.324624">
+<ele>394.600000</ele>
+<time>2012-05-18T15:40:28Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560928" lon="11.324756">
+<ele>396.400000</ele>
+<time>2012-05-18T15:40:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560820" lon="11.324887">
+<ele>397.600000</ele>
+<time>2012-05-18T15:40:43Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560709" lon="11.325042">
+<ele>399.200000</ele>
+<time>2012-05-18T15:40:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560622" lon="11.325176">
+<ele>399.800000</ele>
+<time>2012-05-18T15:40:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560497" lon="11.325184">
+<ele>400.400000</ele>
+<time>2012-05-18T15:40:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560269" lon="11.325044">
+<ele>400.400000</ele>
+<time>2012-05-18T15:41:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560204" lon="11.324875">
+<ele>400.800000</ele>
+<time>2012-05-18T15:41:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.55</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560146" lon="11.324979">
+<ele>402.200000</ele>
+<time>2012-05-18T15:41:16Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.65</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560085" lon="11.325277">
+<ele>403.800000</ele>
+<time>2012-05-18T15:41:23Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.22</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559991" lon="11.325715">
+<ele>404.400000</ele>
+<time>2012-05-18T15:41:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.16</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559985" lon="11.326119">
+<ele>402.600000</ele>
+<time>2012-05-18T15:41:36Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560115" lon="11.326329">
+<ele>401.800000</ele>
+<time>2012-05-18T15:41:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.99</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560230" lon="11.326535">
+<ele>401.400000</ele>
+<time>2012-05-18T15:41:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.54</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560198" lon="11.326772">
+<ele>401.000000</ele>
+<time>2012-05-18T15:41:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.83</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560108" lon="11.327329">
+<ele>399.000000</ele>
+<time>2012-05-18T15:41:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560073" lon="11.327605">
+<ele>398.000000</ele>
+<time>2012-05-18T15:41:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.77</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560123" lon="11.327720">
+<ele>396.200000</ele>
+<time>2012-05-18T15:41:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.50</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560183" lon="11.327738">
+<ele>396.400000</ele>
+<time>2012-05-18T15:42:00Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.40</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560378" lon="11.327860">
+<ele>397.600000</ele>
+<time>2012-05-18T15:42:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.90</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560598" lon="11.327977">
+<ele>398.200000</ele>
+<time>2012-05-18T15:42:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.70</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560764" lon="11.328080">
+<ele>398.600000</ele>
+<time>2012-05-18T15:42:20Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.85</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560984" lon="11.328233">
+<ele>399.600000</ele>
+<time>2012-05-18T15:42:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.48</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561176" lon="11.328351">
+<ele>400.400000</ele>
+<time>2012-05-18T15:42:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561458" lon="11.328499">
+<ele>401.800000</ele>
+<time>2012-05-18T15:42:38Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561759" lon="11.328646">
+<ele>402.000000</ele>
+<time>2012-05-18T15:42:45Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562012" lon="11.328787">
+<ele>401.800000</ele>
+<time>2012-05-18T15:42:51Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.99</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562175" lon="11.328966">
+<ele>401.800000</ele>
+<time>2012-05-18T15:42:56Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.46</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562182" lon="11.329071">
+<ele>401.800000</ele>
+<time>2012-05-18T15:42:58Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.81</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562167" lon="11.329244">
+<ele>402.200000</ele>
+<time>2012-05-18T15:43:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.20</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.562057" lon="11.329654">
+<ele>401.400000</ele>
+<time>2012-05-18T15:43:07Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.34</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561988" lon="11.330044">
+<ele>398.800000</ele>
+<time>2012-05-18T15:43:12Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.84</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561969" lon="11.330246">
+<ele>396.800000</ele>
+<time>2012-05-18T15:43:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.91</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561966" lon="11.330703">
+<ele>394.200000</ele>
+<time>2012-05-18T15:43:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.50</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561975" lon="11.331138">
+<ele>391.800000</ele>
+<time>2012-05-18T15:43:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.86</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561872" lon="11.331532">
+<ele>390.400000</ele>
+<time>2012-05-18T15:43:29Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.67</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561780" lon="11.331676">
+<ele>389.600000</ele>
+<time>2012-05-18T15:43:31Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.30</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561678" lon="11.331808">
+<ele>389.000000</ele>
+<time>2012-05-18T15:43:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.41</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561517" lon="11.332133">
+<ele>387.800000</ele>
+<time>2012-05-18T15:43:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.38</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561407" lon="11.332366">
+<ele>387.200000</ele>
+<time>2012-05-18T15:43:40Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.94</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561325" lon="11.332506">
+<ele>386.400000</ele>
+<time>2012-05-18T15:43:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.81</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.561027" lon="11.333053">
+<ele>383.600000</ele>
+<time>2012-05-18T15:43:48Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560696" lon="11.333650">
+<ele>380.000000</ele>
+<time>2012-05-18T15:43:54Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>9.45</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560579" lon="11.333890">
+<ele>378.400000</ele>
+<time>2012-05-18T15:43:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.23</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560490" lon="11.334168">
+<ele>377.600000</ele>
+<time>2012-05-18T15:44:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.60</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560446" lon="11.334477">
+<ele>376.600000</ele>
+<time>2012-05-18T15:44:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.57</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560534" lon="11.334647">
+<ele>376.400000</ele>
+<time>2012-05-18T15:44:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.93</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560510" lon="11.334843">
+<ele>376.600000</ele>
+<time>2012-05-18T15:44:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.80</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560436" lon="11.334969">
+<ele>376.400000</ele>
+<time>2012-05-18T15:44:15Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.14</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560216" lon="11.335428">
+<ele>375.000000</ele>
+<time>2012-05-18T15:44:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.87</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560117" lon="11.335925">
+<ele>374.600000</ele>
+<time>2012-05-18T15:44:26Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.51</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560022" lon="11.336661">
+<ele>373.200000</ele>
+<time>2012-05-18T15:44:33Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.74</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559896" lon="11.337644">
+<ele>371.200000</ele>
+<time>2012-05-18T15:44:42Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.04</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559817" lon="11.338478">
+<ele>369.200000</ele>
+<time>2012-05-18T15:44:49Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.69</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559684" lon="11.339321">
+<ele>368.000000</ele>
+<time>2012-05-18T15:44:57Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.83</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559603" lon="11.339698">
+<ele>367.400000</ele>
+<time>2012-05-18T15:45:01Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.17</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559610" lon="11.340315">
+<ele>366.600000</ele>
+<time>2012-05-18T15:45:08Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.37</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559651" lon="11.340794">
+<ele>365.800000</ele>
+<time>2012-05-18T15:45:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.98</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559615" lon="11.341207">
+<ele>365.200000</ele>
+<time>2012-05-18T15:45:18Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.02</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559460" lon="11.341397">
+<ele>363.800000</ele>
+<time>2012-05-18T15:45:22Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.51</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559222" lon="11.341374">
+<ele>363.200000</ele>
+<time>2012-05-18T15:45:25Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>8.85</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559114" lon="11.341333">
+<ele>362.000000</ele>
+<time>2012-05-18T15:45:27Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.19</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559025" lon="11.341406">
+<ele>359.200000</ele>
+<time>2012-05-18T15:45:37Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.12</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559074" lon="11.341486">
+<ele>359.000000</ele>
+<time>2012-05-18T15:45:39Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>3.97</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559275" lon="11.341792">
+<ele>358.800000</ele>
+<time>2012-05-18T15:45:44Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.29</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559580" lon="11.342145">
+<ele>358.200000</ele>
+<time>2012-05-18T15:45:50Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.08</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.559869" lon="11.342347">
+<ele>358.200000</ele>
+<time>2012-05-18T15:45:55Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>7.06</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560094" lon="11.342456">
+<ele>358.200000</ele>
+<time>2012-05-18T15:45:59Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>6.56</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560232" lon="11.342654">
+<ele>358.400000</ele>
+<time>2012-05-18T15:46:03Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.25</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560260" lon="11.342737">
+<ele>358.400000</ele>
+<time>2012-05-18T15:46:06Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>2.25</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560286" lon="11.342800">
+<ele>358.000000</ele>
+<time>2012-05-18T15:46:10Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>1.35</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560393" lon="11.342833">
+<ele>358.200000</ele>
+<time>2012-05-18T15:46:13Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.05</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560549" lon="11.342950">
+<ele>358.600000</ele>
+<time>2012-05-18T15:46:17Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.83</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560591" lon="11.343077">
+<ele>358.800000</ele>
+<time>2012-05-18T15:46:19Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>5.15</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+<trkpt lat="49.560614" lon="11.343199">
+<ele>358.600000</ele>
+<time>2012-05-18T15:46:21Z</time>
+<extensions>
+<gpxx:TrackPointExtension>
+<gpxx:speed>4.59</gpxx:speed>
+</gpxx:TrackPointExtension>
+</extensions>
+</trkpt>
+</trkseg>
+</trk>
+</gpx>

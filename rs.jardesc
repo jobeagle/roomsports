@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="roomsports/rs.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/roomsports/rs.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" mainClassHandleIdentifier="=roomsports/src\/main\/java&lt;{Rsmain.java[Rsmain" manifestLocation="/roomsports/Manifest" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/roomsports/.classpath"/>
+        <file path="/roomsports/.project"/>
+        <javaElement handleIdentifier="=roomsports/src\/main\/java"/>
+    </selectedElements>
+</jardesc>

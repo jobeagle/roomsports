@@ -1,0 +1,414 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /* ===========================================================<a name="line.1"></a>
+<FONT color="green">002</FONT>     * JFreeChart : a free chart library for the Java(tm) platform<a name="line.2"></a>
+<FONT color="green">003</FONT>     * ===========================================================<a name="line.3"></a>
+<FONT color="green">004</FONT>     *<a name="line.4"></a>
+<FONT color="green">005</FONT>     * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors.<a name="line.5"></a>
+<FONT color="green">006</FONT>     *<a name="line.6"></a>
+<FONT color="green">007</FONT>     * Project Info:  http://www.jfree.org/jfreechart/index.html<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     * This library is free software; you can redistribute it and/or modify it<a name="line.9"></a>
+<FONT color="green">010</FONT>     * under the terms of the GNU Lesser General Public License as published by<a name="line.10"></a>
+<FONT color="green">011</FONT>     * the Free Software Foundation; either version 2.1 of the License, or<a name="line.11"></a>
+<FONT color="green">012</FONT>     * (at your option) any later version.<a name="line.12"></a>
+<FONT color="green">013</FONT>     *<a name="line.13"></a>
+<FONT color="green">014</FONT>     * This library is distributed in the hope that it will be useful, but<a name="line.14"></a>
+<FONT color="green">015</FONT>     * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<a name="line.15"></a>
+<FONT color="green">016</FONT>     * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public<a name="line.16"></a>
+<FONT color="green">017</FONT>     * License for more details.<a name="line.17"></a>
+<FONT color="green">018</FONT>     *<a name="line.18"></a>
+<FONT color="green">019</FONT>     * You should have received a copy of the GNU Lesser General Public<a name="line.19"></a>
+<FONT color="green">020</FONT>     * License along with this library; if not, write to the Free Software<a name="line.20"></a>
+<FONT color="green">021</FONT>     * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,<a name="line.21"></a>
+<FONT color="green">022</FONT>     * USA.<a name="line.22"></a>
+<FONT color="green">023</FONT>     *<a name="line.23"></a>
+<FONT color="green">024</FONT>     * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.24"></a>
+<FONT color="green">025</FONT>     * Other names may be trademarks of their respective owners.]<a name="line.25"></a>
+<FONT color="green">026</FONT>     *<a name="line.26"></a>
+<FONT color="green">027</FONT>     * ------------------<a name="line.27"></a>
+<FONT color="green">028</FONT>     * MovingAverage.java<a name="line.28"></a>
+<FONT color="green">029</FONT>     * ------------------<a name="line.29"></a>
+<FONT color="green">030</FONT>     * (C) Copyright 2003-2013, by Object Refinery Limited.<a name="line.30"></a>
+<FONT color="green">031</FONT>     *<a name="line.31"></a>
+<FONT color="green">032</FONT>     * Original Author:  David Gilbert (for Object Refinery Limited);<a name="line.32"></a>
+<FONT color="green">033</FONT>     * Contributor(s):   Benoit Xhenseval;<a name="line.33"></a>
+<FONT color="green">034</FONT>     *<a name="line.34"></a>
+<FONT color="green">035</FONT>     * Changes<a name="line.35"></a>
+<FONT color="green">036</FONT>     * -------<a name="line.36"></a>
+<FONT color="green">037</FONT>     * 28-Jan-2003 : Version 1 (DG);<a name="line.37"></a>
+<FONT color="green">038</FONT>     * 10-Mar-2003 : Added createPointMovingAverage() method contributed by Benoit<a name="line.38"></a>
+<FONT color="green">039</FONT>     *               Xhenseval (DG);<a name="line.39"></a>
+<FONT color="green">040</FONT>     * 01-Aug-2003 : Added new method for TimeSeriesCollection, and fixed bug in<a name="line.40"></a>
+<FONT color="green">041</FONT>     *               XYDataset method (DG);<a name="line.41"></a>
+<FONT color="green">042</FONT>     * 15-Jul-2004 : Switched getX() with getXValue() and getY() with<a name="line.42"></a>
+<FONT color="green">043</FONT>     *               getYValue() (DG);<a name="line.43"></a>
+<FONT color="green">044</FONT>     * 11-Jan-2005 : Removed deprecated code in preparation for the 1.0.0<a name="line.44"></a>
+<FONT color="green">045</FONT>     *               release (DG);<a name="line.45"></a>
+<FONT color="green">046</FONT>     * 09-Jun-2009 : Tidied up some calls to TimeSeries (DG);<a name="line.46"></a>
+<FONT color="green">047</FONT>     * 02-Jul-2013 : Use ParamChecks (DG);<a name="line.47"></a>
+<FONT color="green">048</FONT>     *<a name="line.48"></a>
+<FONT color="green">049</FONT>     */<a name="line.49"></a>
+<FONT color="green">050</FONT>    <a name="line.50"></a>
+<FONT color="green">051</FONT>    package org.jfree.data.time;<a name="line.51"></a>
+<FONT color="green">052</FONT>    <a name="line.52"></a>
+<FONT color="green">053</FONT>    import org.jfree.chart.util.ParamChecks;<a name="line.53"></a>
+<FONT color="green">054</FONT>    import org.jfree.data.xy.XYDataset;<a name="line.54"></a>
+<FONT color="green">055</FONT>    import org.jfree.data.xy.XYSeries;<a name="line.55"></a>
+<FONT color="green">056</FONT>    import org.jfree.data.xy.XYSeriesCollection;<a name="line.56"></a>
+<FONT color="green">057</FONT>    <a name="line.57"></a>
+<FONT color="green">058</FONT>    /**<a name="line.58"></a>
+<FONT color="green">059</FONT>     * A utility class for calculating moving averages of time series data.<a name="line.59"></a>
+<FONT color="green">060</FONT>     */<a name="line.60"></a>
+<FONT color="green">061</FONT>    public class MovingAverage {<a name="line.61"></a>
+<FONT color="green">062</FONT>    <a name="line.62"></a>
+<FONT color="green">063</FONT>        /**<a name="line.63"></a>
+<FONT color="green">064</FONT>         * Creates a new {@link TimeSeriesCollection} containing a moving average<a name="line.64"></a>
+<FONT color="green">065</FONT>         * series for each series in the source collection.<a name="line.65"></a>
+<FONT color="green">066</FONT>         *<a name="line.66"></a>
+<FONT color="green">067</FONT>         * @param source  the source collection.<a name="line.67"></a>
+<FONT color="green">068</FONT>         * @param suffix  the suffix added to each source series name to create the<a name="line.68"></a>
+<FONT color="green">069</FONT>         *                corresponding moving average series name.<a name="line.69"></a>
+<FONT color="green">070</FONT>         * @param periodCount  the number of periods in the moving average<a name="line.70"></a>
+<FONT color="green">071</FONT>         *                     calculation.<a name="line.71"></a>
+<FONT color="green">072</FONT>         * @param skip  the number of initial periods to skip.<a name="line.72"></a>
+<FONT color="green">073</FONT>         *<a name="line.73"></a>
+<FONT color="green">074</FONT>         * @return A collection of moving average time series.<a name="line.74"></a>
+<FONT color="green">075</FONT>         */<a name="line.75"></a>
+<FONT color="green">076</FONT>        public static TimeSeriesCollection createMovingAverage(<a name="line.76"></a>
+<FONT color="green">077</FONT>                TimeSeriesCollection source, String suffix, int periodCount,<a name="line.77"></a>
+<FONT color="green">078</FONT>                int skip) {<a name="line.78"></a>
+<FONT color="green">079</FONT>    <a name="line.79"></a>
+<FONT color="green">080</FONT>            ParamChecks.nullNotPermitted(source, "source");<a name="line.80"></a>
+<FONT color="green">081</FONT>            if (periodCount &lt; 1) {<a name="line.81"></a>
+<FONT color="green">082</FONT>                throw new IllegalArgumentException("periodCount must be greater "<a name="line.82"></a>
+<FONT color="green">083</FONT>                        + "than or equal to 1.");<a name="line.83"></a>
+<FONT color="green">084</FONT>            }<a name="line.84"></a>
+<FONT color="green">085</FONT>    <a name="line.85"></a>
+<FONT color="green">086</FONT>            TimeSeriesCollection result = new TimeSeriesCollection();<a name="line.86"></a>
+<FONT color="green">087</FONT>            for (int i = 0; i &lt; source.getSeriesCount(); i++) {<a name="line.87"></a>
+<FONT color="green">088</FONT>                TimeSeries sourceSeries = source.getSeries(i);<a name="line.88"></a>
+<FONT color="green">089</FONT>                TimeSeries maSeries = createMovingAverage(sourceSeries,<a name="line.89"></a>
+<FONT color="green">090</FONT>                        sourceSeries.getKey() + suffix, periodCount, skip);<a name="line.90"></a>
+<FONT color="green">091</FONT>                result.addSeries(maSeries);<a name="line.91"></a>
+<FONT color="green">092</FONT>            }<a name="line.92"></a>
+<FONT color="green">093</FONT>            return result;<a name="line.93"></a>
+<FONT color="green">094</FONT>    <a name="line.94"></a>
+<FONT color="green">095</FONT>        }<a name="line.95"></a>
+<FONT color="green">096</FONT>    <a name="line.96"></a>
+<FONT color="green">097</FONT>        /**<a name="line.97"></a>
+<FONT color="green">098</FONT>         * Creates a new {@link TimeSeries} containing moving average values for<a name="line.98"></a>
+<FONT color="green">099</FONT>         * the given series.  If the series is empty (contains zero items), the<a name="line.99"></a>
+<FONT color="green">100</FONT>         * result is an empty series.<a name="line.100"></a>
+<FONT color="green">101</FONT>         *<a name="line.101"></a>
+<FONT color="green">102</FONT>         * @param source  the source series.<a name="line.102"></a>
+<FONT color="green">103</FONT>         * @param name  the name of the new series.<a name="line.103"></a>
+<FONT color="green">104</FONT>         * @param periodCount  the number of periods used in the average<a name="line.104"></a>
+<FONT color="green">105</FONT>         *                     calculation.<a name="line.105"></a>
+<FONT color="green">106</FONT>         * @param skip  the number of initial periods to skip.<a name="line.106"></a>
+<FONT color="green">107</FONT>         *<a name="line.107"></a>
+<FONT color="green">108</FONT>         * @return The moving average series.<a name="line.108"></a>
+<FONT color="green">109</FONT>         */<a name="line.109"></a>
+<FONT color="green">110</FONT>        public static TimeSeries createMovingAverage(TimeSeries source,<a name="line.110"></a>
+<FONT color="green">111</FONT>                String name, int periodCount, int skip) {<a name="line.111"></a>
+<FONT color="green">112</FONT>    <a name="line.112"></a>
+<FONT color="green">113</FONT>            ParamChecks.nullNotPermitted(source, "source");<a name="line.113"></a>
+<FONT color="green">114</FONT>            if (periodCount &lt; 1) {<a name="line.114"></a>
+<FONT color="green">115</FONT>                throw new IllegalArgumentException("periodCount must be greater " <a name="line.115"></a>
+<FONT color="green">116</FONT>                        + "than or equal to 1.");<a name="line.116"></a>
+<FONT color="green">117</FONT>            }<a name="line.117"></a>
+<FONT color="green">118</FONT>    <a name="line.118"></a>
+<FONT color="green">119</FONT>            TimeSeries result = new TimeSeries(name);<a name="line.119"></a>
+<FONT color="green">120</FONT>    <a name="line.120"></a>
+<FONT color="green">121</FONT>            if (source.getItemCount() &gt; 0) {<a name="line.121"></a>
+<FONT color="green">122</FONT>    <a name="line.122"></a>
+<FONT color="green">123</FONT>                // if the initial averaging period is to be excluded, then<a name="line.123"></a>
+<FONT color="green">124</FONT>                // calculate the index of the<a name="line.124"></a>
+<FONT color="green">125</FONT>                // first data item to have an average calculated...<a name="line.125"></a>
+<FONT color="green">126</FONT>                long firstSerial = source.getTimePeriod(0).getSerialIndex() + skip;<a name="line.126"></a>
+<FONT color="green">127</FONT>    <a name="line.127"></a>
+<FONT color="green">128</FONT>                for (int i = source.getItemCount() - 1; i &gt;= 0; i--) {<a name="line.128"></a>
+<FONT color="green">129</FONT>    <a name="line.129"></a>
+<FONT color="green">130</FONT>                    // get the current data item...<a name="line.130"></a>
+<FONT color="green">131</FONT>                    RegularTimePeriod period = source.getTimePeriod(i);<a name="line.131"></a>
+<FONT color="green">132</FONT>                    long serial = period.getSerialIndex();<a name="line.132"></a>
+<FONT color="green">133</FONT>    <a name="line.133"></a>
+<FONT color="green">134</FONT>                    if (serial &gt;= firstSerial) {<a name="line.134"></a>
+<FONT color="green">135</FONT>                        // work out the average for the earlier values...<a name="line.135"></a>
+<FONT color="green">136</FONT>                        int n = 0;<a name="line.136"></a>
+<FONT color="green">137</FONT>                        double sum = 0.0;<a name="line.137"></a>
+<FONT color="green">138</FONT>                        long serialLimit = period.getSerialIndex() - periodCount;<a name="line.138"></a>
+<FONT color="green">139</FONT>                        int offset = 0;<a name="line.139"></a>
+<FONT color="green">140</FONT>                        boolean finished = false;<a name="line.140"></a>
+<FONT color="green">141</FONT>    <a name="line.141"></a>
+<FONT color="green">142</FONT>                        while ((offset &lt; periodCount) &amp;&amp; (!finished)) {<a name="line.142"></a>
+<FONT color="green">143</FONT>                            if ((i - offset) &gt;= 0) {<a name="line.143"></a>
+<FONT color="green">144</FONT>                                TimeSeriesDataItem item = source.getRawDataItem(<a name="line.144"></a>
+<FONT color="green">145</FONT>                                        i - offset);<a name="line.145"></a>
+<FONT color="green">146</FONT>                                RegularTimePeriod p = item.getPeriod();<a name="line.146"></a>
+<FONT color="green">147</FONT>                                Number v = item.getValue();<a name="line.147"></a>
+<FONT color="green">148</FONT>                                long currentIndex = p.getSerialIndex();<a name="line.148"></a>
+<FONT color="green">149</FONT>                                if (currentIndex &gt; serialLimit) {<a name="line.149"></a>
+<FONT color="green">150</FONT>                                    if (v != null) {<a name="line.150"></a>
+<FONT color="green">151</FONT>                                        sum = sum + v.doubleValue();<a name="line.151"></a>
+<FONT color="green">152</FONT>                                        n = n + 1;<a name="line.152"></a>
+<FONT color="green">153</FONT>                                    }<a name="line.153"></a>
+<FONT color="green">154</FONT>                                }<a name="line.154"></a>
+<FONT color="green">155</FONT>                                else {<a name="line.155"></a>
+<FONT color="green">156</FONT>                                    finished = true;<a name="line.156"></a>
+<FONT color="green">157</FONT>                                }<a name="line.157"></a>
+<FONT color="green">158</FONT>                            }<a name="line.158"></a>
+<FONT color="green">159</FONT>                            offset = offset + 1;<a name="line.159"></a>
+<FONT color="green">160</FONT>                        }<a name="line.160"></a>
+<FONT color="green">161</FONT>                        if (n &gt; 0) {<a name="line.161"></a>
+<FONT color="green">162</FONT>                            result.add(period, sum / n);<a name="line.162"></a>
+<FONT color="green">163</FONT>                        }<a name="line.163"></a>
+<FONT color="green">164</FONT>                        else {<a name="line.164"></a>
+<FONT color="green">165</FONT>                            result.add(period, null);<a name="line.165"></a>
+<FONT color="green">166</FONT>                        }<a name="line.166"></a>
+<FONT color="green">167</FONT>                    }<a name="line.167"></a>
+<FONT color="green">168</FONT>    <a name="line.168"></a>
+<FONT color="green">169</FONT>                }<a name="line.169"></a>
+<FONT color="green">170</FONT>            }<a name="line.170"></a>
+<FONT color="green">171</FONT>    <a name="line.171"></a>
+<FONT color="green">172</FONT>            return result;<a name="line.172"></a>
+<FONT color="green">173</FONT>    <a name="line.173"></a>
+<FONT color="green">174</FONT>        }<a name="line.174"></a>
+<FONT color="green">175</FONT>    <a name="line.175"></a>
+<FONT color="green">176</FONT>        /**<a name="line.176"></a>
+<FONT color="green">177</FONT>         * Creates a new {@link TimeSeries} containing moving average values for<a name="line.177"></a>
+<FONT color="green">178</FONT>         * the given series, calculated by number of points (irrespective of the<a name="line.178"></a>
+<FONT color="green">179</FONT>         * 'age' of those points).  If the series is empty (contains zero items),<a name="line.179"></a>
+<FONT color="green">180</FONT>         * the result is an empty series.<a name="line.180"></a>
+<FONT color="green">181</FONT>         * &lt;p&gt;<a name="line.181"></a>
+<FONT color="green">182</FONT>         * Developed by Benoit Xhenseval (www.ObjectLab.co.uk).<a name="line.182"></a>
+<FONT color="green">183</FONT>         *<a name="line.183"></a>
+<FONT color="green">184</FONT>         * @param source  the source series.<a name="line.184"></a>
+<FONT color="green">185</FONT>         * @param name  the name of the new series.<a name="line.185"></a>
+<FONT color="green">186</FONT>         * @param pointCount  the number of POINTS used in the average calculation<a name="line.186"></a>
+<FONT color="green">187</FONT>         *                    (not periods!)<a name="line.187"></a>
+<FONT color="green">188</FONT>         *<a name="line.188"></a>
+<FONT color="green">189</FONT>         * @return The moving average series.<a name="line.189"></a>
+<FONT color="green">190</FONT>         */<a name="line.190"></a>
+<FONT color="green">191</FONT>        public static TimeSeries createPointMovingAverage(TimeSeries source,<a name="line.191"></a>
+<FONT color="green">192</FONT>                String name, int pointCount) {<a name="line.192"></a>
+<FONT color="green">193</FONT>    <a name="line.193"></a>
+<FONT color="green">194</FONT>            ParamChecks.nullNotPermitted(source, "source");<a name="line.194"></a>
+<FONT color="green">195</FONT>            if (pointCount &lt; 2) {<a name="line.195"></a>
+<FONT color="green">196</FONT>                throw new IllegalArgumentException("periodCount must be greater " <a name="line.196"></a>
+<FONT color="green">197</FONT>                        + "than or equal to 2.");<a name="line.197"></a>
+<FONT color="green">198</FONT>            }<a name="line.198"></a>
+<FONT color="green">199</FONT>    <a name="line.199"></a>
+<FONT color="green">200</FONT>            TimeSeries result = new TimeSeries(name);<a name="line.200"></a>
+<FONT color="green">201</FONT>            double rollingSumForPeriod = 0.0;<a name="line.201"></a>
+<FONT color="green">202</FONT>            for (int i = 0; i &lt; source.getItemCount(); i++) {<a name="line.202"></a>
+<FONT color="green">203</FONT>                // get the current data item...<a name="line.203"></a>
+<FONT color="green">204</FONT>                TimeSeriesDataItem current = source.getRawDataItem(i);<a name="line.204"></a>
+<FONT color="green">205</FONT>                RegularTimePeriod period = current.getPeriod();<a name="line.205"></a>
+<FONT color="green">206</FONT>                // FIXME: what if value is null on next line?<a name="line.206"></a>
+<FONT color="green">207</FONT>                rollingSumForPeriod += current.getValue().doubleValue();<a name="line.207"></a>
+<FONT color="green">208</FONT>    <a name="line.208"></a>
+<FONT color="green">209</FONT>                if (i &gt; pointCount - 1) {<a name="line.209"></a>
+<FONT color="green">210</FONT>                    // remove the point i-periodCount out of the rolling sum.<a name="line.210"></a>
+<FONT color="green">211</FONT>                    TimeSeriesDataItem startOfMovingAvg = source.getRawDataItem(<a name="line.211"></a>
+<FONT color="green">212</FONT>                            i - pointCount);<a name="line.212"></a>
+<FONT color="green">213</FONT>                    rollingSumForPeriod -= startOfMovingAvg.getValue()<a name="line.213"></a>
+<FONT color="green">214</FONT>                            .doubleValue();<a name="line.214"></a>
+<FONT color="green">215</FONT>                    result.add(period, rollingSumForPeriod / pointCount);<a name="line.215"></a>
+<FONT color="green">216</FONT>                }<a name="line.216"></a>
+<FONT color="green">217</FONT>                else if (i == pointCount - 1) {<a name="line.217"></a>
+<FONT color="green">218</FONT>                    result.add(period, rollingSumForPeriod / pointCount);<a name="line.218"></a>
+<FONT color="green">219</FONT>                }<a name="line.219"></a>
+<FONT color="green">220</FONT>            }<a name="line.220"></a>
+<FONT color="green">221</FONT>            return result;<a name="line.221"></a>
+<FONT color="green">222</FONT>        }<a name="line.222"></a>
+<FONT color="green">223</FONT>    <a name="line.223"></a>
+<FONT color="green">224</FONT>        /**<a name="line.224"></a>
+<FONT color="green">225</FONT>         * Creates a new {@link XYDataset} containing the moving averages of each<a name="line.225"></a>
+<FONT color="green">226</FONT>         * series in the &lt;code&gt;source&lt;/code&gt; dataset.<a name="line.226"></a>
+<FONT color="green">227</FONT>         *<a name="line.227"></a>
+<FONT color="green">228</FONT>         * @param source  the source dataset.<a name="line.228"></a>
+<FONT color="green">229</FONT>         * @param suffix  the string to append to source series names to create<a name="line.229"></a>
+<FONT color="green">230</FONT>         *                target series names.<a name="line.230"></a>
+<FONT color="green">231</FONT>         * @param period  the averaging period.<a name="line.231"></a>
+<FONT color="green">232</FONT>         * @param skip  the length of the initial skip period.<a name="line.232"></a>
+<FONT color="green">233</FONT>         *<a name="line.233"></a>
+<FONT color="green">234</FONT>         * @return The dataset.<a name="line.234"></a>
+<FONT color="green">235</FONT>         */<a name="line.235"></a>
+<FONT color="green">236</FONT>        public static XYDataset createMovingAverage(XYDataset source, String suffix,<a name="line.236"></a>
+<FONT color="green">237</FONT>                long period, long skip) {<a name="line.237"></a>
+<FONT color="green">238</FONT>    <a name="line.238"></a>
+<FONT color="green">239</FONT>            return createMovingAverage(source, suffix, (double) period,<a name="line.239"></a>
+<FONT color="green">240</FONT>                    (double) skip);<a name="line.240"></a>
+<FONT color="green">241</FONT>    <a name="line.241"></a>
+<FONT color="green">242</FONT>        }<a name="line.242"></a>
+<FONT color="green">243</FONT>    <a name="line.243"></a>
+<FONT color="green">244</FONT>    <a name="line.244"></a>
+<FONT color="green">245</FONT>        /**<a name="line.245"></a>
+<FONT color="green">246</FONT>         * Creates a new {@link XYDataset} containing the moving averages of each<a name="line.246"></a>
+<FONT color="green">247</FONT>         * series in the &lt;code&gt;source&lt;/code&gt; dataset.<a name="line.247"></a>
+<FONT color="green">248</FONT>         *<a name="line.248"></a>
+<FONT color="green">249</FONT>         * @param source  the source dataset.<a name="line.249"></a>
+<FONT color="green">250</FONT>         * @param suffix  the string to append to source series names to create<a name="line.250"></a>
+<FONT color="green">251</FONT>         *                target series names.<a name="line.251"></a>
+<FONT color="green">252</FONT>         * @param period  the averaging period.<a name="line.252"></a>
+<FONT color="green">253</FONT>         * @param skip  the length of the initial skip period.<a name="line.253"></a>
+<FONT color="green">254</FONT>         *<a name="line.254"></a>
+<FONT color="green">255</FONT>         * @return The dataset.<a name="line.255"></a>
+<FONT color="green">256</FONT>         */<a name="line.256"></a>
+<FONT color="green">257</FONT>        public static XYDataset createMovingAverage(XYDataset source,<a name="line.257"></a>
+<FONT color="green">258</FONT>                String suffix, double period, double skip) {<a name="line.258"></a>
+<FONT color="green">259</FONT>    <a name="line.259"></a>
+<FONT color="green">260</FONT>            ParamChecks.nullNotPermitted(source, "source");<a name="line.260"></a>
+<FONT color="green">261</FONT>            XYSeriesCollection result = new XYSeriesCollection();<a name="line.261"></a>
+<FONT color="green">262</FONT>            for (int i = 0; i &lt; source.getSeriesCount(); i++) {<a name="line.262"></a>
+<FONT color="green">263</FONT>                XYSeries s = createMovingAverage(source, i, source.getSeriesKey(i)<a name="line.263"></a>
+<FONT color="green">264</FONT>                        + suffix, period, skip);<a name="line.264"></a>
+<FONT color="green">265</FONT>                result.addSeries(s);<a name="line.265"></a>
+<FONT color="green">266</FONT>            }<a name="line.266"></a>
+<FONT color="green">267</FONT>            return result;<a name="line.267"></a>
+<FONT color="green">268</FONT>        }<a name="line.268"></a>
+<FONT color="green">269</FONT>    <a name="line.269"></a>
+<FONT color="green">270</FONT>        /**<a name="line.270"></a>
+<FONT color="green">271</FONT>         * Creates a new {@link XYSeries} containing the moving averages of one<a name="line.271"></a>
+<FONT color="green">272</FONT>         * series in the &lt;code&gt;source&lt;/code&gt; dataset.<a name="line.272"></a>
+<FONT color="green">273</FONT>         *<a name="line.273"></a>
+<FONT color="green">274</FONT>         * @param source  the source dataset.<a name="line.274"></a>
+<FONT color="green">275</FONT>         * @param series  the series index (zero based).<a name="line.275"></a>
+<FONT color="green">276</FONT>         * @param name  the name for the new series.<a name="line.276"></a>
+<FONT color="green">277</FONT>         * @param period  the averaging period.<a name="line.277"></a>
+<FONT color="green">278</FONT>         * @param skip  the length of the initial skip period.<a name="line.278"></a>
+<FONT color="green">279</FONT>         *<a name="line.279"></a>
+<FONT color="green">280</FONT>         * @return The dataset.<a name="line.280"></a>
+<FONT color="green">281</FONT>         */<a name="line.281"></a>
+<FONT color="green">282</FONT>        public static XYSeries createMovingAverage(XYDataset source,<a name="line.282"></a>
+<FONT color="green">283</FONT>                int series, String name, double period, double skip) {<a name="line.283"></a>
+<FONT color="green">284</FONT>    <a name="line.284"></a>
+<FONT color="green">285</FONT>            ParamChecks.nullNotPermitted(source, "source");<a name="line.285"></a>
+<FONT color="green">286</FONT>            if (period &lt; Double.MIN_VALUE) {<a name="line.286"></a>
+<FONT color="green">287</FONT>                throw new IllegalArgumentException("period must be positive.");<a name="line.287"></a>
+<FONT color="green">288</FONT>            }<a name="line.288"></a>
+<FONT color="green">289</FONT>            if (skip &lt; 0.0) {<a name="line.289"></a>
+<FONT color="green">290</FONT>                throw new IllegalArgumentException("skip must be &gt;= 0.0.");<a name="line.290"></a>
+<FONT color="green">291</FONT>            }<a name="line.291"></a>
+<FONT color="green">292</FONT>    <a name="line.292"></a>
+<FONT color="green">293</FONT>            XYSeries result = new XYSeries(name);<a name="line.293"></a>
+<FONT color="green">294</FONT>    <a name="line.294"></a>
+<FONT color="green">295</FONT>            if (source.getItemCount(series) &gt; 0) {<a name="line.295"></a>
+<FONT color="green">296</FONT>    <a name="line.296"></a>
+<FONT color="green">297</FONT>                // if the initial averaging period is to be excluded, then<a name="line.297"></a>
+<FONT color="green">298</FONT>                // calculate the lowest x-value to have an average calculated...<a name="line.298"></a>
+<FONT color="green">299</FONT>                double first = source.getXValue(series, 0) + skip;<a name="line.299"></a>
+<FONT color="green">300</FONT>    <a name="line.300"></a>
+<FONT color="green">301</FONT>                for (int i = source.getItemCount(series) - 1; i &gt;= 0; i--) {<a name="line.301"></a>
+<FONT color="green">302</FONT>    <a name="line.302"></a>
+<FONT color="green">303</FONT>                    // get the current data item...<a name="line.303"></a>
+<FONT color="green">304</FONT>                    double x = source.getXValue(series, i);<a name="line.304"></a>
+<FONT color="green">305</FONT>    <a name="line.305"></a>
+<FONT color="green">306</FONT>                    if (x &gt;= first) {<a name="line.306"></a>
+<FONT color="green">307</FONT>                        // work out the average for the earlier values...<a name="line.307"></a>
+<FONT color="green">308</FONT>                        int n = 0;<a name="line.308"></a>
+<FONT color="green">309</FONT>                        double sum = 0.0;<a name="line.309"></a>
+<FONT color="green">310</FONT>                        double limit = x - period;<a name="line.310"></a>
+<FONT color="green">311</FONT>                        int offset = 0;<a name="line.311"></a>
+<FONT color="green">312</FONT>                        boolean finished = false;<a name="line.312"></a>
+<FONT color="green">313</FONT>    <a name="line.313"></a>
+<FONT color="green">314</FONT>                        while (!finished) {<a name="line.314"></a>
+<FONT color="green">315</FONT>                            if ((i - offset) &gt;= 0) {<a name="line.315"></a>
+<FONT color="green">316</FONT>                                double xx = source.getXValue(series, i - offset);<a name="line.316"></a>
+<FONT color="green">317</FONT>                                Number yy = source.getY(series, i - offset);<a name="line.317"></a>
+<FONT color="green">318</FONT>                                if (xx &gt; limit) {<a name="line.318"></a>
+<FONT color="green">319</FONT>                                    if (yy != null) {<a name="line.319"></a>
+<FONT color="green">320</FONT>                                        sum = sum + yy.doubleValue();<a name="line.320"></a>
+<FONT color="green">321</FONT>                                        n = n + 1;<a name="line.321"></a>
+<FONT color="green">322</FONT>                                    }<a name="line.322"></a>
+<FONT color="green">323</FONT>                                }<a name="line.323"></a>
+<FONT color="green">324</FONT>                                else {<a name="line.324"></a>
+<FONT color="green">325</FONT>                                    finished = true;<a name="line.325"></a>
+<FONT color="green">326</FONT>                                }<a name="line.326"></a>
+<FONT color="green">327</FONT>                            }<a name="line.327"></a>
+<FONT color="green">328</FONT>                            else {<a name="line.328"></a>
+<FONT color="green">329</FONT>                                finished = true;<a name="line.329"></a>
+<FONT color="green">330</FONT>                            }<a name="line.330"></a>
+<FONT color="green">331</FONT>                            offset = offset + 1;<a name="line.331"></a>
+<FONT color="green">332</FONT>                        }<a name="line.332"></a>
+<FONT color="green">333</FONT>                        if (n &gt; 0) {<a name="line.333"></a>
+<FONT color="green">334</FONT>                            result.add(x, sum / n);<a name="line.334"></a>
+<FONT color="green">335</FONT>                        }<a name="line.335"></a>
+<FONT color="green">336</FONT>                        else {<a name="line.336"></a>
+<FONT color="green">337</FONT>                            result.add(x, null);<a name="line.337"></a>
+<FONT color="green">338</FONT>                        }<a name="line.338"></a>
+<FONT color="green">339</FONT>                    }<a name="line.339"></a>
+<FONT color="green">340</FONT>    <a name="line.340"></a>
+<FONT color="green">341</FONT>                }<a name="line.341"></a>
+<FONT color="green">342</FONT>            }<a name="line.342"></a>
+<FONT color="green">343</FONT>    <a name="line.343"></a>
+<FONT color="green">344</FONT>            return result;<a name="line.344"></a>
+<FONT color="green">345</FONT>    <a name="line.345"></a>
+<FONT color="green">346</FONT>        }<a name="line.346"></a>
+<FONT color="green">347</FONT>    <a name="line.347"></a>
+<FONT color="green">348</FONT>    }<a name="line.348"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

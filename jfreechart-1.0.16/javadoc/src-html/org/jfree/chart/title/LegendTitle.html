@@ -1,0 +1,761 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /* ===========================================================<a name="line.1"></a>
+<FONT color="green">002</FONT>     * JFreeChart : a free chart library for the Java(tm) platform<a name="line.2"></a>
+<FONT color="green">003</FONT>     * ===========================================================<a name="line.3"></a>
+<FONT color="green">004</FONT>     *<a name="line.4"></a>
+<FONT color="green">005</FONT>     * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors.<a name="line.5"></a>
+<FONT color="green">006</FONT>     *<a name="line.6"></a>
+<FONT color="green">007</FONT>     * Project Info:  http://www.jfree.org/jfreechart/index.html<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     * This library is free software; you can redistribute it and/or modify it<a name="line.9"></a>
+<FONT color="green">010</FONT>     * under the terms of the GNU Lesser General Public License as published by<a name="line.10"></a>
+<FONT color="green">011</FONT>     * the Free Software Foundation; either version 2.1 of the License, or<a name="line.11"></a>
+<FONT color="green">012</FONT>     * (at your option) any later version.<a name="line.12"></a>
+<FONT color="green">013</FONT>     *<a name="line.13"></a>
+<FONT color="green">014</FONT>     * This library is distributed in the hope that it will be useful, but<a name="line.14"></a>
+<FONT color="green">015</FONT>     * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<a name="line.15"></a>
+<FONT color="green">016</FONT>     * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public<a name="line.16"></a>
+<FONT color="green">017</FONT>     * License for more details.<a name="line.17"></a>
+<FONT color="green">018</FONT>     *<a name="line.18"></a>
+<FONT color="green">019</FONT>     * You should have received a copy of the GNU Lesser General Public<a name="line.19"></a>
+<FONT color="green">020</FONT>     * License along with this library; if not, write to the Free Software<a name="line.20"></a>
+<FONT color="green">021</FONT>     * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,<a name="line.21"></a>
+<FONT color="green">022</FONT>     * USA.<a name="line.22"></a>
+<FONT color="green">023</FONT>     *<a name="line.23"></a>
+<FONT color="green">024</FONT>     * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.24"></a>
+<FONT color="green">025</FONT>     * Other names may be trademarks of their respective owners.]<a name="line.25"></a>
+<FONT color="green">026</FONT>     *<a name="line.26"></a>
+<FONT color="green">027</FONT>     * ----------------<a name="line.27"></a>
+<FONT color="green">028</FONT>     * LegendTitle.java<a name="line.28"></a>
+<FONT color="green">029</FONT>     * ----------------<a name="line.29"></a>
+<FONT color="green">030</FONT>     * (C) Copyright 2002-2013, by Object Refinery Limited.<a name="line.30"></a>
+<FONT color="green">031</FONT>     *<a name="line.31"></a>
+<FONT color="green">032</FONT>     * Original Author:  David Gilbert (for Object Refinery Limited);<a name="line.32"></a>
+<FONT color="green">033</FONT>     * Contributor(s):   Pierre-Marie Le Biot;<a name="line.33"></a>
+<FONT color="green">034</FONT>     *<a name="line.34"></a>
+<FONT color="green">035</FONT>     * Changes<a name="line.35"></a>
+<FONT color="green">036</FONT>     * -------<a name="line.36"></a>
+<FONT color="green">037</FONT>     * 25-Nov-2004 : First working version (DG);<a name="line.37"></a>
+<FONT color="green">038</FONT>     * 11-Jan-2005 : Removed deprecated code in preparation for 1.0.0 release (DG);<a name="line.38"></a>
+<FONT color="green">039</FONT>     * 08-Feb-2005 : Updated for changes in RectangleConstraint class (DG);<a name="line.39"></a>
+<FONT color="green">040</FONT>     * 11-Feb-2005 : Implemented PublicCloneable (DG);<a name="line.40"></a>
+<FONT color="green">041</FONT>     * 23-Feb-2005 : Replaced chart reference with LegendItemSource (DG);<a name="line.41"></a>
+<FONT color="green">042</FONT>     * 16-Mar-2005 : Added itemFont attribute (DG);<a name="line.42"></a>
+<FONT color="green">043</FONT>     * 17-Mar-2005 : Fixed missing fillShape setting (DG);<a name="line.43"></a>
+<FONT color="green">044</FONT>     * 20-Apr-2005 : Added new draw() method (DG);<a name="line.44"></a>
+<FONT color="green">045</FONT>     * 03-May-2005 : Modified equals() method to ignore sources (DG);<a name="line.45"></a>
+<FONT color="green">046</FONT>     * 13-May-2005 : Added settings for legend item label and graphic padding (DG);<a name="line.46"></a>
+<FONT color="green">047</FONT>     * 09-Jun-2005 : Fixed serialization bug (DG);<a name="line.47"></a>
+<FONT color="green">048</FONT>     * 01-Sep-2005 : Added itemPaint attribute (PMLB);<a name="line.48"></a>
+<FONT color="green">049</FONT>     * ------------- JFREECHART 1.0.x ---------------------------------------------<a name="line.49"></a>
+<FONT color="green">050</FONT>     * 20-Jul-2006 : Use new LegendItemBlockContainer to restore support for<a name="line.50"></a>
+<FONT color="green">051</FONT>     *               LegendItemEntities (DG);<a name="line.51"></a>
+<FONT color="green">052</FONT>     * 06-Oct-2006 : Add tooltip and URL text to legend item (DG);<a name="line.52"></a>
+<FONT color="green">053</FONT>     * 13-Dec-2006 : Added support for GradientPaint in legend items (DG);<a name="line.53"></a>
+<FONT color="green">054</FONT>     * 16-Mar-2007 : Updated border drawing for changes in AbstractBlock (DG);<a name="line.54"></a>
+<FONT color="green">055</FONT>     * 18-May-2007 : Pass seriesKey and dataset to legend item block (DG);<a name="line.55"></a>
+<FONT color="green">056</FONT>     * 15-Aug-2008 : Added getWrapper() method (DG);<a name="line.56"></a>
+<FONT color="green">057</FONT>     * 19-Mar-2009 : Added entity support - see patch 2603321 by Peter Kolb (DG);<a name="line.57"></a>
+<FONT color="green">058</FONT>     * 11-Mar-2012 : Added sort-order support - patch 3500621 by Simon Kaczor (MH);<a name="line.58"></a>
+<FONT color="green">059</FONT>     * 03-Jul-2013 : Use ParamChecks (DG);<a name="line.59"></a>
+<FONT color="green">060</FONT>     * <a name="line.60"></a>
+<FONT color="green">061</FONT>     */<a name="line.61"></a>
+<FONT color="green">062</FONT>    <a name="line.62"></a>
+<FONT color="green">063</FONT>    package org.jfree.chart.title;<a name="line.63"></a>
+<FONT color="green">064</FONT>    <a name="line.64"></a>
+<FONT color="green">065</FONT>    import java.awt.Color;<a name="line.65"></a>
+<FONT color="green">066</FONT>    import java.awt.Font;<a name="line.66"></a>
+<FONT color="green">067</FONT>    import java.awt.Graphics2D;<a name="line.67"></a>
+<FONT color="green">068</FONT>    import java.awt.Paint;<a name="line.68"></a>
+<FONT color="green">069</FONT>    import java.awt.geom.Rectangle2D;<a name="line.69"></a>
+<FONT color="green">070</FONT>    import java.io.IOException;<a name="line.70"></a>
+<FONT color="green">071</FONT>    import java.io.ObjectInputStream;<a name="line.71"></a>
+<FONT color="green">072</FONT>    import java.io.ObjectOutputStream;<a name="line.72"></a>
+<FONT color="green">073</FONT>    import java.io.Serializable;<a name="line.73"></a>
+<FONT color="green">074</FONT>    <a name="line.74"></a>
+<FONT color="green">075</FONT>    import org.jfree.chart.LegendItem;<a name="line.75"></a>
+<FONT color="green">076</FONT>    import org.jfree.chart.LegendItemCollection;<a name="line.76"></a>
+<FONT color="green">077</FONT>    import org.jfree.chart.LegendItemSource;<a name="line.77"></a>
+<FONT color="green">078</FONT>    import org.jfree.chart.block.Arrangement;<a name="line.78"></a>
+<FONT color="green">079</FONT>    import org.jfree.chart.block.Block;<a name="line.79"></a>
+<FONT color="green">080</FONT>    import org.jfree.chart.block.BlockContainer;<a name="line.80"></a>
+<FONT color="green">081</FONT>    import org.jfree.chart.block.BlockFrame;<a name="line.81"></a>
+<FONT color="green">082</FONT>    import org.jfree.chart.block.BlockResult;<a name="line.82"></a>
+<FONT color="green">083</FONT>    import org.jfree.chart.block.BorderArrangement;<a name="line.83"></a>
+<FONT color="green">084</FONT>    import org.jfree.chart.block.CenterArrangement;<a name="line.84"></a>
+<FONT color="green">085</FONT>    import org.jfree.chart.block.ColumnArrangement;<a name="line.85"></a>
+<FONT color="green">086</FONT>    import org.jfree.chart.block.EntityBlockParams;<a name="line.86"></a>
+<FONT color="green">087</FONT>    import org.jfree.chart.block.FlowArrangement;<a name="line.87"></a>
+<FONT color="green">088</FONT>    import org.jfree.chart.block.LabelBlock;<a name="line.88"></a>
+<FONT color="green">089</FONT>    import org.jfree.chart.block.RectangleConstraint;<a name="line.89"></a>
+<FONT color="green">090</FONT>    import org.jfree.chart.entity.EntityCollection;<a name="line.90"></a>
+<FONT color="green">091</FONT>    import org.jfree.chart.entity.StandardEntityCollection;<a name="line.91"></a>
+<FONT color="green">092</FONT>    import org.jfree.chart.entity.TitleEntity;<a name="line.92"></a>
+<FONT color="green">093</FONT>    import org.jfree.chart.event.TitleChangeEvent;<a name="line.93"></a>
+<FONT color="green">094</FONT>    import org.jfree.chart.util.ParamChecks;<a name="line.94"></a>
+<FONT color="green">095</FONT>    import org.jfree.io.SerialUtilities;<a name="line.95"></a>
+<FONT color="green">096</FONT>    import org.jfree.ui.RectangleAnchor;<a name="line.96"></a>
+<FONT color="green">097</FONT>    import org.jfree.ui.RectangleEdge;<a name="line.97"></a>
+<FONT color="green">098</FONT>    import org.jfree.ui.RectangleInsets;<a name="line.98"></a>
+<FONT color="green">099</FONT>    import org.jfree.ui.Size2D;<a name="line.99"></a>
+<FONT color="green">100</FONT>    import org.jfree.util.PaintUtilities;<a name="line.100"></a>
+<FONT color="green">101</FONT>    import org.jfree.util.PublicCloneable;<a name="line.101"></a>
+<FONT color="green">102</FONT>    import org.jfree.util.SortOrder;<a name="line.102"></a>
+<FONT color="green">103</FONT>    <a name="line.103"></a>
+<FONT color="green">104</FONT>    /**<a name="line.104"></a>
+<FONT color="green">105</FONT>     * A chart title that displays a legend for the data in the chart.<a name="line.105"></a>
+<FONT color="green">106</FONT>     * &lt;P&gt;<a name="line.106"></a>
+<FONT color="green">107</FONT>     * The title can be populated with legend items manually, or you can assign a<a name="line.107"></a>
+<FONT color="green">108</FONT>     * reference to the plot, in which case the legend items will be automatically<a name="line.108"></a>
+<FONT color="green">109</FONT>     * created to match the dataset(s).<a name="line.109"></a>
+<FONT color="green">110</FONT>     */<a name="line.110"></a>
+<FONT color="green">111</FONT>    public class LegendTitle extends Title<a name="line.111"></a>
+<FONT color="green">112</FONT>            implements Cloneable, PublicCloneable, Serializable {<a name="line.112"></a>
+<FONT color="green">113</FONT>    <a name="line.113"></a>
+<FONT color="green">114</FONT>        /** For serialization. */<a name="line.114"></a>
+<FONT color="green">115</FONT>        private static final long serialVersionUID = 2644010518533854633L;<a name="line.115"></a>
+<FONT color="green">116</FONT>    <a name="line.116"></a>
+<FONT color="green">117</FONT>        /** The default item font. */<a name="line.117"></a>
+<FONT color="green">118</FONT>        public static final Font DEFAULT_ITEM_FONT<a name="line.118"></a>
+<FONT color="green">119</FONT>                = new Font("SansSerif", Font.PLAIN, 12);<a name="line.119"></a>
+<FONT color="green">120</FONT>    <a name="line.120"></a>
+<FONT color="green">121</FONT>        /** The default item paint. */<a name="line.121"></a>
+<FONT color="green">122</FONT>        public static final Paint DEFAULT_ITEM_PAINT = Color.black;<a name="line.122"></a>
+<FONT color="green">123</FONT>    <a name="line.123"></a>
+<FONT color="green">124</FONT>        /** The sources for legend items. */<a name="line.124"></a>
+<FONT color="green">125</FONT>        private LegendItemSource[] sources;<a name="line.125"></a>
+<FONT color="green">126</FONT>    <a name="line.126"></a>
+<FONT color="green">127</FONT>        /** The background paint (possibly &lt;code&gt;null&lt;/code&gt;). */<a name="line.127"></a>
+<FONT color="green">128</FONT>        private transient Paint backgroundPaint;<a name="line.128"></a>
+<FONT color="green">129</FONT>    <a name="line.129"></a>
+<FONT color="green">130</FONT>        /** The edge for the legend item graphic relative to the text. */<a name="line.130"></a>
+<FONT color="green">131</FONT>        private RectangleEdge legendItemGraphicEdge;<a name="line.131"></a>
+<FONT color="green">132</FONT>    <a name="line.132"></a>
+<FONT color="green">133</FONT>        /** The anchor point for the legend item graphic. */<a name="line.133"></a>
+<FONT color="green">134</FONT>        private RectangleAnchor legendItemGraphicAnchor;<a name="line.134"></a>
+<FONT color="green">135</FONT>    <a name="line.135"></a>
+<FONT color="green">136</FONT>        /** The legend item graphic location. */<a name="line.136"></a>
+<FONT color="green">137</FONT>        private RectangleAnchor legendItemGraphicLocation;<a name="line.137"></a>
+<FONT color="green">138</FONT>    <a name="line.138"></a>
+<FONT color="green">139</FONT>        /** The padding for the legend item graphic. */<a name="line.139"></a>
+<FONT color="green">140</FONT>        private RectangleInsets legendItemGraphicPadding;<a name="line.140"></a>
+<FONT color="green">141</FONT>    <a name="line.141"></a>
+<FONT color="green">142</FONT>        /** The item font. */<a name="line.142"></a>
+<FONT color="green">143</FONT>        private Font itemFont;<a name="line.143"></a>
+<FONT color="green">144</FONT>    <a name="line.144"></a>
+<FONT color="green">145</FONT>        /** The item paint. */<a name="line.145"></a>
+<FONT color="green">146</FONT>        private transient Paint itemPaint;<a name="line.146"></a>
+<FONT color="green">147</FONT>    <a name="line.147"></a>
+<FONT color="green">148</FONT>        /** The padding for the item labels. */<a name="line.148"></a>
+<FONT color="green">149</FONT>        private RectangleInsets itemLabelPadding;<a name="line.149"></a>
+<FONT color="green">150</FONT>    <a name="line.150"></a>
+<FONT color="green">151</FONT>        /**<a name="line.151"></a>
+<FONT color="green">152</FONT>         * A container that holds and displays the legend items.<a name="line.152"></a>
+<FONT color="green">153</FONT>         */<a name="line.153"></a>
+<FONT color="green">154</FONT>        private BlockContainer items;<a name="line.154"></a>
+<FONT color="green">155</FONT>    <a name="line.155"></a>
+<FONT color="green">156</FONT>        /**<a name="line.156"></a>
+<FONT color="green">157</FONT>         * The layout for the legend when it is positioned at the top or bottom<a name="line.157"></a>
+<FONT color="green">158</FONT>         * of the chart.<a name="line.158"></a>
+<FONT color="green">159</FONT>         */<a name="line.159"></a>
+<FONT color="green">160</FONT>        private Arrangement hLayout;<a name="line.160"></a>
+<FONT color="green">161</FONT>    <a name="line.161"></a>
+<FONT color="green">162</FONT>        /**<a name="line.162"></a>
+<FONT color="green">163</FONT>         * The layout for the legend when it is positioned at the left or right<a name="line.163"></a>
+<FONT color="green">164</FONT>         * of the chart.<a name="line.164"></a>
+<FONT color="green">165</FONT>         */<a name="line.165"></a>
+<FONT color="green">166</FONT>        private Arrangement vLayout;<a name="line.166"></a>
+<FONT color="green">167</FONT>    <a name="line.167"></a>
+<FONT color="green">168</FONT>        /**<a name="line.168"></a>
+<FONT color="green">169</FONT>         * An optional container for wrapping the legend items (allows for adding<a name="line.169"></a>
+<FONT color="green">170</FONT>         * a title or other text to the legend).<a name="line.170"></a>
+<FONT color="green">171</FONT>         */<a name="line.171"></a>
+<FONT color="green">172</FONT>        private BlockContainer wrapper;<a name="line.172"></a>
+<FONT color="green">173</FONT>    <a name="line.173"></a>
+<FONT color="green">174</FONT>        /**<a name="line.174"></a>
+<FONT color="green">175</FONT>         * Whether to render legend items in ascending or descending order.<a name="line.175"></a>
+<FONT color="green">176</FONT>         * @since 1.0.15<a name="line.176"></a>
+<FONT color="green">177</FONT>         */<a name="line.177"></a>
+<FONT color="green">178</FONT>        private SortOrder sortOrder;<a name="line.178"></a>
+<FONT color="green">179</FONT>    <a name="line.179"></a>
+<FONT color="green">180</FONT>        /**<a name="line.180"></a>
+<FONT color="green">181</FONT>         * Constructs a new (empty) legend for the specified source.<a name="line.181"></a>
+<FONT color="green">182</FONT>         *<a name="line.182"></a>
+<FONT color="green">183</FONT>         * @param source  the source.<a name="line.183"></a>
+<FONT color="green">184</FONT>         */<a name="line.184"></a>
+<FONT color="green">185</FONT>        public LegendTitle(LegendItemSource source) {<a name="line.185"></a>
+<FONT color="green">186</FONT>            this(source, new FlowArrangement(), new ColumnArrangement());<a name="line.186"></a>
+<FONT color="green">187</FONT>        }<a name="line.187"></a>
+<FONT color="green">188</FONT>    <a name="line.188"></a>
+<FONT color="green">189</FONT>        /**<a name="line.189"></a>
+<FONT color="green">190</FONT>         * Creates a new legend title with the specified arrangement.<a name="line.190"></a>
+<FONT color="green">191</FONT>         *<a name="line.191"></a>
+<FONT color="green">192</FONT>         * @param source  the source.<a name="line.192"></a>
+<FONT color="green">193</FONT>         * @param hLayout  the horizontal item arrangement (&lt;code&gt;null&lt;/code&gt; not<a name="line.193"></a>
+<FONT color="green">194</FONT>         *                 permitted).<a name="line.194"></a>
+<FONT color="green">195</FONT>         * @param vLayout  the vertical item arrangement (&lt;code&gt;null&lt;/code&gt; not<a name="line.195"></a>
+<FONT color="green">196</FONT>         *                 permitted).<a name="line.196"></a>
+<FONT color="green">197</FONT>         */<a name="line.197"></a>
+<FONT color="green">198</FONT>        public LegendTitle(LegendItemSource source,<a name="line.198"></a>
+<FONT color="green">199</FONT>                           Arrangement hLayout, Arrangement vLayout) {<a name="line.199"></a>
+<FONT color="green">200</FONT>            this.sources = new LegendItemSource[] {source};<a name="line.200"></a>
+<FONT color="green">201</FONT>            this.items = new BlockContainer(hLayout);<a name="line.201"></a>
+<FONT color="green">202</FONT>            this.hLayout = hLayout;<a name="line.202"></a>
+<FONT color="green">203</FONT>            this.vLayout = vLayout;<a name="line.203"></a>
+<FONT color="green">204</FONT>            this.backgroundPaint = null;<a name="line.204"></a>
+<FONT color="green">205</FONT>            this.legendItemGraphicEdge = RectangleEdge.LEFT;<a name="line.205"></a>
+<FONT color="green">206</FONT>            this.legendItemGraphicAnchor = RectangleAnchor.CENTER;<a name="line.206"></a>
+<FONT color="green">207</FONT>            this.legendItemGraphicLocation = RectangleAnchor.CENTER;<a name="line.207"></a>
+<FONT color="green">208</FONT>            this.legendItemGraphicPadding = new RectangleInsets(2.0, 2.0, 2.0, 2.0);<a name="line.208"></a>
+<FONT color="green">209</FONT>            this.itemFont = DEFAULT_ITEM_FONT;<a name="line.209"></a>
+<FONT color="green">210</FONT>            this.itemPaint = DEFAULT_ITEM_PAINT;<a name="line.210"></a>
+<FONT color="green">211</FONT>            this.itemLabelPadding = new RectangleInsets(2.0, 2.0, 2.0, 2.0);<a name="line.211"></a>
+<FONT color="green">212</FONT>            this.sortOrder = SortOrder.ASCENDING;<a name="line.212"></a>
+<FONT color="green">213</FONT>        }<a name="line.213"></a>
+<FONT color="green">214</FONT>    <a name="line.214"></a>
+<FONT color="green">215</FONT>        /**<a name="line.215"></a>
+<FONT color="green">216</FONT>         * Returns the legend item sources.<a name="line.216"></a>
+<FONT color="green">217</FONT>         *<a name="line.217"></a>
+<FONT color="green">218</FONT>         * @return The sources.<a name="line.218"></a>
+<FONT color="green">219</FONT>         */<a name="line.219"></a>
+<FONT color="green">220</FONT>        public LegendItemSource[] getSources() {<a name="line.220"></a>
+<FONT color="green">221</FONT>            return this.sources;<a name="line.221"></a>
+<FONT color="green">222</FONT>        }<a name="line.222"></a>
+<FONT color="green">223</FONT>    <a name="line.223"></a>
+<FONT color="green">224</FONT>        /**<a name="line.224"></a>
+<FONT color="green">225</FONT>         * Sets the legend item sources and sends a {@link TitleChangeEvent} to<a name="line.225"></a>
+<FONT color="green">226</FONT>         * all registered listeners.<a name="line.226"></a>
+<FONT color="green">227</FONT>         *<a name="line.227"></a>
+<FONT color="green">228</FONT>         * @param sources  the sources (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.228"></a>
+<FONT color="green">229</FONT>         */<a name="line.229"></a>
+<FONT color="green">230</FONT>        public void setSources(LegendItemSource[] sources) {<a name="line.230"></a>
+<FONT color="green">231</FONT>            ParamChecks.nullNotPermitted(sources, "sources");<a name="line.231"></a>
+<FONT color="green">232</FONT>            this.sources = sources;<a name="line.232"></a>
+<FONT color="green">233</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.233"></a>
+<FONT color="green">234</FONT>        }<a name="line.234"></a>
+<FONT color="green">235</FONT>    <a name="line.235"></a>
+<FONT color="green">236</FONT>        /**<a name="line.236"></a>
+<FONT color="green">237</FONT>         * Returns the background paint.<a name="line.237"></a>
+<FONT color="green">238</FONT>         *<a name="line.238"></a>
+<FONT color="green">239</FONT>         * @return The background paint (possibly &lt;code&gt;null&lt;/code&gt;).<a name="line.239"></a>
+<FONT color="green">240</FONT>         */<a name="line.240"></a>
+<FONT color="green">241</FONT>        public Paint getBackgroundPaint() {<a name="line.241"></a>
+<FONT color="green">242</FONT>            return this.backgroundPaint;<a name="line.242"></a>
+<FONT color="green">243</FONT>        }<a name="line.243"></a>
+<FONT color="green">244</FONT>    <a name="line.244"></a>
+<FONT color="green">245</FONT>        /**<a name="line.245"></a>
+<FONT color="green">246</FONT>         * Sets the background paint for the legend and sends a<a name="line.246"></a>
+<FONT color="green">247</FONT>         * {@link TitleChangeEvent} to all registered listeners.<a name="line.247"></a>
+<FONT color="green">248</FONT>         *<a name="line.248"></a>
+<FONT color="green">249</FONT>         * @param paint  the paint (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.249"></a>
+<FONT color="green">250</FONT>         */<a name="line.250"></a>
+<FONT color="green">251</FONT>        public void setBackgroundPaint(Paint paint) {<a name="line.251"></a>
+<FONT color="green">252</FONT>            this.backgroundPaint = paint;<a name="line.252"></a>
+<FONT color="green">253</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.253"></a>
+<FONT color="green">254</FONT>        }<a name="line.254"></a>
+<FONT color="green">255</FONT>    <a name="line.255"></a>
+<FONT color="green">256</FONT>        /**<a name="line.256"></a>
+<FONT color="green">257</FONT>         * Returns the location of the shape within each legend item.<a name="line.257"></a>
+<FONT color="green">258</FONT>         *<a name="line.258"></a>
+<FONT color="green">259</FONT>         * @return The location (never &lt;code&gt;null&lt;/code&gt;).<a name="line.259"></a>
+<FONT color="green">260</FONT>         */<a name="line.260"></a>
+<FONT color="green">261</FONT>        public RectangleEdge getLegendItemGraphicEdge() {<a name="line.261"></a>
+<FONT color="green">262</FONT>            return this.legendItemGraphicEdge;<a name="line.262"></a>
+<FONT color="green">263</FONT>        }<a name="line.263"></a>
+<FONT color="green">264</FONT>    <a name="line.264"></a>
+<FONT color="green">265</FONT>        /**<a name="line.265"></a>
+<FONT color="green">266</FONT>         * Sets the location of the shape within each legend item.<a name="line.266"></a>
+<FONT color="green">267</FONT>         *<a name="line.267"></a>
+<FONT color="green">268</FONT>         * @param edge  the edge (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.268"></a>
+<FONT color="green">269</FONT>         */<a name="line.269"></a>
+<FONT color="green">270</FONT>        public void setLegendItemGraphicEdge(RectangleEdge edge) {<a name="line.270"></a>
+<FONT color="green">271</FONT>            ParamChecks.nullNotPermitted(edge, "edge");<a name="line.271"></a>
+<FONT color="green">272</FONT>            this.legendItemGraphicEdge = edge;<a name="line.272"></a>
+<FONT color="green">273</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.273"></a>
+<FONT color="green">274</FONT>        }<a name="line.274"></a>
+<FONT color="green">275</FONT>    <a name="line.275"></a>
+<FONT color="green">276</FONT>        /**<a name="line.276"></a>
+<FONT color="green">277</FONT>         * Returns the legend item graphic anchor.<a name="line.277"></a>
+<FONT color="green">278</FONT>         *<a name="line.278"></a>
+<FONT color="green">279</FONT>         * @return The graphic anchor (never &lt;code&gt;null&lt;/code&gt;).<a name="line.279"></a>
+<FONT color="green">280</FONT>         */<a name="line.280"></a>
+<FONT color="green">281</FONT>        public RectangleAnchor getLegendItemGraphicAnchor() {<a name="line.281"></a>
+<FONT color="green">282</FONT>            return this.legendItemGraphicAnchor;<a name="line.282"></a>
+<FONT color="green">283</FONT>        }<a name="line.283"></a>
+<FONT color="green">284</FONT>    <a name="line.284"></a>
+<FONT color="green">285</FONT>        /**<a name="line.285"></a>
+<FONT color="green">286</FONT>         * Sets the anchor point used for the graphic in each legend item.<a name="line.286"></a>
+<FONT color="green">287</FONT>         *<a name="line.287"></a>
+<FONT color="green">288</FONT>         * @param anchor  the anchor point (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.288"></a>
+<FONT color="green">289</FONT>         */<a name="line.289"></a>
+<FONT color="green">290</FONT>        public void setLegendItemGraphicAnchor(RectangleAnchor anchor) {<a name="line.290"></a>
+<FONT color="green">291</FONT>            ParamChecks.nullNotPermitted(anchor, "anchor");<a name="line.291"></a>
+<FONT color="green">292</FONT>            this.legendItemGraphicAnchor = anchor;<a name="line.292"></a>
+<FONT color="green">293</FONT>        }<a name="line.293"></a>
+<FONT color="green">294</FONT>    <a name="line.294"></a>
+<FONT color="green">295</FONT>        /**<a name="line.295"></a>
+<FONT color="green">296</FONT>         * Returns the legend item graphic location.<a name="line.296"></a>
+<FONT color="green">297</FONT>         *<a name="line.297"></a>
+<FONT color="green">298</FONT>         * @return The location (never &lt;code&gt;null&lt;/code&gt;).<a name="line.298"></a>
+<FONT color="green">299</FONT>         */<a name="line.299"></a>
+<FONT color="green">300</FONT>        public RectangleAnchor getLegendItemGraphicLocation() {<a name="line.300"></a>
+<FONT color="green">301</FONT>            return this.legendItemGraphicLocation;<a name="line.301"></a>
+<FONT color="green">302</FONT>        }<a name="line.302"></a>
+<FONT color="green">303</FONT>    <a name="line.303"></a>
+<FONT color="green">304</FONT>        /**<a name="line.304"></a>
+<FONT color="green">305</FONT>         * Sets the legend item graphic location.<a name="line.305"></a>
+<FONT color="green">306</FONT>         *<a name="line.306"></a>
+<FONT color="green">307</FONT>         * @param anchor  the anchor (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.307"></a>
+<FONT color="green">308</FONT>         */<a name="line.308"></a>
+<FONT color="green">309</FONT>        public void setLegendItemGraphicLocation(RectangleAnchor anchor) {<a name="line.309"></a>
+<FONT color="green">310</FONT>            this.legendItemGraphicLocation = anchor;<a name="line.310"></a>
+<FONT color="green">311</FONT>        }<a name="line.311"></a>
+<FONT color="green">312</FONT>    <a name="line.312"></a>
+<FONT color="green">313</FONT>        /**<a name="line.313"></a>
+<FONT color="green">314</FONT>         * Returns the padding that will be applied to each item graphic.<a name="line.314"></a>
+<FONT color="green">315</FONT>         *<a name="line.315"></a>
+<FONT color="green">316</FONT>         * @return The padding (never &lt;code&gt;null&lt;/code&gt;).<a name="line.316"></a>
+<FONT color="green">317</FONT>         */<a name="line.317"></a>
+<FONT color="green">318</FONT>        public RectangleInsets getLegendItemGraphicPadding() {<a name="line.318"></a>
+<FONT color="green">319</FONT>            return this.legendItemGraphicPadding;<a name="line.319"></a>
+<FONT color="green">320</FONT>        }<a name="line.320"></a>
+<FONT color="green">321</FONT>    <a name="line.321"></a>
+<FONT color="green">322</FONT>        /**<a name="line.322"></a>
+<FONT color="green">323</FONT>         * Sets the padding that will be applied to each item graphic in the<a name="line.323"></a>
+<FONT color="green">324</FONT>         * legend and sends a {@link TitleChangeEvent} to all registered listeners.<a name="line.324"></a>
+<FONT color="green">325</FONT>         *<a name="line.325"></a>
+<FONT color="green">326</FONT>         * @param padding  the padding (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.326"></a>
+<FONT color="green">327</FONT>         */<a name="line.327"></a>
+<FONT color="green">328</FONT>        public void setLegendItemGraphicPadding(RectangleInsets padding) {<a name="line.328"></a>
+<FONT color="green">329</FONT>            ParamChecks.nullNotPermitted(padding, "padding");<a name="line.329"></a>
+<FONT color="green">330</FONT>            this.legendItemGraphicPadding = padding;<a name="line.330"></a>
+<FONT color="green">331</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.331"></a>
+<FONT color="green">332</FONT>        }<a name="line.332"></a>
+<FONT color="green">333</FONT>    <a name="line.333"></a>
+<FONT color="green">334</FONT>        /**<a name="line.334"></a>
+<FONT color="green">335</FONT>         * Returns the item font.<a name="line.335"></a>
+<FONT color="green">336</FONT>         *<a name="line.336"></a>
+<FONT color="green">337</FONT>         * @return The font (never &lt;code&gt;null&lt;/code&gt;).<a name="line.337"></a>
+<FONT color="green">338</FONT>         */<a name="line.338"></a>
+<FONT color="green">339</FONT>        public Font getItemFont() {<a name="line.339"></a>
+<FONT color="green">340</FONT>            return this.itemFont;<a name="line.340"></a>
+<FONT color="green">341</FONT>        }<a name="line.341"></a>
+<FONT color="green">342</FONT>    <a name="line.342"></a>
+<FONT color="green">343</FONT>        /**<a name="line.343"></a>
+<FONT color="green">344</FONT>         * Sets the item font and sends a {@link TitleChangeEvent} to<a name="line.344"></a>
+<FONT color="green">345</FONT>         * all registered listeners.<a name="line.345"></a>
+<FONT color="green">346</FONT>         *<a name="line.346"></a>
+<FONT color="green">347</FONT>         * @param font  the font (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.347"></a>
+<FONT color="green">348</FONT>         */<a name="line.348"></a>
+<FONT color="green">349</FONT>        public void setItemFont(Font font) {<a name="line.349"></a>
+<FONT color="green">350</FONT>            ParamChecks.nullNotPermitted(font, "font");<a name="line.350"></a>
+<FONT color="green">351</FONT>            this.itemFont = font;<a name="line.351"></a>
+<FONT color="green">352</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.352"></a>
+<FONT color="green">353</FONT>        }<a name="line.353"></a>
+<FONT color="green">354</FONT>    <a name="line.354"></a>
+<FONT color="green">355</FONT>        /**<a name="line.355"></a>
+<FONT color="green">356</FONT>         * Returns the item paint.<a name="line.356"></a>
+<FONT color="green">357</FONT>         *<a name="line.357"></a>
+<FONT color="green">358</FONT>         * @return The paint (never &lt;code&gt;null&lt;/code&gt;).<a name="line.358"></a>
+<FONT color="green">359</FONT>         */<a name="line.359"></a>
+<FONT color="green">360</FONT>        public Paint getItemPaint() {<a name="line.360"></a>
+<FONT color="green">361</FONT>            return this.itemPaint;<a name="line.361"></a>
+<FONT color="green">362</FONT>        }<a name="line.362"></a>
+<FONT color="green">363</FONT>    <a name="line.363"></a>
+<FONT color="green">364</FONT>        /**<a name="line.364"></a>
+<FONT color="green">365</FONT>         * Sets the item paint.<a name="line.365"></a>
+<FONT color="green">366</FONT>         *<a name="line.366"></a>
+<FONT color="green">367</FONT>         * @param paint  the paint (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.367"></a>
+<FONT color="green">368</FONT>         */<a name="line.368"></a>
+<FONT color="green">369</FONT>        public void setItemPaint(Paint paint) {<a name="line.369"></a>
+<FONT color="green">370</FONT>            ParamChecks.nullNotPermitted(paint, "paint");<a name="line.370"></a>
+<FONT color="green">371</FONT>            this.itemPaint = paint;<a name="line.371"></a>
+<FONT color="green">372</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.372"></a>
+<FONT color="green">373</FONT>        }<a name="line.373"></a>
+<FONT color="green">374</FONT>    <a name="line.374"></a>
+<FONT color="green">375</FONT>        /**<a name="line.375"></a>
+<FONT color="green">376</FONT>         * Returns the padding used for the items labels.<a name="line.376"></a>
+<FONT color="green">377</FONT>         *<a name="line.377"></a>
+<FONT color="green">378</FONT>         * @return The padding (never &lt;code&gt;null&lt;/code&gt;).<a name="line.378"></a>
+<FONT color="green">379</FONT>         */<a name="line.379"></a>
+<FONT color="green">380</FONT>        public RectangleInsets getItemLabelPadding() {<a name="line.380"></a>
+<FONT color="green">381</FONT>            return this.itemLabelPadding;<a name="line.381"></a>
+<FONT color="green">382</FONT>        }<a name="line.382"></a>
+<FONT color="green">383</FONT>    <a name="line.383"></a>
+<FONT color="green">384</FONT>        /**<a name="line.384"></a>
+<FONT color="green">385</FONT>         * Sets the padding used for the item labels in the legend.<a name="line.385"></a>
+<FONT color="green">386</FONT>         *<a name="line.386"></a>
+<FONT color="green">387</FONT>         * @param padding  the padding (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.387"></a>
+<FONT color="green">388</FONT>         */<a name="line.388"></a>
+<FONT color="green">389</FONT>        public void setItemLabelPadding(RectangleInsets padding) {<a name="line.389"></a>
+<FONT color="green">390</FONT>            ParamChecks.nullNotPermitted(padding, "padding");<a name="line.390"></a>
+<FONT color="green">391</FONT>            this.itemLabelPadding = padding;<a name="line.391"></a>
+<FONT color="green">392</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.392"></a>
+<FONT color="green">393</FONT>        }<a name="line.393"></a>
+<FONT color="green">394</FONT>    <a name="line.394"></a>
+<FONT color="green">395</FONT>        /**<a name="line.395"></a>
+<FONT color="green">396</FONT>         * Gets the order used to display legend items.<a name="line.396"></a>
+<FONT color="green">397</FONT>         * <a name="line.397"></a>
+<FONT color="green">398</FONT>         * @return The order (never &lt;code&gt;null&lt;/code&gt;).<a name="line.398"></a>
+<FONT color="green">399</FONT>         * @since 1.0.15<a name="line.399"></a>
+<FONT color="green">400</FONT>         */<a name="line.400"></a>
+<FONT color="green">401</FONT>        public SortOrder getSortOrder() {<a name="line.401"></a>
+<FONT color="green">402</FONT>            return this.sortOrder;<a name="line.402"></a>
+<FONT color="green">403</FONT>        }<a name="line.403"></a>
+<FONT color="green">404</FONT>    <a name="line.404"></a>
+<FONT color="green">405</FONT>        /**<a name="line.405"></a>
+<FONT color="green">406</FONT>         * Sets the order used to display legend items.<a name="line.406"></a>
+<FONT color="green">407</FONT>         * <a name="line.407"></a>
+<FONT color="green">408</FONT>         * @param order Specifies ascending or descending order (&lt;code&gt;null&lt;/code&gt;<a name="line.408"></a>
+<FONT color="green">409</FONT>         *              not permitted).<a name="line.409"></a>
+<FONT color="green">410</FONT>         * @since 1.0.15<a name="line.410"></a>
+<FONT color="green">411</FONT>         */<a name="line.411"></a>
+<FONT color="green">412</FONT>        public void setSortOrder(SortOrder order) {<a name="line.412"></a>
+<FONT color="green">413</FONT>            ParamChecks.nullNotPermitted(order, "order");<a name="line.413"></a>
+<FONT color="green">414</FONT>            this.sortOrder = order;<a name="line.414"></a>
+<FONT color="green">415</FONT>            notifyListeners(new TitleChangeEvent(this));<a name="line.415"></a>
+<FONT color="green">416</FONT>        }<a name="line.416"></a>
+<FONT color="green">417</FONT>    <a name="line.417"></a>
+<FONT color="green">418</FONT>        /**<a name="line.418"></a>
+<FONT color="green">419</FONT>         * Fetches the latest legend items.<a name="line.419"></a>
+<FONT color="green">420</FONT>         */<a name="line.420"></a>
+<FONT color="green">421</FONT>        protected void fetchLegendItems() {<a name="line.421"></a>
+<FONT color="green">422</FONT>            this.items.clear();<a name="line.422"></a>
+<FONT color="green">423</FONT>            RectangleEdge p = getPosition();<a name="line.423"></a>
+<FONT color="green">424</FONT>            if (RectangleEdge.isTopOrBottom(p)) {<a name="line.424"></a>
+<FONT color="green">425</FONT>                this.items.setArrangement(this.hLayout);<a name="line.425"></a>
+<FONT color="green">426</FONT>            }<a name="line.426"></a>
+<FONT color="green">427</FONT>            else {<a name="line.427"></a>
+<FONT color="green">428</FONT>                this.items.setArrangement(this.vLayout);<a name="line.428"></a>
+<FONT color="green">429</FONT>            }<a name="line.429"></a>
+<FONT color="green">430</FONT>    <a name="line.430"></a>
+<FONT color="green">431</FONT>            if (this.sortOrder.equals(SortOrder.ASCENDING)) {<a name="line.431"></a>
+<FONT color="green">432</FONT>                for (int s = 0; s &lt; this.sources.length; s++) {<a name="line.432"></a>
+<FONT color="green">433</FONT>                    LegendItemCollection legendItems =<a name="line.433"></a>
+<FONT color="green">434</FONT>                        this.sources[s].getLegendItems();<a name="line.434"></a>
+<FONT color="green">435</FONT>                    if (legendItems != null) {<a name="line.435"></a>
+<FONT color="green">436</FONT>                        for (int i = 0; i &lt; legendItems.getItemCount(); i++) {<a name="line.436"></a>
+<FONT color="green">437</FONT>                            addItemBlock(legendItems.get(i));<a name="line.437"></a>
+<FONT color="green">438</FONT>                        }<a name="line.438"></a>
+<FONT color="green">439</FONT>                    }<a name="line.439"></a>
+<FONT color="green">440</FONT>                }<a name="line.440"></a>
+<FONT color="green">441</FONT>            }<a name="line.441"></a>
+<FONT color="green">442</FONT>            else {<a name="line.442"></a>
+<FONT color="green">443</FONT>                for (int s = this.sources.length - 1; s &gt;= 0; s--) {<a name="line.443"></a>
+<FONT color="green">444</FONT>                    LegendItemCollection legendItems =<a name="line.444"></a>
+<FONT color="green">445</FONT>                        this.sources[s].getLegendItems();<a name="line.445"></a>
+<FONT color="green">446</FONT>                    if (legendItems != null) {<a name="line.446"></a>
+<FONT color="green">447</FONT>                        for (int i = legendItems.getItemCount()-1; i &gt;= 0; i--) {<a name="line.447"></a>
+<FONT color="green">448</FONT>                            addItemBlock(legendItems.get(i));<a name="line.448"></a>
+<FONT color="green">449</FONT>                        }<a name="line.449"></a>
+<FONT color="green">450</FONT>                    }<a name="line.450"></a>
+<FONT color="green">451</FONT>                }<a name="line.451"></a>
+<FONT color="green">452</FONT>            }<a name="line.452"></a>
+<FONT color="green">453</FONT>        }<a name="line.453"></a>
+<FONT color="green">454</FONT>    <a name="line.454"></a>
+<FONT color="green">455</FONT>        private void addItemBlock(LegendItem item) {<a name="line.455"></a>
+<FONT color="green">456</FONT>            Block block = createLegendItemBlock(item);<a name="line.456"></a>
+<FONT color="green">457</FONT>            this.items.add(block);<a name="line.457"></a>
+<FONT color="green">458</FONT>        }<a name="line.458"></a>
+<FONT color="green">459</FONT>    <a name="line.459"></a>
+<FONT color="green">460</FONT>        /**<a name="line.460"></a>
+<FONT color="green">461</FONT>         * Creates a legend item block.<a name="line.461"></a>
+<FONT color="green">462</FONT>         *<a name="line.462"></a>
+<FONT color="green">463</FONT>         * @param item  the legend item.<a name="line.463"></a>
+<FONT color="green">464</FONT>         *<a name="line.464"></a>
+<FONT color="green">465</FONT>         * @return The block.<a name="line.465"></a>
+<FONT color="green">466</FONT>         */<a name="line.466"></a>
+<FONT color="green">467</FONT>        protected Block createLegendItemBlock(LegendItem item) {<a name="line.467"></a>
+<FONT color="green">468</FONT>            BlockContainer result = null;<a name="line.468"></a>
+<FONT color="green">469</FONT>            LegendGraphic lg = new LegendGraphic(item.getShape(),<a name="line.469"></a>
+<FONT color="green">470</FONT>                    item.getFillPaint());<a name="line.470"></a>
+<FONT color="green">471</FONT>            lg.setFillPaintTransformer(item.getFillPaintTransformer());<a name="line.471"></a>
+<FONT color="green">472</FONT>            lg.setShapeFilled(item.isShapeFilled());<a name="line.472"></a>
+<FONT color="green">473</FONT>            lg.setLine(item.getLine());<a name="line.473"></a>
+<FONT color="green">474</FONT>            lg.setLineStroke(item.getLineStroke());<a name="line.474"></a>
+<FONT color="green">475</FONT>            lg.setLinePaint(item.getLinePaint());<a name="line.475"></a>
+<FONT color="green">476</FONT>            lg.setLineVisible(item.isLineVisible());<a name="line.476"></a>
+<FONT color="green">477</FONT>            lg.setShapeVisible(item.isShapeVisible());<a name="line.477"></a>
+<FONT color="green">478</FONT>            lg.setShapeOutlineVisible(item.isShapeOutlineVisible());<a name="line.478"></a>
+<FONT color="green">479</FONT>            lg.setOutlinePaint(item.getOutlinePaint());<a name="line.479"></a>
+<FONT color="green">480</FONT>            lg.setOutlineStroke(item.getOutlineStroke());<a name="line.480"></a>
+<FONT color="green">481</FONT>            lg.setPadding(this.legendItemGraphicPadding);<a name="line.481"></a>
+<FONT color="green">482</FONT>    <a name="line.482"></a>
+<FONT color="green">483</FONT>            LegendItemBlockContainer legendItem = new LegendItemBlockContainer(<a name="line.483"></a>
+<FONT color="green">484</FONT>                    new BorderArrangement(), item.getDataset(),<a name="line.484"></a>
+<FONT color="green">485</FONT>                    item.getSeriesKey());<a name="line.485"></a>
+<FONT color="green">486</FONT>            lg.setShapeAnchor(getLegendItemGraphicAnchor());<a name="line.486"></a>
+<FONT color="green">487</FONT>            lg.setShapeLocation(getLegendItemGraphicLocation());<a name="line.487"></a>
+<FONT color="green">488</FONT>            legendItem.add(lg, this.legendItemGraphicEdge);<a name="line.488"></a>
+<FONT color="green">489</FONT>            Font textFont = item.getLabelFont();<a name="line.489"></a>
+<FONT color="green">490</FONT>            if (textFont == null) {<a name="line.490"></a>
+<FONT color="green">491</FONT>                textFont = this.itemFont;<a name="line.491"></a>
+<FONT color="green">492</FONT>            }<a name="line.492"></a>
+<FONT color="green">493</FONT>            Paint textPaint = item.getLabelPaint();<a name="line.493"></a>
+<FONT color="green">494</FONT>            if (textPaint == null) {<a name="line.494"></a>
+<FONT color="green">495</FONT>                textPaint = this.itemPaint;<a name="line.495"></a>
+<FONT color="green">496</FONT>            }<a name="line.496"></a>
+<FONT color="green">497</FONT>            LabelBlock labelBlock = new LabelBlock(item.getLabel(), textFont,<a name="line.497"></a>
+<FONT color="green">498</FONT>                    textPaint);<a name="line.498"></a>
+<FONT color="green">499</FONT>            labelBlock.setPadding(this.itemLabelPadding);<a name="line.499"></a>
+<FONT color="green">500</FONT>            legendItem.add(labelBlock);<a name="line.500"></a>
+<FONT color="green">501</FONT>            legendItem.setToolTipText(item.getToolTipText());<a name="line.501"></a>
+<FONT color="green">502</FONT>            legendItem.setURLText(item.getURLText());<a name="line.502"></a>
+<FONT color="green">503</FONT>    <a name="line.503"></a>
+<FONT color="green">504</FONT>            result = new BlockContainer(new CenterArrangement());<a name="line.504"></a>
+<FONT color="green">505</FONT>            result.add(legendItem);<a name="line.505"></a>
+<FONT color="green">506</FONT>    <a name="line.506"></a>
+<FONT color="green">507</FONT>            return result;<a name="line.507"></a>
+<FONT color="green">508</FONT>        }<a name="line.508"></a>
+<FONT color="green">509</FONT>    <a name="line.509"></a>
+<FONT color="green">510</FONT>        /**<a name="line.510"></a>
+<FONT color="green">511</FONT>         * Returns the container that holds the legend items.<a name="line.511"></a>
+<FONT color="green">512</FONT>         *<a name="line.512"></a>
+<FONT color="green">513</FONT>         * @return The container for the legend items.<a name="line.513"></a>
+<FONT color="green">514</FONT>         */<a name="line.514"></a>
+<FONT color="green">515</FONT>        public BlockContainer getItemContainer() {<a name="line.515"></a>
+<FONT color="green">516</FONT>            return this.items;<a name="line.516"></a>
+<FONT color="green">517</FONT>        }<a name="line.517"></a>
+<FONT color="green">518</FONT>    <a name="line.518"></a>
+<FONT color="green">519</FONT>        /**<a name="line.519"></a>
+<FONT color="green">520</FONT>         * Arranges the contents of the block, within the given constraints, and<a name="line.520"></a>
+<FONT color="green">521</FONT>         * returns the block size.<a name="line.521"></a>
+<FONT color="green">522</FONT>         *<a name="line.522"></a>
+<FONT color="green">523</FONT>         * @param g2  the graphics device.<a name="line.523"></a>
+<FONT color="green">524</FONT>         * @param constraint  the constraint (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.524"></a>
+<FONT color="green">525</FONT>         *<a name="line.525"></a>
+<FONT color="green">526</FONT>         * @return The block size (in Java2D units, never &lt;code&gt;null&lt;/code&gt;).<a name="line.526"></a>
+<FONT color="green">527</FONT>         */<a name="line.527"></a>
+<FONT color="green">528</FONT>        public Size2D arrange(Graphics2D g2, RectangleConstraint constraint) {<a name="line.528"></a>
+<FONT color="green">529</FONT>            Size2D result = new Size2D();<a name="line.529"></a>
+<FONT color="green">530</FONT>            fetchLegendItems();<a name="line.530"></a>
+<FONT color="green">531</FONT>            if (this.items.isEmpty()) {<a name="line.531"></a>
+<FONT color="green">532</FONT>                return result;<a name="line.532"></a>
+<FONT color="green">533</FONT>            }<a name="line.533"></a>
+<FONT color="green">534</FONT>            BlockContainer container = this.wrapper;<a name="line.534"></a>
+<FONT color="green">535</FONT>            if (container == null) {<a name="line.535"></a>
+<FONT color="green">536</FONT>                container = this.items;<a name="line.536"></a>
+<FONT color="green">537</FONT>            }<a name="line.537"></a>
+<FONT color="green">538</FONT>            RectangleConstraint c = toContentConstraint(constraint);<a name="line.538"></a>
+<FONT color="green">539</FONT>            Size2D size = container.arrange(g2, c);<a name="line.539"></a>
+<FONT color="green">540</FONT>            result.height = calculateTotalHeight(size.height);<a name="line.540"></a>
+<FONT color="green">541</FONT>            result.width = calculateTotalWidth(size.width);<a name="line.541"></a>
+<FONT color="green">542</FONT>            return result;<a name="line.542"></a>
+<FONT color="green">543</FONT>        }<a name="line.543"></a>
+<FONT color="green">544</FONT>    <a name="line.544"></a>
+<FONT color="green">545</FONT>        /**<a name="line.545"></a>
+<FONT color="green">546</FONT>         * Draws the title on a Java 2D graphics device (such as the screen or a<a name="line.546"></a>
+<FONT color="green">547</FONT>         * printer).<a name="line.547"></a>
+<FONT color="green">548</FONT>         *<a name="line.548"></a>
+<FONT color="green">549</FONT>         * @param g2  the graphics device.<a name="line.549"></a>
+<FONT color="green">550</FONT>         * @param area  the available area for the title.<a name="line.550"></a>
+<FONT color="green">551</FONT>         */<a name="line.551"></a>
+<FONT color="green">552</FONT>        public void draw(Graphics2D g2, Rectangle2D area) {<a name="line.552"></a>
+<FONT color="green">553</FONT>            draw(g2, area, null);<a name="line.553"></a>
+<FONT color="green">554</FONT>        }<a name="line.554"></a>
+<FONT color="green">555</FONT>    <a name="line.555"></a>
+<FONT color="green">556</FONT>        /**<a name="line.556"></a>
+<FONT color="green">557</FONT>         * Draws the block within the specified area.<a name="line.557"></a>
+<FONT color="green">558</FONT>         *<a name="line.558"></a>
+<FONT color="green">559</FONT>         * @param g2  the graphics device.<a name="line.559"></a>
+<FONT color="green">560</FONT>         * @param area  the area.<a name="line.560"></a>
+<FONT color="green">561</FONT>         * @param params  ignored (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.561"></a>
+<FONT color="green">562</FONT>         *<a name="line.562"></a>
+<FONT color="green">563</FONT>         * @return An {@link org.jfree.chart.block.EntityBlockResult} or<a name="line.563"></a>
+<FONT color="green">564</FONT>         *         &lt;code&gt;null&lt;/code&gt;.<a name="line.564"></a>
+<FONT color="green">565</FONT>         */<a name="line.565"></a>
+<FONT color="green">566</FONT>        public Object draw(Graphics2D g2, Rectangle2D area, Object params) {<a name="line.566"></a>
+<FONT color="green">567</FONT>            Rectangle2D target = (Rectangle2D) area.clone();<a name="line.567"></a>
+<FONT color="green">568</FONT>            Rectangle2D hotspot = (Rectangle2D) area.clone();<a name="line.568"></a>
+<FONT color="green">569</FONT>            StandardEntityCollection sec = null;<a name="line.569"></a>
+<FONT color="green">570</FONT>            if (params instanceof EntityBlockParams<a name="line.570"></a>
+<FONT color="green">571</FONT>                    &amp;&amp; ((EntityBlockParams) params).getGenerateEntities()) {<a name="line.571"></a>
+<FONT color="green">572</FONT>                sec = new StandardEntityCollection();<a name="line.572"></a>
+<FONT color="green">573</FONT>                sec.add(new TitleEntity(hotspot, this));<a name="line.573"></a>
+<FONT color="green">574</FONT>            }<a name="line.574"></a>
+<FONT color="green">575</FONT>            target = trimMargin(target);<a name="line.575"></a>
+<FONT color="green">576</FONT>            if (this.backgroundPaint != null) {<a name="line.576"></a>
+<FONT color="green">577</FONT>                g2.setPaint(this.backgroundPaint);<a name="line.577"></a>
+<FONT color="green">578</FONT>                g2.fill(target);<a name="line.578"></a>
+<FONT color="green">579</FONT>            }<a name="line.579"></a>
+<FONT color="green">580</FONT>            BlockFrame border = getFrame();<a name="line.580"></a>
+<FONT color="green">581</FONT>            border.draw(g2, target);<a name="line.581"></a>
+<FONT color="green">582</FONT>            border.getInsets().trim(target);<a name="line.582"></a>
+<FONT color="green">583</FONT>            BlockContainer container = this.wrapper;<a name="line.583"></a>
+<FONT color="green">584</FONT>            if (container == null) {<a name="line.584"></a>
+<FONT color="green">585</FONT>                container = this.items;<a name="line.585"></a>
+<FONT color="green">586</FONT>            }<a name="line.586"></a>
+<FONT color="green">587</FONT>            target = trimPadding(target);<a name="line.587"></a>
+<FONT color="green">588</FONT>            Object val = container.draw(g2, target, params);<a name="line.588"></a>
+<FONT color="green">589</FONT>            if (val instanceof BlockResult) {<a name="line.589"></a>
+<FONT color="green">590</FONT>                EntityCollection ec = ((BlockResult) val).getEntityCollection();<a name="line.590"></a>
+<FONT color="green">591</FONT>                if (ec != null &amp;&amp; sec != null) {<a name="line.591"></a>
+<FONT color="green">592</FONT>                    sec.addAll(ec);<a name="line.592"></a>
+<FONT color="green">593</FONT>                    ((BlockResult) val).setEntityCollection(sec);<a name="line.593"></a>
+<FONT color="green">594</FONT>                }<a name="line.594"></a>
+<FONT color="green">595</FONT>            }<a name="line.595"></a>
+<FONT color="green">596</FONT>            return val;<a name="line.596"></a>
+<FONT color="green">597</FONT>        }<a name="line.597"></a>
+<FONT color="green">598</FONT>    <a name="line.598"></a>
+<FONT color="green">599</FONT>        /**<a name="line.599"></a>
+<FONT color="green">600</FONT>         * Returns the wrapper container, if any.<a name="line.600"></a>
+<FONT color="green">601</FONT>         *<a name="line.601"></a>
+<FONT color="green">602</FONT>         * @return The wrapper container (possibly &lt;code&gt;null&lt;/code&gt;).<a name="line.602"></a>
+<FONT color="green">603</FONT>         *<a name="line.603"></a>
+<FONT color="green">604</FONT>         * @since 1.0.11<a name="line.604"></a>
+<FONT color="green">605</FONT>         */<a name="line.605"></a>
+<FONT color="green">606</FONT>        public BlockContainer getWrapper() {<a name="line.606"></a>
+<FONT color="green">607</FONT>            return this.wrapper;<a name="line.607"></a>
+<FONT color="green">608</FONT>        }<a name="line.608"></a>
+<FONT color="green">609</FONT>    <a name="line.609"></a>
+<FONT color="green">610</FONT>        /**<a name="line.610"></a>
+<FONT color="green">611</FONT>         * Sets the wrapper container for the legend.<a name="line.611"></a>
+<FONT color="green">612</FONT>         *<a name="line.612"></a>
+<FONT color="green">613</FONT>         * @param wrapper  the wrapper container.<a name="line.613"></a>
+<FONT color="green">614</FONT>         */<a name="line.614"></a>
+<FONT color="green">615</FONT>        public void setWrapper(BlockContainer wrapper) {<a name="line.615"></a>
+<FONT color="green">616</FONT>            this.wrapper = wrapper;<a name="line.616"></a>
+<FONT color="green">617</FONT>        }<a name="line.617"></a>
+<FONT color="green">618</FONT>    <a name="line.618"></a>
+<FONT color="green">619</FONT>        /**<a name="line.619"></a>
+<FONT color="green">620</FONT>         * Tests this title for equality with an arbitrary object.<a name="line.620"></a>
+<FONT color="green">621</FONT>         *<a name="line.621"></a>
+<FONT color="green">622</FONT>         * @param obj  the object (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.622"></a>
+<FONT color="green">623</FONT>         *<a name="line.623"></a>
+<FONT color="green">624</FONT>         * @return A boolean.<a name="line.624"></a>
+<FONT color="green">625</FONT>         */<a name="line.625"></a>
+<FONT color="green">626</FONT>        public boolean equals(Object obj) {<a name="line.626"></a>
+<FONT color="green">627</FONT>            if (obj == this) {<a name="line.627"></a>
+<FONT color="green">628</FONT>                return true;<a name="line.628"></a>
+<FONT color="green">629</FONT>            }<a name="line.629"></a>
+<FONT color="green">630</FONT>            if (!(obj instanceof LegendTitle)) {<a name="line.630"></a>
+<FONT color="green">631</FONT>                return false;<a name="line.631"></a>
+<FONT color="green">632</FONT>            }<a name="line.632"></a>
+<FONT color="green">633</FONT>            if (!super.equals(obj)) {<a name="line.633"></a>
+<FONT color="green">634</FONT>                return false;<a name="line.634"></a>
+<FONT color="green">635</FONT>            }<a name="line.635"></a>
+<FONT color="green">636</FONT>            LegendTitle that = (LegendTitle) obj;<a name="line.636"></a>
+<FONT color="green">637</FONT>            if (!PaintUtilities.equal(this.backgroundPaint, that.backgroundPaint)) {<a name="line.637"></a>
+<FONT color="green">638</FONT>                return false;<a name="line.638"></a>
+<FONT color="green">639</FONT>            }<a name="line.639"></a>
+<FONT color="green">640</FONT>            if (this.legendItemGraphicEdge != that.legendItemGraphicEdge) {<a name="line.640"></a>
+<FONT color="green">641</FONT>                return false;<a name="line.641"></a>
+<FONT color="green">642</FONT>            }<a name="line.642"></a>
+<FONT color="green">643</FONT>            if (this.legendItemGraphicAnchor != that.legendItemGraphicAnchor) {<a name="line.643"></a>
+<FONT color="green">644</FONT>                return false;<a name="line.644"></a>
+<FONT color="green">645</FONT>            }<a name="line.645"></a>
+<FONT color="green">646</FONT>            if (this.legendItemGraphicLocation != that.legendItemGraphicLocation) {<a name="line.646"></a>
+<FONT color="green">647</FONT>                return false;<a name="line.647"></a>
+<FONT color="green">648</FONT>            }<a name="line.648"></a>
+<FONT color="green">649</FONT>            if (!this.itemFont.equals(that.itemFont)) {<a name="line.649"></a>
+<FONT color="green">650</FONT>                return false;<a name="line.650"></a>
+<FONT color="green">651</FONT>            }<a name="line.651"></a>
+<FONT color="green">652</FONT>            if (!this.itemPaint.equals(that.itemPaint)) {<a name="line.652"></a>
+<FONT color="green">653</FONT>                return false;<a name="line.653"></a>
+<FONT color="green">654</FONT>            }<a name="line.654"></a>
+<FONT color="green">655</FONT>            if (!this.hLayout.equals(that.hLayout)) {<a name="line.655"></a>
+<FONT color="green">656</FONT>                return false;<a name="line.656"></a>
+<FONT color="green">657</FONT>            }<a name="line.657"></a>
+<FONT color="green">658</FONT>            if (!this.vLayout.equals(that.vLayout)) {<a name="line.658"></a>
+<FONT color="green">659</FONT>                return false;<a name="line.659"></a>
+<FONT color="green">660</FONT>            }<a name="line.660"></a>
+<FONT color="green">661</FONT>            if (!this.sortOrder.equals(that.sortOrder)) {<a name="line.661"></a>
+<FONT color="green">662</FONT>                return false;<a name="line.662"></a>
+<FONT color="green">663</FONT>            }<a name="line.663"></a>
+<FONT color="green">664</FONT>            return true;<a name="line.664"></a>
+<FONT color="green">665</FONT>        }<a name="line.665"></a>
+<FONT color="green">666</FONT>    <a name="line.666"></a>
+<FONT color="green">667</FONT>        /**<a name="line.667"></a>
+<FONT color="green">668</FONT>         * Provides serialization support.<a name="line.668"></a>
+<FONT color="green">669</FONT>         *<a name="line.669"></a>
+<FONT color="green">670</FONT>         * @param stream  the output stream.<a name="line.670"></a>
+<FONT color="green">671</FONT>         *<a name="line.671"></a>
+<FONT color="green">672</FONT>         * @throws IOException  if there is an I/O error.<a name="line.672"></a>
+<FONT color="green">673</FONT>         */<a name="line.673"></a>
+<FONT color="green">674</FONT>        private void writeObject(ObjectOutputStream stream) throws IOException {<a name="line.674"></a>
+<FONT color="green">675</FONT>            stream.defaultWriteObject();<a name="line.675"></a>
+<FONT color="green">676</FONT>            SerialUtilities.writePaint(this.backgroundPaint, stream);<a name="line.676"></a>
+<FONT color="green">677</FONT>            SerialUtilities.writePaint(this.itemPaint, stream);<a name="line.677"></a>
+<FONT color="green">678</FONT>        }<a name="line.678"></a>
+<FONT color="green">679</FONT>    <a name="line.679"></a>
+<FONT color="green">680</FONT>        /**<a name="line.680"></a>
+<FONT color="green">681</FONT>         * Provides serialization support.<a name="line.681"></a>
+<FONT color="green">682</FONT>         *<a name="line.682"></a>
+<FONT color="green">683</FONT>         * @param stream  the input stream.<a name="line.683"></a>
+<FONT color="green">684</FONT>         *<a name="line.684"></a>
+<FONT color="green">685</FONT>         * @throws IOException  if there is an I/O error.<a name="line.685"></a>
+<FONT color="green">686</FONT>         * @throws ClassNotFoundException  if there is a classpath problem.<a name="line.686"></a>
+<FONT color="green">687</FONT>         */<a name="line.687"></a>
+<FONT color="green">688</FONT>        private void readObject(ObjectInputStream stream)<a name="line.688"></a>
+<FONT color="green">689</FONT>            throws IOException, ClassNotFoundException {<a name="line.689"></a>
+<FONT color="green">690</FONT>            stream.defaultReadObject();<a name="line.690"></a>
+<FONT color="green">691</FONT>            this.backgroundPaint = SerialUtilities.readPaint(stream);<a name="line.691"></a>
+<FONT color="green">692</FONT>            this.itemPaint = SerialUtilities.readPaint(stream);<a name="line.692"></a>
+<FONT color="green">693</FONT>        }<a name="line.693"></a>
+<FONT color="green">694</FONT>    <a name="line.694"></a>
+<FONT color="green">695</FONT>    }<a name="line.695"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

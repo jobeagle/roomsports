@@ -1,0 +1,870 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /* ===========================================================<a name="line.1"></a>
+<FONT color="green">002</FONT>     * JFreeChart : a free chart library for the Java(tm) platform<a name="line.2"></a>
+<FONT color="green">003</FONT>     * ===========================================================<a name="line.3"></a>
+<FONT color="green">004</FONT>     *<a name="line.4"></a>
+<FONT color="green">005</FONT>     * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors.<a name="line.5"></a>
+<FONT color="green">006</FONT>     *<a name="line.6"></a>
+<FONT color="green">007</FONT>     * Project Info:  http://www.jfree.org/jfreechart/index.html<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     * This library is free software; you can redistribute it and/or modify it<a name="line.9"></a>
+<FONT color="green">010</FONT>     * under the terms of the GNU Lesser General Public License as published by<a name="line.10"></a>
+<FONT color="green">011</FONT>     * the Free Software Foundation; either version 2.1 of the License, or<a name="line.11"></a>
+<FONT color="green">012</FONT>     * (at your option) any later version.<a name="line.12"></a>
+<FONT color="green">013</FONT>     *<a name="line.13"></a>
+<FONT color="green">014</FONT>     * This library is distributed in the hope that it will be useful, but<a name="line.14"></a>
+<FONT color="green">015</FONT>     * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<a name="line.15"></a>
+<FONT color="green">016</FONT>     * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public<a name="line.16"></a>
+<FONT color="green">017</FONT>     * License for more details.<a name="line.17"></a>
+<FONT color="green">018</FONT>     *<a name="line.18"></a>
+<FONT color="green">019</FONT>     * You should have received a copy of the GNU Lesser General Public<a name="line.19"></a>
+<FONT color="green">020</FONT>     * License along with this library; if not, write to the Free Software<a name="line.20"></a>
+<FONT color="green">021</FONT>     * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,<a name="line.21"></a>
+<FONT color="green">022</FONT>     * USA.<a name="line.22"></a>
+<FONT color="green">023</FONT>     *<a name="line.23"></a>
+<FONT color="green">024</FONT>     * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.24"></a>
+<FONT color="green">025</FONT>     * Other names may be trademarks of their respective owners.]<a name="line.25"></a>
+<FONT color="green">026</FONT>     *<a name="line.26"></a>
+<FONT color="green">027</FONT>     * ---------------<a name="line.27"></a>
+<FONT color="green">028</FONT>     * SymbolAxis.java<a name="line.28"></a>
+<FONT color="green">029</FONT>     * ---------------<a name="line.29"></a>
+<FONT color="green">030</FONT>     * (C) Copyright 2002-2013, by Anthony Boulestreau and Contributors.<a name="line.30"></a>
+<FONT color="green">031</FONT>     *<a name="line.31"></a>
+<FONT color="green">032</FONT>     * Original Author:  Anthony Boulestreau;<a name="line.32"></a>
+<FONT color="green">033</FONT>     * Contributor(s):   David Gilbert (for Object Refinery Limited);<a name="line.33"></a>
+<FONT color="green">034</FONT>     *<a name="line.34"></a>
+<FONT color="green">035</FONT>     *<a name="line.35"></a>
+<FONT color="green">036</FONT>     * Changes<a name="line.36"></a>
+<FONT color="green">037</FONT>     * -------<a name="line.37"></a>
+<FONT color="green">038</FONT>     * 29-Mar-2002 : First version (AB);<a name="line.38"></a>
+<FONT color="green">039</FONT>     * 19-Apr-2002 : Updated formatting and import statements (DG);<a name="line.39"></a>
+<FONT color="green">040</FONT>     * 21-Jun-2002 : Make change to use the class TickUnit - remove valueToString()<a name="line.40"></a>
+<FONT color="green">041</FONT>     *               method and add SymbolicTickUnit (AB);<a name="line.41"></a>
+<FONT color="green">042</FONT>     * 25-Jun-2002 : Removed redundant code (DG);<a name="line.42"></a>
+<FONT color="green">043</FONT>     * 25-Jul-2002 : Changed order of parameters in ValueAxis constructor (DG);<a name="line.43"></a>
+<FONT color="green">044</FONT>     * 05-Sep-2002 : Updated constructor to reflect changes in the Axis class (DG);<a name="line.44"></a>
+<FONT color="green">045</FONT>     * 08-Nov-2002 : Moved to new package com.jrefinery.chart.axis (DG);<a name="line.45"></a>
+<FONT color="green">046</FONT>     * 14-Feb-2003 : Added back missing constructor code (DG);<a name="line.46"></a>
+<FONT color="green">047</FONT>     * 26-Mar-2003 : Implemented Serializable (DG);<a name="line.47"></a>
+<FONT color="green">048</FONT>     * 14-May-2003 : Renamed HorizontalSymbolicAxis --&gt; SymbolicAxis and merged in<a name="line.48"></a>
+<FONT color="green">049</FONT>     *               VerticalSymbolicAxis (DG);<a name="line.49"></a>
+<FONT color="green">050</FONT>     * 12-Aug-2003 : Fixed bug where refreshTicks() method has different signature<a name="line.50"></a>
+<FONT color="green">051</FONT>     *               to super class (DG);<a name="line.51"></a>
+<FONT color="green">052</FONT>     * 29-Oct-2003 : Added workaround for font alignment in PDF output (DG);<a name="line.52"></a>
+<FONT color="green">053</FONT>     * 02-Nov-2003 : Added code to avoid overlapping labels (MR);<a name="line.53"></a>
+<FONT color="green">054</FONT>     * 07-Nov-2003 : Modified to use new tick classes (DG);<a name="line.54"></a>
+<FONT color="green">055</FONT>     * 18-Nov-2003 : Fixed bug where symbols are not being displayed on the<a name="line.55"></a>
+<FONT color="green">056</FONT>     *               axis (DG);<a name="line.56"></a>
+<FONT color="green">057</FONT>     * 24-Nov-2003 : Added fix for gridlines on zooming (bug id 834643) (DG);<a name="line.57"></a>
+<FONT color="green">058</FONT>     * 21-Jan-2004 : Update for renamed method in ValueAxis (DG);<a name="line.58"></a>
+<FONT color="green">059</FONT>     * 11-Mar-2004 : Modified the way the background grid color is being drawn, see<a name="line.59"></a>
+<FONT color="green">060</FONT>     *               this thread:<a name="line.60"></a>
+<FONT color="green">061</FONT>     *               http://www.jfree.org/phpBB2/viewtopic.php?p=22973 (DG);<a name="line.61"></a>
+<FONT color="green">062</FONT>     * 16-Mar-2004 : Added plotState to draw() method (DG);<a name="line.62"></a>
+<FONT color="green">063</FONT>     * 07-Apr-2004 : Modified string bounds calculation (DG);<a name="line.63"></a>
+<FONT color="green">064</FONT>     * 28-Mar-2005 : Renamed autoRangeIncludesZero() --&gt; getAutoRangeIncludesZero()<a name="line.64"></a>
+<FONT color="green">065</FONT>     *               and autoRangeStickyZero() --&gt; getAutoRangeStickyZero() (DG);<a name="line.65"></a>
+<FONT color="green">066</FONT>     * 05-Jul-2005 : Fixed signature on refreshTicks() method - see bug report<a name="line.66"></a>
+<FONT color="green">067</FONT>     *               1232264 (DG);<a name="line.67"></a>
+<FONT color="green">068</FONT>     * 06-Jul-2005 : Renamed SymbolicAxis --&gt; SymbolAxis, added equals() method,<a name="line.68"></a>
+<FONT color="green">069</FONT>     *               renamed getSymbolicValue() --&gt; getSymbols(), renamed<a name="line.69"></a>
+<FONT color="green">070</FONT>     *               symbolicGridPaint --&gt; gridBandPaint, fixed serialization of<a name="line.70"></a>
+<FONT color="green">071</FONT>     *               gridBandPaint, renamed symbolicGridLinesVisible --&gt;<a name="line.71"></a>
+<FONT color="green">072</FONT>     *               gridBandsVisible, eliminated symbolicGridLineList (DG);<a name="line.72"></a>
+<FONT color="green">073</FONT>     * ------------- JFREECHART 1.0.x ---------------------------------------------<a name="line.73"></a>
+<FONT color="green">074</FONT>     * 02-Feb-2007 : Removed author tags all over JFreeChart sources (DG);<a name="line.74"></a>
+<FONT color="green">075</FONT>     * 28-Feb-2007 : Fixed bug 1669302 (tick label overlap) (DG);<a name="line.75"></a>
+<FONT color="green">076</FONT>     * 25-Jul-2007 : Added new field for alternate grid band paint (DG);<a name="line.76"></a>
+<FONT color="green">077</FONT>     * 15-Aug-2008 : Use alternate grid band paint when drawing (DG);<a name="line.77"></a>
+<FONT color="green">078</FONT>     * 02-Jul-2013 : Use ParamChecks (DG);<a name="line.78"></a>
+<FONT color="green">079</FONT>     *<a name="line.79"></a>
+<FONT color="green">080</FONT>     */<a name="line.80"></a>
+<FONT color="green">081</FONT>    <a name="line.81"></a>
+<FONT color="green">082</FONT>    package org.jfree.chart.axis;<a name="line.82"></a>
+<FONT color="green">083</FONT>    <a name="line.83"></a>
+<FONT color="green">084</FONT>    import java.awt.BasicStroke;<a name="line.84"></a>
+<FONT color="green">085</FONT>    import java.awt.Color;<a name="line.85"></a>
+<FONT color="green">086</FONT>    import java.awt.Font;<a name="line.86"></a>
+<FONT color="green">087</FONT>    import java.awt.Graphics2D;<a name="line.87"></a>
+<FONT color="green">088</FONT>    import java.awt.Paint;<a name="line.88"></a>
+<FONT color="green">089</FONT>    import java.awt.Shape;<a name="line.89"></a>
+<FONT color="green">090</FONT>    import java.awt.Stroke;<a name="line.90"></a>
+<FONT color="green">091</FONT>    import java.awt.geom.Rectangle2D;<a name="line.91"></a>
+<FONT color="green">092</FONT>    import java.io.IOException;<a name="line.92"></a>
+<FONT color="green">093</FONT>    import java.io.ObjectInputStream;<a name="line.93"></a>
+<FONT color="green">094</FONT>    import java.io.ObjectOutputStream;<a name="line.94"></a>
+<FONT color="green">095</FONT>    import java.io.Serializable;<a name="line.95"></a>
+<FONT color="green">096</FONT>    import java.text.NumberFormat;<a name="line.96"></a>
+<FONT color="green">097</FONT>    import java.util.Arrays;<a name="line.97"></a>
+<FONT color="green">098</FONT>    import java.util.Iterator;<a name="line.98"></a>
+<FONT color="green">099</FONT>    import java.util.List;<a name="line.99"></a>
+<FONT color="green">100</FONT>    <a name="line.100"></a>
+<FONT color="green">101</FONT>    import org.jfree.chart.event.AxisChangeEvent;<a name="line.101"></a>
+<FONT color="green">102</FONT>    import org.jfree.chart.plot.Plot;<a name="line.102"></a>
+<FONT color="green">103</FONT>    import org.jfree.chart.plot.PlotRenderingInfo;<a name="line.103"></a>
+<FONT color="green">104</FONT>    import org.jfree.chart.plot.ValueAxisPlot;<a name="line.104"></a>
+<FONT color="green">105</FONT>    import org.jfree.chart.util.ParamChecks;<a name="line.105"></a>
+<FONT color="green">106</FONT>    import org.jfree.data.Range;<a name="line.106"></a>
+<FONT color="green">107</FONT>    import org.jfree.io.SerialUtilities;<a name="line.107"></a>
+<FONT color="green">108</FONT>    import org.jfree.text.TextUtilities;<a name="line.108"></a>
+<FONT color="green">109</FONT>    import org.jfree.ui.RectangleEdge;<a name="line.109"></a>
+<FONT color="green">110</FONT>    import org.jfree.ui.TextAnchor;<a name="line.110"></a>
+<FONT color="green">111</FONT>    import org.jfree.util.PaintUtilities;<a name="line.111"></a>
+<FONT color="green">112</FONT>    <a name="line.112"></a>
+<FONT color="green">113</FONT>    /**<a name="line.113"></a>
+<FONT color="green">114</FONT>     * A standard linear value axis that replaces integer values with symbols.<a name="line.114"></a>
+<FONT color="green">115</FONT>     */<a name="line.115"></a>
+<FONT color="green">116</FONT>    public class SymbolAxis extends NumberAxis implements Serializable {<a name="line.116"></a>
+<FONT color="green">117</FONT>    <a name="line.117"></a>
+<FONT color="green">118</FONT>        /** For serialization. */<a name="line.118"></a>
+<FONT color="green">119</FONT>        private static final long serialVersionUID = 7216330468770619716L;<a name="line.119"></a>
+<FONT color="green">120</FONT>    <a name="line.120"></a>
+<FONT color="green">121</FONT>        /** The default grid band paint. */<a name="line.121"></a>
+<FONT color="green">122</FONT>        public static final Paint DEFAULT_GRID_BAND_PAINT<a name="line.122"></a>
+<FONT color="green">123</FONT>                = new Color(232, 234, 232, 128);<a name="line.123"></a>
+<FONT color="green">124</FONT>    <a name="line.124"></a>
+<FONT color="green">125</FONT>        /**<a name="line.125"></a>
+<FONT color="green">126</FONT>         * The default paint for alternate grid bands.<a name="line.126"></a>
+<FONT color="green">127</FONT>         *<a name="line.127"></a>
+<FONT color="green">128</FONT>         * @since 1.0.7<a name="line.128"></a>
+<FONT color="green">129</FONT>         */<a name="line.129"></a>
+<FONT color="green">130</FONT>        public static final Paint DEFAULT_GRID_BAND_ALTERNATE_PAINT<a name="line.130"></a>
+<FONT color="green">131</FONT>                = new Color(0, 0, 0, 0);  // transparent<a name="line.131"></a>
+<FONT color="green">132</FONT>    <a name="line.132"></a>
+<FONT color="green">133</FONT>        /** The list of symbols to display instead of the numeric values. */<a name="line.133"></a>
+<FONT color="green">134</FONT>        private List symbols;<a name="line.134"></a>
+<FONT color="green">135</FONT>    <a name="line.135"></a>
+<FONT color="green">136</FONT>        /** Flag that indicates whether or not grid bands are visible. */<a name="line.136"></a>
+<FONT color="green">137</FONT>        private boolean gridBandsVisible;<a name="line.137"></a>
+<FONT color="green">138</FONT>    <a name="line.138"></a>
+<FONT color="green">139</FONT>        /** The paint used to color the grid bands (if the bands are visible). */<a name="line.139"></a>
+<FONT color="green">140</FONT>        private transient Paint gridBandPaint;<a name="line.140"></a>
+<FONT color="green">141</FONT>    <a name="line.141"></a>
+<FONT color="green">142</FONT>        /**<a name="line.142"></a>
+<FONT color="green">143</FONT>         * The paint used to fill the alternate grid bands.<a name="line.143"></a>
+<FONT color="green">144</FONT>         *<a name="line.144"></a>
+<FONT color="green">145</FONT>         * @since 1.0.7<a name="line.145"></a>
+<FONT color="green">146</FONT>         */<a name="line.146"></a>
+<FONT color="green">147</FONT>        private transient Paint gridBandAlternatePaint;<a name="line.147"></a>
+<FONT color="green">148</FONT>    <a name="line.148"></a>
+<FONT color="green">149</FONT>        /**<a name="line.149"></a>
+<FONT color="green">150</FONT>         * Constructs a symbol axis, using default attribute values where<a name="line.150"></a>
+<FONT color="green">151</FONT>         * necessary.<a name="line.151"></a>
+<FONT color="green">152</FONT>         *<a name="line.152"></a>
+<FONT color="green">153</FONT>         * @param label  the axis label (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.153"></a>
+<FONT color="green">154</FONT>         * @param sv  the list of symbols to display instead of the numeric<a name="line.154"></a>
+<FONT color="green">155</FONT>         *            values.<a name="line.155"></a>
+<FONT color="green">156</FONT>         */<a name="line.156"></a>
+<FONT color="green">157</FONT>        public SymbolAxis(String label, String[] sv) {<a name="line.157"></a>
+<FONT color="green">158</FONT>            super(label);<a name="line.158"></a>
+<FONT color="green">159</FONT>            this.symbols = Arrays.asList(sv);<a name="line.159"></a>
+<FONT color="green">160</FONT>            this.gridBandsVisible = true;<a name="line.160"></a>
+<FONT color="green">161</FONT>            this.gridBandPaint = DEFAULT_GRID_BAND_PAINT;<a name="line.161"></a>
+<FONT color="green">162</FONT>            this.gridBandAlternatePaint = DEFAULT_GRID_BAND_ALTERNATE_PAINT;<a name="line.162"></a>
+<FONT color="green">163</FONT>            setAutoTickUnitSelection(false, false);<a name="line.163"></a>
+<FONT color="green">164</FONT>            setAutoRangeStickyZero(false);<a name="line.164"></a>
+<FONT color="green">165</FONT>    <a name="line.165"></a>
+<FONT color="green">166</FONT>        }<a name="line.166"></a>
+<FONT color="green">167</FONT>    <a name="line.167"></a>
+<FONT color="green">168</FONT>        /**<a name="line.168"></a>
+<FONT color="green">169</FONT>         * Returns an array of the symbols for the axis.<a name="line.169"></a>
+<FONT color="green">170</FONT>         *<a name="line.170"></a>
+<FONT color="green">171</FONT>         * @return The symbols.<a name="line.171"></a>
+<FONT color="green">172</FONT>         */<a name="line.172"></a>
+<FONT color="green">173</FONT>        public String[] getSymbols() {<a name="line.173"></a>
+<FONT color="green">174</FONT>            String[] result = new String[this.symbols.size()];<a name="line.174"></a>
+<FONT color="green">175</FONT>            result = (String[]) this.symbols.toArray(result);<a name="line.175"></a>
+<FONT color="green">176</FONT>            return result;<a name="line.176"></a>
+<FONT color="green">177</FONT>        }<a name="line.177"></a>
+<FONT color="green">178</FONT>    <a name="line.178"></a>
+<FONT color="green">179</FONT>        /**<a name="line.179"></a>
+<FONT color="green">180</FONT>         * Returns &lt;code&gt;true&lt;/code&gt; if the grid bands are showing, and<a name="line.180"></a>
+<FONT color="green">181</FONT>         * &lt;code&gt;false&lt;/code&gt; otherwise.<a name="line.181"></a>
+<FONT color="green">182</FONT>         *<a name="line.182"></a>
+<FONT color="green">183</FONT>         * @return &lt;code&gt;true&lt;/code&gt; if the grid bands are showing, and<a name="line.183"></a>
+<FONT color="green">184</FONT>         *         &lt;code&gt;false&lt;/code&gt; otherwise.<a name="line.184"></a>
+<FONT color="green">185</FONT>         *<a name="line.185"></a>
+<FONT color="green">186</FONT>         * @see #setGridBandsVisible(boolean)<a name="line.186"></a>
+<FONT color="green">187</FONT>         */<a name="line.187"></a>
+<FONT color="green">188</FONT>        public boolean isGridBandsVisible() {<a name="line.188"></a>
+<FONT color="green">189</FONT>            return this.gridBandsVisible;<a name="line.189"></a>
+<FONT color="green">190</FONT>        }<a name="line.190"></a>
+<FONT color="green">191</FONT>    <a name="line.191"></a>
+<FONT color="green">192</FONT>        /**<a name="line.192"></a>
+<FONT color="green">193</FONT>         * Sets the visibility of the grid bands and notifies registered<a name="line.193"></a>
+<FONT color="green">194</FONT>         * listeners that the axis has been modified.<a name="line.194"></a>
+<FONT color="green">195</FONT>         *<a name="line.195"></a>
+<FONT color="green">196</FONT>         * @param flag  the new setting.<a name="line.196"></a>
+<FONT color="green">197</FONT>         *<a name="line.197"></a>
+<FONT color="green">198</FONT>         * @see #isGridBandsVisible()<a name="line.198"></a>
+<FONT color="green">199</FONT>         */<a name="line.199"></a>
+<FONT color="green">200</FONT>        public void setGridBandsVisible(boolean flag) {<a name="line.200"></a>
+<FONT color="green">201</FONT>            if (this.gridBandsVisible != flag) {<a name="line.201"></a>
+<FONT color="green">202</FONT>                this.gridBandsVisible = flag;<a name="line.202"></a>
+<FONT color="green">203</FONT>                fireChangeEvent();<a name="line.203"></a>
+<FONT color="green">204</FONT>            }<a name="line.204"></a>
+<FONT color="green">205</FONT>        }<a name="line.205"></a>
+<FONT color="green">206</FONT>    <a name="line.206"></a>
+<FONT color="green">207</FONT>        /**<a name="line.207"></a>
+<FONT color="green">208</FONT>         * Returns the paint used to color the grid bands.<a name="line.208"></a>
+<FONT color="green">209</FONT>         *<a name="line.209"></a>
+<FONT color="green">210</FONT>         * @return The grid band paint (never &lt;code&gt;null&lt;/code&gt;).<a name="line.210"></a>
+<FONT color="green">211</FONT>         *<a name="line.211"></a>
+<FONT color="green">212</FONT>         * @see #setGridBandPaint(Paint)<a name="line.212"></a>
+<FONT color="green">213</FONT>         * @see #isGridBandsVisible()<a name="line.213"></a>
+<FONT color="green">214</FONT>         */<a name="line.214"></a>
+<FONT color="green">215</FONT>        public Paint getGridBandPaint() {<a name="line.215"></a>
+<FONT color="green">216</FONT>            return this.gridBandPaint;<a name="line.216"></a>
+<FONT color="green">217</FONT>        }<a name="line.217"></a>
+<FONT color="green">218</FONT>    <a name="line.218"></a>
+<FONT color="green">219</FONT>        /**<a name="line.219"></a>
+<FONT color="green">220</FONT>         * Sets the grid band paint and sends an {@link AxisChangeEvent} to<a name="line.220"></a>
+<FONT color="green">221</FONT>         * all registered listeners.<a name="line.221"></a>
+<FONT color="green">222</FONT>         *<a name="line.222"></a>
+<FONT color="green">223</FONT>         * @param paint  the paint (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.223"></a>
+<FONT color="green">224</FONT>         *<a name="line.224"></a>
+<FONT color="green">225</FONT>         * @see #getGridBandPaint()<a name="line.225"></a>
+<FONT color="green">226</FONT>         */<a name="line.226"></a>
+<FONT color="green">227</FONT>        public void setGridBandPaint(Paint paint) {<a name="line.227"></a>
+<FONT color="green">228</FONT>            ParamChecks.nullNotPermitted(paint, "paint");<a name="line.228"></a>
+<FONT color="green">229</FONT>            this.gridBandPaint = paint;<a name="line.229"></a>
+<FONT color="green">230</FONT>            fireChangeEvent();<a name="line.230"></a>
+<FONT color="green">231</FONT>        }<a name="line.231"></a>
+<FONT color="green">232</FONT>    <a name="line.232"></a>
+<FONT color="green">233</FONT>        /**<a name="line.233"></a>
+<FONT color="green">234</FONT>         * Returns the paint used for alternate grid bands.<a name="line.234"></a>
+<FONT color="green">235</FONT>         *<a name="line.235"></a>
+<FONT color="green">236</FONT>         * @return The paint (never &lt;code&gt;null&lt;/code&gt;).<a name="line.236"></a>
+<FONT color="green">237</FONT>         *<a name="line.237"></a>
+<FONT color="green">238</FONT>         * @see #setGridBandAlternatePaint(Paint)<a name="line.238"></a>
+<FONT color="green">239</FONT>         * @see #getGridBandPaint()<a name="line.239"></a>
+<FONT color="green">240</FONT>         *<a name="line.240"></a>
+<FONT color="green">241</FONT>         * @since 1.0.7<a name="line.241"></a>
+<FONT color="green">242</FONT>         */<a name="line.242"></a>
+<FONT color="green">243</FONT>        public Paint getGridBandAlternatePaint() {<a name="line.243"></a>
+<FONT color="green">244</FONT>            return this.gridBandAlternatePaint;<a name="line.244"></a>
+<FONT color="green">245</FONT>        }<a name="line.245"></a>
+<FONT color="green">246</FONT>    <a name="line.246"></a>
+<FONT color="green">247</FONT>        /**<a name="line.247"></a>
+<FONT color="green">248</FONT>         * Sets the paint used for alternate grid bands and sends a<a name="line.248"></a>
+<FONT color="green">249</FONT>         * {@link AxisChangeEvent} to all registered listeners.<a name="line.249"></a>
+<FONT color="green">250</FONT>         *<a name="line.250"></a>
+<FONT color="green">251</FONT>         * @param paint  the paint (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.251"></a>
+<FONT color="green">252</FONT>         *<a name="line.252"></a>
+<FONT color="green">253</FONT>         * @see #getGridBandAlternatePaint()<a name="line.253"></a>
+<FONT color="green">254</FONT>         * @see #setGridBandPaint(Paint)<a name="line.254"></a>
+<FONT color="green">255</FONT>         *<a name="line.255"></a>
+<FONT color="green">256</FONT>         * @since 1.0.7<a name="line.256"></a>
+<FONT color="green">257</FONT>         */<a name="line.257"></a>
+<FONT color="green">258</FONT>        public void setGridBandAlternatePaint(Paint paint) {<a name="line.258"></a>
+<FONT color="green">259</FONT>            ParamChecks.nullNotPermitted(paint, "paint");<a name="line.259"></a>
+<FONT color="green">260</FONT>            this.gridBandAlternatePaint = paint;<a name="line.260"></a>
+<FONT color="green">261</FONT>            fireChangeEvent();<a name="line.261"></a>
+<FONT color="green">262</FONT>        }<a name="line.262"></a>
+<FONT color="green">263</FONT>    <a name="line.263"></a>
+<FONT color="green">264</FONT>        /**<a name="line.264"></a>
+<FONT color="green">265</FONT>         * This operation is not supported by this axis.<a name="line.265"></a>
+<FONT color="green">266</FONT>         *<a name="line.266"></a>
+<FONT color="green">267</FONT>         * @param g2  the graphics device.<a name="line.267"></a>
+<FONT color="green">268</FONT>         * @param dataArea  the area in which the plot and axes should be drawn.<a name="line.268"></a>
+<FONT color="green">269</FONT>         * @param edge  the edge along which the axis is drawn.<a name="line.269"></a>
+<FONT color="green">270</FONT>         */<a name="line.270"></a>
+<FONT color="green">271</FONT>        protected void selectAutoTickUnit(Graphics2D g2, Rectangle2D dataArea,<a name="line.271"></a>
+<FONT color="green">272</FONT>                                          RectangleEdge edge) {<a name="line.272"></a>
+<FONT color="green">273</FONT>            throw new UnsupportedOperationException();<a name="line.273"></a>
+<FONT color="green">274</FONT>        }<a name="line.274"></a>
+<FONT color="green">275</FONT>    <a name="line.275"></a>
+<FONT color="green">276</FONT>        /**<a name="line.276"></a>
+<FONT color="green">277</FONT>         * Draws the axis on a Java 2D graphics device (such as the screen or a<a name="line.277"></a>
+<FONT color="green">278</FONT>         * printer).<a name="line.278"></a>
+<FONT color="green">279</FONT>         *<a name="line.279"></a>
+<FONT color="green">280</FONT>         * @param g2  the graphics device (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.280"></a>
+<FONT color="green">281</FONT>         * @param cursor  the cursor location.<a name="line.281"></a>
+<FONT color="green">282</FONT>         * @param plotArea  the area within which the plot and axes should be drawn<a name="line.282"></a>
+<FONT color="green">283</FONT>         *                  (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.283"></a>
+<FONT color="green">284</FONT>         * @param dataArea  the area within which the data should be drawn<a name="line.284"></a>
+<FONT color="green">285</FONT>         *                  (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.285"></a>
+<FONT color="green">286</FONT>         * @param edge  the axis location (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.286"></a>
+<FONT color="green">287</FONT>         * @param plotState  collects information about the plot<a name="line.287"></a>
+<FONT color="green">288</FONT>         *                   (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.288"></a>
+<FONT color="green">289</FONT>         *<a name="line.289"></a>
+<FONT color="green">290</FONT>         * @return The axis state (never &lt;code&gt;null&lt;/code&gt;).<a name="line.290"></a>
+<FONT color="green">291</FONT>         */<a name="line.291"></a>
+<FONT color="green">292</FONT>        public AxisState draw(Graphics2D g2, double cursor, Rectangle2D plotArea,<a name="line.292"></a>
+<FONT color="green">293</FONT>                Rectangle2D dataArea, RectangleEdge edge, <a name="line.293"></a>
+<FONT color="green">294</FONT>                PlotRenderingInfo plotState) {<a name="line.294"></a>
+<FONT color="green">295</FONT>    <a name="line.295"></a>
+<FONT color="green">296</FONT>            AxisState info = new AxisState(cursor);<a name="line.296"></a>
+<FONT color="green">297</FONT>            if (isVisible()) {<a name="line.297"></a>
+<FONT color="green">298</FONT>                info = super.draw(g2, cursor, plotArea, dataArea, edge, plotState);<a name="line.298"></a>
+<FONT color="green">299</FONT>            }<a name="line.299"></a>
+<FONT color="green">300</FONT>            if (this.gridBandsVisible) {<a name="line.300"></a>
+<FONT color="green">301</FONT>                drawGridBands(g2, plotArea, dataArea, edge, info.getTicks());<a name="line.301"></a>
+<FONT color="green">302</FONT>            }<a name="line.302"></a>
+<FONT color="green">303</FONT>            return info;<a name="line.303"></a>
+<FONT color="green">304</FONT>    <a name="line.304"></a>
+<FONT color="green">305</FONT>        }<a name="line.305"></a>
+<FONT color="green">306</FONT>    <a name="line.306"></a>
+<FONT color="green">307</FONT>        /**<a name="line.307"></a>
+<FONT color="green">308</FONT>         * Draws the grid bands.  Alternate bands are colored using<a name="line.308"></a>
+<FONT color="green">309</FONT>         * &lt;CODE&gt;gridBandPaint&lt;/CODE&gt; (&lt;CODE&gt;DEFAULT_GRID_BAND_PAINT&lt;/CODE&gt; by<a name="line.309"></a>
+<FONT color="green">310</FONT>         * default).<a name="line.310"></a>
+<FONT color="green">311</FONT>         *<a name="line.311"></a>
+<FONT color="green">312</FONT>         * @param g2  the graphics device.<a name="line.312"></a>
+<FONT color="green">313</FONT>         * @param plotArea  the area within which the chart should be drawn.<a name="line.313"></a>
+<FONT color="green">314</FONT>         * @param dataArea  the area within which the plot should be drawn (a<a name="line.314"></a>
+<FONT color="green">315</FONT>         *                  subset of the drawArea).<a name="line.315"></a>
+<FONT color="green">316</FONT>         * @param edge  the axis location.<a name="line.316"></a>
+<FONT color="green">317</FONT>         * @param ticks  the ticks.<a name="line.317"></a>
+<FONT color="green">318</FONT>         */<a name="line.318"></a>
+<FONT color="green">319</FONT>        protected void drawGridBands(Graphics2D g2, Rectangle2D plotArea,<a name="line.319"></a>
+<FONT color="green">320</FONT>                Rectangle2D dataArea, RectangleEdge edge, List ticks) {<a name="line.320"></a>
+<FONT color="green">321</FONT>    <a name="line.321"></a>
+<FONT color="green">322</FONT>            Shape savedClip = g2.getClip();<a name="line.322"></a>
+<FONT color="green">323</FONT>            g2.clip(dataArea);<a name="line.323"></a>
+<FONT color="green">324</FONT>            if (RectangleEdge.isTopOrBottom(edge)) {<a name="line.324"></a>
+<FONT color="green">325</FONT>                drawGridBandsHorizontal(g2, plotArea, dataArea, true, ticks);<a name="line.325"></a>
+<FONT color="green">326</FONT>            }<a name="line.326"></a>
+<FONT color="green">327</FONT>            else if (RectangleEdge.isLeftOrRight(edge)) {<a name="line.327"></a>
+<FONT color="green">328</FONT>                drawGridBandsVertical(g2, plotArea, dataArea, true, ticks);<a name="line.328"></a>
+<FONT color="green">329</FONT>            }<a name="line.329"></a>
+<FONT color="green">330</FONT>            g2.setClip(savedClip);<a name="line.330"></a>
+<FONT color="green">331</FONT>    <a name="line.331"></a>
+<FONT color="green">332</FONT>        }<a name="line.332"></a>
+<FONT color="green">333</FONT>    <a name="line.333"></a>
+<FONT color="green">334</FONT>        /**<a name="line.334"></a>
+<FONT color="green">335</FONT>         * Draws the grid bands for the axis when it is at the top or bottom of<a name="line.335"></a>
+<FONT color="green">336</FONT>         * the plot.<a name="line.336"></a>
+<FONT color="green">337</FONT>         *<a name="line.337"></a>
+<FONT color="green">338</FONT>         * @param g2  the graphics device.<a name="line.338"></a>
+<FONT color="green">339</FONT>         * @param plotArea  the area within which the chart should be drawn.<a name="line.339"></a>
+<FONT color="green">340</FONT>         * @param dataArea  the area within which the plot should be drawn<a name="line.340"></a>
+<FONT color="green">341</FONT>         *                  (a subset of the drawArea).<a name="line.341"></a>
+<FONT color="green">342</FONT>         * @param firstGridBandIsDark  True: the first grid band takes the<a name="line.342"></a>
+<FONT color="green">343</FONT>         *                             color of &lt;CODE&gt;gridBandPaint&lt;/CODE&gt;.<a name="line.343"></a>
+<FONT color="green">344</FONT>         *                             False: the second grid band takes the<a name="line.344"></a>
+<FONT color="green">345</FONT>         *                             color of &lt;CODE&gt;gridBandPaint&lt;/CODE&gt;.<a name="line.345"></a>
+<FONT color="green">346</FONT>         * @param ticks  the ticks.<a name="line.346"></a>
+<FONT color="green">347</FONT>         */<a name="line.347"></a>
+<FONT color="green">348</FONT>        protected void drawGridBandsHorizontal(Graphics2D g2,<a name="line.348"></a>
+<FONT color="green">349</FONT>                Rectangle2D plotArea, Rectangle2D dataArea, <a name="line.349"></a>
+<FONT color="green">350</FONT>                boolean firstGridBandIsDark, List ticks) {<a name="line.350"></a>
+<FONT color="green">351</FONT>    <a name="line.351"></a>
+<FONT color="green">352</FONT>            boolean currentGridBandIsDark = firstGridBandIsDark;<a name="line.352"></a>
+<FONT color="green">353</FONT>            double yy = dataArea.getY();<a name="line.353"></a>
+<FONT color="green">354</FONT>            double xx1, xx2;<a name="line.354"></a>
+<FONT color="green">355</FONT>    <a name="line.355"></a>
+<FONT color="green">356</FONT>            //gets the outline stroke width of the plot<a name="line.356"></a>
+<FONT color="green">357</FONT>            double outlineStrokeWidth;<a name="line.357"></a>
+<FONT color="green">358</FONT>            if (getPlot().getOutlineStroke() !=  null) {<a name="line.358"></a>
+<FONT color="green">359</FONT>                outlineStrokeWidth<a name="line.359"></a>
+<FONT color="green">360</FONT>                    = ((BasicStroke) getPlot().getOutlineStroke()).getLineWidth();<a name="line.360"></a>
+<FONT color="green">361</FONT>            }<a name="line.361"></a>
+<FONT color="green">362</FONT>            else {<a name="line.362"></a>
+<FONT color="green">363</FONT>                outlineStrokeWidth = 1d;<a name="line.363"></a>
+<FONT color="green">364</FONT>            }<a name="line.364"></a>
+<FONT color="green">365</FONT>    <a name="line.365"></a>
+<FONT color="green">366</FONT>            Iterator iterator = ticks.iterator();<a name="line.366"></a>
+<FONT color="green">367</FONT>            ValueTick tick;<a name="line.367"></a>
+<FONT color="green">368</FONT>            Rectangle2D band;<a name="line.368"></a>
+<FONT color="green">369</FONT>            while (iterator.hasNext()) {<a name="line.369"></a>
+<FONT color="green">370</FONT>                tick = (ValueTick) iterator.next();<a name="line.370"></a>
+<FONT color="green">371</FONT>                xx1 = valueToJava2D(tick.getValue() - 0.5d, dataArea,<a name="line.371"></a>
+<FONT color="green">372</FONT>                        RectangleEdge.BOTTOM);<a name="line.372"></a>
+<FONT color="green">373</FONT>                xx2 = valueToJava2D(tick.getValue() + 0.5d, dataArea,<a name="line.373"></a>
+<FONT color="green">374</FONT>                        RectangleEdge.BOTTOM);<a name="line.374"></a>
+<FONT color="green">375</FONT>                if (currentGridBandIsDark) {<a name="line.375"></a>
+<FONT color="green">376</FONT>                    g2.setPaint(this.gridBandPaint);<a name="line.376"></a>
+<FONT color="green">377</FONT>                }<a name="line.377"></a>
+<FONT color="green">378</FONT>                else {<a name="line.378"></a>
+<FONT color="green">379</FONT>                    g2.setPaint(this.gridBandAlternatePaint);<a name="line.379"></a>
+<FONT color="green">380</FONT>                }<a name="line.380"></a>
+<FONT color="green">381</FONT>                band = new Rectangle2D.Double(xx1, yy + outlineStrokeWidth,<a name="line.381"></a>
+<FONT color="green">382</FONT>                    xx2 - xx1, dataArea.getMaxY() - yy - outlineStrokeWidth);<a name="line.382"></a>
+<FONT color="green">383</FONT>                g2.fill(band);<a name="line.383"></a>
+<FONT color="green">384</FONT>                currentGridBandIsDark = !currentGridBandIsDark;<a name="line.384"></a>
+<FONT color="green">385</FONT>            }<a name="line.385"></a>
+<FONT color="green">386</FONT>            g2.setPaintMode();<a name="line.386"></a>
+<FONT color="green">387</FONT>        }<a name="line.387"></a>
+<FONT color="green">388</FONT>    <a name="line.388"></a>
+<FONT color="green">389</FONT>        /**<a name="line.389"></a>
+<FONT color="green">390</FONT>         * Draws the grid bands for the axis when it is at the top or bottom of<a name="line.390"></a>
+<FONT color="green">391</FONT>         * the plot.<a name="line.391"></a>
+<FONT color="green">392</FONT>         *<a name="line.392"></a>
+<FONT color="green">393</FONT>         * @param g2  the graphics device.<a name="line.393"></a>
+<FONT color="green">394</FONT>         * @param drawArea  the area within which the chart should be drawn.<a name="line.394"></a>
+<FONT color="green">395</FONT>         * @param plotArea  the area within which the plot should be drawn (a<a name="line.395"></a>
+<FONT color="green">396</FONT>         *                  subset of the drawArea).<a name="line.396"></a>
+<FONT color="green">397</FONT>         * @param firstGridBandIsDark  True: the first grid band takes the<a name="line.397"></a>
+<FONT color="green">398</FONT>         *                             color of &lt;CODE&gt;gridBandPaint&lt;/CODE&gt;.<a name="line.398"></a>
+<FONT color="green">399</FONT>         *                             False: the second grid band takes the<a name="line.399"></a>
+<FONT color="green">400</FONT>         *                             color of &lt;CODE&gt;gridBandPaint&lt;/CODE&gt;.<a name="line.400"></a>
+<FONT color="green">401</FONT>         * @param ticks  a list of ticks.<a name="line.401"></a>
+<FONT color="green">402</FONT>         */<a name="line.402"></a>
+<FONT color="green">403</FONT>        protected void drawGridBandsVertical(Graphics2D g2, Rectangle2D drawArea,<a name="line.403"></a>
+<FONT color="green">404</FONT>                Rectangle2D plotArea, boolean firstGridBandIsDark, List ticks) {<a name="line.404"></a>
+<FONT color="green">405</FONT>    <a name="line.405"></a>
+<FONT color="green">406</FONT>            boolean currentGridBandIsDark = firstGridBandIsDark;<a name="line.406"></a>
+<FONT color="green">407</FONT>            double xx = plotArea.getX();<a name="line.407"></a>
+<FONT color="green">408</FONT>            double yy1, yy2;<a name="line.408"></a>
+<FONT color="green">409</FONT>    <a name="line.409"></a>
+<FONT color="green">410</FONT>            //gets the outline stroke width of the plot<a name="line.410"></a>
+<FONT color="green">411</FONT>            double outlineStrokeWidth;<a name="line.411"></a>
+<FONT color="green">412</FONT>            Stroke outlineStroke = getPlot().getOutlineStroke();<a name="line.412"></a>
+<FONT color="green">413</FONT>            if (outlineStroke != null &amp;&amp; outlineStroke instanceof BasicStroke) {<a name="line.413"></a>
+<FONT color="green">414</FONT>                outlineStrokeWidth = ((BasicStroke) outlineStroke).getLineWidth();<a name="line.414"></a>
+<FONT color="green">415</FONT>            }<a name="line.415"></a>
+<FONT color="green">416</FONT>            else {<a name="line.416"></a>
+<FONT color="green">417</FONT>                outlineStrokeWidth = 1d;<a name="line.417"></a>
+<FONT color="green">418</FONT>            }<a name="line.418"></a>
+<FONT color="green">419</FONT>    <a name="line.419"></a>
+<FONT color="green">420</FONT>            Iterator iterator = ticks.iterator();<a name="line.420"></a>
+<FONT color="green">421</FONT>            ValueTick tick;<a name="line.421"></a>
+<FONT color="green">422</FONT>            Rectangle2D band;<a name="line.422"></a>
+<FONT color="green">423</FONT>            while (iterator.hasNext()) {<a name="line.423"></a>
+<FONT color="green">424</FONT>                tick = (ValueTick) iterator.next();<a name="line.424"></a>
+<FONT color="green">425</FONT>                yy1 = valueToJava2D(tick.getValue() + 0.5d, plotArea,<a name="line.425"></a>
+<FONT color="green">426</FONT>                        RectangleEdge.LEFT);<a name="line.426"></a>
+<FONT color="green">427</FONT>                yy2 = valueToJava2D(tick.getValue() - 0.5d, plotArea,<a name="line.427"></a>
+<FONT color="green">428</FONT>                        RectangleEdge.LEFT);<a name="line.428"></a>
+<FONT color="green">429</FONT>                if (currentGridBandIsDark) {<a name="line.429"></a>
+<FONT color="green">430</FONT>                    g2.setPaint(this.gridBandPaint);<a name="line.430"></a>
+<FONT color="green">431</FONT>                }<a name="line.431"></a>
+<FONT color="green">432</FONT>                else {<a name="line.432"></a>
+<FONT color="green">433</FONT>                    g2.setPaint(this.gridBandAlternatePaint);<a name="line.433"></a>
+<FONT color="green">434</FONT>                }<a name="line.434"></a>
+<FONT color="green">435</FONT>                band = new Rectangle2D.Double(xx + outlineStrokeWidth, yy1,<a name="line.435"></a>
+<FONT color="green">436</FONT>                        plotArea.getMaxX() - xx - outlineStrokeWidth, yy2 - yy1);<a name="line.436"></a>
+<FONT color="green">437</FONT>                g2.fill(band);<a name="line.437"></a>
+<FONT color="green">438</FONT>                currentGridBandIsDark = !currentGridBandIsDark;<a name="line.438"></a>
+<FONT color="green">439</FONT>            }<a name="line.439"></a>
+<FONT color="green">440</FONT>            g2.setPaintMode();<a name="line.440"></a>
+<FONT color="green">441</FONT>        }<a name="line.441"></a>
+<FONT color="green">442</FONT>    <a name="line.442"></a>
+<FONT color="green">443</FONT>        /**<a name="line.443"></a>
+<FONT color="green">444</FONT>         * Rescales the axis to ensure that all data is visible.<a name="line.444"></a>
+<FONT color="green">445</FONT>         */<a name="line.445"></a>
+<FONT color="green">446</FONT>        protected void autoAdjustRange() {<a name="line.446"></a>
+<FONT color="green">447</FONT>    <a name="line.447"></a>
+<FONT color="green">448</FONT>            Plot plot = getPlot();<a name="line.448"></a>
+<FONT color="green">449</FONT>            if (plot == null) {<a name="line.449"></a>
+<FONT color="green">450</FONT>                return;  // no plot, no data<a name="line.450"></a>
+<FONT color="green">451</FONT>            }<a name="line.451"></a>
+<FONT color="green">452</FONT>    <a name="line.452"></a>
+<FONT color="green">453</FONT>            if (plot instanceof ValueAxisPlot) {<a name="line.453"></a>
+<FONT color="green">454</FONT>    <a name="line.454"></a>
+<FONT color="green">455</FONT>                // ensure that all the symbols are displayed<a name="line.455"></a>
+<FONT color="green">456</FONT>                double upper = this.symbols.size() - 1;<a name="line.456"></a>
+<FONT color="green">457</FONT>                double lower = 0;<a name="line.457"></a>
+<FONT color="green">458</FONT>                double range = upper - lower;<a name="line.458"></a>
+<FONT color="green">459</FONT>    <a name="line.459"></a>
+<FONT color="green">460</FONT>                // ensure the autorange is at least &lt;minRange&gt; in size...<a name="line.460"></a>
+<FONT color="green">461</FONT>                double minRange = getAutoRangeMinimumSize();<a name="line.461"></a>
+<FONT color="green">462</FONT>                if (range &lt; minRange) {<a name="line.462"></a>
+<FONT color="green">463</FONT>                    upper = (upper + lower + minRange) / 2;<a name="line.463"></a>
+<FONT color="green">464</FONT>                    lower = (upper + lower - minRange) / 2;<a name="line.464"></a>
+<FONT color="green">465</FONT>                }<a name="line.465"></a>
+<FONT color="green">466</FONT>    <a name="line.466"></a>
+<FONT color="green">467</FONT>                // this ensure that the grid bands will be displayed correctly.<a name="line.467"></a>
+<FONT color="green">468</FONT>                double upperMargin = 0.5;<a name="line.468"></a>
+<FONT color="green">469</FONT>                double lowerMargin = 0.5;<a name="line.469"></a>
+<FONT color="green">470</FONT>    <a name="line.470"></a>
+<FONT color="green">471</FONT>                if (getAutoRangeIncludesZero()) {<a name="line.471"></a>
+<FONT color="green">472</FONT>                    if (getAutoRangeStickyZero()) {<a name="line.472"></a>
+<FONT color="green">473</FONT>                        if (upper &lt;= 0.0) {<a name="line.473"></a>
+<FONT color="green">474</FONT>                            upper = 0.0;<a name="line.474"></a>
+<FONT color="green">475</FONT>                        }<a name="line.475"></a>
+<FONT color="green">476</FONT>                        else {<a name="line.476"></a>
+<FONT color="green">477</FONT>                            upper = upper + upperMargin;<a name="line.477"></a>
+<FONT color="green">478</FONT>                        }<a name="line.478"></a>
+<FONT color="green">479</FONT>                        if (lower &gt;= 0.0) {<a name="line.479"></a>
+<FONT color="green">480</FONT>                            lower = 0.0;<a name="line.480"></a>
+<FONT color="green">481</FONT>                        }<a name="line.481"></a>
+<FONT color="green">482</FONT>                        else {<a name="line.482"></a>
+<FONT color="green">483</FONT>                            lower = lower - lowerMargin;<a name="line.483"></a>
+<FONT color="green">484</FONT>                        }<a name="line.484"></a>
+<FONT color="green">485</FONT>                    }<a name="line.485"></a>
+<FONT color="green">486</FONT>                    else {<a name="line.486"></a>
+<FONT color="green">487</FONT>                        upper = Math.max(0.0, upper + upperMargin);<a name="line.487"></a>
+<FONT color="green">488</FONT>                        lower = Math.min(0.0, lower - lowerMargin);<a name="line.488"></a>
+<FONT color="green">489</FONT>                    }<a name="line.489"></a>
+<FONT color="green">490</FONT>                }<a name="line.490"></a>
+<FONT color="green">491</FONT>                else {<a name="line.491"></a>
+<FONT color="green">492</FONT>                    if (getAutoRangeStickyZero()) {<a name="line.492"></a>
+<FONT color="green">493</FONT>                        if (upper &lt;= 0.0) {<a name="line.493"></a>
+<FONT color="green">494</FONT>                            upper = Math.min(0.0, upper + upperMargin);<a name="line.494"></a>
+<FONT color="green">495</FONT>                        }<a name="line.495"></a>
+<FONT color="green">496</FONT>                        else {<a name="line.496"></a>
+<FONT color="green">497</FONT>                            upper = upper + upperMargin * range;<a name="line.497"></a>
+<FONT color="green">498</FONT>                        }<a name="line.498"></a>
+<FONT color="green">499</FONT>                        if (lower &gt;= 0.0) {<a name="line.499"></a>
+<FONT color="green">500</FONT>                            lower = Math.max(0.0, lower - lowerMargin);<a name="line.500"></a>
+<FONT color="green">501</FONT>                        }<a name="line.501"></a>
+<FONT color="green">502</FONT>                        else {<a name="line.502"></a>
+<FONT color="green">503</FONT>                            lower = lower - lowerMargin;<a name="line.503"></a>
+<FONT color="green">504</FONT>                        }<a name="line.504"></a>
+<FONT color="green">505</FONT>                    }<a name="line.505"></a>
+<FONT color="green">506</FONT>                    else {<a name="line.506"></a>
+<FONT color="green">507</FONT>                        upper = upper + upperMargin;<a name="line.507"></a>
+<FONT color="green">508</FONT>                        lower = lower - lowerMargin;<a name="line.508"></a>
+<FONT color="green">509</FONT>                    }<a name="line.509"></a>
+<FONT color="green">510</FONT>                }<a name="line.510"></a>
+<FONT color="green">511</FONT>    <a name="line.511"></a>
+<FONT color="green">512</FONT>                setRange(new Range(lower, upper), false, false);<a name="line.512"></a>
+<FONT color="green">513</FONT>    <a name="line.513"></a>
+<FONT color="green">514</FONT>            }<a name="line.514"></a>
+<FONT color="green">515</FONT>    <a name="line.515"></a>
+<FONT color="green">516</FONT>        }<a name="line.516"></a>
+<FONT color="green">517</FONT>    <a name="line.517"></a>
+<FONT color="green">518</FONT>        /**<a name="line.518"></a>
+<FONT color="green">519</FONT>         * Calculates the positions of the tick labels for the axis, storing the<a name="line.519"></a>
+<FONT color="green">520</FONT>         * results in the tick label list (ready for drawing).<a name="line.520"></a>
+<FONT color="green">521</FONT>         *<a name="line.521"></a>
+<FONT color="green">522</FONT>         * @param g2  the graphics device.<a name="line.522"></a>
+<FONT color="green">523</FONT>         * @param state  the axis state.<a name="line.523"></a>
+<FONT color="green">524</FONT>         * @param dataArea  the area in which the data should be drawn.<a name="line.524"></a>
+<FONT color="green">525</FONT>         * @param edge  the location of the axis.<a name="line.525"></a>
+<FONT color="green">526</FONT>         *<a name="line.526"></a>
+<FONT color="green">527</FONT>         * @return A list of ticks.<a name="line.527"></a>
+<FONT color="green">528</FONT>         */<a name="line.528"></a>
+<FONT color="green">529</FONT>        public List refreshTicks(Graphics2D g2, AxisState state,<a name="line.529"></a>
+<FONT color="green">530</FONT>                Rectangle2D dataArea, RectangleEdge edge) {<a name="line.530"></a>
+<FONT color="green">531</FONT>            List ticks = null;<a name="line.531"></a>
+<FONT color="green">532</FONT>            if (RectangleEdge.isTopOrBottom(edge)) {<a name="line.532"></a>
+<FONT color="green">533</FONT>                ticks = refreshTicksHorizontal(g2, dataArea, edge);<a name="line.533"></a>
+<FONT color="green">534</FONT>            }<a name="line.534"></a>
+<FONT color="green">535</FONT>            else if (RectangleEdge.isLeftOrRight(edge)) {<a name="line.535"></a>
+<FONT color="green">536</FONT>                ticks = refreshTicksVertical(g2, dataArea, edge);<a name="line.536"></a>
+<FONT color="green">537</FONT>            }<a name="line.537"></a>
+<FONT color="green">538</FONT>            return ticks;<a name="line.538"></a>
+<FONT color="green">539</FONT>        }<a name="line.539"></a>
+<FONT color="green">540</FONT>    <a name="line.540"></a>
+<FONT color="green">541</FONT>        /**<a name="line.541"></a>
+<FONT color="green">542</FONT>         * Calculates the positions of the tick labels for the axis, storing the<a name="line.542"></a>
+<FONT color="green">543</FONT>         * results in the tick label list (ready for drawing).<a name="line.543"></a>
+<FONT color="green">544</FONT>         *<a name="line.544"></a>
+<FONT color="green">545</FONT>         * @param g2  the graphics device.<a name="line.545"></a>
+<FONT color="green">546</FONT>         * @param dataArea  the area in which the data should be drawn.<a name="line.546"></a>
+<FONT color="green">547</FONT>         * @param edge  the location of the axis.<a name="line.547"></a>
+<FONT color="green">548</FONT>         *<a name="line.548"></a>
+<FONT color="green">549</FONT>         * @return The ticks.<a name="line.549"></a>
+<FONT color="green">550</FONT>         */<a name="line.550"></a>
+<FONT color="green">551</FONT>        protected List refreshTicksHorizontal(Graphics2D g2, Rectangle2D dataArea,<a name="line.551"></a>
+<FONT color="green">552</FONT>                RectangleEdge edge) {<a name="line.552"></a>
+<FONT color="green">553</FONT>    <a name="line.553"></a>
+<FONT color="green">554</FONT>            List ticks = new java.util.ArrayList();<a name="line.554"></a>
+<FONT color="green">555</FONT>    <a name="line.555"></a>
+<FONT color="green">556</FONT>            Font tickLabelFont = getTickLabelFont();<a name="line.556"></a>
+<FONT color="green">557</FONT>            g2.setFont(tickLabelFont);<a name="line.557"></a>
+<FONT color="green">558</FONT>    <a name="line.558"></a>
+<FONT color="green">559</FONT>            double size = getTickUnit().getSize();<a name="line.559"></a>
+<FONT color="green">560</FONT>            int count = calculateVisibleTickCount();<a name="line.560"></a>
+<FONT color="green">561</FONT>            double lowestTickValue = calculateLowestVisibleTickValue();<a name="line.561"></a>
+<FONT color="green">562</FONT>    <a name="line.562"></a>
+<FONT color="green">563</FONT>            double previousDrawnTickLabelPos = 0.0;<a name="line.563"></a>
+<FONT color="green">564</FONT>            double previousDrawnTickLabelLength = 0.0;<a name="line.564"></a>
+<FONT color="green">565</FONT>    <a name="line.565"></a>
+<FONT color="green">566</FONT>            if (count &lt;= ValueAxis.MAXIMUM_TICK_COUNT) {<a name="line.566"></a>
+<FONT color="green">567</FONT>                for (int i = 0; i &lt; count; i++) {<a name="line.567"></a>
+<FONT color="green">568</FONT>                    double currentTickValue = lowestTickValue + (i * size);<a name="line.568"></a>
+<FONT color="green">569</FONT>                    double xx = valueToJava2D(currentTickValue, dataArea, edge);<a name="line.569"></a>
+<FONT color="green">570</FONT>                    String tickLabel;<a name="line.570"></a>
+<FONT color="green">571</FONT>                    NumberFormat formatter = getNumberFormatOverride();<a name="line.571"></a>
+<FONT color="green">572</FONT>                    if (formatter != null) {<a name="line.572"></a>
+<FONT color="green">573</FONT>                        tickLabel = formatter.format(currentTickValue);<a name="line.573"></a>
+<FONT color="green">574</FONT>                    }<a name="line.574"></a>
+<FONT color="green">575</FONT>                    else {<a name="line.575"></a>
+<FONT color="green">576</FONT>                        tickLabel = valueToString(currentTickValue);<a name="line.576"></a>
+<FONT color="green">577</FONT>                    }<a name="line.577"></a>
+<FONT color="green">578</FONT>    <a name="line.578"></a>
+<FONT color="green">579</FONT>                    // avoid to draw overlapping tick labels<a name="line.579"></a>
+<FONT color="green">580</FONT>                    Rectangle2D bounds = TextUtilities.getTextBounds(tickLabel, g2,<a name="line.580"></a>
+<FONT color="green">581</FONT>                            g2.getFontMetrics());<a name="line.581"></a>
+<FONT color="green">582</FONT>                    double tickLabelLength = isVerticalTickLabels()<a name="line.582"></a>
+<FONT color="green">583</FONT>                            ? bounds.getHeight() : bounds.getWidth();<a name="line.583"></a>
+<FONT color="green">584</FONT>                    boolean tickLabelsOverlapping = false;<a name="line.584"></a>
+<FONT color="green">585</FONT>                    if (i &gt; 0) {<a name="line.585"></a>
+<FONT color="green">586</FONT>                        double avgTickLabelLength = (previousDrawnTickLabelLength<a name="line.586"></a>
+<FONT color="green">587</FONT>                                + tickLabelLength) / 2.0;<a name="line.587"></a>
+<FONT color="green">588</FONT>                        if (Math.abs(xx - previousDrawnTickLabelPos)<a name="line.588"></a>
+<FONT color="green">589</FONT>                                &lt; avgTickLabelLength) {<a name="line.589"></a>
+<FONT color="green">590</FONT>                            tickLabelsOverlapping = true;<a name="line.590"></a>
+<FONT color="green">591</FONT>                        }<a name="line.591"></a>
+<FONT color="green">592</FONT>                    }<a name="line.592"></a>
+<FONT color="green">593</FONT>                    if (tickLabelsOverlapping) {<a name="line.593"></a>
+<FONT color="green">594</FONT>                        tickLabel = ""; // don't draw this tick label<a name="line.594"></a>
+<FONT color="green">595</FONT>                    }<a name="line.595"></a>
+<FONT color="green">596</FONT>                    else {<a name="line.596"></a>
+<FONT color="green">597</FONT>                        // remember these values for next comparison<a name="line.597"></a>
+<FONT color="green">598</FONT>                        previousDrawnTickLabelPos = xx;<a name="line.598"></a>
+<FONT color="green">599</FONT>                        previousDrawnTickLabelLength = tickLabelLength;<a name="line.599"></a>
+<FONT color="green">600</FONT>                    }<a name="line.600"></a>
+<FONT color="green">601</FONT>    <a name="line.601"></a>
+<FONT color="green">602</FONT>                    TextAnchor anchor;<a name="line.602"></a>
+<FONT color="green">603</FONT>                    TextAnchor rotationAnchor;<a name="line.603"></a>
+<FONT color="green">604</FONT>                    double angle = 0.0;<a name="line.604"></a>
+<FONT color="green">605</FONT>                    if (isVerticalTickLabels()) {<a name="line.605"></a>
+<FONT color="green">606</FONT>                        anchor = TextAnchor.CENTER_RIGHT;<a name="line.606"></a>
+<FONT color="green">607</FONT>                        rotationAnchor = TextAnchor.CENTER_RIGHT;<a name="line.607"></a>
+<FONT color="green">608</FONT>                        if (edge == RectangleEdge.TOP) {<a name="line.608"></a>
+<FONT color="green">609</FONT>                            angle = Math.PI / 2.0;<a name="line.609"></a>
+<FONT color="green">610</FONT>                        }<a name="line.610"></a>
+<FONT color="green">611</FONT>                        else {<a name="line.611"></a>
+<FONT color="green">612</FONT>                            angle = -Math.PI / 2.0;<a name="line.612"></a>
+<FONT color="green">613</FONT>                        }<a name="line.613"></a>
+<FONT color="green">614</FONT>                    }<a name="line.614"></a>
+<FONT color="green">615</FONT>                    else {<a name="line.615"></a>
+<FONT color="green">616</FONT>                        if (edge == RectangleEdge.TOP) {<a name="line.616"></a>
+<FONT color="green">617</FONT>                            anchor = TextAnchor.BOTTOM_CENTER;<a name="line.617"></a>
+<FONT color="green">618</FONT>                            rotationAnchor = TextAnchor.BOTTOM_CENTER;<a name="line.618"></a>
+<FONT color="green">619</FONT>                        }<a name="line.619"></a>
+<FONT color="green">620</FONT>                        else {<a name="line.620"></a>
+<FONT color="green">621</FONT>                            anchor = TextAnchor.TOP_CENTER;<a name="line.621"></a>
+<FONT color="green">622</FONT>                            rotationAnchor = TextAnchor.TOP_CENTER;<a name="line.622"></a>
+<FONT color="green">623</FONT>                        }<a name="line.623"></a>
+<FONT color="green">624</FONT>                    }<a name="line.624"></a>
+<FONT color="green">625</FONT>                    Tick tick = new NumberTick(new Double(currentTickValue),<a name="line.625"></a>
+<FONT color="green">626</FONT>                            tickLabel, anchor, rotationAnchor, angle);<a name="line.626"></a>
+<FONT color="green">627</FONT>                    ticks.add(tick);<a name="line.627"></a>
+<FONT color="green">628</FONT>                }<a name="line.628"></a>
+<FONT color="green">629</FONT>            }<a name="line.629"></a>
+<FONT color="green">630</FONT>            return ticks;<a name="line.630"></a>
+<FONT color="green">631</FONT>    <a name="line.631"></a>
+<FONT color="green">632</FONT>        }<a name="line.632"></a>
+<FONT color="green">633</FONT>    <a name="line.633"></a>
+<FONT color="green">634</FONT>        /**<a name="line.634"></a>
+<FONT color="green">635</FONT>         * Calculates the positions of the tick labels for the axis, storing the<a name="line.635"></a>
+<FONT color="green">636</FONT>         * results in the tick label list (ready for drawing).<a name="line.636"></a>
+<FONT color="green">637</FONT>         *<a name="line.637"></a>
+<FONT color="green">638</FONT>         * @param g2  the graphics device.<a name="line.638"></a>
+<FONT color="green">639</FONT>         * @param dataArea  the area in which the plot should be drawn.<a name="line.639"></a>
+<FONT color="green">640</FONT>         * @param edge  the location of the axis.<a name="line.640"></a>
+<FONT color="green">641</FONT>         *<a name="line.641"></a>
+<FONT color="green">642</FONT>         * @return The ticks.<a name="line.642"></a>
+<FONT color="green">643</FONT>         */<a name="line.643"></a>
+<FONT color="green">644</FONT>        protected List refreshTicksVertical(Graphics2D g2, Rectangle2D dataArea,<a name="line.644"></a>
+<FONT color="green">645</FONT>                RectangleEdge edge) {<a name="line.645"></a>
+<FONT color="green">646</FONT>    <a name="line.646"></a>
+<FONT color="green">647</FONT>            List ticks = new java.util.ArrayList();<a name="line.647"></a>
+<FONT color="green">648</FONT>    <a name="line.648"></a>
+<FONT color="green">649</FONT>            Font tickLabelFont = getTickLabelFont();<a name="line.649"></a>
+<FONT color="green">650</FONT>            g2.setFont(tickLabelFont);<a name="line.650"></a>
+<FONT color="green">651</FONT>    <a name="line.651"></a>
+<FONT color="green">652</FONT>            double size = getTickUnit().getSize();<a name="line.652"></a>
+<FONT color="green">653</FONT>            int count = calculateVisibleTickCount();<a name="line.653"></a>
+<FONT color="green">654</FONT>            double lowestTickValue = calculateLowestVisibleTickValue();<a name="line.654"></a>
+<FONT color="green">655</FONT>    <a name="line.655"></a>
+<FONT color="green">656</FONT>            double previousDrawnTickLabelPos = 0.0;<a name="line.656"></a>
+<FONT color="green">657</FONT>            double previousDrawnTickLabelLength = 0.0;<a name="line.657"></a>
+<FONT color="green">658</FONT>    <a name="line.658"></a>
+<FONT color="green">659</FONT>            if (count &lt;= ValueAxis.MAXIMUM_TICK_COUNT) {<a name="line.659"></a>
+<FONT color="green">660</FONT>                for (int i = 0; i &lt; count; i++) {<a name="line.660"></a>
+<FONT color="green">661</FONT>                    double currentTickValue = lowestTickValue + (i * size);<a name="line.661"></a>
+<FONT color="green">662</FONT>                    double yy = valueToJava2D(currentTickValue, dataArea, edge);<a name="line.662"></a>
+<FONT color="green">663</FONT>                    String tickLabel;<a name="line.663"></a>
+<FONT color="green">664</FONT>                    NumberFormat formatter = getNumberFormatOverride();<a name="line.664"></a>
+<FONT color="green">665</FONT>                    if (formatter != null) {<a name="line.665"></a>
+<FONT color="green">666</FONT>                        tickLabel = formatter.format(currentTickValue);<a name="line.666"></a>
+<FONT color="green">667</FONT>                    }<a name="line.667"></a>
+<FONT color="green">668</FONT>                    else {<a name="line.668"></a>
+<FONT color="green">669</FONT>                        tickLabel = valueToString(currentTickValue);<a name="line.669"></a>
+<FONT color="green">670</FONT>                    }<a name="line.670"></a>
+<FONT color="green">671</FONT>    <a name="line.671"></a>
+<FONT color="green">672</FONT>                    // avoid to draw overlapping tick labels<a name="line.672"></a>
+<FONT color="green">673</FONT>                    Rectangle2D bounds = TextUtilities.getTextBounds(tickLabel, g2,<a name="line.673"></a>
+<FONT color="green">674</FONT>                            g2.getFontMetrics());<a name="line.674"></a>
+<FONT color="green">675</FONT>                    double tickLabelLength = isVerticalTickLabels()<a name="line.675"></a>
+<FONT color="green">676</FONT>                        ? bounds.getWidth() : bounds.getHeight();<a name="line.676"></a>
+<FONT color="green">677</FONT>                    boolean tickLabelsOverlapping = false;<a name="line.677"></a>
+<FONT color="green">678</FONT>                    if (i &gt; 0) {<a name="line.678"></a>
+<FONT color="green">679</FONT>                        double avgTickLabelLength = (previousDrawnTickLabelLength<a name="line.679"></a>
+<FONT color="green">680</FONT>                                + tickLabelLength) / 2.0;<a name="line.680"></a>
+<FONT color="green">681</FONT>                        if (Math.abs(yy - previousDrawnTickLabelPos)<a name="line.681"></a>
+<FONT color="green">682</FONT>                                &lt; avgTickLabelLength) {<a name="line.682"></a>
+<FONT color="green">683</FONT>                            tickLabelsOverlapping = true;<a name="line.683"></a>
+<FONT color="green">684</FONT>                        }<a name="line.684"></a>
+<FONT color="green">685</FONT>                    }<a name="line.685"></a>
+<FONT color="green">686</FONT>                    if (tickLabelsOverlapping) {<a name="line.686"></a>
+<FONT color="green">687</FONT>                        tickLabel = ""; // don't draw this tick label<a name="line.687"></a>
+<FONT color="green">688</FONT>                    }<a name="line.688"></a>
+<FONT color="green">689</FONT>                    else {<a name="line.689"></a>
+<FONT color="green">690</FONT>                        // remember these values for next comparison<a name="line.690"></a>
+<FONT color="green">691</FONT>                        previousDrawnTickLabelPos = yy;<a name="line.691"></a>
+<FONT color="green">692</FONT>                        previousDrawnTickLabelLength = tickLabelLength;<a name="line.692"></a>
+<FONT color="green">693</FONT>                    }<a name="line.693"></a>
+<FONT color="green">694</FONT>    <a name="line.694"></a>
+<FONT color="green">695</FONT>                    TextAnchor anchor = null;<a name="line.695"></a>
+<FONT color="green">696</FONT>                    TextAnchor rotationAnchor = null;<a name="line.696"></a>
+<FONT color="green">697</FONT>                    double angle = 0.0;<a name="line.697"></a>
+<FONT color="green">698</FONT>                    if (isVerticalTickLabels()) {<a name="line.698"></a>
+<FONT color="green">699</FONT>                        anchor = TextAnchor.BOTTOM_CENTER;<a name="line.699"></a>
+<FONT color="green">700</FONT>                        rotationAnchor = TextAnchor.BOTTOM_CENTER;<a name="line.700"></a>
+<FONT color="green">701</FONT>                        if (edge == RectangleEdge.LEFT) {<a name="line.701"></a>
+<FONT color="green">702</FONT>                            angle = -Math.PI / 2.0;<a name="line.702"></a>
+<FONT color="green">703</FONT>                        }<a name="line.703"></a>
+<FONT color="green">704</FONT>                        else {<a name="line.704"></a>
+<FONT color="green">705</FONT>                            angle = Math.PI / 2.0;<a name="line.705"></a>
+<FONT color="green">706</FONT>                        }<a name="line.706"></a>
+<FONT color="green">707</FONT>                    }<a name="line.707"></a>
+<FONT color="green">708</FONT>                    else {<a name="line.708"></a>
+<FONT color="green">709</FONT>                        if (edge == RectangleEdge.LEFT) {<a name="line.709"></a>
+<FONT color="green">710</FONT>                            anchor = TextAnchor.CENTER_RIGHT;<a name="line.710"></a>
+<FONT color="green">711</FONT>                            rotationAnchor = TextAnchor.CENTER_RIGHT;<a name="line.711"></a>
+<FONT color="green">712</FONT>                        }<a name="line.712"></a>
+<FONT color="green">713</FONT>                        else {<a name="line.713"></a>
+<FONT color="green">714</FONT>                            anchor = TextAnchor.CENTER_LEFT;<a name="line.714"></a>
+<FONT color="green">715</FONT>                            rotationAnchor = TextAnchor.CENTER_LEFT;<a name="line.715"></a>
+<FONT color="green">716</FONT>                        }<a name="line.716"></a>
+<FONT color="green">717</FONT>                    }<a name="line.717"></a>
+<FONT color="green">718</FONT>                    Tick tick = new NumberTick(new Double(currentTickValue),<a name="line.718"></a>
+<FONT color="green">719</FONT>                            tickLabel, anchor, rotationAnchor, angle);<a name="line.719"></a>
+<FONT color="green">720</FONT>                    ticks.add(tick);<a name="line.720"></a>
+<FONT color="green">721</FONT>                }<a name="line.721"></a>
+<FONT color="green">722</FONT>            }<a name="line.722"></a>
+<FONT color="green">723</FONT>            return ticks;<a name="line.723"></a>
+<FONT color="green">724</FONT>    <a name="line.724"></a>
+<FONT color="green">725</FONT>        }<a name="line.725"></a>
+<FONT color="green">726</FONT>    <a name="line.726"></a>
+<FONT color="green">727</FONT>        /**<a name="line.727"></a>
+<FONT color="green">728</FONT>         * Converts a value to a string, using the list of symbols.<a name="line.728"></a>
+<FONT color="green">729</FONT>         *<a name="line.729"></a>
+<FONT color="green">730</FONT>         * @param value  value to convert.<a name="line.730"></a>
+<FONT color="green">731</FONT>         *<a name="line.731"></a>
+<FONT color="green">732</FONT>         * @return The symbol.<a name="line.732"></a>
+<FONT color="green">733</FONT>         */<a name="line.733"></a>
+<FONT color="green">734</FONT>        public String valueToString(double value) {<a name="line.734"></a>
+<FONT color="green">735</FONT>            String strToReturn;<a name="line.735"></a>
+<FONT color="green">736</FONT>            try {<a name="line.736"></a>
+<FONT color="green">737</FONT>                strToReturn = (String) this.symbols.get((int) value);<a name="line.737"></a>
+<FONT color="green">738</FONT>            }<a name="line.738"></a>
+<FONT color="green">739</FONT>            catch (IndexOutOfBoundsException  ex) {<a name="line.739"></a>
+<FONT color="green">740</FONT>                strToReturn = "";<a name="line.740"></a>
+<FONT color="green">741</FONT>            }<a name="line.741"></a>
+<FONT color="green">742</FONT>            return strToReturn;<a name="line.742"></a>
+<FONT color="green">743</FONT>        }<a name="line.743"></a>
+<FONT color="green">744</FONT>    <a name="line.744"></a>
+<FONT color="green">745</FONT>        /**<a name="line.745"></a>
+<FONT color="green">746</FONT>         * Tests this axis for equality with an arbitrary object.<a name="line.746"></a>
+<FONT color="green">747</FONT>         *<a name="line.747"></a>
+<FONT color="green">748</FONT>         * @param obj  the object (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.748"></a>
+<FONT color="green">749</FONT>         *<a name="line.749"></a>
+<FONT color="green">750</FONT>         * @return A boolean.<a name="line.750"></a>
+<FONT color="green">751</FONT>         */<a name="line.751"></a>
+<FONT color="green">752</FONT>        public boolean equals(Object obj) {<a name="line.752"></a>
+<FONT color="green">753</FONT>            if (obj == this) {<a name="line.753"></a>
+<FONT color="green">754</FONT>                return true;<a name="line.754"></a>
+<FONT color="green">755</FONT>            }<a name="line.755"></a>
+<FONT color="green">756</FONT>            if (!(obj instanceof SymbolAxis)) {<a name="line.756"></a>
+<FONT color="green">757</FONT>                return false;<a name="line.757"></a>
+<FONT color="green">758</FONT>            }<a name="line.758"></a>
+<FONT color="green">759</FONT>            SymbolAxis that = (SymbolAxis) obj;<a name="line.759"></a>
+<FONT color="green">760</FONT>            if (!this.symbols.equals(that.symbols)) {<a name="line.760"></a>
+<FONT color="green">761</FONT>                return false;<a name="line.761"></a>
+<FONT color="green">762</FONT>            }<a name="line.762"></a>
+<FONT color="green">763</FONT>            if (this.gridBandsVisible != that.gridBandsVisible) {<a name="line.763"></a>
+<FONT color="green">764</FONT>                return false;<a name="line.764"></a>
+<FONT color="green">765</FONT>            }<a name="line.765"></a>
+<FONT color="green">766</FONT>            if (!PaintUtilities.equal(this.gridBandPaint, that.gridBandPaint)) {<a name="line.766"></a>
+<FONT color="green">767</FONT>                return false;<a name="line.767"></a>
+<FONT color="green">768</FONT>            }<a name="line.768"></a>
+<FONT color="green">769</FONT>            if (!PaintUtilities.equal(this.gridBandAlternatePaint,<a name="line.769"></a>
+<FONT color="green">770</FONT>                    that.gridBandAlternatePaint)) {<a name="line.770"></a>
+<FONT color="green">771</FONT>                return false;<a name="line.771"></a>
+<FONT color="green">772</FONT>            }<a name="line.772"></a>
+<FONT color="green">773</FONT>            return super.equals(obj);<a name="line.773"></a>
+<FONT color="green">774</FONT>        }<a name="line.774"></a>
+<FONT color="green">775</FONT>    <a name="line.775"></a>
+<FONT color="green">776</FONT>        /**<a name="line.776"></a>
+<FONT color="green">777</FONT>         * Provides serialization support.<a name="line.777"></a>
+<FONT color="green">778</FONT>         *<a name="line.778"></a>
+<FONT color="green">779</FONT>         * @param stream  the output stream.<a name="line.779"></a>
+<FONT color="green">780</FONT>         *<a name="line.780"></a>
+<FONT color="green">781</FONT>         * @throws IOException  if there is an I/O error.<a name="line.781"></a>
+<FONT color="green">782</FONT>         */<a name="line.782"></a>
+<FONT color="green">783</FONT>        private void writeObject(ObjectOutputStream stream) throws IOException {<a name="line.783"></a>
+<FONT color="green">784</FONT>            stream.defaultWriteObject();<a name="line.784"></a>
+<FONT color="green">785</FONT>            SerialUtilities.writePaint(this.gridBandPaint, stream);<a name="line.785"></a>
+<FONT color="green">786</FONT>            SerialUtilities.writePaint(this.gridBandAlternatePaint, stream);<a name="line.786"></a>
+<FONT color="green">787</FONT>        }<a name="line.787"></a>
+<FONT color="green">788</FONT>    <a name="line.788"></a>
+<FONT color="green">789</FONT>        /**<a name="line.789"></a>
+<FONT color="green">790</FONT>         * Provides serialization support.<a name="line.790"></a>
+<FONT color="green">791</FONT>         *<a name="line.791"></a>
+<FONT color="green">792</FONT>         * @param stream  the input stream.<a name="line.792"></a>
+<FONT color="green">793</FONT>         *<a name="line.793"></a>
+<FONT color="green">794</FONT>         * @throws IOException  if there is an I/O error.<a name="line.794"></a>
+<FONT color="green">795</FONT>         * @throws ClassNotFoundException  if there is a classpath problem.<a name="line.795"></a>
+<FONT color="green">796</FONT>         */<a name="line.796"></a>
+<FONT color="green">797</FONT>        private void readObject(ObjectInputStream stream)<a name="line.797"></a>
+<FONT color="green">798</FONT>            throws IOException, ClassNotFoundException {<a name="line.798"></a>
+<FONT color="green">799</FONT>            stream.defaultReadObject();<a name="line.799"></a>
+<FONT color="green">800</FONT>            this.gridBandPaint = SerialUtilities.readPaint(stream);<a name="line.800"></a>
+<FONT color="green">801</FONT>            this.gridBandAlternatePaint = SerialUtilities.readPaint(stream);<a name="line.801"></a>
+<FONT color="green">802</FONT>        }<a name="line.802"></a>
+<FONT color="green">803</FONT>    <a name="line.803"></a>
+<FONT color="green">804</FONT>    }<a name="line.804"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

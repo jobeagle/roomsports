@@ -1,0 +1,1050 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /* ===========================================================<a name="line.1"></a>
+<FONT color="green">002</FONT>     * JFreeChart : a free chart library for the Java(tm) platform<a name="line.2"></a>
+<FONT color="green">003</FONT>     * ===========================================================<a name="line.3"></a>
+<FONT color="green">004</FONT>     *<a name="line.4"></a>
+<FONT color="green">005</FONT>     * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors.<a name="line.5"></a>
+<FONT color="green">006</FONT>     *<a name="line.6"></a>
+<FONT color="green">007</FONT>     * Project Info:  http://www.jfree.org/jfreechart/index.html<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     * This library is free software; you can redistribute it and/or modify it<a name="line.9"></a>
+<FONT color="green">010</FONT>     * under the terms of the GNU Lesser General Public License as published by<a name="line.10"></a>
+<FONT color="green">011</FONT>     * the Free Software Foundation; either version 2.1 of the License, or<a name="line.11"></a>
+<FONT color="green">012</FONT>     * (at your option) any later version.<a name="line.12"></a>
+<FONT color="green">013</FONT>     *<a name="line.13"></a>
+<FONT color="green">014</FONT>     * This library is distributed in the hope that it will be useful, but<a name="line.14"></a>
+<FONT color="green">015</FONT>     * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<a name="line.15"></a>
+<FONT color="green">016</FONT>     * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public<a name="line.16"></a>
+<FONT color="green">017</FONT>     * License for more details.<a name="line.17"></a>
+<FONT color="green">018</FONT>     *<a name="line.18"></a>
+<FONT color="green">019</FONT>     * You should have received a copy of the GNU Lesser General Public<a name="line.19"></a>
+<FONT color="green">020</FONT>     * License along with this library; if not, write to the Free Software<a name="line.20"></a>
+<FONT color="green">021</FONT>     * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,<a name="line.21"></a>
+<FONT color="green">022</FONT>     * USA.<a name="line.22"></a>
+<FONT color="green">023</FONT>     *<a name="line.23"></a>
+<FONT color="green">024</FONT>     * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.24"></a>
+<FONT color="green">025</FONT>     * Other names may be trademarks of their respective owners.]<a name="line.25"></a>
+<FONT color="green">026</FONT>     *<a name="line.26"></a>
+<FONT color="green">027</FONT>     * ------------------------<a name="line.27"></a>
+<FONT color="green">028</FONT>     * CandlestickRenderer.java<a name="line.28"></a>
+<FONT color="green">029</FONT>     * ------------------------<a name="line.29"></a>
+<FONT color="green">030</FONT>     * (C) Copyright 2001-2013, by Object Refinery Limited.<a name="line.30"></a>
+<FONT color="green">031</FONT>     *<a name="line.31"></a>
+<FONT color="green">032</FONT>     * Original Authors:  David Gilbert (for Object Refinery Limited);<a name="line.32"></a>
+<FONT color="green">033</FONT>     *                    Sylvain Vieujot;<a name="line.33"></a>
+<FONT color="green">034</FONT>     * Contributor(s):    Richard Atkinson;<a name="line.34"></a>
+<FONT color="green">035</FONT>     *                    Christian W. Zuckschwerdt;<a name="line.35"></a>
+<FONT color="green">036</FONT>     *                    Jerome Fisher;<a name="line.36"></a>
+<FONT color="green">037</FONT>     *<a name="line.37"></a>
+<FONT color="green">038</FONT>     * Changes<a name="line.38"></a>
+<FONT color="green">039</FONT>     * -------<a name="line.39"></a>
+<FONT color="green">040</FONT>     * 13-Dec-2001 : Version 1.  Based on code in the (now redundant)<a name="line.40"></a>
+<FONT color="green">041</FONT>     *               CandlestickPlot class, written by Sylvain Vieujot (DG);<a name="line.41"></a>
+<FONT color="green">042</FONT>     * 23-Jan-2002 : Added DrawInfo parameter to drawItem() method (DG);<a name="line.42"></a>
+<FONT color="green">043</FONT>     * 28-Mar-2002 : Added a property change listener mechanism so that renderers<a name="line.43"></a>
+<FONT color="green">044</FONT>     *               no longer need to be immutable.  Added properties for up and<a name="line.44"></a>
+<FONT color="green">045</FONT>     *               down colors (DG);<a name="line.45"></a>
+<FONT color="green">046</FONT>     * 04-Apr-2002 : Updated with new automatic width calculation and optional<a name="line.46"></a>
+<FONT color="green">047</FONT>     *               volume display, contributed by Sylvain Vieujot (DG);<a name="line.47"></a>
+<FONT color="green">048</FONT>     * 09-Apr-2002 : Removed translatedRangeZero from the drawItem() method, and<a name="line.48"></a>
+<FONT color="green">049</FONT>     *               changed the return type of the drawItem method to void,<a name="line.49"></a>
+<FONT color="green">050</FONT>     *               reflecting a change in the XYItemRenderer interface.  Added<a name="line.50"></a>
+<FONT color="green">051</FONT>     *               tooltip code to drawItem() method (DG);<a name="line.51"></a>
+<FONT color="green">052</FONT>     * 25-Jun-2002 : Removed redundant code (DG);<a name="line.52"></a>
+<FONT color="green">053</FONT>     * 05-Aug-2002 : Small modification to drawItem method to support URLs for HTML<a name="line.53"></a>
+<FONT color="green">054</FONT>     *               image maps (RA);<a name="line.54"></a>
+<FONT color="green">055</FONT>     * 19-Sep-2002 : Fixed errors reported by Checkstyle (DG);<a name="line.55"></a>
+<FONT color="green">056</FONT>     * 25-Mar-2003 : Implemented Serializable (DG);<a name="line.56"></a>
+<FONT color="green">057</FONT>     * 01-May-2003 : Modified drawItem() method signature (DG);<a name="line.57"></a>
+<FONT color="green">058</FONT>     * 30-Jun-2003 : Added support for PlotOrientation (for completeness, this<a name="line.58"></a>
+<FONT color="green">059</FONT>     *               renderer is unlikely to be used with a HORIZONTAL<a name="line.59"></a>
+<FONT color="green">060</FONT>     *               orientation) (DG);<a name="line.60"></a>
+<FONT color="green">061</FONT>     * 30-Jul-2003 : Modified entity constructor (CZ);<a name="line.61"></a>
+<FONT color="green">062</FONT>     * 20-Aug-2003 : Implemented Cloneable and PublicCloneable (DG);<a name="line.62"></a>
+<FONT color="green">063</FONT>     * 29-Aug-2003 : Moved maxVolume calculation to initialise method (see bug<a name="line.63"></a>
+<FONT color="green">064</FONT>     *               report 796619) (DG);<a name="line.64"></a>
+<FONT color="green">065</FONT>     * 02-Sep-2003 : Added maxCandleWidthInMilliseconds as workaround for bug<a name="line.65"></a>
+<FONT color="green">066</FONT>     *               796621 (DG);<a name="line.66"></a>
+<FONT color="green">067</FONT>     * 08-Sep-2003 : Changed ValueAxis API (DG);<a name="line.67"></a>
+<FONT color="green">068</FONT>     * 16-Sep-2003 : Changed ChartRenderingInfo --&gt; PlotRenderingInfo (DG);<a name="line.68"></a>
+<FONT color="green">069</FONT>     * 13-Oct-2003 : Applied patch from Jerome Fisher to improve auto width<a name="line.69"></a>
+<FONT color="green">070</FONT>     *               calculations (DG);<a name="line.70"></a>
+<FONT color="green">071</FONT>     * 23-Dec-2003 : Fixed bug where up and down paint are used incorrectly (DG);<a name="line.71"></a>
+<FONT color="green">072</FONT>     * 25-Feb-2004 : Replaced CrosshairInfo with CrosshairState (DG);<a name="line.72"></a>
+<FONT color="green">073</FONT>     * 15-Jul-2004 : Switched getX() with getXValue() and getY() with<a name="line.73"></a>
+<FONT color="green">074</FONT>     *               getYValue() (DG);<a name="line.74"></a>
+<FONT color="green">075</FONT>     * ------------- JFREECHART 1.0.x ---------------------------------------------<a name="line.75"></a>
+<FONT color="green">076</FONT>     * 06-Jul-2006 : Swapped calls to getX() --&gt; getXValue(), and the same for the<a name="line.76"></a>
+<FONT color="green">077</FONT>     *               other data values (DG);<a name="line.77"></a>
+<FONT color="green">078</FONT>     * 17-Aug-2006 : Corrections to the equals() method (DG);<a name="line.78"></a>
+<FONT color="green">079</FONT>     * 05-Mar-2007 : Added flag to allow optional use of outline paint (DG);<a name="line.79"></a>
+<FONT color="green">080</FONT>     * 08-Oct-2007 : Added new volumePaint field (DG);<a name="line.80"></a>
+<FONT color="green">081</FONT>     * 08-Apr-2008 : Added findRangeBounds() method override (DG);<a name="line.81"></a>
+<FONT color="green">082</FONT>     * 13-May-2008 : Fixed chart entity bugs (1962467 and 1962472) (DG);<a name="line.82"></a>
+<FONT color="green">083</FONT>     * 27-Mar-2009 : Updated findRangeBounds() to call new method in<a name="line.83"></a>
+<FONT color="green">084</FONT>     *               superclass (DG);<a name="line.84"></a>
+<FONT color="green">085</FONT>     * 03-Jul-2013 : Use ParamChecks (DG);<a name="line.85"></a>
+<FONT color="green">086</FONT>     *<a name="line.86"></a>
+<FONT color="green">087</FONT>     */<a name="line.87"></a>
+<FONT color="green">088</FONT>    <a name="line.88"></a>
+<FONT color="green">089</FONT>    package org.jfree.chart.renderer.xy;<a name="line.89"></a>
+<FONT color="green">090</FONT>    <a name="line.90"></a>
+<FONT color="green">091</FONT>    import java.awt.AlphaComposite;<a name="line.91"></a>
+<FONT color="green">092</FONT>    import java.awt.Color;<a name="line.92"></a>
+<FONT color="green">093</FONT>    import java.awt.Composite;<a name="line.93"></a>
+<FONT color="green">094</FONT>    import java.awt.Graphics2D;<a name="line.94"></a>
+<FONT color="green">095</FONT>    import java.awt.Paint;<a name="line.95"></a>
+<FONT color="green">096</FONT>    import java.awt.Stroke;<a name="line.96"></a>
+<FONT color="green">097</FONT>    import java.awt.geom.Line2D;<a name="line.97"></a>
+<FONT color="green">098</FONT>    import java.awt.geom.Rectangle2D;<a name="line.98"></a>
+<FONT color="green">099</FONT>    import java.io.IOException;<a name="line.99"></a>
+<FONT color="green">100</FONT>    import java.io.ObjectInputStream;<a name="line.100"></a>
+<FONT color="green">101</FONT>    import java.io.ObjectOutputStream;<a name="line.101"></a>
+<FONT color="green">102</FONT>    import java.io.Serializable;<a name="line.102"></a>
+<FONT color="green">103</FONT>    <a name="line.103"></a>
+<FONT color="green">104</FONT>    import org.jfree.chart.axis.ValueAxis;<a name="line.104"></a>
+<FONT color="green">105</FONT>    import org.jfree.chart.entity.EntityCollection;<a name="line.105"></a>
+<FONT color="green">106</FONT>    import org.jfree.chart.event.RendererChangeEvent;<a name="line.106"></a>
+<FONT color="green">107</FONT>    import org.jfree.chart.labels.HighLowItemLabelGenerator;<a name="line.107"></a>
+<FONT color="green">108</FONT>    import org.jfree.chart.labels.XYToolTipGenerator;<a name="line.108"></a>
+<FONT color="green">109</FONT>    import org.jfree.chart.plot.CrosshairState;<a name="line.109"></a>
+<FONT color="green">110</FONT>    import org.jfree.chart.plot.PlotOrientation;<a name="line.110"></a>
+<FONT color="green">111</FONT>    import org.jfree.chart.plot.PlotRenderingInfo;<a name="line.111"></a>
+<FONT color="green">112</FONT>    import org.jfree.chart.plot.XYPlot;<a name="line.112"></a>
+<FONT color="green">113</FONT>    import org.jfree.chart.util.ParamChecks;<a name="line.113"></a>
+<FONT color="green">114</FONT>    import org.jfree.data.Range;<a name="line.114"></a>
+<FONT color="green">115</FONT>    import org.jfree.data.general.DatasetUtilities;<a name="line.115"></a>
+<FONT color="green">116</FONT>    import org.jfree.data.xy.IntervalXYDataset;<a name="line.116"></a>
+<FONT color="green">117</FONT>    import org.jfree.data.xy.OHLCDataset;<a name="line.117"></a>
+<FONT color="green">118</FONT>    import org.jfree.data.xy.XYDataset;<a name="line.118"></a>
+<FONT color="green">119</FONT>    import org.jfree.io.SerialUtilities;<a name="line.119"></a>
+<FONT color="green">120</FONT>    import org.jfree.ui.RectangleEdge;<a name="line.120"></a>
+<FONT color="green">121</FONT>    import org.jfree.util.PaintUtilities;<a name="line.121"></a>
+<FONT color="green">122</FONT>    import org.jfree.util.PublicCloneable;<a name="line.122"></a>
+<FONT color="green">123</FONT>    <a name="line.123"></a>
+<FONT color="green">124</FONT>    /**<a name="line.124"></a>
+<FONT color="green">125</FONT>     * A renderer that draws candlesticks on an {@link XYPlot} (requires a<a name="line.125"></a>
+<FONT color="green">126</FONT>     * {@link OHLCDataset}).  The example shown here is generated<a name="line.126"></a>
+<FONT color="green">127</FONT>     * by the &lt;code&gt;CandlestickChartDemo1.java&lt;/code&gt; program included in the<a name="line.127"></a>
+<FONT color="green">128</FONT>     * JFreeChart demo collection:<a name="line.128"></a>
+<FONT color="green">129</FONT>     * &lt;br&gt;&lt;br&gt;<a name="line.129"></a>
+<FONT color="green">130</FONT>     * &lt;img src="../../../../../images/CandlestickRendererSample.png"<a name="line.130"></a>
+<FONT color="green">131</FONT>     * alt="CandlestickRendererSample.png" /&gt;<a name="line.131"></a>
+<FONT color="green">132</FONT>     * &lt;P&gt;<a name="line.132"></a>
+<FONT color="green">133</FONT>     * This renderer does not include code to calculate the crosshair point for the<a name="line.133"></a>
+<FONT color="green">134</FONT>     * plot.<a name="line.134"></a>
+<FONT color="green">135</FONT>     */<a name="line.135"></a>
+<FONT color="green">136</FONT>    public class CandlestickRenderer extends AbstractXYItemRenderer<a name="line.136"></a>
+<FONT color="green">137</FONT>            implements XYItemRenderer, Cloneable, PublicCloneable, Serializable {<a name="line.137"></a>
+<FONT color="green">138</FONT>    <a name="line.138"></a>
+<FONT color="green">139</FONT>        /** For serialization. */<a name="line.139"></a>
+<FONT color="green">140</FONT>        private static final long serialVersionUID = 50390395841817121L;<a name="line.140"></a>
+<FONT color="green">141</FONT>    <a name="line.141"></a>
+<FONT color="green">142</FONT>        /** The average width method. */<a name="line.142"></a>
+<FONT color="green">143</FONT>        public static final int WIDTHMETHOD_AVERAGE = 0;<a name="line.143"></a>
+<FONT color="green">144</FONT>    <a name="line.144"></a>
+<FONT color="green">145</FONT>        /** The smallest width method. */<a name="line.145"></a>
+<FONT color="green">146</FONT>        public static final int WIDTHMETHOD_SMALLEST = 1;<a name="line.146"></a>
+<FONT color="green">147</FONT>    <a name="line.147"></a>
+<FONT color="green">148</FONT>        /** The interval data method. */<a name="line.148"></a>
+<FONT color="green">149</FONT>        public static final int WIDTHMETHOD_INTERVALDATA = 2;<a name="line.149"></a>
+<FONT color="green">150</FONT>    <a name="line.150"></a>
+<FONT color="green">151</FONT>        /** The method of automatically calculating the candle width. */<a name="line.151"></a>
+<FONT color="green">152</FONT>        private int autoWidthMethod = WIDTHMETHOD_AVERAGE;<a name="line.152"></a>
+<FONT color="green">153</FONT>    <a name="line.153"></a>
+<FONT color="green">154</FONT>        /**<a name="line.154"></a>
+<FONT color="green">155</FONT>         * The number (generally between 0.0 and 1.0) by which the available space<a name="line.155"></a>
+<FONT color="green">156</FONT>         * automatically calculated for the candles will be multiplied to determine<a name="line.156"></a>
+<FONT color="green">157</FONT>         * the actual width to use.<a name="line.157"></a>
+<FONT color="green">158</FONT>         */<a name="line.158"></a>
+<FONT color="green">159</FONT>        private double autoWidthFactor = 4.5 / 7;<a name="line.159"></a>
+<FONT color="green">160</FONT>    <a name="line.160"></a>
+<FONT color="green">161</FONT>        /** The minimum gap between one candle and the next */<a name="line.161"></a>
+<FONT color="green">162</FONT>        private double autoWidthGap = 0.0;<a name="line.162"></a>
+<FONT color="green">163</FONT>    <a name="line.163"></a>
+<FONT color="green">164</FONT>        /** The candle width. */<a name="line.164"></a>
+<FONT color="green">165</FONT>        private double candleWidth;<a name="line.165"></a>
+<FONT color="green">166</FONT>    <a name="line.166"></a>
+<FONT color="green">167</FONT>        /** The maximum candlewidth in milliseconds. */<a name="line.167"></a>
+<FONT color="green">168</FONT>        private double maxCandleWidthInMilliseconds = 1000.0 * 60.0 * 60.0 * 20.0;<a name="line.168"></a>
+<FONT color="green">169</FONT>    <a name="line.169"></a>
+<FONT color="green">170</FONT>        /** Temporary storage for the maximum candle width. */<a name="line.170"></a>
+<FONT color="green">171</FONT>        private double maxCandleWidth;<a name="line.171"></a>
+<FONT color="green">172</FONT>    <a name="line.172"></a>
+<FONT color="green">173</FONT>        /**<a name="line.173"></a>
+<FONT color="green">174</FONT>         * The paint used to fill the candle when the price moved up from open to<a name="line.174"></a>
+<FONT color="green">175</FONT>         * close.<a name="line.175"></a>
+<FONT color="green">176</FONT>         */<a name="line.176"></a>
+<FONT color="green">177</FONT>        private transient Paint upPaint;<a name="line.177"></a>
+<FONT color="green">178</FONT>    <a name="line.178"></a>
+<FONT color="green">179</FONT>        /**<a name="line.179"></a>
+<FONT color="green">180</FONT>         * The paint used to fill the candle when the price moved down from open<a name="line.180"></a>
+<FONT color="green">181</FONT>         * to close.<a name="line.181"></a>
+<FONT color="green">182</FONT>         */<a name="line.182"></a>
+<FONT color="green">183</FONT>        private transient Paint downPaint;<a name="line.183"></a>
+<FONT color="green">184</FONT>    <a name="line.184"></a>
+<FONT color="green">185</FONT>        /** A flag controlling whether or not volume bars are drawn on the chart. */<a name="line.185"></a>
+<FONT color="green">186</FONT>        private boolean drawVolume;<a name="line.186"></a>
+<FONT color="green">187</FONT>    <a name="line.187"></a>
+<FONT color="green">188</FONT>        /**<a name="line.188"></a>
+<FONT color="green">189</FONT>         * The paint used to fill the volume bars (if they are visible).  Once<a name="line.189"></a>
+<FONT color="green">190</FONT>         * initialised, this field should never be set to &lt;code&gt;null&lt;/code&gt;.<a name="line.190"></a>
+<FONT color="green">191</FONT>         *<a name="line.191"></a>
+<FONT color="green">192</FONT>         * @since 1.0.7<a name="line.192"></a>
+<FONT color="green">193</FONT>         */<a name="line.193"></a>
+<FONT color="green">194</FONT>        private transient Paint volumePaint;<a name="line.194"></a>
+<FONT color="green">195</FONT>    <a name="line.195"></a>
+<FONT color="green">196</FONT>        /** Temporary storage for the maximum volume. */<a name="line.196"></a>
+<FONT color="green">197</FONT>        private transient double maxVolume;<a name="line.197"></a>
+<FONT color="green">198</FONT>    <a name="line.198"></a>
+<FONT color="green">199</FONT>        /**<a name="line.199"></a>
+<FONT color="green">200</FONT>         * A flag that controls whether or not the renderer's outline paint is<a name="line.200"></a>
+<FONT color="green">201</FONT>         * used to draw the outline of the candlestick.  The default value is<a name="line.201"></a>
+<FONT color="green">202</FONT>         * &lt;code&gt;false&lt;/code&gt; to avoid a change of behaviour for existing code.<a name="line.202"></a>
+<FONT color="green">203</FONT>         *<a name="line.203"></a>
+<FONT color="green">204</FONT>         * @since 1.0.5<a name="line.204"></a>
+<FONT color="green">205</FONT>         */<a name="line.205"></a>
+<FONT color="green">206</FONT>        private boolean useOutlinePaint;<a name="line.206"></a>
+<FONT color="green">207</FONT>    <a name="line.207"></a>
+<FONT color="green">208</FONT>        /**<a name="line.208"></a>
+<FONT color="green">209</FONT>         * Creates a new renderer for candlestick charts.<a name="line.209"></a>
+<FONT color="green">210</FONT>         */<a name="line.210"></a>
+<FONT color="green">211</FONT>        public CandlestickRenderer() {<a name="line.211"></a>
+<FONT color="green">212</FONT>            this(-1.0);<a name="line.212"></a>
+<FONT color="green">213</FONT>        }<a name="line.213"></a>
+<FONT color="green">214</FONT>    <a name="line.214"></a>
+<FONT color="green">215</FONT>        /**<a name="line.215"></a>
+<FONT color="green">216</FONT>         * Creates a new renderer for candlestick charts.<a name="line.216"></a>
+<FONT color="green">217</FONT>         * &lt;P&gt;<a name="line.217"></a>
+<FONT color="green">218</FONT>         * Use -1 for the candle width if you prefer the width to be calculated<a name="line.218"></a>
+<FONT color="green">219</FONT>         * automatically.<a name="line.219"></a>
+<FONT color="green">220</FONT>         *<a name="line.220"></a>
+<FONT color="green">221</FONT>         * @param candleWidth  The candle width.<a name="line.221"></a>
+<FONT color="green">222</FONT>         */<a name="line.222"></a>
+<FONT color="green">223</FONT>        public CandlestickRenderer(double candleWidth) {<a name="line.223"></a>
+<FONT color="green">224</FONT>            this(candleWidth, true, new HighLowItemLabelGenerator());<a name="line.224"></a>
+<FONT color="green">225</FONT>        }<a name="line.225"></a>
+<FONT color="green">226</FONT>    <a name="line.226"></a>
+<FONT color="green">227</FONT>        /**<a name="line.227"></a>
+<FONT color="green">228</FONT>         * Creates a new renderer for candlestick charts.<a name="line.228"></a>
+<FONT color="green">229</FONT>         * &lt;P&gt;<a name="line.229"></a>
+<FONT color="green">230</FONT>         * Use -1 for the candle width if you prefer the width to be calculated<a name="line.230"></a>
+<FONT color="green">231</FONT>         * automatically.<a name="line.231"></a>
+<FONT color="green">232</FONT>         *<a name="line.232"></a>
+<FONT color="green">233</FONT>         * @param candleWidth  the candle width.<a name="line.233"></a>
+<FONT color="green">234</FONT>         * @param drawVolume  a flag indicating whether or not volume bars should<a name="line.234"></a>
+<FONT color="green">235</FONT>         *                    be drawn.<a name="line.235"></a>
+<FONT color="green">236</FONT>         * @param toolTipGenerator  the tool tip generator. &lt;code&gt;null&lt;/code&gt; is<a name="line.236"></a>
+<FONT color="green">237</FONT>         *                          none.<a name="line.237"></a>
+<FONT color="green">238</FONT>         */<a name="line.238"></a>
+<FONT color="green">239</FONT>        public CandlestickRenderer(double candleWidth, boolean drawVolume,<a name="line.239"></a>
+<FONT color="green">240</FONT>                                   XYToolTipGenerator toolTipGenerator) {<a name="line.240"></a>
+<FONT color="green">241</FONT>            super();<a name="line.241"></a>
+<FONT color="green">242</FONT>            setBaseToolTipGenerator(toolTipGenerator);<a name="line.242"></a>
+<FONT color="green">243</FONT>            this.candleWidth = candleWidth;<a name="line.243"></a>
+<FONT color="green">244</FONT>            this.drawVolume = drawVolume;<a name="line.244"></a>
+<FONT color="green">245</FONT>            this.volumePaint = Color.gray;<a name="line.245"></a>
+<FONT color="green">246</FONT>            this.upPaint = Color.green;<a name="line.246"></a>
+<FONT color="green">247</FONT>            this.downPaint = Color.red;<a name="line.247"></a>
+<FONT color="green">248</FONT>            this.useOutlinePaint = false;  // false preserves the old behaviour<a name="line.248"></a>
+<FONT color="green">249</FONT>                                           // prior to introducing this flag<a name="line.249"></a>
+<FONT color="green">250</FONT>        }<a name="line.250"></a>
+<FONT color="green">251</FONT>    <a name="line.251"></a>
+<FONT color="green">252</FONT>        /**<a name="line.252"></a>
+<FONT color="green">253</FONT>         * Returns the width of each candle.<a name="line.253"></a>
+<FONT color="green">254</FONT>         *<a name="line.254"></a>
+<FONT color="green">255</FONT>         * @return The candle width.<a name="line.255"></a>
+<FONT color="green">256</FONT>         *<a name="line.256"></a>
+<FONT color="green">257</FONT>         * @see #setCandleWidth(double)<a name="line.257"></a>
+<FONT color="green">258</FONT>         */<a name="line.258"></a>
+<FONT color="green">259</FONT>        public double getCandleWidth() {<a name="line.259"></a>
+<FONT color="green">260</FONT>            return this.candleWidth;<a name="line.260"></a>
+<FONT color="green">261</FONT>        }<a name="line.261"></a>
+<FONT color="green">262</FONT>    <a name="line.262"></a>
+<FONT color="green">263</FONT>        /**<a name="line.263"></a>
+<FONT color="green">264</FONT>         * Sets the candle width and sends a {@link RendererChangeEvent} to all<a name="line.264"></a>
+<FONT color="green">265</FONT>         * registered listeners.<a name="line.265"></a>
+<FONT color="green">266</FONT>         * &lt;P&gt;<a name="line.266"></a>
+<FONT color="green">267</FONT>         * If you set the width to a negative value, the renderer will calculate<a name="line.267"></a>
+<FONT color="green">268</FONT>         * the candle width automatically based on the space available on the chart.<a name="line.268"></a>
+<FONT color="green">269</FONT>         *<a name="line.269"></a>
+<FONT color="green">270</FONT>         * @param width  The width.<a name="line.270"></a>
+<FONT color="green">271</FONT>         * @see #setAutoWidthMethod(int)<a name="line.271"></a>
+<FONT color="green">272</FONT>         * @see #setAutoWidthGap(double)<a name="line.272"></a>
+<FONT color="green">273</FONT>         * @see #setAutoWidthFactor(double)<a name="line.273"></a>
+<FONT color="green">274</FONT>         * @see #setMaxCandleWidthInMilliseconds(double)<a name="line.274"></a>
+<FONT color="green">275</FONT>         */<a name="line.275"></a>
+<FONT color="green">276</FONT>        public void setCandleWidth(double width) {<a name="line.276"></a>
+<FONT color="green">277</FONT>            if (width != this.candleWidth) {<a name="line.277"></a>
+<FONT color="green">278</FONT>                this.candleWidth = width;<a name="line.278"></a>
+<FONT color="green">279</FONT>                fireChangeEvent();<a name="line.279"></a>
+<FONT color="green">280</FONT>            }<a name="line.280"></a>
+<FONT color="green">281</FONT>        }<a name="line.281"></a>
+<FONT color="green">282</FONT>    <a name="line.282"></a>
+<FONT color="green">283</FONT>        /**<a name="line.283"></a>
+<FONT color="green">284</FONT>         * Returns the maximum width (in milliseconds) of each candle.<a name="line.284"></a>
+<FONT color="green">285</FONT>         *<a name="line.285"></a>
+<FONT color="green">286</FONT>         * @return The maximum candle width in milliseconds.<a name="line.286"></a>
+<FONT color="green">287</FONT>         *<a name="line.287"></a>
+<FONT color="green">288</FONT>         * @see #setMaxCandleWidthInMilliseconds(double)<a name="line.288"></a>
+<FONT color="green">289</FONT>         */<a name="line.289"></a>
+<FONT color="green">290</FONT>        public double getMaxCandleWidthInMilliseconds() {<a name="line.290"></a>
+<FONT color="green">291</FONT>            return this.maxCandleWidthInMilliseconds;<a name="line.291"></a>
+<FONT color="green">292</FONT>        }<a name="line.292"></a>
+<FONT color="green">293</FONT>    <a name="line.293"></a>
+<FONT color="green">294</FONT>        /**<a name="line.294"></a>
+<FONT color="green">295</FONT>         * Sets the maximum candle width (in milliseconds) and sends a<a name="line.295"></a>
+<FONT color="green">296</FONT>         * {@link RendererChangeEvent} to all registered listeners.<a name="line.296"></a>
+<FONT color="green">297</FONT>         *<a name="line.297"></a>
+<FONT color="green">298</FONT>         * @param millis  The maximum width.<a name="line.298"></a>
+<FONT color="green">299</FONT>         *<a name="line.299"></a>
+<FONT color="green">300</FONT>         * @see #getMaxCandleWidthInMilliseconds()<a name="line.300"></a>
+<FONT color="green">301</FONT>         * @see #setCandleWidth(double)<a name="line.301"></a>
+<FONT color="green">302</FONT>         * @see #setAutoWidthMethod(int)<a name="line.302"></a>
+<FONT color="green">303</FONT>         * @see #setAutoWidthGap(double)<a name="line.303"></a>
+<FONT color="green">304</FONT>         * @see #setAutoWidthFactor(double)<a name="line.304"></a>
+<FONT color="green">305</FONT>         */<a name="line.305"></a>
+<FONT color="green">306</FONT>        public void setMaxCandleWidthInMilliseconds(double millis) {<a name="line.306"></a>
+<FONT color="green">307</FONT>            this.maxCandleWidthInMilliseconds = millis;<a name="line.307"></a>
+<FONT color="green">308</FONT>            fireChangeEvent();<a name="line.308"></a>
+<FONT color="green">309</FONT>        }<a name="line.309"></a>
+<FONT color="green">310</FONT>    <a name="line.310"></a>
+<FONT color="green">311</FONT>        /**<a name="line.311"></a>
+<FONT color="green">312</FONT>         * Returns the method of automatically calculating the candle width.<a name="line.312"></a>
+<FONT color="green">313</FONT>         *<a name="line.313"></a>
+<FONT color="green">314</FONT>         * @return The method of automatically calculating the candle width.<a name="line.314"></a>
+<FONT color="green">315</FONT>         *<a name="line.315"></a>
+<FONT color="green">316</FONT>         * @see #setAutoWidthMethod(int)<a name="line.316"></a>
+<FONT color="green">317</FONT>         */<a name="line.317"></a>
+<FONT color="green">318</FONT>        public int getAutoWidthMethod() {<a name="line.318"></a>
+<FONT color="green">319</FONT>            return this.autoWidthMethod;<a name="line.319"></a>
+<FONT color="green">320</FONT>        }<a name="line.320"></a>
+<FONT color="green">321</FONT>    <a name="line.321"></a>
+<FONT color="green">322</FONT>        /**<a name="line.322"></a>
+<FONT color="green">323</FONT>         * Sets the method of automatically calculating the candle width and<a name="line.323"></a>
+<FONT color="green">324</FONT>         * sends a {@link RendererChangeEvent} to all registered listeners.<a name="line.324"></a>
+<FONT color="green">325</FONT>         * &lt;p&gt;<a name="line.325"></a>
+<FONT color="green">326</FONT>         * &lt;code&gt;WIDTHMETHOD_AVERAGE&lt;/code&gt;: Divides the entire display (ignoring<a name="line.326"></a>
+<FONT color="green">327</FONT>         * scale factor) by the number of items, and uses this as the available<a name="line.327"></a>
+<FONT color="green">328</FONT>         * width.&lt;br&gt;<a name="line.328"></a>
+<FONT color="green">329</FONT>         * &lt;code&gt;WIDTHMETHOD_SMALLEST&lt;/code&gt;: Checks the interval between each<a name="line.329"></a>
+<FONT color="green">330</FONT>         * item, and uses the smallest as the available width.&lt;br&gt;<a name="line.330"></a>
+<FONT color="green">331</FONT>         * &lt;code&gt;WIDTHMETHOD_INTERVALDATA&lt;/code&gt;: Assumes that the dataset supports<a name="line.331"></a>
+<FONT color="green">332</FONT>         * the IntervalXYDataset interface, and uses the startXValue - endXValue as<a name="line.332"></a>
+<FONT color="green">333</FONT>         * the available width.<a name="line.333"></a>
+<FONT color="green">334</FONT>         * &lt;br&gt;<a name="line.334"></a>
+<FONT color="green">335</FONT>         *<a name="line.335"></a>
+<FONT color="green">336</FONT>         * @param autoWidthMethod  The method of automatically calculating the<a name="line.336"></a>
+<FONT color="green">337</FONT>         * candle width.<a name="line.337"></a>
+<FONT color="green">338</FONT>         *<a name="line.338"></a>
+<FONT color="green">339</FONT>         * @see #WIDTHMETHOD_AVERAGE<a name="line.339"></a>
+<FONT color="green">340</FONT>         * @see #WIDTHMETHOD_SMALLEST<a name="line.340"></a>
+<FONT color="green">341</FONT>         * @see #WIDTHMETHOD_INTERVALDATA<a name="line.341"></a>
+<FONT color="green">342</FONT>         * @see #getAutoWidthMethod()<a name="line.342"></a>
+<FONT color="green">343</FONT>         * @see #setCandleWidth(double)<a name="line.343"></a>
+<FONT color="green">344</FONT>         * @see #setAutoWidthGap(double)<a name="line.344"></a>
+<FONT color="green">345</FONT>         * @see #setAutoWidthFactor(double)<a name="line.345"></a>
+<FONT color="green">346</FONT>         * @see #setMaxCandleWidthInMilliseconds(double)<a name="line.346"></a>
+<FONT color="green">347</FONT>         */<a name="line.347"></a>
+<FONT color="green">348</FONT>        public void setAutoWidthMethod(int autoWidthMethod) {<a name="line.348"></a>
+<FONT color="green">349</FONT>            if (this.autoWidthMethod != autoWidthMethod) {<a name="line.349"></a>
+<FONT color="green">350</FONT>                this.autoWidthMethod = autoWidthMethod;<a name="line.350"></a>
+<FONT color="green">351</FONT>                fireChangeEvent();<a name="line.351"></a>
+<FONT color="green">352</FONT>            }<a name="line.352"></a>
+<FONT color="green">353</FONT>        }<a name="line.353"></a>
+<FONT color="green">354</FONT>    <a name="line.354"></a>
+<FONT color="green">355</FONT>        /**<a name="line.355"></a>
+<FONT color="green">356</FONT>         * Returns the factor by which the available space automatically<a name="line.356"></a>
+<FONT color="green">357</FONT>         * calculated for the candles will be multiplied to determine the actual<a name="line.357"></a>
+<FONT color="green">358</FONT>         * width to use.<a name="line.358"></a>
+<FONT color="green">359</FONT>         *<a name="line.359"></a>
+<FONT color="green">360</FONT>         * @return The width factor (generally between 0.0 and 1.0).<a name="line.360"></a>
+<FONT color="green">361</FONT>         *<a name="line.361"></a>
+<FONT color="green">362</FONT>         * @see #setAutoWidthFactor(double)<a name="line.362"></a>
+<FONT color="green">363</FONT>         */<a name="line.363"></a>
+<FONT color="green">364</FONT>        public double getAutoWidthFactor() {<a name="line.364"></a>
+<FONT color="green">365</FONT>            return this.autoWidthFactor;<a name="line.365"></a>
+<FONT color="green">366</FONT>        }<a name="line.366"></a>
+<FONT color="green">367</FONT>    <a name="line.367"></a>
+<FONT color="green">368</FONT>        /**<a name="line.368"></a>
+<FONT color="green">369</FONT>         * Sets the factor by which the available space automatically calculated<a name="line.369"></a>
+<FONT color="green">370</FONT>         * for the candles will be multiplied to determine the actual width to use.<a name="line.370"></a>
+<FONT color="green">371</FONT>         *<a name="line.371"></a>
+<FONT color="green">372</FONT>         * @param autoWidthFactor The width factor (generally between 0.0 and 1.0).<a name="line.372"></a>
+<FONT color="green">373</FONT>         *<a name="line.373"></a>
+<FONT color="green">374</FONT>         * @see #getAutoWidthFactor()<a name="line.374"></a>
+<FONT color="green">375</FONT>         * @see #setCandleWidth(double)<a name="line.375"></a>
+<FONT color="green">376</FONT>         * @see #setAutoWidthMethod(int)<a name="line.376"></a>
+<FONT color="green">377</FONT>         * @see #setAutoWidthGap(double)<a name="line.377"></a>
+<FONT color="green">378</FONT>         * @see #setMaxCandleWidthInMilliseconds(double)<a name="line.378"></a>
+<FONT color="green">379</FONT>         */<a name="line.379"></a>
+<FONT color="green">380</FONT>        public void setAutoWidthFactor(double autoWidthFactor) {<a name="line.380"></a>
+<FONT color="green">381</FONT>            if (this.autoWidthFactor != autoWidthFactor) {<a name="line.381"></a>
+<FONT color="green">382</FONT>                this.autoWidthFactor = autoWidthFactor;<a name="line.382"></a>
+<FONT color="green">383</FONT>                fireChangeEvent();<a name="line.383"></a>
+<FONT color="green">384</FONT>            }<a name="line.384"></a>
+<FONT color="green">385</FONT>        }<a name="line.385"></a>
+<FONT color="green">386</FONT>    <a name="line.386"></a>
+<FONT color="green">387</FONT>        /**<a name="line.387"></a>
+<FONT color="green">388</FONT>         * Returns the amount of space to leave on the left and right of each<a name="line.388"></a>
+<FONT color="green">389</FONT>         * candle when automatically calculating widths.<a name="line.389"></a>
+<FONT color="green">390</FONT>         *<a name="line.390"></a>
+<FONT color="green">391</FONT>         * @return The gap.<a name="line.391"></a>
+<FONT color="green">392</FONT>         *<a name="line.392"></a>
+<FONT color="green">393</FONT>         * @see #setAutoWidthGap(double)<a name="line.393"></a>
+<FONT color="green">394</FONT>         */<a name="line.394"></a>
+<FONT color="green">395</FONT>        public double getAutoWidthGap() {<a name="line.395"></a>
+<FONT color="green">396</FONT>            return this.autoWidthGap;<a name="line.396"></a>
+<FONT color="green">397</FONT>        }<a name="line.397"></a>
+<FONT color="green">398</FONT>    <a name="line.398"></a>
+<FONT color="green">399</FONT>        /**<a name="line.399"></a>
+<FONT color="green">400</FONT>         * Sets the amount of space to leave on the left and right of each candle<a name="line.400"></a>
+<FONT color="green">401</FONT>         * when automatically calculating widths and sends a<a name="line.401"></a>
+<FONT color="green">402</FONT>         * {@link RendererChangeEvent} to all registered listeners.<a name="line.402"></a>
+<FONT color="green">403</FONT>         *<a name="line.403"></a>
+<FONT color="green">404</FONT>         * @param autoWidthGap The gap.<a name="line.404"></a>
+<FONT color="green">405</FONT>         *<a name="line.405"></a>
+<FONT color="green">406</FONT>         * @see #getAutoWidthGap()<a name="line.406"></a>
+<FONT color="green">407</FONT>         * @see #setCandleWidth(double)<a name="line.407"></a>
+<FONT color="green">408</FONT>         * @see #setAutoWidthMethod(int)<a name="line.408"></a>
+<FONT color="green">409</FONT>         * @see #setAutoWidthFactor(double)<a name="line.409"></a>
+<FONT color="green">410</FONT>         * @see #setMaxCandleWidthInMilliseconds(double)<a name="line.410"></a>
+<FONT color="green">411</FONT>         */<a name="line.411"></a>
+<FONT color="green">412</FONT>        public void setAutoWidthGap(double autoWidthGap) {<a name="line.412"></a>
+<FONT color="green">413</FONT>            if (this.autoWidthGap != autoWidthGap) {<a name="line.413"></a>
+<FONT color="green">414</FONT>                this.autoWidthGap = autoWidthGap;<a name="line.414"></a>
+<FONT color="green">415</FONT>                fireChangeEvent();<a name="line.415"></a>
+<FONT color="green">416</FONT>            }<a name="line.416"></a>
+<FONT color="green">417</FONT>        }<a name="line.417"></a>
+<FONT color="green">418</FONT>    <a name="line.418"></a>
+<FONT color="green">419</FONT>        /**<a name="line.419"></a>
+<FONT color="green">420</FONT>         * Returns the paint used to fill candles when the price moves up from open<a name="line.420"></a>
+<FONT color="green">421</FONT>         * to close.<a name="line.421"></a>
+<FONT color="green">422</FONT>         *<a name="line.422"></a>
+<FONT color="green">423</FONT>         * @return The paint (possibly &lt;code&gt;null&lt;/code&gt;).<a name="line.423"></a>
+<FONT color="green">424</FONT>         *<a name="line.424"></a>
+<FONT color="green">425</FONT>         * @see #setUpPaint(Paint)<a name="line.425"></a>
+<FONT color="green">426</FONT>         */<a name="line.426"></a>
+<FONT color="green">427</FONT>        public Paint getUpPaint() {<a name="line.427"></a>
+<FONT color="green">428</FONT>            return this.upPaint;<a name="line.428"></a>
+<FONT color="green">429</FONT>        }<a name="line.429"></a>
+<FONT color="green">430</FONT>    <a name="line.430"></a>
+<FONT color="green">431</FONT>        /**<a name="line.431"></a>
+<FONT color="green">432</FONT>         * Sets the paint used to fill candles when the price moves up from open<a name="line.432"></a>
+<FONT color="green">433</FONT>         * to close and sends a {@link RendererChangeEvent} to all registered<a name="line.433"></a>
+<FONT color="green">434</FONT>         * listeners.<a name="line.434"></a>
+<FONT color="green">435</FONT>         *<a name="line.435"></a>
+<FONT color="green">436</FONT>         * @param paint  the paint (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.436"></a>
+<FONT color="green">437</FONT>         *<a name="line.437"></a>
+<FONT color="green">438</FONT>         * @see #getUpPaint()<a name="line.438"></a>
+<FONT color="green">439</FONT>         */<a name="line.439"></a>
+<FONT color="green">440</FONT>        public void setUpPaint(Paint paint) {<a name="line.440"></a>
+<FONT color="green">441</FONT>            this.upPaint = paint;<a name="line.441"></a>
+<FONT color="green">442</FONT>            fireChangeEvent();<a name="line.442"></a>
+<FONT color="green">443</FONT>        }<a name="line.443"></a>
+<FONT color="green">444</FONT>    <a name="line.444"></a>
+<FONT color="green">445</FONT>        /**<a name="line.445"></a>
+<FONT color="green">446</FONT>         * Returns the paint used to fill candles when the price moves down from<a name="line.446"></a>
+<FONT color="green">447</FONT>         * open to close.<a name="line.447"></a>
+<FONT color="green">448</FONT>         *<a name="line.448"></a>
+<FONT color="green">449</FONT>         * @return The paint (possibly &lt;code&gt;null&lt;/code&gt;).<a name="line.449"></a>
+<FONT color="green">450</FONT>         *<a name="line.450"></a>
+<FONT color="green">451</FONT>         * @see #setDownPaint(Paint)<a name="line.451"></a>
+<FONT color="green">452</FONT>         */<a name="line.452"></a>
+<FONT color="green">453</FONT>        public Paint getDownPaint() {<a name="line.453"></a>
+<FONT color="green">454</FONT>            return this.downPaint;<a name="line.454"></a>
+<FONT color="green">455</FONT>        }<a name="line.455"></a>
+<FONT color="green">456</FONT>    <a name="line.456"></a>
+<FONT color="green">457</FONT>        /**<a name="line.457"></a>
+<FONT color="green">458</FONT>         * Sets the paint used to fill candles when the price moves down from open<a name="line.458"></a>
+<FONT color="green">459</FONT>         * to close and sends a {@link RendererChangeEvent} to all registered<a name="line.459"></a>
+<FONT color="green">460</FONT>         * listeners.<a name="line.460"></a>
+<FONT color="green">461</FONT>         *<a name="line.461"></a>
+<FONT color="green">462</FONT>         * @param paint  The paint (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.462"></a>
+<FONT color="green">463</FONT>         */<a name="line.463"></a>
+<FONT color="green">464</FONT>        public void setDownPaint(Paint paint) {<a name="line.464"></a>
+<FONT color="green">465</FONT>            this.downPaint = paint;<a name="line.465"></a>
+<FONT color="green">466</FONT>            fireChangeEvent();<a name="line.466"></a>
+<FONT color="green">467</FONT>        }<a name="line.467"></a>
+<FONT color="green">468</FONT>    <a name="line.468"></a>
+<FONT color="green">469</FONT>        /**<a name="line.469"></a>
+<FONT color="green">470</FONT>         * Returns a flag indicating whether or not volume bars are drawn on the<a name="line.470"></a>
+<FONT color="green">471</FONT>         * chart.<a name="line.471"></a>
+<FONT color="green">472</FONT>         *<a name="line.472"></a>
+<FONT color="green">473</FONT>         * @return A boolean.<a name="line.473"></a>
+<FONT color="green">474</FONT>         *<a name="line.474"></a>
+<FONT color="green">475</FONT>         * @since 1.0.5<a name="line.475"></a>
+<FONT color="green">476</FONT>         *<a name="line.476"></a>
+<FONT color="green">477</FONT>         * @see #setDrawVolume(boolean)<a name="line.477"></a>
+<FONT color="green">478</FONT>         */<a name="line.478"></a>
+<FONT color="green">479</FONT>        public boolean getDrawVolume() {<a name="line.479"></a>
+<FONT color="green">480</FONT>            return this.drawVolume;<a name="line.480"></a>
+<FONT color="green">481</FONT>        }<a name="line.481"></a>
+<FONT color="green">482</FONT>    <a name="line.482"></a>
+<FONT color="green">483</FONT>        /**<a name="line.483"></a>
+<FONT color="green">484</FONT>         * Sets a flag that controls whether or not volume bars are drawn in the<a name="line.484"></a>
+<FONT color="green">485</FONT>         * background and sends a {@link RendererChangeEvent} to all registered<a name="line.485"></a>
+<FONT color="green">486</FONT>         * listeners.<a name="line.486"></a>
+<FONT color="green">487</FONT>         *<a name="line.487"></a>
+<FONT color="green">488</FONT>         * @param flag  the flag.<a name="line.488"></a>
+<FONT color="green">489</FONT>         *<a name="line.489"></a>
+<FONT color="green">490</FONT>         * @see #getDrawVolume()<a name="line.490"></a>
+<FONT color="green">491</FONT>         */<a name="line.491"></a>
+<FONT color="green">492</FONT>        public void setDrawVolume(boolean flag) {<a name="line.492"></a>
+<FONT color="green">493</FONT>            if (this.drawVolume != flag) {<a name="line.493"></a>
+<FONT color="green">494</FONT>                this.drawVolume = flag;<a name="line.494"></a>
+<FONT color="green">495</FONT>                fireChangeEvent();<a name="line.495"></a>
+<FONT color="green">496</FONT>            }<a name="line.496"></a>
+<FONT color="green">497</FONT>        }<a name="line.497"></a>
+<FONT color="green">498</FONT>    <a name="line.498"></a>
+<FONT color="green">499</FONT>        /**<a name="line.499"></a>
+<FONT color="green">500</FONT>         * Returns the paint that is used to fill the volume bars if they are<a name="line.500"></a>
+<FONT color="green">501</FONT>         * visible.<a name="line.501"></a>
+<FONT color="green">502</FONT>         *<a name="line.502"></a>
+<FONT color="green">503</FONT>         * @return The paint (never &lt;code&gt;null&lt;/code&gt;).<a name="line.503"></a>
+<FONT color="green">504</FONT>         *<a name="line.504"></a>
+<FONT color="green">505</FONT>         * @see #setVolumePaint(Paint)<a name="line.505"></a>
+<FONT color="green">506</FONT>         *<a name="line.506"></a>
+<FONT color="green">507</FONT>         * @since 1.0.7<a name="line.507"></a>
+<FONT color="green">508</FONT>         */<a name="line.508"></a>
+<FONT color="green">509</FONT>        public Paint getVolumePaint() {<a name="line.509"></a>
+<FONT color="green">510</FONT>            return this.volumePaint;<a name="line.510"></a>
+<FONT color="green">511</FONT>        }<a name="line.511"></a>
+<FONT color="green">512</FONT>    <a name="line.512"></a>
+<FONT color="green">513</FONT>        /**<a name="line.513"></a>
+<FONT color="green">514</FONT>         * Sets the paint used to fill the volume bars, and sends a<a name="line.514"></a>
+<FONT color="green">515</FONT>         * {@link RendererChangeEvent} to all registered listeners.<a name="line.515"></a>
+<FONT color="green">516</FONT>         *<a name="line.516"></a>
+<FONT color="green">517</FONT>         * @param paint  the paint (&lt;code&gt;null&lt;/code&gt; not permitted).<a name="line.517"></a>
+<FONT color="green">518</FONT>         *<a name="line.518"></a>
+<FONT color="green">519</FONT>         * @see #getVolumePaint()<a name="line.519"></a>
+<FONT color="green">520</FONT>         * @see #getDrawVolume()<a name="line.520"></a>
+<FONT color="green">521</FONT>         *<a name="line.521"></a>
+<FONT color="green">522</FONT>         * @since 1.0.7<a name="line.522"></a>
+<FONT color="green">523</FONT>         */<a name="line.523"></a>
+<FONT color="green">524</FONT>        public void setVolumePaint(Paint paint) {<a name="line.524"></a>
+<FONT color="green">525</FONT>            ParamChecks.nullNotPermitted(paint, "paint");<a name="line.525"></a>
+<FONT color="green">526</FONT>            this.volumePaint = paint;<a name="line.526"></a>
+<FONT color="green">527</FONT>            fireChangeEvent();<a name="line.527"></a>
+<FONT color="green">528</FONT>        }<a name="line.528"></a>
+<FONT color="green">529</FONT>    <a name="line.529"></a>
+<FONT color="green">530</FONT>        /**<a name="line.530"></a>
+<FONT color="green">531</FONT>         * Returns the flag that controls whether or not the renderer's outline<a name="line.531"></a>
+<FONT color="green">532</FONT>         * paint is used to draw the candlestick outline.  The default value is<a name="line.532"></a>
+<FONT color="green">533</FONT>         * &lt;code&gt;false&lt;/code&gt;.<a name="line.533"></a>
+<FONT color="green">534</FONT>         *<a name="line.534"></a>
+<FONT color="green">535</FONT>         * @return A boolean.<a name="line.535"></a>
+<FONT color="green">536</FONT>         *<a name="line.536"></a>
+<FONT color="green">537</FONT>         * @since 1.0.5<a name="line.537"></a>
+<FONT color="green">538</FONT>         *<a name="line.538"></a>
+<FONT color="green">539</FONT>         * @see #setUseOutlinePaint(boolean)<a name="line.539"></a>
+<FONT color="green">540</FONT>         */<a name="line.540"></a>
+<FONT color="green">541</FONT>        public boolean getUseOutlinePaint() {<a name="line.541"></a>
+<FONT color="green">542</FONT>            return this.useOutlinePaint;<a name="line.542"></a>
+<FONT color="green">543</FONT>        }<a name="line.543"></a>
+<FONT color="green">544</FONT>    <a name="line.544"></a>
+<FONT color="green">545</FONT>        /**<a name="line.545"></a>
+<FONT color="green">546</FONT>         * Sets the flag that controls whether or not the renderer's outline<a name="line.546"></a>
+<FONT color="green">547</FONT>         * paint is used to draw the candlestick outline, and sends a<a name="line.547"></a>
+<FONT color="green">548</FONT>         * {@link RendererChangeEvent} to all registered listeners.<a name="line.548"></a>
+<FONT color="green">549</FONT>         *<a name="line.549"></a>
+<FONT color="green">550</FONT>         * @param use  the new flag value.<a name="line.550"></a>
+<FONT color="green">551</FONT>         *<a name="line.551"></a>
+<FONT color="green">552</FONT>         * @since 1.0.5<a name="line.552"></a>
+<FONT color="green">553</FONT>         *<a name="line.553"></a>
+<FONT color="green">554</FONT>         * @see #getUseOutlinePaint()<a name="line.554"></a>
+<FONT color="green">555</FONT>         */<a name="line.555"></a>
+<FONT color="green">556</FONT>        public void setUseOutlinePaint(boolean use) {<a name="line.556"></a>
+<FONT color="green">557</FONT>            if (this.useOutlinePaint != use) {<a name="line.557"></a>
+<FONT color="green">558</FONT>                this.useOutlinePaint = use;<a name="line.558"></a>
+<FONT color="green">559</FONT>                fireChangeEvent();<a name="line.559"></a>
+<FONT color="green">560</FONT>            }<a name="line.560"></a>
+<FONT color="green">561</FONT>        }<a name="line.561"></a>
+<FONT color="green">562</FONT>    <a name="line.562"></a>
+<FONT color="green">563</FONT>        /**<a name="line.563"></a>
+<FONT color="green">564</FONT>         * Returns the range of values the renderer requires to display all the<a name="line.564"></a>
+<FONT color="green">565</FONT>         * items from the specified dataset.<a name="line.565"></a>
+<FONT color="green">566</FONT>         *<a name="line.566"></a>
+<FONT color="green">567</FONT>         * @param dataset  the dataset (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.567"></a>
+<FONT color="green">568</FONT>         *<a name="line.568"></a>
+<FONT color="green">569</FONT>         * @return The range (&lt;code&gt;null&lt;/code&gt; if the dataset is &lt;code&gt;null&lt;/code&gt;<a name="line.569"></a>
+<FONT color="green">570</FONT>         *         or empty).<a name="line.570"></a>
+<FONT color="green">571</FONT>         */<a name="line.571"></a>
+<FONT color="green">572</FONT>        public Range findRangeBounds(XYDataset dataset) {<a name="line.572"></a>
+<FONT color="green">573</FONT>            return findRangeBounds(dataset, true);<a name="line.573"></a>
+<FONT color="green">574</FONT>        }<a name="line.574"></a>
+<FONT color="green">575</FONT>    <a name="line.575"></a>
+<FONT color="green">576</FONT>        /**<a name="line.576"></a>
+<FONT color="green">577</FONT>         * Initialises the renderer then returns the number of 'passes' through the<a name="line.577"></a>
+<FONT color="green">578</FONT>         * data that the renderer will require (usually just one).  This method<a name="line.578"></a>
+<FONT color="green">579</FONT>         * will be called before the first item is rendered, giving the renderer<a name="line.579"></a>
+<FONT color="green">580</FONT>         * an opportunity to initialise any state information it wants to maintain.<a name="line.580"></a>
+<FONT color="green">581</FONT>         * The renderer can do nothing if it chooses.<a name="line.581"></a>
+<FONT color="green">582</FONT>         *<a name="line.582"></a>
+<FONT color="green">583</FONT>         * @param g2  the graphics device.<a name="line.583"></a>
+<FONT color="green">584</FONT>         * @param dataArea  the area inside the axes.<a name="line.584"></a>
+<FONT color="green">585</FONT>         * @param plot  the plot.<a name="line.585"></a>
+<FONT color="green">586</FONT>         * @param dataset  the data.<a name="line.586"></a>
+<FONT color="green">587</FONT>         * @param info  an optional info collection object to return data back to<a name="line.587"></a>
+<FONT color="green">588</FONT>         *              the caller.<a name="line.588"></a>
+<FONT color="green">589</FONT>         *<a name="line.589"></a>
+<FONT color="green">590</FONT>         * @return The number of passes the renderer requires.<a name="line.590"></a>
+<FONT color="green">591</FONT>         */<a name="line.591"></a>
+<FONT color="green">592</FONT>        public XYItemRendererState initialise(Graphics2D g2,<a name="line.592"></a>
+<FONT color="green">593</FONT>                                              Rectangle2D dataArea,<a name="line.593"></a>
+<FONT color="green">594</FONT>                                              XYPlot plot,<a name="line.594"></a>
+<FONT color="green">595</FONT>                                              XYDataset dataset,<a name="line.595"></a>
+<FONT color="green">596</FONT>                                              PlotRenderingInfo info) {<a name="line.596"></a>
+<FONT color="green">597</FONT>    <a name="line.597"></a>
+<FONT color="green">598</FONT>            // calculate the maximum allowed candle width from the axis...<a name="line.598"></a>
+<FONT color="green">599</FONT>            ValueAxis axis = plot.getDomainAxis();<a name="line.599"></a>
+<FONT color="green">600</FONT>            double x1 = axis.getLowerBound();<a name="line.600"></a>
+<FONT color="green">601</FONT>            double x2 = x1 + this.maxCandleWidthInMilliseconds;<a name="line.601"></a>
+<FONT color="green">602</FONT>            RectangleEdge edge = plot.getDomainAxisEdge();<a name="line.602"></a>
+<FONT color="green">603</FONT>            double xx1 = axis.valueToJava2D(x1, dataArea, edge);<a name="line.603"></a>
+<FONT color="green">604</FONT>            double xx2 = axis.valueToJava2D(x2, dataArea, edge);<a name="line.604"></a>
+<FONT color="green">605</FONT>            this.maxCandleWidth = Math.abs(xx2 - xx1);<a name="line.605"></a>
+<FONT color="green">606</FONT>                // Absolute value, since the relative x<a name="line.606"></a>
+<FONT color="green">607</FONT>                // positions are reversed for horizontal orientation<a name="line.607"></a>
+<FONT color="green">608</FONT>    <a name="line.608"></a>
+<FONT color="green">609</FONT>            // calculate the highest volume in the dataset...<a name="line.609"></a>
+<FONT color="green">610</FONT>            if (this.drawVolume) {<a name="line.610"></a>
+<FONT color="green">611</FONT>                OHLCDataset highLowDataset = (OHLCDataset) dataset;<a name="line.611"></a>
+<FONT color="green">612</FONT>                this.maxVolume = 0.0;<a name="line.612"></a>
+<FONT color="green">613</FONT>                for (int series = 0; series &lt; highLowDataset.getSeriesCount();<a name="line.613"></a>
+<FONT color="green">614</FONT>                     series++) {<a name="line.614"></a>
+<FONT color="green">615</FONT>                    for (int item = 0; item &lt; highLowDataset.getItemCount(series);<a name="line.615"></a>
+<FONT color="green">616</FONT>                         item++) {<a name="line.616"></a>
+<FONT color="green">617</FONT>                        double volume = highLowDataset.getVolumeValue(series, item);<a name="line.617"></a>
+<FONT color="green">618</FONT>                        if (volume &gt; this.maxVolume) {<a name="line.618"></a>
+<FONT color="green">619</FONT>                            this.maxVolume = volume;<a name="line.619"></a>
+<FONT color="green">620</FONT>                        }<a name="line.620"></a>
+<FONT color="green">621</FONT>    <a name="line.621"></a>
+<FONT color="green">622</FONT>                    }<a name="line.622"></a>
+<FONT color="green">623</FONT>                }<a name="line.623"></a>
+<FONT color="green">624</FONT>            }<a name="line.624"></a>
+<FONT color="green">625</FONT>    <a name="line.625"></a>
+<FONT color="green">626</FONT>            return new XYItemRendererState(info);<a name="line.626"></a>
+<FONT color="green">627</FONT>        }<a name="line.627"></a>
+<FONT color="green">628</FONT>    <a name="line.628"></a>
+<FONT color="green">629</FONT>        /**<a name="line.629"></a>
+<FONT color="green">630</FONT>         * Draws the visual representation of a single data item.<a name="line.630"></a>
+<FONT color="green">631</FONT>         *<a name="line.631"></a>
+<FONT color="green">632</FONT>         * @param g2  the graphics device.<a name="line.632"></a>
+<FONT color="green">633</FONT>         * @param state  the renderer state.<a name="line.633"></a>
+<FONT color="green">634</FONT>         * @param dataArea  the area within which the plot is being drawn.<a name="line.634"></a>
+<FONT color="green">635</FONT>         * @param info  collects info about the drawing.<a name="line.635"></a>
+<FONT color="green">636</FONT>         * @param plot  the plot (can be used to obtain standard color<a name="line.636"></a>
+<FONT color="green">637</FONT>         *              information etc).<a name="line.637"></a>
+<FONT color="green">638</FONT>         * @param domainAxis  the domain axis.<a name="line.638"></a>
+<FONT color="green">639</FONT>         * @param rangeAxis  the range axis.<a name="line.639"></a>
+<FONT color="green">640</FONT>         * @param dataset  the dataset.<a name="line.640"></a>
+<FONT color="green">641</FONT>         * @param series  the series index (zero-based).<a name="line.641"></a>
+<FONT color="green">642</FONT>         * @param item  the item index (zero-based).<a name="line.642"></a>
+<FONT color="green">643</FONT>         * @param crosshairState  crosshair information for the plot<a name="line.643"></a>
+<FONT color="green">644</FONT>         *                        (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.644"></a>
+<FONT color="green">645</FONT>         * @param pass  the pass index.<a name="line.645"></a>
+<FONT color="green">646</FONT>         */<a name="line.646"></a>
+<FONT color="green">647</FONT>        public void drawItem(Graphics2D g2,<a name="line.647"></a>
+<FONT color="green">648</FONT>                             XYItemRendererState state,<a name="line.648"></a>
+<FONT color="green">649</FONT>                             Rectangle2D dataArea,<a name="line.649"></a>
+<FONT color="green">650</FONT>                             PlotRenderingInfo info,<a name="line.650"></a>
+<FONT color="green">651</FONT>                             XYPlot plot,<a name="line.651"></a>
+<FONT color="green">652</FONT>                             ValueAxis domainAxis,<a name="line.652"></a>
+<FONT color="green">653</FONT>                             ValueAxis rangeAxis,<a name="line.653"></a>
+<FONT color="green">654</FONT>                             XYDataset dataset,<a name="line.654"></a>
+<FONT color="green">655</FONT>                             int series,<a name="line.655"></a>
+<FONT color="green">656</FONT>                             int item,<a name="line.656"></a>
+<FONT color="green">657</FONT>                             CrosshairState crosshairState,<a name="line.657"></a>
+<FONT color="green">658</FONT>                             int pass) {<a name="line.658"></a>
+<FONT color="green">659</FONT>    <a name="line.659"></a>
+<FONT color="green">660</FONT>            boolean horiz;<a name="line.660"></a>
+<FONT color="green">661</FONT>            PlotOrientation orientation = plot.getOrientation();<a name="line.661"></a>
+<FONT color="green">662</FONT>            if (orientation == PlotOrientation.HORIZONTAL) {<a name="line.662"></a>
+<FONT color="green">663</FONT>                horiz = true;<a name="line.663"></a>
+<FONT color="green">664</FONT>            }<a name="line.664"></a>
+<FONT color="green">665</FONT>            else if (orientation == PlotOrientation.VERTICAL) {<a name="line.665"></a>
+<FONT color="green">666</FONT>                horiz = false;<a name="line.666"></a>
+<FONT color="green">667</FONT>            }<a name="line.667"></a>
+<FONT color="green">668</FONT>            else {<a name="line.668"></a>
+<FONT color="green">669</FONT>                return;<a name="line.669"></a>
+<FONT color="green">670</FONT>            }<a name="line.670"></a>
+<FONT color="green">671</FONT>    <a name="line.671"></a>
+<FONT color="green">672</FONT>            // setup for collecting optional entity info...<a name="line.672"></a>
+<FONT color="green">673</FONT>            EntityCollection entities = null;<a name="line.673"></a>
+<FONT color="green">674</FONT>            if (info != null) {<a name="line.674"></a>
+<FONT color="green">675</FONT>                entities = info.getOwner().getEntityCollection();<a name="line.675"></a>
+<FONT color="green">676</FONT>            }<a name="line.676"></a>
+<FONT color="green">677</FONT>    <a name="line.677"></a>
+<FONT color="green">678</FONT>            OHLCDataset highLowData = (OHLCDataset) dataset;<a name="line.678"></a>
+<FONT color="green">679</FONT>    <a name="line.679"></a>
+<FONT color="green">680</FONT>            double x = highLowData.getXValue(series, item);<a name="line.680"></a>
+<FONT color="green">681</FONT>            double yHigh = highLowData.getHighValue(series, item);<a name="line.681"></a>
+<FONT color="green">682</FONT>            double yLow = highLowData.getLowValue(series, item);<a name="line.682"></a>
+<FONT color="green">683</FONT>            double yOpen = highLowData.getOpenValue(series, item);<a name="line.683"></a>
+<FONT color="green">684</FONT>            double yClose = highLowData.getCloseValue(series, item);<a name="line.684"></a>
+<FONT color="green">685</FONT>    <a name="line.685"></a>
+<FONT color="green">686</FONT>            RectangleEdge domainEdge = plot.getDomainAxisEdge();<a name="line.686"></a>
+<FONT color="green">687</FONT>            double xx = domainAxis.valueToJava2D(x, dataArea, domainEdge);<a name="line.687"></a>
+<FONT color="green">688</FONT>    <a name="line.688"></a>
+<FONT color="green">689</FONT>            RectangleEdge edge = plot.getRangeAxisEdge();<a name="line.689"></a>
+<FONT color="green">690</FONT>            double yyHigh = rangeAxis.valueToJava2D(yHigh, dataArea, edge);<a name="line.690"></a>
+<FONT color="green">691</FONT>            double yyLow = rangeAxis.valueToJava2D(yLow, dataArea, edge);<a name="line.691"></a>
+<FONT color="green">692</FONT>            double yyOpen = rangeAxis.valueToJava2D(yOpen, dataArea, edge);<a name="line.692"></a>
+<FONT color="green">693</FONT>            double yyClose = rangeAxis.valueToJava2D(yClose, dataArea, edge);<a name="line.693"></a>
+<FONT color="green">694</FONT>    <a name="line.694"></a>
+<FONT color="green">695</FONT>            double volumeWidth;<a name="line.695"></a>
+<FONT color="green">696</FONT>            double stickWidth;<a name="line.696"></a>
+<FONT color="green">697</FONT>            if (this.candleWidth &gt; 0) {<a name="line.697"></a>
+<FONT color="green">698</FONT>                // These are deliberately not bounded to minimums/maxCandleWidth to<a name="line.698"></a>
+<FONT color="green">699</FONT>                //  retain old behaviour.<a name="line.699"></a>
+<FONT color="green">700</FONT>                volumeWidth = this.candleWidth;<a name="line.700"></a>
+<FONT color="green">701</FONT>                stickWidth = this.candleWidth;<a name="line.701"></a>
+<FONT color="green">702</FONT>            }<a name="line.702"></a>
+<FONT color="green">703</FONT>            else {<a name="line.703"></a>
+<FONT color="green">704</FONT>                double xxWidth = 0;<a name="line.704"></a>
+<FONT color="green">705</FONT>                int itemCount;<a name="line.705"></a>
+<FONT color="green">706</FONT>                switch (this.autoWidthMethod) {<a name="line.706"></a>
+<FONT color="green">707</FONT>    <a name="line.707"></a>
+<FONT color="green">708</FONT>                    case WIDTHMETHOD_AVERAGE:<a name="line.708"></a>
+<FONT color="green">709</FONT>                        itemCount = highLowData.getItemCount(series);<a name="line.709"></a>
+<FONT color="green">710</FONT>                        if (horiz) {<a name="line.710"></a>
+<FONT color="green">711</FONT>                            xxWidth = dataArea.getHeight() / itemCount;<a name="line.711"></a>
+<FONT color="green">712</FONT>                        }<a name="line.712"></a>
+<FONT color="green">713</FONT>                        else {<a name="line.713"></a>
+<FONT color="green">714</FONT>                            xxWidth = dataArea.getWidth() / itemCount;<a name="line.714"></a>
+<FONT color="green">715</FONT>                        }<a name="line.715"></a>
+<FONT color="green">716</FONT>                        break;<a name="line.716"></a>
+<FONT color="green">717</FONT>    <a name="line.717"></a>
+<FONT color="green">718</FONT>                    case WIDTHMETHOD_SMALLEST:<a name="line.718"></a>
+<FONT color="green">719</FONT>                        // Note: It would be nice to pre-calculate this per series<a name="line.719"></a>
+<FONT color="green">720</FONT>                        itemCount = highLowData.getItemCount(series);<a name="line.720"></a>
+<FONT color="green">721</FONT>                        double lastPos = -1;<a name="line.721"></a>
+<FONT color="green">722</FONT>                        xxWidth = dataArea.getWidth();<a name="line.722"></a>
+<FONT color="green">723</FONT>                        for (int i = 0; i &lt; itemCount; i++) {<a name="line.723"></a>
+<FONT color="green">724</FONT>                            double pos = domainAxis.valueToJava2D(<a name="line.724"></a>
+<FONT color="green">725</FONT>                                    highLowData.getXValue(series, i), dataArea,<a name="line.725"></a>
+<FONT color="green">726</FONT>                                    domainEdge);<a name="line.726"></a>
+<FONT color="green">727</FONT>                            if (lastPos != -1) {<a name="line.727"></a>
+<FONT color="green">728</FONT>                                xxWidth = Math.min(xxWidth,<a name="line.728"></a>
+<FONT color="green">729</FONT>                                        Math.abs(pos - lastPos));<a name="line.729"></a>
+<FONT color="green">730</FONT>                            }<a name="line.730"></a>
+<FONT color="green">731</FONT>                            lastPos = pos;<a name="line.731"></a>
+<FONT color="green">732</FONT>                        }<a name="line.732"></a>
+<FONT color="green">733</FONT>                        break;<a name="line.733"></a>
+<FONT color="green">734</FONT>    <a name="line.734"></a>
+<FONT color="green">735</FONT>                    case WIDTHMETHOD_INTERVALDATA:<a name="line.735"></a>
+<FONT color="green">736</FONT>                        IntervalXYDataset intervalXYData<a name="line.736"></a>
+<FONT color="green">737</FONT>                                = (IntervalXYDataset) dataset;<a name="line.737"></a>
+<FONT color="green">738</FONT>                        double startPos = domainAxis.valueToJava2D(<a name="line.738"></a>
+<FONT color="green">739</FONT>                                intervalXYData.getStartXValue(series, item),<a name="line.739"></a>
+<FONT color="green">740</FONT>                                dataArea, plot.getDomainAxisEdge());<a name="line.740"></a>
+<FONT color="green">741</FONT>                        double endPos = domainAxis.valueToJava2D(<a name="line.741"></a>
+<FONT color="green">742</FONT>                                intervalXYData.getEndXValue(series, item),<a name="line.742"></a>
+<FONT color="green">743</FONT>                                dataArea, plot.getDomainAxisEdge());<a name="line.743"></a>
+<FONT color="green">744</FONT>                        xxWidth = Math.abs(endPos - startPos);<a name="line.744"></a>
+<FONT color="green">745</FONT>                        break;<a name="line.745"></a>
+<FONT color="green">746</FONT>    <a name="line.746"></a>
+<FONT color="green">747</FONT>                }<a name="line.747"></a>
+<FONT color="green">748</FONT>                xxWidth -= 2 * this.autoWidthGap;<a name="line.748"></a>
+<FONT color="green">749</FONT>                xxWidth *= this.autoWidthFactor;<a name="line.749"></a>
+<FONT color="green">750</FONT>                xxWidth = Math.min(xxWidth, this.maxCandleWidth);<a name="line.750"></a>
+<FONT color="green">751</FONT>                volumeWidth = Math.max(Math.min(1, this.maxCandleWidth), xxWidth);<a name="line.751"></a>
+<FONT color="green">752</FONT>                stickWidth = Math.max(Math.min(3, this.maxCandleWidth), xxWidth);<a name="line.752"></a>
+<FONT color="green">753</FONT>            }<a name="line.753"></a>
+<FONT color="green">754</FONT>    <a name="line.754"></a>
+<FONT color="green">755</FONT>            Paint p = getItemPaint(series, item);<a name="line.755"></a>
+<FONT color="green">756</FONT>            Paint outlinePaint = null;<a name="line.756"></a>
+<FONT color="green">757</FONT>            if (this.useOutlinePaint) {<a name="line.757"></a>
+<FONT color="green">758</FONT>                outlinePaint = getItemOutlinePaint(series, item);<a name="line.758"></a>
+<FONT color="green">759</FONT>            }<a name="line.759"></a>
+<FONT color="green">760</FONT>            Stroke s = getItemStroke(series, item);<a name="line.760"></a>
+<FONT color="green">761</FONT>    <a name="line.761"></a>
+<FONT color="green">762</FONT>            g2.setStroke(s);<a name="line.762"></a>
+<FONT color="green">763</FONT>    <a name="line.763"></a>
+<FONT color="green">764</FONT>            if (this.drawVolume) {<a name="line.764"></a>
+<FONT color="green">765</FONT>                int volume = (int) highLowData.getVolumeValue(series, item);<a name="line.765"></a>
+<FONT color="green">766</FONT>                double volumeHeight = volume / this.maxVolume;<a name="line.766"></a>
+<FONT color="green">767</FONT>    <a name="line.767"></a>
+<FONT color="green">768</FONT>                double min, max;<a name="line.768"></a>
+<FONT color="green">769</FONT>                if (horiz) {<a name="line.769"></a>
+<FONT color="green">770</FONT>                    min = dataArea.getMinX();<a name="line.770"></a>
+<FONT color="green">771</FONT>                    max = dataArea.getMaxX();<a name="line.771"></a>
+<FONT color="green">772</FONT>                }<a name="line.772"></a>
+<FONT color="green">773</FONT>                else {<a name="line.773"></a>
+<FONT color="green">774</FONT>                    min = dataArea.getMinY();<a name="line.774"></a>
+<FONT color="green">775</FONT>                    max = dataArea.getMaxY();<a name="line.775"></a>
+<FONT color="green">776</FONT>                }<a name="line.776"></a>
+<FONT color="green">777</FONT>    <a name="line.777"></a>
+<FONT color="green">778</FONT>                double zzVolume = volumeHeight * (max - min);<a name="line.778"></a>
+<FONT color="green">779</FONT>    <a name="line.779"></a>
+<FONT color="green">780</FONT>                g2.setPaint(getVolumePaint());<a name="line.780"></a>
+<FONT color="green">781</FONT>                Composite originalComposite = g2.getComposite();<a name="line.781"></a>
+<FONT color="green">782</FONT>                g2.setComposite(AlphaComposite.getInstance(<a name="line.782"></a>
+<FONT color="green">783</FONT>                        AlphaComposite.SRC_OVER, 0.3f));<a name="line.783"></a>
+<FONT color="green">784</FONT>    <a name="line.784"></a>
+<FONT color="green">785</FONT>                if (horiz) {<a name="line.785"></a>
+<FONT color="green">786</FONT>                    g2.fill(new Rectangle2D.Double(min, xx - volumeWidth / 2,<a name="line.786"></a>
+<FONT color="green">787</FONT>                            zzVolume, volumeWidth));<a name="line.787"></a>
+<FONT color="green">788</FONT>                }<a name="line.788"></a>
+<FONT color="green">789</FONT>                else {<a name="line.789"></a>
+<FONT color="green">790</FONT>                    g2.fill(new Rectangle2D.Double(xx - volumeWidth / 2,<a name="line.790"></a>
+<FONT color="green">791</FONT>                            max - zzVolume, volumeWidth, zzVolume));<a name="line.791"></a>
+<FONT color="green">792</FONT>                }<a name="line.792"></a>
+<FONT color="green">793</FONT>    <a name="line.793"></a>
+<FONT color="green">794</FONT>                g2.setComposite(originalComposite);<a name="line.794"></a>
+<FONT color="green">795</FONT>            }<a name="line.795"></a>
+<FONT color="green">796</FONT>    <a name="line.796"></a>
+<FONT color="green">797</FONT>            if (this.useOutlinePaint) {<a name="line.797"></a>
+<FONT color="green">798</FONT>                g2.setPaint(outlinePaint);<a name="line.798"></a>
+<FONT color="green">799</FONT>            }<a name="line.799"></a>
+<FONT color="green">800</FONT>            else {<a name="line.800"></a>
+<FONT color="green">801</FONT>                g2.setPaint(p);<a name="line.801"></a>
+<FONT color="green">802</FONT>            }<a name="line.802"></a>
+<FONT color="green">803</FONT>    <a name="line.803"></a>
+<FONT color="green">804</FONT>            double yyMaxOpenClose = Math.max(yyOpen, yyClose);<a name="line.804"></a>
+<FONT color="green">805</FONT>            double yyMinOpenClose = Math.min(yyOpen, yyClose);<a name="line.805"></a>
+<FONT color="green">806</FONT>            double maxOpenClose = Math.max(yOpen, yClose);<a name="line.806"></a>
+<FONT color="green">807</FONT>            double minOpenClose = Math.min(yOpen, yClose);<a name="line.807"></a>
+<FONT color="green">808</FONT>    <a name="line.808"></a>
+<FONT color="green">809</FONT>            // draw the upper shadow<a name="line.809"></a>
+<FONT color="green">810</FONT>            if (yHigh &gt; maxOpenClose) {<a name="line.810"></a>
+<FONT color="green">811</FONT>                if (horiz) {<a name="line.811"></a>
+<FONT color="green">812</FONT>                    g2.draw(new Line2D.Double(yyHigh, xx, yyMaxOpenClose, xx));<a name="line.812"></a>
+<FONT color="green">813</FONT>                }<a name="line.813"></a>
+<FONT color="green">814</FONT>                else {<a name="line.814"></a>
+<FONT color="green">815</FONT>                    g2.draw(new Line2D.Double(xx, yyHigh, xx, yyMaxOpenClose));<a name="line.815"></a>
+<FONT color="green">816</FONT>                }<a name="line.816"></a>
+<FONT color="green">817</FONT>            }<a name="line.817"></a>
+<FONT color="green">818</FONT>    <a name="line.818"></a>
+<FONT color="green">819</FONT>            // draw the lower shadow<a name="line.819"></a>
+<FONT color="green">820</FONT>            if (yLow &lt; minOpenClose) {<a name="line.820"></a>
+<FONT color="green">821</FONT>                if (horiz) {<a name="line.821"></a>
+<FONT color="green">822</FONT>                    g2.draw(new Line2D.Double(yyLow, xx, yyMinOpenClose, xx));<a name="line.822"></a>
+<FONT color="green">823</FONT>                }<a name="line.823"></a>
+<FONT color="green">824</FONT>                else {<a name="line.824"></a>
+<FONT color="green">825</FONT>                    g2.draw(new Line2D.Double(xx, yyLow, xx, yyMinOpenClose));<a name="line.825"></a>
+<FONT color="green">826</FONT>                }<a name="line.826"></a>
+<FONT color="green">827</FONT>            }<a name="line.827"></a>
+<FONT color="green">828</FONT>    <a name="line.828"></a>
+<FONT color="green">829</FONT>            // draw the body<a name="line.829"></a>
+<FONT color="green">830</FONT>            Rectangle2D body = null;<a name="line.830"></a>
+<FONT color="green">831</FONT>            Rectangle2D hotspot = null;<a name="line.831"></a>
+<FONT color="green">832</FONT>            double length = Math.abs(yyHigh - yyLow);<a name="line.832"></a>
+<FONT color="green">833</FONT>            double base = Math.min(yyHigh, yyLow);<a name="line.833"></a>
+<FONT color="green">834</FONT>            if (horiz) {<a name="line.834"></a>
+<FONT color="green">835</FONT>                body = new Rectangle2D.Double(yyMinOpenClose, xx - stickWidth / 2,<a name="line.835"></a>
+<FONT color="green">836</FONT>                        yyMaxOpenClose - yyMinOpenClose, stickWidth);<a name="line.836"></a>
+<FONT color="green">837</FONT>                hotspot = new Rectangle2D.Double(base, xx - stickWidth / 2,<a name="line.837"></a>
+<FONT color="green">838</FONT>                        length, stickWidth);<a name="line.838"></a>
+<FONT color="green">839</FONT>            }<a name="line.839"></a>
+<FONT color="green">840</FONT>            else {<a name="line.840"></a>
+<FONT color="green">841</FONT>                body = new Rectangle2D.Double(xx - stickWidth / 2, yyMinOpenClose,<a name="line.841"></a>
+<FONT color="green">842</FONT>                        stickWidth, yyMaxOpenClose - yyMinOpenClose);<a name="line.842"></a>
+<FONT color="green">843</FONT>                hotspot = new Rectangle2D.Double(xx - stickWidth / 2,<a name="line.843"></a>
+<FONT color="green">844</FONT>                        base, stickWidth, length);<a name="line.844"></a>
+<FONT color="green">845</FONT>            }<a name="line.845"></a>
+<FONT color="green">846</FONT>            if (yClose &gt; yOpen) {<a name="line.846"></a>
+<FONT color="green">847</FONT>                if (this.upPaint != null) {<a name="line.847"></a>
+<FONT color="green">848</FONT>                    g2.setPaint(this.upPaint);<a name="line.848"></a>
+<FONT color="green">849</FONT>                }<a name="line.849"></a>
+<FONT color="green">850</FONT>                else {<a name="line.850"></a>
+<FONT color="green">851</FONT>                    g2.setPaint(p);<a name="line.851"></a>
+<FONT color="green">852</FONT>                }<a name="line.852"></a>
+<FONT color="green">853</FONT>                g2.fill(body);<a name="line.853"></a>
+<FONT color="green">854</FONT>            }<a name="line.854"></a>
+<FONT color="green">855</FONT>            else {<a name="line.855"></a>
+<FONT color="green">856</FONT>                if (this.downPaint != null) {<a name="line.856"></a>
+<FONT color="green">857</FONT>                    g2.setPaint(this.downPaint);<a name="line.857"></a>
+<FONT color="green">858</FONT>                }<a name="line.858"></a>
+<FONT color="green">859</FONT>                else {<a name="line.859"></a>
+<FONT color="green">860</FONT>                    g2.setPaint(p);<a name="line.860"></a>
+<FONT color="green">861</FONT>                }<a name="line.861"></a>
+<FONT color="green">862</FONT>                g2.fill(body);<a name="line.862"></a>
+<FONT color="green">863</FONT>            }<a name="line.863"></a>
+<FONT color="green">864</FONT>            if (this.useOutlinePaint) {<a name="line.864"></a>
+<FONT color="green">865</FONT>                g2.setPaint(outlinePaint);<a name="line.865"></a>
+<FONT color="green">866</FONT>            }<a name="line.866"></a>
+<FONT color="green">867</FONT>            else {<a name="line.867"></a>
+<FONT color="green">868</FONT>                g2.setPaint(p);<a name="line.868"></a>
+<FONT color="green">869</FONT>            }<a name="line.869"></a>
+<FONT color="green">870</FONT>            g2.draw(body);<a name="line.870"></a>
+<FONT color="green">871</FONT>    <a name="line.871"></a>
+<FONT color="green">872</FONT>            // add an entity for the item...<a name="line.872"></a>
+<FONT color="green">873</FONT>            if (entities != null) {<a name="line.873"></a>
+<FONT color="green">874</FONT>                addEntity(entities, hotspot, dataset, series, item, 0.0, 0.0);<a name="line.874"></a>
+<FONT color="green">875</FONT>            }<a name="line.875"></a>
+<FONT color="green">876</FONT>    <a name="line.876"></a>
+<FONT color="green">877</FONT>        }<a name="line.877"></a>
+<FONT color="green">878</FONT>    <a name="line.878"></a>
+<FONT color="green">879</FONT>        /**<a name="line.879"></a>
+<FONT color="green">880</FONT>         * Tests this renderer for equality with another object.<a name="line.880"></a>
+<FONT color="green">881</FONT>         *<a name="line.881"></a>
+<FONT color="green">882</FONT>         * @param obj  the object (&lt;code&gt;null&lt;/code&gt; permitted).<a name="line.882"></a>
+<FONT color="green">883</FONT>         *<a name="line.883"></a>
+<FONT color="green">884</FONT>         * @return &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;.<a name="line.884"></a>
+<FONT color="green">885</FONT>         */<a name="line.885"></a>
+<FONT color="green">886</FONT>        public boolean equals(Object obj) {<a name="line.886"></a>
+<FONT color="green">887</FONT>            if (obj == this) {<a name="line.887"></a>
+<FONT color="green">888</FONT>                return true;<a name="line.888"></a>
+<FONT color="green">889</FONT>            }<a name="line.889"></a>
+<FONT color="green">890</FONT>            if (!(obj instanceof CandlestickRenderer)) {<a name="line.890"></a>
+<FONT color="green">891</FONT>                return false;<a name="line.891"></a>
+<FONT color="green">892</FONT>            }<a name="line.892"></a>
+<FONT color="green">893</FONT>            CandlestickRenderer that = (CandlestickRenderer) obj;<a name="line.893"></a>
+<FONT color="green">894</FONT>            if (this.candleWidth != that.candleWidth) {<a name="line.894"></a>
+<FONT color="green">895</FONT>                return false;<a name="line.895"></a>
+<FONT color="green">896</FONT>            }<a name="line.896"></a>
+<FONT color="green">897</FONT>            if (!PaintUtilities.equal(this.upPaint, that.upPaint)) {<a name="line.897"></a>
+<FONT color="green">898</FONT>                return false;<a name="line.898"></a>
+<FONT color="green">899</FONT>            }<a name="line.899"></a>
+<FONT color="green">900</FONT>            if (!PaintUtilities.equal(this.downPaint, that.downPaint)) {<a name="line.900"></a>
+<FONT color="green">901</FONT>                return false;<a name="line.901"></a>
+<FONT color="green">902</FONT>            }<a name="line.902"></a>
+<FONT color="green">903</FONT>            if (this.drawVolume != that.drawVolume) {<a name="line.903"></a>
+<FONT color="green">904</FONT>                return false;<a name="line.904"></a>
+<FONT color="green">905</FONT>            }<a name="line.905"></a>
+<FONT color="green">906</FONT>            if (this.maxCandleWidthInMilliseconds<a name="line.906"></a>
+<FONT color="green">907</FONT>                    != that.maxCandleWidthInMilliseconds) {<a name="line.907"></a>
+<FONT color="green">908</FONT>                return false;<a name="line.908"></a>
+<FONT color="green">909</FONT>            }<a name="line.909"></a>
+<FONT color="green">910</FONT>            if (this.autoWidthMethod != that.autoWidthMethod) {<a name="line.910"></a>
+<FONT color="green">911</FONT>                return false;<a name="line.911"></a>
+<FONT color="green">912</FONT>            }<a name="line.912"></a>
+<FONT color="green">913</FONT>            if (this.autoWidthFactor != that.autoWidthFactor) {<a name="line.913"></a>
+<FONT color="green">914</FONT>                return false;<a name="line.914"></a>
+<FONT color="green">915</FONT>            }<a name="line.915"></a>
+<FONT color="green">916</FONT>            if (this.autoWidthGap != that.autoWidthGap) {<a name="line.916"></a>
+<FONT color="green">917</FONT>                return false;<a name="line.917"></a>
+<FONT color="green">918</FONT>            }<a name="line.918"></a>
+<FONT color="green">919</FONT>            if (this.useOutlinePaint != that.useOutlinePaint) {<a name="line.919"></a>
+<FONT color="green">920</FONT>                return false;<a name="line.920"></a>
+<FONT color="green">921</FONT>            }<a name="line.921"></a>
+<FONT color="green">922</FONT>            if (!PaintUtilities.equal(this.volumePaint, that.volumePaint)) {<a name="line.922"></a>
+<FONT color="green">923</FONT>                return false;<a name="line.923"></a>
+<FONT color="green">924</FONT>            }<a name="line.924"></a>
+<FONT color="green">925</FONT>            return super.equals(obj);<a name="line.925"></a>
+<FONT color="green">926</FONT>        }<a name="line.926"></a>
+<FONT color="green">927</FONT>    <a name="line.927"></a>
+<FONT color="green">928</FONT>        /**<a name="line.928"></a>
+<FONT color="green">929</FONT>         * Returns a clone of the renderer.<a name="line.929"></a>
+<FONT color="green">930</FONT>         *<a name="line.930"></a>
+<FONT color="green">931</FONT>         * @return A clone.<a name="line.931"></a>
+<FONT color="green">932</FONT>         *<a name="line.932"></a>
+<FONT color="green">933</FONT>         * @throws CloneNotSupportedException  if the renderer cannot be cloned.<a name="line.933"></a>
+<FONT color="green">934</FONT>         */<a name="line.934"></a>
+<FONT color="green">935</FONT>        public Object clone() throws CloneNotSupportedException {<a name="line.935"></a>
+<FONT color="green">936</FONT>            return super.clone();<a name="line.936"></a>
+<FONT color="green">937</FONT>        }<a name="line.937"></a>
+<FONT color="green">938</FONT>    <a name="line.938"></a>
+<FONT color="green">939</FONT>        /**<a name="line.939"></a>
+<FONT color="green">940</FONT>         * Provides serialization support.<a name="line.940"></a>
+<FONT color="green">941</FONT>         *<a name="line.941"></a>
+<FONT color="green">942</FONT>         * @param stream  the output stream.<a name="line.942"></a>
+<FONT color="green">943</FONT>         *<a name="line.943"></a>
+<FONT color="green">944</FONT>         * @throws IOException  if there is an I/O error.<a name="line.944"></a>
+<FONT color="green">945</FONT>         */<a name="line.945"></a>
+<FONT color="green">946</FONT>        private void writeObject(ObjectOutputStream stream) throws IOException {<a name="line.946"></a>
+<FONT color="green">947</FONT>            stream.defaultWriteObject();<a name="line.947"></a>
+<FONT color="green">948</FONT>            SerialUtilities.writePaint(this.upPaint, stream);<a name="line.948"></a>
+<FONT color="green">949</FONT>            SerialUtilities.writePaint(this.downPaint, stream);<a name="line.949"></a>
+<FONT color="green">950</FONT>            SerialUtilities.writePaint(this.volumePaint, stream);<a name="line.950"></a>
+<FONT color="green">951</FONT>        }<a name="line.951"></a>
+<FONT color="green">952</FONT>    <a name="line.952"></a>
+<FONT color="green">953</FONT>        /**<a name="line.953"></a>
+<FONT color="green">954</FONT>         * Provides serialization support.<a name="line.954"></a>
+<FONT color="green">955</FONT>         *<a name="line.955"></a>
+<FONT color="green">956</FONT>         * @param stream  the input stream.<a name="line.956"></a>
+<FONT color="green">957</FONT>         *<a name="line.957"></a>
+<FONT color="green">958</FONT>         * @throws IOException  if there is an I/O error.<a name="line.958"></a>
+<FONT color="green">959</FONT>         * @throws ClassNotFoundException  if there is a classpath problem.<a name="line.959"></a>
+<FONT color="green">960</FONT>         */<a name="line.960"></a>
+<FONT color="green">961</FONT>        private void readObject(ObjectInputStream stream)<a name="line.961"></a>
+<FONT color="green">962</FONT>                throws IOException, ClassNotFoundException {<a name="line.962"></a>
+<FONT color="green">963</FONT>            stream.defaultReadObject();<a name="line.963"></a>
+<FONT color="green">964</FONT>            this.upPaint = SerialUtilities.readPaint(stream);<a name="line.964"></a>
+<FONT color="green">965</FONT>            this.downPaint = SerialUtilities.readPaint(stream);<a name="line.965"></a>
+<FONT color="green">966</FONT>            this.volumePaint = SerialUtilities.readPaint(stream);<a name="line.966"></a>
+<FONT color="green">967</FONT>        }<a name="line.967"></a>
+<FONT color="green">968</FONT>    <a name="line.968"></a>
+<FONT color="green">969</FONT>        // --- DEPRECATED CODE ----------------------------------------------------<a name="line.969"></a>
+<FONT color="green">970</FONT>    <a name="line.970"></a>
+<FONT color="green">971</FONT>        /**<a name="line.971"></a>
+<FONT color="green">972</FONT>         * Returns a flag indicating whether or not volume bars are drawn on the<a name="line.972"></a>
+<FONT color="green">973</FONT>         * chart.<a name="line.973"></a>
+<FONT color="green">974</FONT>         *<a name="line.974"></a>
+<FONT color="green">975</FONT>         * @return &lt;code&gt;true&lt;/code&gt; if volume bars are drawn on the chart.<a name="line.975"></a>
+<FONT color="green">976</FONT>         *<a name="line.976"></a>
+<FONT color="green">977</FONT>         * @deprecated As of 1.0.5, you should use the {@link #getDrawVolume()}<a name="line.977"></a>
+<FONT color="green">978</FONT>         *         method.<a name="line.978"></a>
+<FONT color="green">979</FONT>         */<a name="line.979"></a>
+<FONT color="green">980</FONT>        public boolean drawVolume() {<a name="line.980"></a>
+<FONT color="green">981</FONT>            return this.drawVolume;<a name="line.981"></a>
+<FONT color="green">982</FONT>        }<a name="line.982"></a>
+<FONT color="green">983</FONT>    <a name="line.983"></a>
+<FONT color="green">984</FONT>    }<a name="line.984"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>
