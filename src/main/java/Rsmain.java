@@ -276,8 +276,6 @@ public class Rsmain extends ApplicationWindow {
 	private int lastKeyCode;
 
 	// Switches
-//	private static boolean demoversion = false; // Demoversion des MTBS
-	//private static boolean plusversion = true;	// Plusversion (Server)
     private static boolean demomodus = false;   // Demomodus
     private static boolean vlc_ein = true;      // Videoausgabe nur, wenn VLC-Player vorhanden ist - wird auch ausgeschaltet beim laden einer GPX-Datei!
     private static boolean imdialog = false;
@@ -1185,9 +1183,9 @@ public class Rsmain extends ApplicationWindow {
 	/**
 	 * Vergleicht die Versionsinfo. Verglichen werden nur die Ziffern
 	 * als Gleitkommazahl. zusätzliche Zeichen werden entfernt.
-	 * @param aktVersion
-	 * @param neuesteVersion
-	 * @return
+	 * @param aktVersion      aktuelle Version
+	 * @param neuesteVersion  neueste Version (auf Server)
+	 * @return true: Update möglich
 	 */
 	private boolean updatemoeglich(String aktVersion, String neuesteVersion) {
 		float aktVersNr, neuVersNr;
@@ -1199,7 +1197,6 @@ public class Rsmain extends ApplicationWindow {
 				Matcher matchneu = pattern.matcher(neuesteVersion);
 				if(matchakt.matches()) {
 					if(matchneu.matches()) {
-//						Mlog.debug("neueste Version: " + matchneu.group(1));
 						aktVersNr = new Float(matchakt.group(1));
 						neuVersNr = new Float(matchneu.group(1));
 						if (neuVersNr > aktVersNr)
@@ -1518,17 +1515,15 @@ public class Rsmain extends ApplicationWindow {
     /**
      * Setzt den Videoplayer-Eventmanager für den Timer-Event und initialisiert Descriptor und medialplayer
      * für die entsprechende Videodatei. 
-     * @param vlc
-     * @param videodatei
+     * @param vlc         VLC
+     * @param videodatei  Videodateiname
      */
 	private void setPlayer(LibVlc vlc, String videodatei) {
 		try {
- 		    String utf8dateiname = URLEncoder.encode(videodatei, "UTF-8");	// wird zu "7+Br%C3%ckenweg"
- 		    utf8dateiname = utf8dateiname.replaceAll("\\+", " "); 			// "7 Br%C3%ckenweg"
+ 		    String utf8dateiname = URLEncoder.encode(videodatei, "UTF-8");	
+ 		    utf8dateiname = utf8dateiname.replaceAll("\\+", " "); 			
 
 			mediaDescriptor = libvlc.libvlc_media_new_location(vlcinst, "file:///" + utf8dateiname);
-			//mediaDescriptor = libvlc.libvlc_media_new_path(vlcinst, "file:///" + utf8dateiname); //-> geht ebenso!
-
 			mediaplayer = libvlc.libvlc_media_player_new_from_media(mediaDescriptor);
 
 			LibVlcEventManager mediaInstanceEventManager = libvlc.libvlc_media_player_event_manager(mediaplayer);
@@ -2236,7 +2231,7 @@ public class Rsmain extends ApplicationWindow {
 	 * Es wurde festgestellt, daß der vom Server zurückgegebene GPS-Punkt größer als der aktuelle Punkt ist.
 	 * Daher wird nun vorgegesprungen und die Trainingswerte (Zeit, Strecke etc.) werden aktuell nicht neu gesetzt.
 	 * 13.7.2014: Wiederaufnahme ist nun auch bei abgebrochenen (Einzel-)Trainings möglich!
-	 * @param gpsPunkt
+	 * @param gpsPunkt  GPS-Punkt
 	 */
 	private void rennenWiederaufnahme(int gpsPunkt) {
 		if (gpsPunkt > 2) {					// wenns in der Nähe des Starts passiert, dann zurück zum Start!
@@ -2249,6 +2244,10 @@ public class Rsmain extends ApplicationWindow {
 	/**
 	 * Wenn die Gangautomatik eingeschaltet ist, dann wird hier nachgesehen, ob die Leistung größer/kleiner als die konfigurierten
 	 * Schaltschwellen ist und dann entsprechend geschaltet.
+	 * @param low	unterer Grenzwert
+	 * @param high  oberer Grenzwert
+	 * @param p     Leistung
+	 * @param gang  akt. eingelegter Gang (1..9)
 	 */
 	protected void gangAutomatik(double low, double high, double p, int gang) {
 		if (!atKurbel.getEnabled(2))
@@ -2367,6 +2366,7 @@ public class Rsmain extends ApplicationWindow {
 
 	/**
 	 * GPS-Daten einlesen und in Profildaten für Diagramm übernehmen
+	 * @return Anzahl der Trackpunkte
 	 */
 	private long loadProfil(){
 		long i = 1;
@@ -2902,7 +2902,7 @@ public class Rsmain extends ApplicationWindow {
 	 * Hier wird nachgeprüft, ob überhaupt getreten wird.
 	 * Die Frequenz muss über dem Minimalwert sein, falls ein Wahoo KICKR verwendet wird,
 	 * dann wird true zurückgegeben (keine Drehzahlermittlung)
-	 * @param rpm
+	 * @param rpm  RPM
 	 * @return true oder false
 	 */
 	private boolean wirdgetreten(double rpm){
@@ -2946,7 +2946,7 @@ public class Rsmain extends ApplicationWindow {
 	/**
 	 * Der Timer wird mit neuer Rate aufgesetzt.
 	 * 
-	 * @param rate
+	 * @param rate neue Rate
 	 */
 	private void Rescheduletimer(double rate) {
 		    if (timer != null) {
@@ -3558,7 +3558,7 @@ public class Rsmain extends ApplicationWindow {
 	 * -e : english-mode
 	 * -t : Testmode (Demoversion)
 	 * u.v.m.
-	 * @param args
+	 * @param args  Argumente
 	 */
 	public static void main(String[] args) {
 		Mlog.init();

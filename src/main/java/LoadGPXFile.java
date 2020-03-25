@@ -43,20 +43,21 @@ import org.w3c.dom.NodeList;
 public class LoadGPXFile {
 	public static List<TrkPt> track;
 	private Document   dom;
-	private Calendar   startzeit;		  // Startzeit = Zeitpunkt des ersten Trackpunktes
-	private double     gesamtstrecke;     // Gesamtstrecke
-	private long       gesamtsek = 0;     // Zeit in Sekunden des letzten Punktes
-	private long       tsek = 0;          // Sekunden des vorherigen Punktes
-	private double     tlatitude = 0.0;   // Längengrad des letzten Punktes
-	private double     tlongitude = 0.0;  // Breitengrad des letzten Punktes
-	private double     thoehe = 0.0;      // Höhe des letzten Punktes
-	private double     tabstand = 0.0;    // Abstand zum Startpunkt des letzten Punktes
-	private double     tsteigung = 0.0;   // Steigung des letzten Punktes
-	private double     entfernung = 0.0;  // Entfernung zum nächsten Punkt
-	private double     kurs = 0.0;        // Kurswinkel zum nächsten Punkt in Grad
+	private Calendar   startzeit;		  	// Startzeit = Zeitpunkt des ersten Trackpunktes
+	private double     gesamtstrecke;     	// Gesamtstrecke
+	private long       gesamtsek = 0;     	// Zeit in Sekunden des letzten Punktes
+	private long       tsek = 0;          	// Sekunden des vorherigen Punktes
+	private double     tlatitude = 0.0;   	// Längengrad des letzten Punktes
+	private double     tlongitude = 0.0;  	// Breitengrad des letzten Punktes
+	private double     thoehe = 0.0;      	// Höhe des letzten Punktes
+	private double     tabstand = 0.0;    	// Abstand zum Startpunkt des letzten Punktes
+	private double     tsteigung = 0.0;   	// Steigung des letzten Punktes
+	private double     entfernung = 0.0;  	// Entfernung zum nächsten Punkt
+	private double     kurs = 0.0;        	// Kurswinkel zum nächsten Punkt in Grad
 	private boolean    gpsleistung = false;	// wurden Leistungswerte eingelesen?
-	private double     gesamthm = 0.0;    // Höhenmeter
-
+	private double     gesamthm = 0.0;    	// Höhenmeter
+	private double     maxSteigung = 8.0;	// Grenzwert für Höhendatenglättung
+	
 	/**
 	 * @return the gpsleistung
 	 */
@@ -167,7 +168,7 @@ public class LoadGPXFile {
 	/**
 	 * GPS-Daten einlesen aus GPX-Datei bzw. TCX-Datei
 	 * @param dateiname Dateiname GPX/TCX-Datei
-	 * @param averaging Averagingfiler ein/ausschalten
+	 * @param averaging Averagingfiler ein/aus
 	 * @return Dateiname
 	 */
 	public String loadGPS(String dateiname, boolean averaging) {		
@@ -180,48 +181,53 @@ public class LoadGPXFile {
 		else
 			parseDocument(averaging, "trkpt");
 	
+		if (averaging) 
+			calcDynSteigungsWerte();
+		
 		return (dateiname);		
 	}
 	
 	/**
 	 * GPX/TCX-(XML)-Datei mittels DOM API parsen und DOM-Objekt erzeugen.
-	 * @param Dateiname
+	 * @param dateiname  Dateiname
+	 * @return dateiname
 	 *
 	 */
-	private String parseXmlFile(String Dateiname){
+	private String parseXmlFile(String dateiname){
 		File f;
 		URL  u;
 		// hole factory
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		
 		try {			
-			// mittels factory instance des document builder erzeugen
+			// mittels factory instance den document builder erzeugen
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			
 			// DOM Representation des XML file erzeugen 
-			f = new File(Dateiname); 
+			f = new File(dateiname); 
 			if (f.exists()) {
 				u = f.toURI().toURL();
 				dom = db.parse(u.toString());
 			} else { // noch auf GPX-Datei prüfen
-				Dateiname = Dateiname.replaceFirst(".tcx", ".gpx");
-				f = new File(Dateiname); 
+				dateiname = dateiname.replaceFirst(".tcx", ".gpx");
+				f = new File(dateiname); 
 				if (f.exists()) {
-					Mlog.debug("GPX-Datei: "+Dateiname);
+					Mlog.debug("GPX-Datei: "+dateiname);
 					u = f.toURI().toURL();
 					dom = db.parse(u.toString());
 				} else 
-					Messages.errormessage(Messages.getString("loadGPXFile.NO_GPS_DATA")+Dateiname+Messages.getString("loadGPXFile.NO_GPS_DATA2"));  				
+					Messages.errormessage(Messages.getString("loadGPXFile.NO_GPS_DATA")+dateiname+Messages.getString("loadGPXFile.NO_GPS_DATA2"));  				
 			}
 		} catch (Exception e) {
 			Mlog.ex(e);
 		}
-		return(Dateiname);
+		return(dateiname);
 	}
 
 	/**
 	 * Document einlesen und Trackliste aufbauen.
-	 * @param averaging    Averagingfilter ein/ausschalten
+	 * @param averaging    Averagingfilter ein/aus
+	 * @param tagname      Bezeichnung im GPX/TCX (XML)
 	 */
 	private void parseDocument(boolean averaging, String tagname){
 		int i;
@@ -256,7 +262,32 @@ public class LoadGPXFile {
 		}
 	}
 
-
+	/**
+	 * Ist die Glättung der Höhendaten aktiviert, dann wird hier die Sache etwas dynamisiert:
+	 * Das Problem: Bei der normalen Mittelwertbildung vom aktuellen Punkt zum Vorgänger geht die Leistung an Kuppen (analog Senken)
+	 * etwas verzögert hoch bzw. runter. Deshalb wird nun (in einem Loop über alle GPS-Pukte) am akt. Punkt die Steigung des folgenden 
+	 * Punktes analysiert und bei überschreiten eines Grenzwertes der vorhandene Mittelwert überschrieben.
+	 * Abhängig vom überschreiten von einem Grenzwert (maxSteigung z.B. 8%) wird nicht der Mittelwert zum
+	 * Vorgänger sondern der Mittelwert von aktuellem Mittelwert, Steigung des akt. Punktes und Steigung beim Nachfolgepunkt berechnet.
+	 */
+	private void calcDynSteigungsWerte() {
+		int    aktindex;
+		double aktSteig, aktSteigNf1, neuSteigAv, aktSteigAv;
+		for (TrkPt aktTrkPt : track) {
+			aktindex = (int) aktTrkPt.getIndex();
+			if (aktindex < track.size() - 1) {								// für den letzten Punkt können wir es nicht berechnen!
+				aktSteig = aktTrkPt.getSteigung_proz();
+				aktSteigNf1 = track.get(aktindex+1).getSteigung_proz();		// Steigung nächster GPS-Punkt
+				aktSteigAv = aktTrkPt.getSteigungAv_proz();					// aktueller Mittelwert
+				if ((Math.abs(Math.abs(aktSteig) - Math.abs(aktSteigNf1)) > maxSteigung)) {
+					neuSteigAv = (aktSteigAv +  aktSteig + aktSteigNf1) / 3.0;
+					// Mlog.debug("Dyn. Steigung: setze akt. Punkt: " + aktindex + " von " + aktSteigAv + " auf " + neuSteigAv);
+					aktTrkPt.setSteigungAv_proz(neuSteigAv);
+				}
+			}			
+		}		
+	}
+	
 	/**
 	 * Trackpointwerte einlesen, zusätzliche Werte berechnen
 	 * und zurückgeben. In den t-Variablen werden die letzten Werte
@@ -264,9 +295,14 @@ public class LoadGPXFile {
 	 * @param index     Index des Trackpunktes (1..n)
 	 * @param trkpt1    Trackpunkt aus GPX-Datei
 	 * @param averaging Averagingfiler ein/aus
-	 * @return trkpt
+	 * @param tcxflag   TCX-Datei (false: GPX-Datei)
+	 * @param tagLat    Bezeichnung im GPX/TCX (XML) für Latitude
+	 * @param tagLon    Bezeichnung im GPX/TCX (XML) für Longitude
+	 * @param tagHoehe  Bezeichnung im GPX/TCX (XML) für Höhe
+	 * @param tagZeit   Bezeichnung im GPX/TCX (XML) für Zeit
+	 * @return Trackpunkt
 	 */
-	private TrkPt getTrackpoint(int index, Element trkpt1, boolean averaging, boolean tcxflag, String tag_lat, String tag_lon, String tag_hoehe, String tag_zeit) {
+	private TrkPt getTrackpoint(int index, Element trkpt1, boolean averaging, boolean tcxflag, String tagLat, String tagLon, String tagHoehe, String tagZeit) {
 		double lat;
 		double lon;
 		double puls = 0.0;
@@ -274,8 +310,8 @@ public class LoadGPXFile {
 		double rpm = 0.0;
 		
 		if (tcxflag) {	// bei TCX direkt aus den Tags holen
-			lat = getNumberValue(trkpt1, tag_lat); 	// <LatitudeDegrees>
-			lon = getNumberValue(trkpt1, tag_lon); 	// <LongitudeDegrees>	
+			lat = getNumberValue(trkpt1, tagLat); 	// <LatitudeDegrees>
+			lon = getNumberValue(trkpt1, tagLon); 	// <LongitudeDegrees>	
 			Element HREle = dom.getDocumentElement();			
 			// nodelist der trackpoints (trkpt) erzeugen
 			NodeList nl = HREle.getElementsByTagName("HeartRateBpm");			
@@ -287,8 +323,8 @@ public class LoadGPXFile {
 				gpsleistung = true;
 		}
 		else { // bei GPX aus den Tag-Werten holen
-			lat = getNumberTagValue(trkpt1, tag_lat); 
-			lon = getNumberTagValue(trkpt1, tag_lon); 
+			lat = getNumberTagValue(trkpt1, tagLat); 
+			lon = getNumberTagValue(trkpt1, tagLon); 
 			puls = getNumberValue(trkpt1, "gpxtpx:hr"); 
 			if (puls == 0.0)
 				puls = getNumberValue(trkpt1, "gpxx:hr"); 
@@ -296,8 +332,8 @@ public class LoadGPXFile {
 			if (!gpsleistung && (leistung > 0))
 				gpsleistung = true;
 		}
-		double hoehe = getNumberValue(trkpt1, tag_hoehe); 	// "ele"
-		long anzsek = getSekValue(index, trkpt1, tag_zeit); // "time"
+		double hoehe = getNumberValue(trkpt1, tagHoehe); 	// "ele"
+		long anzsek = getSekValue(index, trkpt1, tagZeit); // "time"
 
 		// neuen Trackpunkt erzeugen und Startwerte übergeben
 		TrkPt tpkt = new TrkPt(lat,lon,hoehe,anzsek);
@@ -340,9 +376,9 @@ public class LoadGPXFile {
 	 * gegeben.
 	 * z.B. <trkpt><time>2006-05-03T16:21:06Z</time></trkpt> 
 	 * gibt den String "2006-05-03T16:21:06Z" zurück.
-	 * @param ele
-	 * @param tagName
-	 * @return String
+	 * @param ele       Element
+	 * @param tagName   Tag im XML
+	 * @return String   Wert als Text
 	 */
 	private String getTextValue(Element ele, String tagName) {
 		String textVal = null;
@@ -358,10 +394,10 @@ public class LoadGPXFile {
 	 * Attribut wird für xml element und tag-name  ermittelt und zurück-
 	 * gegeben.
 	 * z.B. <trkpt lat="49.562008381" lon="11.346344948"></trkpt> 
-	 * gibt für ele(tagName="Lat") den String "49.562008381" zurück.
-	 * @param ele
-	 * @param tagName
-	 * @return String
+	 * gibt für ele trkpt (tagName="Lat") den String "49.562008381" zurück.
+	 * @param ele      XML-Element
+	 * @param tagName  tagName
+	 * @return Inhalt als String
 	 */
 	private String getTextTagValue(Element ele, String tagName) {
 		String textVal = ele.getAttribute(tagName);
@@ -374,9 +410,10 @@ public class LoadGPXFile {
 	 * Das Datum wird in folg. Format erwartet:
 	 * <time>2006-05-03T19:38:05Z</time>
 	 * Beim ersten Aufruf wird die globale Variable startzeit gesetzt.
-	 * @param ele
-	 * @param tagName
-	 * @return long
+	 * @param index   Index
+	 * @param ele     Element
+	 * @param tagName XML-Tag
+	 * @return (long) Anzahl der Sekunden
 	 */
 	private long getSekValue(int index, Element ele, String tagName) {
 		int jahr = 0, monat = 0, tag = 0, stunde = 0, minute = 0, sekunde = 0;
@@ -401,9 +438,9 @@ public class LoadGPXFile {
 
 	/**
 	 * Ruft getTextValue auf und gibt Wert als double zurück
-	 * @param ele
-	 * @param tagName
-	 * @return double
+	 * @param ele      Element
+	 * @param tagName  Name des XML-Tags
+	 * @return (double) Wert
 	 */
 	private double getNumberValue(Element ele, String tagName) {
 		String textvalue;
@@ -420,9 +457,9 @@ public class LoadGPXFile {
 
 	/**
 	 * Ruft getTextTagValue auf und gibt Wert als double zurück
-	 * @param ele
-	 * @param tagName
-	 * @return double
+	 * @param ele      Element
+	 * @param tagName  XML-Tag
+	 * @return (double) Wert  
 	 */
 	private double getNumberTagValue(Element ele, String tagName) {
 		String textvalue;
@@ -439,8 +476,8 @@ public class LoadGPXFile {
 
 	/**
 	 * Berechnung der Sekunden vom vorherigen zum aktuellen Punkt.
-	 * @param tp
-	 * @param ts
+	 * @param tp    Trackpunkt
+	 * @param ts    ts
 	 * @return Sekunden
 	 */
 	private long calcAktsek(TrkPt tp, long ts){
@@ -449,7 +486,7 @@ public class LoadGPXFile {
 	
 	/**
 	 * Berechnung des Abstandes vom vorherigen zum aktuellen Punkt.
-	 * @param tp
+	 * @param tp     Trackpunkt
 	 * @param vlat   Längengrad vorheriger Punkt
 	 * @param vlon   Breitengrad vorheriger Punkt
 	 * @return abstand
@@ -524,7 +561,7 @@ public class LoadGPXFile {
 	 * Berechnung der aktuellen Geschwindigkeit:
 	 * v = strecke / zeit (umgerechnet in km/h)
 	 * @param tp Trackpunkt
-	 * @return Geschwindigkeit
+	 * @return Geschwindigkeit in km/h
 	 */
 	private double calcV_kmh(TrkPt tp){
 		if (tp.getAbstvorg_m() == 0.0 || tp.getAktsek() == 0)

@@ -884,6 +884,7 @@ public class Wettkampf {
 
 	/**
 	 * Verlassen des Online-(Wettkampf-)Dialogs
+	 * @param changed Changed
 	 */
 	private void goBack(boolean changed) {
 		shlRsWettkampf.setVisible(false);
@@ -1046,11 +1047,11 @@ public class Wettkampf {
 	 * Es wird ein Kommando zum Server gesendet.
 	 * Das Kommando besteht aus dem Befehl und mehreren Parametern
 	 * Kommandos werden mit *EOM* abgeschlossen.
-	 * @param befehl
-	 * @param serverIP
-	 * @param par1
-	 * @param par2
-	 * @return
+	 * @param befehl   Befehl
+	 * @param serverIP IP des Servers
+	 * @param par1     Parameter 1
+	 * @param par2     Parameter 2
+	 * @return  Rückgabestrings als Vector
 	 */
 	private Vector<String> clientSend(String befehl, String serverIP, String par1, String par2) {
 		String rueckgabe;
@@ -1111,11 +1112,10 @@ public class Wettkampf {
 	 * Es wird ein Kommando zum Server gesendet.
 	 * Das Kommando besteht aus dem Befehl und mehreren Parametern
 	 * Kommandos werden mit *EOM* abgeschlossen.
-	 * @param befehl
-	 * @param serverIP
-	 * @param par1
-	 * @param par2..par16
-	 * @return
+	 * @param befehl    Befehl
+	 * @param serverIP  IP des Servers
+	 * @param par1..par16 Parameter
+	 * @return  Rückgabestrings als Vector
 	 */
 	private Vector<String> clientSend(String befehl, String serverIP, String par1, String par2, String par3, String par4, String par5, String par6
 			, String par7, String par8, String par9, String par10, String par11, String par12, String par13, String par14, String par15, String par16) {
@@ -1156,11 +1156,10 @@ public class Wettkampf {
 	 * Es wird ein Kommando zum Server gesendet.
 	 * Das Kommando besteht aus dem Befehl und mehreren Parametern
 	 * Kommandos werden mit *EOM* abgeschlossen.
-	 * @param befehl
-	 * @param serverIP
-	 * @param par1
-	 * @param par2..par5
-	 * @return
+	 * @param befehl    Befehl
+	 * @param serverIP  IP des Servers
+	 * @param par1..par5  Parameter
+	 * @return  Rückgabestrings als Vector
 	 */
 	private Vector<String> clientSend(String befehl, String serverIP, String par1, String par2, String par3, String par4, String par5) {
 		String rueckgabe;
@@ -1575,7 +1574,6 @@ public class Wettkampf {
 
 	/**
 	 * Darstellung und Aufbau des Online-Rennen Registrierungs-Dialogs.
-	 * @return True: Registrierung erfolgreich, False: Fehler bei Registrierung
 	 */
 	private void DoRegistrierung() {
 		Vector<String> vret = new Vector<String>();
@@ -1642,7 +1640,7 @@ public class Wettkampf {
 	
 	/**
 	 * neue Statuszeile anfügen im Statusfenster
-	 * @param text
+	 * @param text  Text der Meldung
 	 */
 	private void Statusmeldung(String text) {
 		txtStatus.append(text + "\n"); 
@@ -1689,6 +1687,7 @@ public class Wettkampf {
 
 	/**
 	 * Aufruf des RennAnmeldung Webservices
+	 * @param racename   Name des Rennens
 	 */
 	public void rennanmeldung(String racename) {
 		String aktRennen = racename;
@@ -1747,8 +1746,8 @@ public class Wettkampf {
 
 	/**
 	 * Öffnet die SQLite Datenbank und gibt Connection zurück.
-	 * @param jdbc
-	 * @param url zur DB
+	 * @param jdbc   JDBC Connectstring
+	 * @param url    URL zur DB
 	 * @return Connection (klassenweit definiert)
 	 */
 	private Connection openDB(String jdbc, String url) {
@@ -1763,6 +1762,7 @@ public class Wettkampf {
 	
 	/**
 	 * Einlesen der virtuellen Gegner für die eingestellte Tour.
+	 * @param styp  styp
 	 */
 	private void leseVirtGeg(String styp) {
 		try
@@ -1816,6 +1816,7 @@ public class Wettkampf {
 	
 	/**
 	 * Einlesen der Koordinaten der ausgewählten virtuellen Gegner
+	 * @param zPRace  Zielpulsetraining (true/false)
 	 */
 	private  void loadVirtGeg(boolean zPRace) {
 		SimpleDateFormat ztfmt = new SimpleDateFormat("H:mm:ss");

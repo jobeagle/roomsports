@@ -386,10 +386,10 @@ public class OSMViewer extends Canvas {
      * Erzeugung der URL
      * Abhängig vom Tileserver werden die Reihenfolge von X/Y Kachel und Filextension (.png oder .jpg)
      * gebildet
-     * @param tileServer
-     * @param xtile
-     * @param ytile
-     * @param zoom
+     * @param tileServer   Tileserver
+     * @param xtile        X-Pos
+     * @param ytile        Y-Pos
+     * @param zoom         Zoomfaktor
      * @return URL der benötigten Kachel
      */
     public static String getTileString(TileServer tileServer, int xtile, int ytile, int zoom) {
@@ -702,9 +702,10 @@ public class OSMViewer extends Canvas {
     /**
      * Position des Gegners in ArrayList aktPos speichern. Der übergebene Index startet bei 0 und
      * wenn die Größe der Arraylist nicht ausreicht wird vergrößert.
-     * @param index
+     * @param index Index
      * @param lon   Longitude
      * @param lat   Latitude
+     * @param name  Name des Gegners
      */
     public void setPosition(int index, double lon, double lat, String name) {
     	//Mlog.debug("setPosition index: "+index+" - size: "+aktPos.size() + " - Name: " + name);
@@ -717,8 +718,8 @@ public class OSMViewer extends Canvas {
     
     /**
      * Anzeige der aktuellen Position in der Mitte der Karte.
-     * @param gc
-     * @param img
+     * @param gc  gc
+     * @param img Image
      */
     public void showActPosImage(GC gc, Image img) {
         org.eclipse.swt.graphics.Point size = getSize();
@@ -727,8 +728,9 @@ public class OSMViewer extends Canvas {
 
     /**
      * Anzeige der gegnerischen Position auf der Karte.
-     * @param gc
-     * @param img
+     * @param gc   gc
+     * @param img  Image
+     * @param pos  Position
      */
     public void showGegPosImage(GC gc, Image img, PointDExt pos) {
         Point gegPt = computePosition(pos);
@@ -738,6 +740,11 @@ public class OSMViewer extends Canvas {
         gc.drawText(pos.name+" ", -(mapPosition.x-gegPt.x)+img.getBounds().width/2+2, -(mapPosition.y-gegPt.y) + img.getBounds().height/2);
     }
 
+    /**
+     * Copyright Text anzeigen
+     * @param gc      gc
+     * @param alpha   Transparenzfaktor
+     */
     public void showCopyright(GC gc, int alpha) {
         Font font = new Font(gc.getDevice(),"Arial",8,0);
         gc.setFont(font);
@@ -746,6 +753,11 @@ public class OSMViewer extends Canvas {
         gc.drawText(tileServer.getCopyright(), 4, size.y-15);
     }
 
+    /**
+     * Tileserver-String anzeigen
+     * @param gc     gc
+     * @param alpha  Transparenzfaktor
+     */
     public void showTileserver(GC gc, int alpha) {
         Font font = new Font(gc.getDevice(),"Arial",8,0);
         gc.setFont(font);
@@ -755,8 +767,8 @@ public class OSMViewer extends Canvas {
 
     /**
      * Track als Linie zeichnen.
-     * @param gc
-     * @param track
+     * @param gc    gc
+     * @param track Track
      */
     public void drawTrack(GC gc, List<TrkPt> track) {
     	int i = -1;
@@ -790,7 +802,7 @@ public class OSMViewer extends Canvas {
     
     /**
      * Setzt einen neuen Track zur Darstellung
-     * @param track
+     * @param track  Trackliste
      */
     public void setAktTrack(List<TrkPt> track) {
         aktTrack = track;

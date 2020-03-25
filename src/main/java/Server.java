@@ -448,7 +448,7 @@ public class Server {
      * WarteBisStart ermittelt die Startzeit des eingetragenen Rennens mittels MAC-Adresse und Rennenbezeichnung.
      * Anschliessend wird bis zum Startzeitpunkt gewartet und eine Zufallszahl für die Anzahl der Wartesekunden zurückgegeben.
      * @param mAC		MAC-Adresse des Mitfahrers
-     * @param Rennen	Rennbezeichnung
+     * @param rennen	Rennbezeichnung
      * @return Zufallszahl 0 bei OK, oder Fehlermeldung
      */
     public String WarteBisStart(String mAC, String rennen) {
@@ -641,7 +641,7 @@ public class Server {
 
     /**
      * Ermittelt die letzte Anmeldung
-     * @param rennenid
+     * @param rennenid   Id des Rennens
      * @return Name als String
      */
     private String getLetzteAnmeldung(long rennenid) {
@@ -671,7 +671,7 @@ public class Server {
      * Die Windautomatik setzt beim ersten Aufruf zwei zufällige Punkte und zufällige Windstärken fest und
      * prüft anschliessend, ob der übergebene Punkt im Bereich (Punkt + 30) ist und liefert die zugewiesene Windstärke zurück.
      * 
-     * @param punkt
+     * @param punkt  Punkt
      * @return Windstärke (1..6) als Zahl
      */
     private String windautomatik(int punkt) {

@@ -263,7 +263,6 @@ public class Auswertung {
 	 * @param txtWerte1   Werte 1
 	 * @param txtWerte2   Werte 2
 	 * @param txtWerte3   Werte 3
-	 * @wbp.parser.entryPoint
 	 */
 	public void createAuswertung(String txtLabels, String txtWerte1, String txtWerte2, String txtWerte3) {
 		if (shell != null) {	// Shell schon vorhanden?

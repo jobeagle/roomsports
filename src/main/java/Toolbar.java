@@ -327,7 +327,7 @@ public class Toolbar {
 
 	/**
 	 * Damit kann das Symbol von Start auf Pause umgestellt werden.
-	 * @param strimg
+	 * @param strimg Name der Imagedatei
 	 */
 	public void changeImgStartbutton(String strimg) {
 		actionStart.setImageDescriptor(ImageDescriptor.createFromImage(new Image(Display.getCurrent(), strimg)));

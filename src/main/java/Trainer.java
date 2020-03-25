@@ -209,10 +209,10 @@ public class Trainer {
 
 	/**
 	 * Setter-Funktion für ergoCom (Schnittstelle)
-	 * @param ergoCom	COM-Schnittstelle
+	 * @param com	COM-Schnittstelle
 	 */
-	public void setErgoCom(String Com) {
-		this.Com = Com;
+	public void setErgoCom(String com) {
+		this.Com = com;
 	}
 
 	/**
@@ -1839,14 +1839,14 @@ public class Trainer {
 
     /**
      * Öffnet die serielle Kommunikation zum Ergometer 
-     * @param Port		COM-Port
-     * @param Baudrate	Baudrate
+     * @param port		COM-Port
+     * @param baud   	Baudrate
      */
-    public void seropen(String Port, int baud) {
+    public void seropen(String port, int baud) {
     	Mlog.info(RXTXVersion.getVersion());
         CommPortIdentifier portIdentifier;
 		try {
-			portIdentifier = CommPortIdentifier.getPortIdentifier(Port);
+			portIdentifier = CommPortIdentifier.getPortIdentifier(port);
 	        if ( portIdentifier.isCurrentlyOwned() )
 	        {
 	        	Mlog.error("Port ist blockiert!");
@@ -2395,8 +2395,8 @@ public class Trainer {
 
 	/**
 	 * Debugprotokoll für TACX-Kommunikation
-	 * @param data
-	 * @param dir
+	 * @param data data
+	 * @param dir  dir
 	 */
 	private static void logData(byte[] data, String dir) {
 		Mlog.debug("Data: "+dir);

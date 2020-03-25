@@ -372,25 +372,25 @@ public class VerwaltungRace extends RsErwDialog {
 
 		/**
 		 * Setzen der Variablen der Klasse Rennen
-		 * @param renn_id
-		 * @param bezeichnung
-		 * @param startzeit
-		 * @param teilnehmer
-		 * @param typ
-		 * @param tour
-		 * @param dynamik
-		 * @param minleistung
-		 * @param maxleistung
-		 * @param status
-		 * @param pulsmin
-		 * @param pulsmax
-		 * @param schikane
+		 * @param renn_id      Id des Rennens
+		 * @param bezeichnung  Bezeichnung
+		 * @param startzeit    Startzeit
+		 * @param teilnehmer   Teilnehmer
+		 * @param typ          Typ
+		 * @param tour         Tour
+		 * @param dynamik      Dynamik
+		 * @param minleistung  MinLeistung
+		 * @param maxleistung  Maxleistung
+		 * @param status       Status
+		 * @param pulsmin      min. Puls
+		 * @param pulsmax      max. Puls
+		 * @param schikane     Schikane
 		 * @param leistungsfaktor in Prozent
-		 * @param tfnormal
-		 * @param tfmin
-		 * @param konstant_cw
-		 * @param konstant_k2
-		 * @param gewicht_bike
+		 * @param tfnormal     Trittfrequenznormalwert (entspr. nominaler videogeschwindigkeit)
+		 * @param tfmin        Trittfrequenzminimun
+		 * @param konstant_cw  Konstante CW
+		 * @param konstant_k2  Konstante K2
+		 * @param gewicht_bike Gewicht des Bikes
 		 */
 		private void setRennenWerte(int renn_id, String bezeichnung, Date startzeit, int teilnehmer, String typ, String tour, int dynamik, int minleistung, int maxleistung,
 				int status, int pulsmin, int pulsmax, int schikane, double leistungsfaktor, int tfnormal, int tfmin, double konstant_cw,
@@ -786,6 +786,7 @@ public class VerwaltungRace extends RsErwDialog {
 	 * für den Autostart werden alle abgelaufenen Rennen gelöscht und ein neues Rennen mit Start in 30 Sek. (cntdownSek) eingetragen.
 	 * Das macht aber nur der Server, im anderen Fall wird als Name des Rennens null zurückgegeben!
 	 * @param isServer		bin ich der Server?
+	 * @return Name des aktuellen Rennens
 	 */
 	public String doAutostart(boolean isServer) {
 		DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
@@ -995,7 +996,7 @@ public class VerwaltungRace extends RsErwDialog {
 
 	/**
 	 * Anzeige der Ergebnisliste im Ergebnisfeld rechts oeben.
-	 * @param rennId
+	 * @param rennId  ID des Rennens
 	 */
 	private void showErgebnis(int rennId) {
 		//String tmp;
@@ -1270,8 +1271,8 @@ public class VerwaltungRace extends RsErwDialog {
 
 	/**
 	 * addiert Minuten zum aktuellen Zeitpunkt.
-	 * @param 	zeitpunkt
-	 * @param 	minuten
+	 * @param 	zeitpunkt   akt. Zeitpunkt
+	 * @param 	minuten     Anzahl der Minuten, die addiert werden sollen
 	 * @return	Zeit als Date
 	 */
 	private Date addMinutes(Date zeitpunkt, int minuten) {
@@ -1283,8 +1284,8 @@ public class VerwaltungRace extends RsErwDialog {
 
 	/**
 	 * addiert Sekunden zum aktuellen Zeitpunkt.
-	 * @param 	zeitpunkt
-	 * @param 	sekunden
+	 * @param 	zeitpunkt  akt. Zeitpunkt
+	 * @param 	sekunden   Anzahl der Sekunden, die addiert werden sollen
 	 * @return	Zeit als Date
 	 */
 	private Date addSeconds(Date zeitpunkt, int sekunden) {

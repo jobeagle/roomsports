@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"jna_ext"},{"l":"jstrava"},{"l":"org.eclipse.wb.swt"},{"l":"vlc"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"jna_ext"},{"l":"jstrava"},{"l":"org.eclipse.wb.swt"},{"l":"strava"},{"l":"vlc"}]

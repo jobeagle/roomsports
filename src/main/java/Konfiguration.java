@@ -727,8 +727,8 @@ public class Konfiguration {
 	
 	/**
 	 * Initialisierung des Fensters (Shell)
-	 * @param biker
-	 * @param ergo
+	 * @param biker der Fahrer
+	 * @param ergo  das Trainingsgerät
 	 */
 	private void createSShell(Fahrer biker, Trainer ergo) {
 		GridLayout gridLayout = new GridLayout();
@@ -753,8 +753,8 @@ public class Konfiguration {
 
 	/**
 	 * Initialisierung vom compkonfig (Composite)
-	 * @param biker
-	 * @param ergo	
+	 * @param biker  Fahrer
+	 * @param ergo	 Trainingsgerät
 	 */
 	private void createCompkonfig(final Fahrer biker, final Trainer ergo) {
 		try {
@@ -1417,8 +1417,8 @@ public class Konfiguration {
 
 	/**
 	 * Übernahme der Profil-(Fahrer)daten aus dem Bikerobjekt (das dem Konstruktor übergeben wurde)
-	 * @param biker
-	 * @param ergo
+	 * @param biker Fahrer
+	 * @param ergo  Trainingsgerät
 	 */
 	private void initFelder(Fahrer biker, Trainer ergo) {
 		DecimalFormat zfk3 = new DecimalFormat("#.###"); 
@@ -1671,8 +1671,8 @@ public class Konfiguration {
 
 	/**
 	 * Biker-Objekt und Trainer-Objekt mit neuen Profildaten updaten
-	 * @param biker
-	 * @param ergo
+	 * @param biker  Fahrer
+	 * @param ergo   Trainingsgerät
 	 *
 	 */
 	private void updateProfil(Fahrer biker, Trainer ergo) {
@@ -1876,7 +1876,8 @@ public class Konfiguration {
 	
 	/**
 	 * allg. Settings - XML-Datei mittels DOM API parsen und DOM-Objekt erzeugen
-	 * @param ergo
+	 * @param dateiname  Dateiname XML-Datei
+	 * @param biker      Fahrer
 	 *
 	 */
 	private void parseXmlFileSettings(String dateiname, Fahrer biker){
@@ -1959,8 +1960,8 @@ public class Konfiguration {
 
 	/**
 	 * Liest einen numerischen Wert ein und frägt auf NaN ab.
-	 * @param ele
-	 * @param tag
+	 * @param ele  Element
+	 * @param tag  XML-Tag
 	 * @return eingelesenen Wert als double
 	 */
 	private double getNumberAttr(Element ele, String tag) {
@@ -1981,9 +1982,9 @@ public class Konfiguration {
 	
 	/**
 	 * Fahrer - XML-Datei mittels DOM API parsen und DOM-Objekt erzeugen
-	 * @param dateiname
-	 * @param biker
-	 * @param ergo
+	 * @param dateiname  Dateiname XML-Datei
+	 * @param biker      Fahrer
+	 * @param ergo       Trainingsgerät
 	 *
 	 */
 	private void parseXmlFileBiker(String dateiname, Fahrer biker, Trainer ergo){

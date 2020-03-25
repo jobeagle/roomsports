@@ -579,6 +579,8 @@ public class LibAnt extends Structure{
 
 	/**
 	 * Callback für die Kanaldaten - Auswertung kanalunabhängig
+	 * @param channel channel
+	 * @param ucEvent_ ucEvent_
 	 */
 	private void fnChannelAuswertung(byte channel, byte ucEvent_) {
 		byte b1,b2,b3,b4;
@@ -1661,6 +1663,7 @@ public class LibAnt extends Structure{
 
     /**
      * sendet Command Page 49 (verwende TargetPower Mode) an ANT+ FE-C Device
+     * @param pwr4 akt. Leistung
      */
     private void sendTargetPowerPage(int pwr4) {
 		byte b1,b2;
@@ -1675,6 +1678,7 @@ public class LibAnt extends Structure{
 	 * Verbindung zum USB-Stick (Garmin AP1, AP2) aufbauen, Reset und Network-Key setzen.
 	 * @param 	dev		ANT+ Devicenr.
 	 * @param 	baud	Baudrate
+	 * @param   netkey  netkey
 	 * @return			erfolgreich oder nicht
 	 */
 	private boolean antConnect(int dev, int baud, byte[] netkey) {

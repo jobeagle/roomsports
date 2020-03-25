@@ -48,10 +48,8 @@ public class Global {
 	// globale Variablen
 	public  static String ptz = null;	// Path-Trennzeichen sind unterschiedlich unter den Betriebssystemen
 	public  static String progname = new String("RoomSports"); 
-	public  static String versioncode = "4.34";
+	public  static String versioncode = "4.35";
     public  static String version = new String(progname+" Version " + versioncode);  
-    @SuppressWarnings("unused")
-	private String copyright = new String("Copyright (c) 2020 Bruno Schmidt (mail@roomsports.de)"); 
     public  static String ergoVersion = new String(Messages.getString("Rsmain.kein_ergo"));  
 	public  static String db = "c2mtbsrace";  
 	public  static String serverAdr = "";
@@ -96,14 +94,14 @@ public class Global {
 	public static int maxGeschw = 100;				// Geschwindigkeit begrenzen
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
 	private static int resolution = tk.getScreenResolution();
-	public static double resolutionFactor = ((double)resolution) / 96;	// TODO: für MACOS anpassen!
+	public static double resolutionFactor = ((double)resolution) / 96;	// ggf. für MACOS anpassen!
     private static int fontSize = (int) (8.0 / resolutionFactor);
 	
     public static SimpleDateFormat tfmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
      * setzt einheitliche Fonthöhe für das Widget
-     * @param label
+     * @param label label
      */
 	public static void setFontSizeLabel(Label label) {
 		FontData[] fD = label.getFont().getFontData();
@@ -113,7 +111,7 @@ public class Global {
 
     /**
      * setzt einheitliche Fonthöhe für das Widget
-     * @param label
+     * @param text text
      */
 	public static void setFontSizeText(Text text) {
 		FontData[] fD = text.getFont().getFontData();
@@ -123,7 +121,7 @@ public class Global {
 
     /**
      * setzt einheitliche Fonthöhe für das Widget
-     * @param label
+     * @param text text
      */
 	public static void setFontSizeStyledText(StyledText text) {
 		FontData[] fD = text.getFont().getFontData();
@@ -133,7 +131,7 @@ public class Global {
 
     /**
      * setzt einheitliche Fonthöhe für das Widget
-     * @param label
+     * @param button button
      */
 	public static void setFontSizeButton(Button button) {
 		FontData[] fD = button.getFont().getFontData();
@@ -143,7 +141,7 @@ public class Global {
 
     /**
      * setzt einheitliche Fonthöhe für das Widget
-     * @param label
+     * @param combo combo
      */
 	public static void setFontSizeCCombo(CCombo combo) {
 		FontData[] fD = combo.getFont().getFontData();
@@ -153,7 +151,7 @@ public class Global {
 
     /**
      * setzt einheitliche Fonthöhe für das Widget
-     * @param label
+     * @param table table
      */
 	public static void setFontSizeTable(Table table) {
 		FontData[] fD = table.getFont().getFontData();
@@ -371,7 +369,7 @@ public class Global {
 	/**
 	 * Liefert den Nummerncode (nur die Ziffern aus versioncode, z.B. 4.06a liefert 406).
 	 * Wird verwendet bei der Anmeldung zum Onlinerennen.
-	 * @return
+	 * @return Ziffern des Versioncodes
 	 */
 	public static int getVersionCodeNr() {
 		String svnr = versioncode.replaceAll("\\D", "");
@@ -381,7 +379,7 @@ public class Global {
 
 	/**
 	 * lass den Thread schlafen...
-	 * @param millisecs
+	 * @param millisecs Millisekunden
 	 */
 	public static void sleep(long millisecs) {
 		try {
