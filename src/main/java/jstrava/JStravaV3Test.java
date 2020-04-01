@@ -27,14 +27,14 @@ public class JStravaV3Test {
 
         /* TODO Test-Token verwenden!!!*/
 
-        accessToken ="606945d..."; // hier vorab ein gültiges Zugriffstoken einbauen
+        accessToken ="..."; // hier vorab ein gültiges Zugriffstoken einbauen
         athleteId=13826;		// Bruno
         activityId=new Long("3222445021");
         clubId=228597;
         gearId="1665277";
         segmentId=0L;
         updateActivityId=222445021;
-        secret = "<<secret>>";
+        secret = "...";
     }
 
     @After
@@ -635,13 +635,13 @@ public class JStravaV3Test {
     	assertNotNull(uploadstat);
     	String id = uploadstat.getId();
     	System.out.println("Id: " + id);
-    	System.out.println("Error: " + uploadstat.getError());
     	assertTrue(id.length() > 0);
     	while (uploadstat.getStatus().contains("processed") && cnt++ < 10) {
     		Thread.sleep(1000);
-    		uploadstat = strava.checkUploadStatus(new Integer(id));
+    		uploadstat = strava.checkUploadStatus(new Long(id));
     	}
     	System.out.println("cnt: " + cnt);
+    	System.out.println("Error: " + uploadstat.getError());
     	newactid = uploadstat.getActivity_id();
     	System.out.println("Activity-Id: " + newactid);
     	assertTrue(cnt < 10);

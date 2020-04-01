@@ -279,9 +279,9 @@ public class LoadGPXFile {
 				aktSteig = aktTrkPt.getSteigung_proz();
 				aktSteigNf1 = track.get(aktindex+1).getSteigung_proz();		// Steigung nächster GPS-Punkt
 				aktSteigAv = aktTrkPt.getSteigungAv_proz();					// aktueller Mittelwert
-				if ((Math.abs(Math.abs(aktSteig) - Math.abs(aktSteigNf1)) > maxSteigung)) {
+				if ((Math.abs(aktSteig - aktSteigNf1) > maxSteigung)) {
 					neuSteigAv = (aktSteigAv +  aktSteig + aktSteigNf1) / 3.0;
-					// Mlog.debug("Dyn. Steigung: setze akt. Punkt: " + aktindex + " von " + aktSteigAv + " auf " + neuSteigAv);
+					//Mlog.debug("Dyn. Steigung: setze akt. Punkt: " + aktindex + " von " + aktSteigAv + " auf " + neuSteigAv);
 					aktTrkPt.setSteigungAv_proz(neuSteigAv);
 				}
 			}			

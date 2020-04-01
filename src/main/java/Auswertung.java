@@ -30,6 +30,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import jstrava.Activity;
 import jstrava.JStravaV3;
 import jstrava.UploadStatus;
 
@@ -791,6 +792,7 @@ public class Auswertung {
     	String trainingName = "";
     	Shell info = null;
     	String infotext = null;
+    	Activity activity;
     	
     	TimeZone.setDefault(null);
     	SimpleDateFormat tfmtstrava = new SimpleDateFormat();
@@ -827,13 +829,15 @@ public class Auswertung {
 		try {
 			uploadstat = strava.uploadActivity("tcx", uploaddatei);
 	    	id = uploadstat.getId();
-	    	//Mlog.debug("Id: " + id);
-	    	Mlog.debug("Stravaupload-Error: " + uploadstat.getError());
 	    	while (uploadstat.getStatus().contains("processed") && cnt++ < maxtries) {
 	    		Global.sleep(1000);
 	    		uploadstat = strava.checkUploadStatus(new Long(id));
 	    	}
 	    	Mlog.debug("cnt: " + cnt);
+	    	Mlog.debug("Strava-Upload-Error: " + uploadstat.getError());
+	    	if (uploadstat.getError() != null)
+		    	Mlog.error("Strava-Upload Error: " + uploadstat.getError());
+
 	    	if (cnt >= maxtries) {
 	    		Messages.infomessage_off(info);
 	    		Messages.errormessage(shell, Messages.getString("Auswertung.stravanotok")+uploaddatei.getAbsolutePath());
@@ -865,7 +869,8 @@ public class Auswertung {
 // sonst keine Kartenansicht!			optionalParameters.put("trainer", "true");		
 			optionalParameters.put("description",description);
 			optionalParameters.put("name",trainingName);
-			strava.updateActivity(newactid,optionalParameters);
+			activity = strava.updateActivity(newactid,optionalParameters);
+			Mlog.debug("Activity: " + activity.getName());
 		} catch (Exception e2) {
 			if (e2.toString().contains("401")) {				
 				Mlog.debug("Strava Autorisierungsfehler 2: "+e2.toString());

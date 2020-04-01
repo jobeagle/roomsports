@@ -48,7 +48,7 @@ public class Global {
 	// globale Variablen
 	public  static String ptz = null;	// Path-Trennzeichen sind unterschiedlich unter den Betriebssystemen
 	public  static String progname = new String("RoomSports"); 
-	public  static String versioncode = "4.35";
+	public  static String versioncode = "4.35b";
     public  static String version = new String(progname+" Version " + versioncode);  
     public  static String ergoVersion = new String(Messages.getString("Rsmain.kein_ergo"));  
 	public  static String db = "c2mtbsrace";  
