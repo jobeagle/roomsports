@@ -162,6 +162,7 @@ NOVCP:
   File *.sys
   File vcredist*.exe
   File *.pdf
+  File *.ico
 
   File ${VCP_INSTALLER}
 
@@ -280,7 +281,7 @@ DOKUCOPY:
 
   CreateDirectory "$SMPROGRAMS\roomsports"
   CreateShortCut "$SMPROGRAMS\roomsports\${PRODUCT_NAME}.lnk" "$INSTDIR\start_rs.bat"
-  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\start_rs.bat"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\start_rs.bat" "" "$INSTDIR\rs.ico"
 
   CreateShortCut "$SMPROGRAMS\roomsports\Dokumentation.lnk" "$INSTDIR\roomsports.pdf"
   CreateShortCut "$SMPROGRAMS\roomsports\roomsportswork.lnk" "$APPDATA\roomsports"

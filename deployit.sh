@@ -96,6 +96,7 @@ cp start_rs.bat rs_export/
 cp start_rs_e.bat rs_export/
 cp stop.png rs_export/
 cp strava.png rs_export/
+cp rs.ico rs_export/
 cp swt.jar rs_export/
 cp swt64.jar rs_export/
 cp uac_w7.png rs_export/
