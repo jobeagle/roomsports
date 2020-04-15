@@ -41,7 +41,22 @@ public class TrkPt {
 	private double   leistung;            // akt. Leistung aus TCX-Datei
 	private double   rpm;                 // akt. Kurbelumdrehungen aus TCX-Datei
 	private double   hm_m;                // Höhenmeter seit erstem Punkt
+	private long     zeitpunkt;           // Zeitpunkt (in Millisek. seit 1.1.1970)
 	
+	/**
+	 * @return the zeitpunkt
+	 */
+	public long getZeitpunkt() {
+		return zeitpunkt;
+	}
+
+	/**
+	 * @param zeitpunkt the zeitpunkt to set
+	 */
+	public void setZeitpunkt(long zeitpunkt) {
+		this.zeitpunkt = zeitpunkt;
+	}
+
 	/**
 	 * @return the kurs
 	 */
@@ -118,21 +133,6 @@ public class TrkPt {
 	 */
 	public void setV_kmh(double v_kmh) {
 		this.v_kmh = v_kmh;
-	}
-
-	/**
-	 * Setzt die Koordinaten, Höhe und Zeitpunkt des aktuellen Track-Punktes
-	 * @param latitude		Breitengrad als double
-	 * @param longitude		Längengrad als double
-	 * @param hoehe			Höhe
-	 * @param anzsek		anz. Sekunden nach Start
-	 */
-	public TrkPt(double latitude, double longitude, double hoehe, long anzsek) {
-		super();
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.hoehe = hoehe;
-		this.anzsek = anzsek;
 	}
 
 	/**
@@ -301,5 +301,21 @@ public class TrkPt {
 	 */
 	public void setHm_m(double hm_m) {
 		this.hm_m = hm_m;
+	}
+	
+	/**
+	 * Setzt die Koordinaten, Höhe und Zeitpunkt des aktuellen Track-Punktes
+	 * @param latitude		Breitengrad als double
+	 * @param longitude		Längengrad als double
+	 * @param hoehe			Höhe
+	 * @param anzsek		anz. Sekunden nach Start
+	 */
+	public TrkPt(double latitude, double longitude, double hoehe, long anzsek, long zeitpunkt) {
+		super();
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.hoehe = hoehe;
+		this.anzsek = anzsek;
+		this.zeitpunkt = zeitpunkt;
 	}
 }

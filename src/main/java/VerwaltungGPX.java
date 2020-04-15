@@ -1,13 +1,22 @@
 import java.io.File;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.FileDialog;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -30,7 +39,7 @@ import org.w3c.dom.NodeList;
  * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************
- * LoadGPXFile.java: Einlesen der GPS-Daten im GPX-Format
+ * VerwaltungGPX.java: Verwaltung der GPS-Daten im GPX-Format
  *****************************************************************************
  *
  * Diese Klasse beinhaltet die Methoden zum Einlesen der GPS-Daten. Die Daten 
@@ -40,24 +49,26 @@ import org.w3c.dom.NodeList;
  *  
  */
 
-public class LoadGPXFile {
+public class VerwaltungGPX {
 	public static List<TrkPt> track;
-	private Document   dom;
-	private Calendar   startzeit;		  	// Startzeit = Zeitpunkt des ersten Trackpunktes
-	private double     gesamtstrecke;     	// Gesamtstrecke
-	private long       gesamtsek = 0;     	// Zeit in Sekunden des letzten Punktes
-	private long       tsek = 0;          	// Sekunden des vorherigen Punktes
-	private double     tlatitude = 0.0;   	// Längengrad des letzten Punktes
-	private double     tlongitude = 0.0;  	// Breitengrad des letzten Punktes
-	private double     thoehe = 0.0;      	// Höhe des letzten Punktes
-	private double     tabstand = 0.0;    	// Abstand zum Startpunkt des letzten Punktes
-	private double     tsteigung = 0.0;   	// Steigung des letzten Punktes
-	private double     entfernung = 0.0;  	// Entfernung zum nächsten Punkt
-	private double     kurs = 0.0;        	// Kurswinkel zum nächsten Punkt in Grad
-	private boolean    gpsleistung = false;	// wurden Leistungswerte eingelesen?
-	private double     gesamthm = 0.0;    	// Höhenmeter
-	private double     maxSteigung = 8.0;	// Grenzwert für Höhendatenglättung
-	
+	private static Document dom;
+	private Calendar      startzeit;		  	// Startzeit = Zeitpunkt des ersten Trackpunktes
+	private double        gesamtstrecke;     	// Gesamtstrecke
+	private long          gesamtsek = 0;     	// Zeit in Sekunden des letzten Punktes
+	private long          tsek = 0;          	// Sekunden des vorherigen Punktes
+	private double        tlatitude = 0.0;   	// Längengrad des letzten Punktes
+	private double        tlongitude = 0.0;  	// Breitengrad des letzten Punktes
+	private double        thoehe = 0.0;      	// Höhe des letzten Punktes
+	private double        tabstand = 0.0;    	// Abstand zum Startpunkt des letzten Punktes
+	private double        tsteigung = 0.0;   	// Steigung des letzten Punktes
+	private static double entfernung = 0.0;  	// Entfernung zum nächsten Punkt
+	private static double kurs = 0.0;        	// Kurswinkel zum nächsten Punkt in Grad
+	private boolean       gpsleistung = false;	// wurden Leistungswerte eingelesen?
+	private double        gesamthm = 0.0;    	// Höhenmeter
+	private double        maxSteigung = 8.0;	// Grenzwert für Höhendatenglättung
+	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
+	private static FileDialog dialog;
+
 	/**
 	 * @return the gpsleistung
 	 */
@@ -125,7 +136,7 @@ public class LoadGPXFile {
 	 * @param entfernung the entfernung to set
 	 */
 	public void setEntfernung(double entfernung) {
-		this.entfernung = entfernung;
+		VerwaltungGPX.entfernung = entfernung;
 	}
 
 	/**
@@ -139,7 +150,7 @@ public class LoadGPXFile {
 	 * @param kurs the kurs to set
 	 */
 	public void setKurs(double kurs) {
-		this.kurs = kurs;
+		VerwaltungGPX.kurs = kurs;
 	}
 
 	
@@ -160,7 +171,7 @@ public class LoadGPXFile {
 	/**
 	 * erzeuge eine List für den GPS-Track (liegt im GPX-Format vor)
 	 */
-	public LoadGPXFile(){		
+	public VerwaltungGPX(){		
 		track = new ArrayList<TrkPt>();
 		startzeit = Calendar.getInstance();
 	}
@@ -177,9 +188,9 @@ public class LoadGPXFile {
 		
 		// alle Trackpoints einlesen und gesamten Track aufbauen
 		if (dateiname.toLowerCase().endsWith("tcx")) // Garmin TCX-Format ?
-			parseDocument(averaging, "Trackpoint");
+			parseXMLDocument(averaging, "Trackpoint");
 		else
-			parseDocument(averaging, "trkpt");
+			parseXMLDocument(averaging, "trkpt");
 	
 		if (averaging) 
 			calcDynSteigungsWerte();
@@ -229,7 +240,7 @@ public class LoadGPXFile {
 	 * @param averaging    Averagingfilter ein/aus
 	 * @param tagname      Bezeichnung im GPX/TCX (XML)
 	 */
-	private void parseDocument(boolean averaging, String tagname){
+	private void parseXMLDocument(boolean averaging, String tagname){
 		int i;
 		int gpsanzahl;
 		TrkPt t;
@@ -255,8 +266,8 @@ public class LoadGPXFile {
 				// hinzufügen zur List
 				track.add(t);
 			}
-			gesamtsek = track.get(--i).getAnzsek();
-			gesamtstrecke = track.get(--i).getAbstand_m();
+			gesamtsek = track.get(gpsanzahl-1).getAnzsek();
+			gesamtstrecke = track.get(gpsanzahl-1).getAbstand_m();
 			Mlog.info("Tourdauer:"+gesamtsek+" Sek.");  
 			Mlog.info("Tourlänge:"+zfk2.format(gesamtstrecke/1000)+" km");
 		}
@@ -287,6 +298,84 @@ public class LoadGPXFile {
 			}			
 		}		
 	}
+
+	/**
+	 * reCalcTrackNachDel berechnet nach dem löschen von GPS-Punkten die Werte des Tracks neu.
+	 */
+	public static void reCalcTrackNachDel() {
+		int    aktindex = 0;
+		long   startzeitInMillis;
+		double abstandGesamt = 0.0;
+		startzeitInMillis = track.get(0).getZeitpunkt();
+		for (TrkPt aktTrkPt : track) {
+			aktindex += 1;
+			if (aktindex != (int) aktTrkPt.getIndex()) {		// wurden Punkte gelöscht?
+				//Mlog.debug("<aktindex>"+aktindex+" != <getIndex()>"+(int) aktTrkPt.getIndex()+" Punkt muss neu berechnet werden");
+				aktTrkPt.setIndex(aktindex);
+				aktTrkPt.setAnzsek((aktTrkPt.getZeitpunkt() - startzeitInMillis) / 1000);
+				if (aktindex > 1) {
+					aktTrkPt.setAktsek((aktTrkPt.getZeitpunkt() - track.get(aktindex-2).getZeitpunkt()) / 1000);
+					aktTrkPt.setAnzsek((aktTrkPt.getZeitpunkt() - startzeitInMillis) / 1000);
+					double abstand = calcAbstand(aktTrkPt, track.get(aktindex-2).getLatitude(), track.get(aktindex-2).getLongitude());
+					aktTrkPt.setAbstvorg_m(abstand);
+					abstandGesamt = track.get(aktindex-2).getAbstand_m() + abstand;
+					aktTrkPt.setAbstand_m(abstandGesamt);
+					aktTrkPt.setV_kmh(calcV_kmh(aktTrkPt));
+					aktTrkPt.setSteigung_proz(calcSteigung(aktTrkPt, track.get(aktindex-2).getHoehe(), track.get(aktindex-2).getSteigung_proz(), false));
+					aktTrkPt.setSteigungAv_proz(calcSteigung(aktTrkPt, track.get(aktindex-2).getHoehe(), track.get(aktindex-2).getSteigung_proz(), true));
+					aktTrkPt.setKurs(kurs);
+					if (aktTrkPt.getHoehe() > track.get(aktindex-2).getHoehe()) {
+						aktTrkPt.setHm_m(track.get(aktindex-2).getHm_m() + (aktTrkPt.getHoehe() - track.get(aktindex-2).getHoehe()));
+					} else
+						aktTrkPt.setHm_m(track.get(aktindex-2).getHm_m());
+				} else {
+					aktTrkPt.setAktsek(0);
+					aktTrkPt.setAnzsek(0);
+					aktTrkPt.setAbstvorg_m(0.0);
+					aktTrkPt.setAbstand_m(0.0);
+					aktTrkPt.setV_kmh(0.0);
+					aktTrkPt.setSteigung_proz(0.0);
+					aktTrkPt.setSteigungAv_proz(0.0);
+					aktTrkPt.setKurs(kurs);
+					aktTrkPt.setHm_m(0.0);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * reCalcZeitenAbIndex berechnet ab diesem Punkt die Zeitpunkte dieses und aller folgenden Punkte neu.
+	 * @param index      Index in Trackliste (1 .. Ende)
+	 * @param zeitDiff   Zeit-Differenz in Sekunden
+	 * @return           erfolgreich true/false
+	 */
+	public static boolean reCalcZeitenAbIndex(int index, int zeitDiff) {
+		int i = index;
+		long zeitDiffMillis = zeitDiff * 1000;
+		long startzeit = track.get(0).getZeitpunkt();
+		
+		TrkPt aktTrkPt;
+		if (index < 1 || index > track.size() - 1) {
+			Mlog.error("ungültiger Index übergeben!");
+			return (false);
+		}
+		
+		// zeitlich muss er nach dem Vorgänger bleiben!
+		if (track.get(index-1).getZeitpunkt() >= track.get(index).getZeitpunkt() + zeitDiffMillis) {
+			Mlog.error("Zeitpunkt muss nach dem Vorgänger bleiben!");
+			return (false);			
+		}
+		
+		while (i < track.size()) {
+			aktTrkPt = track.get(i);
+			aktTrkPt.setZeitpunkt(aktTrkPt.getZeitpunkt() + zeitDiffMillis);
+			aktTrkPt.setAnzsek((aktTrkPt.getZeitpunkt() - startzeit) / 1000);
+			aktTrkPt.setAktsek((aktTrkPt.getZeitpunkt() - track.get(i - 1).getZeitpunkt()) / 1000);
+			aktTrkPt.setV_kmh(calcV_kmh(aktTrkPt));
+			i++;
+		}
+		return (true);
+	}
 	
 	/**
 	 * Trackpointwerte einlesen, zusätzliche Werte berechnen
@@ -294,7 +383,7 @@ public class LoadGPXFile {
 	 * gespeichert. Es wird ein neuer Trackpunkt für die Liste angelegt.
 	 * @param index     Index des Trackpunktes (1..n)
 	 * @param trkpt1    Trackpunkt aus GPX-Datei
-	 * @param averaging Averagingfiler ein/aus
+	 * @param averaging Averagingfilter ein/aus
 	 * @param tcxflag   TCX-Datei (false: GPX-Datei)
 	 * @param tagLat    Bezeichnung im GPX/TCX (XML) für Latitude
 	 * @param tagLon    Bezeichnung im GPX/TCX (XML) für Longitude
@@ -333,10 +422,11 @@ public class LoadGPXFile {
 				gpsleistung = true;
 		}
 		double hoehe = getNumberValue(trkpt1, tagHoehe); 	// "ele"
-		long anzsek = getSekValue(index, trkpt1, tagZeit); // "time"
+		long anzsek = getSekSeitStartValue(index, trkpt1, tagZeit);  // "time"
+		long aktZeitInMillis = getZeitMilliSekValue(index, trkpt1, tagZeit);
 
 		// neuen Trackpunkt erzeugen und Startwerte übergeben
-		TrkPt tpkt = new TrkPt(lat,lon,hoehe,anzsek);
+		TrkPt tpkt = new TrkPt(lat, lon, hoehe, anzsek, aktZeitInMillis);
 		
 		// weitere Werte des Trackpunktes berechnen:
 		tpkt.setAktsek(calcAktsek(tpkt, tsek));
@@ -415,12 +505,12 @@ public class LoadGPXFile {
 	 * @param tagName XML-Tag
 	 * @return (long) Anzahl der Sekunden
 	 */
-	private long getSekValue(int index, Element ele, String tagName) {
+	private long getSekSeitStartValue(int index, Element ele, String tagName) {
 		int jahr = 0, monat = 0, tag = 0, stunde = 0, minute = 0, sekunde = 0;
 		String strzeit = getTextValue(ele,tagName);
 		try {
 			jahr    = Integer.parseInt(strzeit.substring(0,4));
-			monat   = Integer.parseInt(strzeit.substring(5,7));
+			monat   = Integer.parseInt(strzeit.substring(5,7)) - 1;  // Monat ist 0-basiert !
 			tag     = Integer.parseInt(strzeit.substring(8,10));
 			stunde  = Integer.parseInt(strzeit.substring(11,13));
 			minute  = Integer.parseInt(strzeit.substring(14,16));
@@ -434,6 +524,34 @@ public class LoadGPXFile {
 			startzeit.set(jahr, monat, tag, stunde, minute, sekunde);
 		}
 		return((zeit.getTimeInMillis() - startzeit.getTimeInMillis()) / 1000);
+	}
+
+	/**
+	 * Ruft getTextValue auf und gibt alt. Zeitpunkt als long zurück. 
+	 * Das Datum wird in folg. Format erwartet:
+	 * <time>2006-05-03T19:38:05Z</time>
+	 * @param index   Index
+	 * @param ele     Element
+	 * @param tagName XML-Tag
+	 * @return (long) Zeitpunkt als Millisekungen seit 1.1.1970
+	 */
+	private long getZeitMilliSekValue(int index, Element ele, String tagName) {
+		int jahr = 0, monat = 0, tag = 0, stunde = 0, minute = 0, sekunde = 0;
+		String strzeit = getTextValue(ele,tagName);
+		try {
+			jahr    = Integer.parseInt(strzeit.substring(0,4));
+			monat   = Integer.parseInt(strzeit.substring(5,7)) - 1;  // Monat ist 0-basiert !;
+			tag     = Integer.parseInt(strzeit.substring(8,10));
+			stunde  = Integer.parseInt(strzeit.substring(11,13));
+			minute  = Integer.parseInt(strzeit.substring(14,16));
+			sekunde = Integer.parseInt(strzeit.substring(17,19));			
+			} catch (Exception E){
+				Mlog.error("Datum konnte nicht ermittelt werden!"); 
+			}
+		Calendar zeit = Calendar.getInstance();
+		zeit.set(jahr, monat, tag, stunde, minute, sekunde);
+
+		return (zeit.getTimeInMillis());
 	}
 
 	/**
@@ -491,7 +609,7 @@ public class LoadGPXFile {
 	 * @param vlon   Breitengrad vorheriger Punkt
 	 * @return abstand
 	 */
-	private double calcAbstand(TrkPt tp, double vlat, double vlon){
+	private static double calcAbstand(TrkPt tp, double vlat, double vlon){
 		if (vlat == 0)
 			return 0.0;
 		else
@@ -509,7 +627,7 @@ public class LoadGPXFile {
 	 * @param l2  Längengrad 2
 	 * @return Abstand im Metern
 	 */
-	private double calcOrthodrome(double b1, double b2, double l1, double l2){
+	private static double calcOrthodrome(double b1, double b2, double l1, double l2){
 		double F;
 		double G;
 		double l;
@@ -563,7 +681,7 @@ public class LoadGPXFile {
 	 * @param tp Trackpunkt
 	 * @return Geschwindigkeit in km/h
 	 */
-	private double calcV_kmh(TrkPt tp){
+	private static double calcV_kmh(TrkPt tp){
 		if (tp.getAbstvorg_m() == 0.0 || tp.getAktsek() == 0)
 			return 0.0;
 		
@@ -580,7 +698,7 @@ public class LoadGPXFile {
 	 * @param averaging Averagingfilter ein-/ausschalten
 	 * @return          Steigung in Prozent
 	 */
-	private double calcSteigung(TrkPt tp, double vhoehe, double vsteigung, boolean averaging){
+	public static double calcSteigung(TrkPt tp, double vhoehe, double vsteigung, boolean averaging){
 		if (tp.getAbstvorg_m() <= 0.5) // Wenn kein Abstand zum Vorgänger ist die Steigung auch 0! (akt. Schranke: 50 cm)
 			return 0.0;
 		
@@ -590,5 +708,88 @@ public class LoadGPXFile {
 			st = (st + vsteigung) / 2.0;   // Averaging = Mittelwertberechnung von letzter und dieser Steigung
 		
 		return st;
+	}
+	
+	public static void createGPXAusTrack(String dateiname){
+		// hole factory
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+		if (dialog == null) {
+			dialog = new FileDialog(Rsmain.sShell, SWT.SAVE);
+			dialog.setFilterNames (new String [] {Messages.getString("Rsmain.gpx_dateien"), Messages.getString("Rsmain.alle_dateien")}); 
+			dialog.setFilterExtensions (new String [] {"*.gpx", "*.*"}); //Windows wild cards  
+			dialog.setFilterPath (Rsmain.newkonfig.getStrTourenpfad()); 
+			dialog.setOverwrite(true);			
+		}
+		dialog.setFileName(dateiname);
+		dateiname = dialog.open();
+
+		if (dateiname != null) {
+
+			try {			
+				// mittels factory instance des document builder erzeugen
+				DocumentBuilder db = dbf.newDocumentBuilder();
+
+				// DOM Representation des XML file erzeugen 
+				dom = db.newDocument();
+				DOMSource source = new DOMSource(dom);
+
+				Element elegpx = dom.createElement("gpx"); 
+				elegpx.setAttribute("xmlns", "http://www.topografix.com/GPX/1/1"); 
+				elegpx.setAttribute("creator", "RoomSports "+Global.version); 
+				elegpx.setAttribute("version", "1.1"); 
+				elegpx.setAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance"); 
+				elegpx.setAttribute("xsi:schemaLocation", "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"); 
+				dom.appendChild(elegpx);
+
+				Element eleMetaData = dom.createElement("metadata");
+				elegpx.appendChild(eleMetaData);
+
+				Element eleLink = dom.createElement("link");
+				eleLink.setAttribute("href", "http://www.roomsports.de");
+				eleMetaData.appendChild(eleLink);
+
+				Element eleText = dom.createElement("text");
+				eleText.setTextContent("Download RoomSports");
+				eleLink.appendChild(eleText);
+
+				Element eleTime = dom.createElement("time");
+				eleTime.setTextContent(sdf.format(new Date()));
+				eleMetaData.appendChild(eleTime);
+
+				Element eleTrk = dom.createElement("trk");
+				Element eleName = dom.createElement("name");
+				elegpx.appendChild(eleTrk);
+				File fileGPX = new File(Global.gPXfile);
+				String tourname = fileGPX.getName();
+				tourname = tourname.substring(0,tourname.indexOf('.'));		
+				eleName.setTextContent(tourname);	
+				eleTrk.appendChild(eleName);
+				Element eleTrkSeg = dom.createElement("trkseg");
+				eleTrk.appendChild(eleTrkSeg);
+
+				for (TrkPt aktTrkPt : track) {
+					Element eleTrkPt = dom.createElement("trkpt");
+					eleTrkPt.setAttribute("lat", aktTrkPt.getLatitude()+""); 
+					eleTrkPt.setAttribute("lon", aktTrkPt.getLongitude()+""); 
+					eleTrkSeg.appendChild(eleTrkPt);				
+					Element eleEle = dom.createElement("ele");
+					eleEle.setTextContent(aktTrkPt.getHoehe()+"");
+					eleTrkPt.appendChild(eleEle);				
+					Element eleTimePos = dom.createElement("time");
+					eleTimePos.setTextContent(sdf.format(aktTrkPt.getZeitpunkt()));
+					eleTrkPt.appendChild(eleTimePos);
+				}
+
+				StreamResult result = new StreamResult(new File(dateiname)); 
+				Transformer transformer = TransformerFactory.newInstance().newTransformer();
+				transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+				transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+				transformer.transform(source, result);
+
+			} catch (Exception e) {
+				Mlog.ex(e);
+			}
+		}	
 	}
 }

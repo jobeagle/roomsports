@@ -248,7 +248,7 @@ public class Rsmain extends ApplicationWindow {
     private long timeLastKeyFullScreen = 0;		// wird verwendet zur Erkennung ob Vollbildumschaltung
     private long maxTimeDiffLastKey = 250;		// ab dieser Anz. ms ist der Tastendruck ok (zuletzt: 180)
     private long maxTimeDiffLastKeyFullScreen = 1000;		// ab dieser Anz. ms ist die Umschaltung auf Vollbild ok
-    
+    public  GPXEdit gpxEdit = null;
     
     public  static String latestVersion  = "";
     private static final String versionURL = "https://www.mtbsimulator.de/rs/v.txt";
@@ -261,17 +261,17 @@ public class Rsmain extends ApplicationWindow {
     public  static Server server;
     public  static LibAnt libant = null; 
 	private OnlineGegner onlgeg;
-	private LoadGPXFile ldpx;
+	private VerwaltungGPX ldpx;
     public  UpdateDialog showUpdate = null;		// Updatedialog
     private static Rsmain app;
     
 	// OSM Variablen
 	public  static OSMViewer osmv;
 	private OSMViewer.PointD osm_koord;
-	private double rs_lon = 11.33666;			// Längengrad Bürgerweiher Schnaittach
-	private double rs_lat = 49.55666;			// Breitengrad Bürgerweiher
-	private int osmMaxZoom = 17;
-	private int osmMinZoom = 10;
+	public  static double rs_lon = 11.33666;	// Längengrad Bürgerweiher Schnaittach
+	public  static double rs_lat = 49.55666;	// Breitengrad Bürgerweiher
+	public  int osmMaxZoom = 17;
+	public  int osmMinZoom = 10;
 	private int osmTilesrvInd = 0;				// Index des akt. Tileservers
 	private int lastKeyCode;
 
@@ -283,7 +283,7 @@ public class Rsmain extends ApplicationWindow {
     private static boolean csvrennen = false;   // Flag ob gegen ein CSV-Protokoll gefahren wird
     private static boolean init = true;   		// Flag für einmalige Aktionen nach dem ersten Startt
     private static boolean ausgewertet = false; // Flag für Auswertung
-    private static boolean pausetaste = false;  // Flag für Umschaltung Start / Pause
+    public  static boolean pausetaste = false;  // Flag für Umschaltung Start / Pause
     private static boolean endlos = false;		// immer wieder von vorne starten (für Demozwecke)
     private static boolean ibl = false;			// Indoor Bike Leaque Rennen wird gefahren
     private static boolean ovddata = false;		// OVD-Datenanzeige (zur Erzeugung der MTBS-Trainingsvideos)
@@ -555,14 +555,21 @@ public class Rsmain extends ApplicationWindow {
 	        		return;
 	        	
             	// Testaufruf
-	            if((e.stateMask & SWT.CTRL) != 0 && e.keyCode == 'y') { 
-	            	try {
-	            		
-	            	} catch (Exception e1) {
+	        	if((e.stateMask & SWT.CTRL) != 0 && e.keyCode == 'y') { 
+	        		try {
+	        			Mlog.debug("im Testaufruf");
+	        			if (VerwaltungGPX.track != null) {
+	        				if (gpxEdit == null) {
+	        					gpxEdit = new GPXEdit();
+	        					gpxEdit.on(480, 640);
+	        				} else
+	        					gpxEdit.on();
+	        			}
+	        		} catch (Exception e1) {
 	        			Mlog.error("Fehler beim Testaufruf!");
 	        			Mlog.ex(e1);
-	            	}
-	            }
+	        		}
+	        	}
             
             	// Umschaltung OVD-Data-Modus
 	            if((e.stateMask & SWT.CTRL) != 0 && e.keyCode == 's') { 
@@ -2032,6 +2039,8 @@ public class Rsmain extends ApplicationWindow {
          						osmv.setCenterPosition(osmv.computePosition(osm_koord));
          						osmv.redraw();
          					}
+         					if (gpxEdit != null)
+         						gpxEdit.tblPosListe.setSelection((int) akttrkpkt.getIndex());
          				}
 
          				auswertung.schreibedaten(true, akttrkpkt.getIndex(), cmbwind.getText(), thisTrainer.getGang(), dwork, puls.doubleValue(), 
@@ -2378,7 +2387,7 @@ public class Rsmain extends ApplicationWindow {
 		dataset1.removeAllSeries();
 		
 		// GPS-Daten in List einlesen
-		ldpx = new LoadGPXFile();
+		ldpx = new VerwaltungGPX();
 
 		if (Global.gPXfile.endsWith(".gpx") || Global.gPXfile.endsWith(".tcx")) {   
             setVlc_ein(false);
@@ -2390,7 +2399,7 @@ public class Rsmain extends ApplicationWindow {
 		Global.gPXfile = ldpx.loadGPS(Global.gPXfile, newkonfig.isaveraging());
 		toolbar.actionStart.setEnabled(true);	// Startbutton enablen
 		toolbar.actionStop.setEnabled(true);	// Stopbutton enablen
-		Iterator<TrkPt> it = LoadGPXFile.track.iterator();
+		Iterator<TrkPt> it = VerwaltungGPX.track.iterator();
 		gesamtsek = ldpx.getGesamtsek();
 		gesamtstrecke = ldpx.getGesamtstrecke();
 		gesamthm = ldpx.getGesamthm();
@@ -2417,7 +2426,7 @@ public class Rsmain extends ApplicationWindow {
 	 * @return Trackpunkt
 	 */
 	public TrkPt gettrackpoint(long sek){  
-		Iterator<TrkPt> it = LoadGPXFile.track.iterator();
+		Iterator<TrkPt> it = VerwaltungGPX.track.iterator();
 		TrkPt aktpoint = (TrkPt) it.next(); 
 		while(it.hasNext() && aktpoint.getAnzsek() < sek) {
 			aktpoint = (TrkPt) it.next(); 
@@ -2431,7 +2440,7 @@ public class Rsmain extends ApplicationWindow {
 	 * @return			Anzahl der Sekunden am GPS-Punkt seit Start
 	 */
 	public long getTrkSek (int punkt){  
-		TrkPt trkpt = LoadGPXFile.track.get(punkt);
+		TrkPt trkpt = VerwaltungGPX.track.get(punkt);
 		return trkpt.getAnzsek();
 	}
 
@@ -2603,7 +2612,7 @@ public class Rsmain extends ApplicationWindow {
 	 * startet das Video
 	 *
 	 */
-	private void videostart() {
+	public void videostart() {
 		if (isVlc_ein() && (libvlc != null)) {	
 	        Mlog.info("Starte VLC, Tourzeit: " + tfmt.format(newvidtime * 1000));
 	        //long hId = 0;
@@ -2627,12 +2636,7 @@ public class Rsmain extends ApplicationWindow {
             Field handleField;
 
             try {
-					//Field[] felder = compClass.getFields();
-					//Mlog.debug("compClass Anz. Felder: "+felder.length);
-					//for (int i=0;i<felder.length;i++)
-					//	Mlog.debug("compClass Felder: "+felder[i].toString());
             		handleField = compClass.getField(handleName);
-            		//hId = handleField.getLong(compvideo);            		
             		hId = (int) handleField.getLong(compvideo);            		
             } catch (SecurityException e) {
             		Mlog.debug("SecurityException beim ermitteln von "+handleName+" in videostart");
@@ -2681,7 +2685,7 @@ public class Rsmain extends ApplicationWindow {
 	 * Video: pause
 	 *
 	 */
-	private void videopause() {
+	public void videopause() {
 		Mlog.debug("do videopause...");
 		if (isVlc_ein() && (libvlc != null)) {
 			libvlc.libvlc_media_player_pause(mediaplayer);
@@ -2792,12 +2796,12 @@ public class Rsmain extends ApplicationWindow {
 				if (osmv == null)
 					initMap();
 				else {
-					TrkPt aktpoint = (TrkPt) LoadGPXFile.track.get(0); 
+					TrkPt aktpoint = (TrkPt) VerwaltungGPX.track.get(0); 
 					OSMViewer.PointD koord = new OSMViewer.PointD(aktpoint.getLongitude(), aktpoint.getLatitude());
 					Point pos = osmv.computePosition(koord);
 			    	osmv.setCenterPosition(pos);
 				}
-				osmv.setAktTrack(LoadGPXFile.track);
+				osmv.setAktTrack(VerwaltungGPX.track);
 				osmv.redraw();
 			}
 		}  
@@ -2971,7 +2975,6 @@ public class Rsmain extends ApplicationWindow {
 				Puls.reset();
 				Kurbel.reset();
 				Geschwindigkeit.reset();
-//				Fitness.reset();
 				changeGang(config.getInt("gang"));			
 				init = false;
 			}
@@ -3303,7 +3306,6 @@ public class Rsmain extends ApplicationWindow {
 			.setLongFlag("nooverlay");
         
         // Gang vorgeben
-        // Tourdatei vorgeben
         FlaggedOption optGang = new FlaggedOption("gang")
         	.setStringParser(JSAP.INTEGER_PARSER)
         	.setRequired(true) 
@@ -3311,7 +3313,7 @@ public class Rsmain extends ApplicationWindow {
         	.setLongFlag("gang")
         	.setDefault("5");
 
-        // Endlosbetrieb (z.B. im Museum der Arbeit)
+        // Endlosbetrieb 
         Switch swLoop = new Switch("loop")
 			.setShortFlag('l')
 			.setLongFlag("loop");
@@ -3338,12 +3340,15 @@ public class Rsmain extends ApplicationWindow {
 			.setShortFlag('m')
 			.setLongFlag("nomenu");
         
+//        Switch swGPXEdit = new Switch("gpxedit")
+  //      	.setShortFlag('x')
+  //      	.setLongFlag("gpxedit");
+        
         try {
 			jsap.registerParameter(swDebug);
 			jsap.registerParameter(swDeepDebug);
 			jsap.registerParameter(swDemo);
 			jsap.registerParameter(swEnglisch);
-//			jsap.registerParameter(swDemoversion);
 			jsap.registerParameter(swNoOverlay);
 			jsap.registerParameter(optGang);
 			jsap.registerParameter(swLoop);
@@ -3351,6 +3356,7 @@ public class Rsmain extends ApplicationWindow {
 			jsap.registerParameter(swNoStop);
 			jsap.registerParameter(swAutostart);
 			jsap.registerParameter(swNoMenu);
+//			jsap.registerParameter(swGPXEdit);
 		} catch (JSAPException e) {
 			e.printStackTrace();
 		}
@@ -3383,7 +3389,11 @@ public class Rsmain extends ApplicationWindow {
 		}
 		if (config.getBoolean("nomenu")) {
 			Global.fullscreen = true;
-		}				
+		}
+//		if (config.getBoolean("gpxedit")) {
+//			if (gpxEdit == null)
+//				gpxEdit = new GPXEdit1();
+//		}
 		
 	}
 	
@@ -3447,15 +3457,15 @@ public class Rsmain extends ApplicationWindow {
 	 * 
 	 */
 	private void initMap() {
-        osmv = new OSMViewer(compMap, SWT.NONE, LoadGPXFile.track);
+        osmv = new OSMViewer(compMap, SWT.NONE, VerwaltungGPX.track);
     	osm_koord = new OSMViewer.PointD(rs_lon, rs_lat);
         Point size = compMap.getSize();
         Point pos =  osmv.computePosition(osm_koord);
     	Point mittelpunkt = new Point(pos.x, pos.y);
         osmv.setBounds(0, 0, size.x, size.y);
         // Karte auf Startpunkt setzen:
-        if (LoadGPXFile.track != null) {
-			TrkPt aktpoint = (TrkPt) LoadGPXFile.track.get(0); 
+        if (VerwaltungGPX.track != null) {
+			TrkPt aktpoint = (TrkPt) VerwaltungGPX.track.get(0); 
 			OSMViewer.PointD koord = new OSMViewer.PointD(aktpoint.getLongitude(), aktpoint.getLatitude());
 			pos = osmv.computePosition(koord);
 	    	mittelpunkt = new Point(pos.x, pos.y);

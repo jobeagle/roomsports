@@ -406,7 +406,8 @@ public class OSMViewer extends Canvas {
     /* Ein paar Tileserver vorgeben, unserer als erstes. Der erste kann über die Konfiguration in der Applikation geändert werden. */
     public static TileServer[] TILESERVERS = { 	
        	new TileServer("http://www.mtbsimulator.de/osm/", 18, false, ".png", "© Openstreetmap contributors"),		// DEFAULT!
-        new TileServer("http://tile.openstreetmap.org/", 18, false, ".png", "© Openstreetmap contributors"),
+       	new TileServer("http://www.mtbsimulator.de/osm/", 18, false, ".png", "© Openstreetmap contributors"),
+        new TileServer("https://tile.openstreetmap.de/", 18, false, ".png", "© Openstreetmap contributors"),
         new TileServer("http://c.tile.opencyclemap.org/cycle/", 18, false, ".png", "© Openstreetmap contributors"),
         new TileServer("http://tile.thunderforest.com/outdoors/", 18, false, ".png", "Maps © Thunderforest, Data © OpenStreetMap contributors"),
     };
@@ -443,6 +444,8 @@ public class OSMViewer extends Canvas {
     private ThreadPoolExecutor executor = new ThreadPoolExecutor(IMAGEFETCHER_THREADS, 16, 2, TimeUnit.SECONDS, workQueue, threadFactory);
     
     private Color waitBackground, waitForeground;
+    
+    private boolean zeigePunkte = false;
     
     /**
      * Hier ist der normale Einstieg (Konstruktor)
@@ -693,7 +696,21 @@ public class OSMViewer extends Canvas {
                 position2lat(position.y, getZoom()));
     }
 
-    public Point computePosition(PointD coords) {
+    /**
+	 * @return zeigePunkte
+	 */
+	public boolean isZeigePunkte() {
+		return zeigePunkte;
+	}
+
+	/**
+	 * @param zeigePunkte zeigePunkte ein oder aus
+	 */
+	public void setZeigePunkte(boolean zeigePunkte) {
+		this.zeigePunkte = zeigePunkte;
+	}
+
+	public Point computePosition(PointD coords) {
         int x = lon2position(coords.x, getZoom());
         int y = lat2position(coords.y, getZoom());
         return new Point(x, y);
@@ -790,6 +807,11 @@ public class OSMViewer extends Canvas {
 			TrkPt aktpoint = (TrkPt) it.next(); 
 			coords = new PointD(aktpoint.getLongitude(), aktpoint.getLatitude());
 			pt = computePosition(coords);
+			if (isZeigePunkte()) {
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+				gc.drawRectangle(-(mapPosition.x-pt.x+2), -(mapPosition.y-pt.y+2), 5, 5);
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
+			}
 			if (lastPt.x != 0 && lastPt.y != 0)
 				gc.drawLine(-(mapPosition.x-lastPt.x), -(mapPosition.y-lastPt.y), -(mapPosition.x-pt.x), -(mapPosition.y-pt.y));
 			lastPt = pt;

@@ -1606,13 +1606,13 @@ public class Konfiguration {
 		txtminleistung.addVerifyListener(Global.VLZahlen);
 		txtmaxpuls.addVerifyListener(Global.VLZahlen);
 		txtalter.addVerifyListener(Global.VLZahlen);
-		txtcwa.addVerifyListener(Global.VLZahlenKomma);
-		txtk2.addVerifyListener(Global.VLZahlenKomma);
-		txtergoip.addVerifyListener(Global.VLZahlenPunkt);
+		txtcwa.addVerifyListener(Global.VLZahlenUndKomma);
+		txtk2.addVerifyListener(Global.VLZahlenUndKomma);
+		txtergoip.addVerifyListener(Global.VLZahlenUndPunkt);
 		txtDynRPMNormal.addVerifyListener(Global.VLZahlen);
 		txtDynRPMWiege.addVerifyListener(Global.VLZahlen);
 		txtlfakt.addVerifyListener(Global.VLZahlen);
-		txtSteigungMax.addVerifyListener(Global.VLZahlenKomma);
+		txtSteigungMax.addVerifyListener(Global.VLZahlenUndKomma);
 		txtSteigungMin.addVerifyListener(Global.VLZahlenKommaMinus);
 		txtpulsrot.addVerifyListener(Global.VLZahlen);
 		txtpulsgelb.addVerifyListener(Global.VLZahlen);

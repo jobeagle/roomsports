@@ -57,6 +57,7 @@ public class Toolbar {
 	private Action actionDoku;
 	private Action actionAbout;
 	private Action actionExit;
+	private Action actionGPXEdit;
 	public  MenuManager menuManager;
 
 	/**
@@ -109,6 +110,7 @@ public class Toolbar {
 								new Image(Display.getCurrent(), "play.png"))) { 
 			public void run() {
 				rsmain.doStart();
+				actionGPXEdit.setEnabled(true);
 			}
 		};
 		actionStart.setEnabled(false);
@@ -154,6 +156,23 @@ public class Toolbar {
 				rsmain.switchComposites();
 			}
 		};
+		actionGPXEdit =
+				new Action(
+						Messages.getString("Toolbar.gpxedit"), 
+						ImageDescriptor.createFromImage(
+								new Image(Display.getCurrent(), "gpxedit.png"))) { 
+			public void run() {
+    			if (VerwaltungGPX.track != null) {
+    				if (rsmain.gpxEdit == null) {
+    					rsmain.gpxEdit = new GPXEdit();
+    					rsmain.gpxEdit.on(480, 640);
+    				} else
+    					rsmain.gpxEdit.on();
+    			}
+
+			}
+		};
+		actionGPXEdit.setEnabled(false);
 		actionAuswertung =
 				new Action(
 						Messages.getString("Toolbar.auswertung"), 
@@ -279,6 +298,7 @@ public class Toolbar {
 		//manager.add(actionVLC);
 		manager.add(actionRace);
 		manager.add(actionSwitch);
+		manager.add(actionGPXEdit);
 
 		manager.update(true);
 

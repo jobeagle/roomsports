@@ -45,7 +45,7 @@ public abstract class RsErwDialog {
 	private boolean ergebnisOK = false;
 	private boolean exit = false;
 
-	// Die folgenden Methoden mpssen in der abgeleiteten Klasse definiert werden:
+	// Die folgenden Methoden müssen in der abgeleiteten Klasse definiert werden:
 	abstract void doOk();
 	abstract void doAbbruch();
 	
@@ -82,7 +82,7 @@ public abstract class RsErwDialog {
 	 * Es werden die Shell, Composite und die beiden Buttons konfiguriert.
 	 */
 	public RsErwDialog() {
-		shl = new Shell(Rsmain.sShell.getDisplay(), SWT.TITLE|SWT.BORDER|SWT.ON_TOP);	    
+		shl = new Shell(Rsmain.sShell.getDisplay(), SWT.TITLE|SWT.BORDER|SWT.APPLICATION_MODAL);	    
 		shl.setLayout(null);
 		cmp = new Composite(shl, SWT.NONE);
 		cmp.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));

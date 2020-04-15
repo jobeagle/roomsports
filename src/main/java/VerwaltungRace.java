@@ -941,7 +941,7 @@ public class VerwaltungRace extends RsErwDialog {
 	        	item.setText(16, mRennen.getKonstant_cw()+"");
 	        	item.setText(17, mRennen.getKonstant_k2()+"");
 	        	item.setText(18, mRennen.getGewicht_bike()+"");
-}
+	        }
 	        for (int i=0; i<rennenHeader.length; i++) {
 	            tblRennen.getColumn(i).pack ();
 	          }     

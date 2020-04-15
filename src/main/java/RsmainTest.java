@@ -59,7 +59,7 @@ public class RsmainTest {
 	public void testgettrackpoint() {
 	TrkPt trkpt = null;	
 	long millisecsStart = 0;
-	LoadGPXFile ldpx = new LoadGPXFile();
+	VerwaltungGPX ldpx = new VerwaltungGPX();
 	ldpx.loadGPS(Global.gPXfile, false);
 	millisecsStart = new Date().getTime();
 	trkpt = app.gettrackpoint(600);				// Trackpunkt nach 10 Min. ermitteln

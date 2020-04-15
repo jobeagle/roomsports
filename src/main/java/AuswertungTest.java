@@ -20,7 +20,6 @@ public class AuswertungTest {
 //    private int iret = 0;
     @SuppressWarnings("unused")
 	private long lret = 0;
-//    private String stravaToken = "0937dfeb4257a0367b77010bed413e5a29ef59f7";
    
     @Before
     public void setUp() throws Exception {
@@ -36,8 +35,8 @@ public class AuswertungTest {
 		Mlog.init();
 		Mlog.setDebugstatus(true);
 		
-		tcxdatei = System.getProperty("user.home") + "/mtbsimulator/" + "test/DemotourTeamtrainingStandard20161014-145307.tcx";
-		csvdatei = System.getProperty("user.home") + "/mtbsimulator/" + "test/DemotourTeamtrainingStandard20161014-145307.csv";
+		tcxdatei = System.getProperty("user.home") + "/roomsports/" + "test/DemotourTeamtrainingStandard20161014-145307.tcx";
+		csvdatei = System.getProperty("user.home") + "/roomsports/" + "test/DemotourTeamtrainingStandard20161014-145307.csv";
     }
 
     @After
@@ -52,6 +51,7 @@ public class AuswertungTest {
     /**
 	 * Test method for {@link Auswertung#writeTCXFile(java.lang.String, boolean)}.
 	 */
+  
 	@Test 
 	public void testWriteTCXFile() {
 

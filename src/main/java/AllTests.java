@@ -6,12 +6,13 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	AuswertungTest.class, 
+//	AuswertungTest.class, 
 	GegnerTest.class, 
 	KonfigurationTest.class,
 	RsmainTest.class,
 	TrainerTest.class,
-	WettkampfTest.class //,
+	VerwaltungGPXTest.class
+//	WettkampfTest.class //,
 //    JStravaV3.class
 })
 public class AllTests {

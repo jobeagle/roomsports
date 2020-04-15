@@ -275,4 +275,8 @@ public interface LibVlc extends Library
     long libvlc_media_player_get_xwindow(LibVlcMediaInstance mediaInstance);
     void libvlc_media_player_set_xwindow(LibVlcMediaInstance mediaInstance, int drawable);
     void libvlc_media_player_set_nsobject(LibVlcMediaInstance mediaInstance, long drawable);
+    
+    int libvlc_media_player_set_time(LibVlcMediaInstance instance, long time);  
+    void libvlc_media_player_set_pause(LibVlcMediaInstance instance, int pause);  
+    
 }

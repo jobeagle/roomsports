@@ -264,13 +264,37 @@ public class Global {
 	          // erlaube nur Zahlen:
 	          if (Character.isDigit(myChar))
 	            event.doit = true;
+	          
 	          // und backspace und delete:
 	          if (myChar == '\u0008' || myChar == '\u007F')
 	            event.doit = true;
 	      }
 	};
+	// nur Zahlen, Minus, Backspace und Delete:
+	static VerifyListener VLZahlenUndMinus = new VerifyListener() {
+	      public void verifyText(VerifyEvent event) {
+	          // nur Zeichen != 0 beachten:
+	          char myChar = event.character;
+	          if (myChar == 0)
+		          event.doit = true; 
+	          else
+		          event.doit = false; 
+	        	  
+	          // erlaube nur Zahlen:
+	          if (Character.isDigit(myChar))
+	            event.doit = true;
+	          
+	          // und backspace und delete:
+	          if (myChar == '\u0008' || myChar == '\u007F')
+	            event.doit = true;
+	          
+	          // und Minus
+	          if (myChar == '-')
+	        	  event.doit = true;
+	      }
+	};
 	// VLZahlen + Komma:
-	static VerifyListener VLZahlenKomma = new VerifyListener() {
+	static VerifyListener VLZahlenUndKomma = new VerifyListener() {
 	      public void verifyText(VerifyEvent event) {
 	          char myChar = event.character;
 	          
@@ -293,7 +317,7 @@ public class Global {
 	      }
 	};
 	// VLZahlen + Punkt:
-	static VerifyListener VLZahlenPunkt = new VerifyListener() {
+	static VerifyListener VLZahlenUndPunkt = new VerifyListener() {
 	      public void verifyText(VerifyEvent event) {
 	          char myChar = event.character;
 	          
@@ -341,7 +365,34 @@ public class Global {
 	        	  event.doit = true;
 	      }
 	};
-	
+
+	// VLZahlenPunkt + Minus
+	static VerifyListener VLZahlenPunktMinus = new VerifyListener() {
+	      public void verifyText(VerifyEvent event) {
+	          char myChar = event.character;
+	          
+	          // nur Zeichen != 0 beachten:
+	          if (myChar == 0)
+		          event.doit = true; 
+	          else
+		          event.doit = false; 
+	        	  
+	          // erlaube nur Zahlen:
+	          if (Character.isDigit(myChar))
+	        	  event.doit = true;
+	          
+	          // und backspace und delete:
+	          if (myChar == '\u0008' || myChar == '\u007F')
+	        	  event.doit = true;
+	          // und Komma
+	          if (myChar == '.')
+	        	  event.doit = true;
+	          // und Minus
+	          if (myChar == '-')
+	        	  event.doit = true;
+	      }
+	};
+
 	/**
 	 * Ermittelt die eigene MAC-Adresse (verwendet als Key fürs Netzwerktraining 
 	 * @return	MAC-Adresse als String
