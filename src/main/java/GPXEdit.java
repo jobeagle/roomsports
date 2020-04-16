@@ -378,7 +378,7 @@ public class GPXEdit extends RsErwDialog {
         	item.setText(3, zfk1.format(trkpt.getAbstand_m()));
         	item.setText(4, zfk1.format(trkpt.getAbstvorg_m()));
         	item.setText(5, zfk1.format(trkpt.getSteigung_proz()));
-        	item.setText(6, trkpt.getHoehe() + "");
+        	item.setText(6, zfk1.format(trkpt.getHoehe()) + "");
         }
 	}
 	
