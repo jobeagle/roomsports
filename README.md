@@ -61,6 +61,7 @@ Ist also z. B. eine Steigung zu befahren, wird die aktuell benötigte Leistung b
 - Ist-Leistungsanzeige (wenn vom Trainingsgerät unterstützt)
 - Wahlweise automatisches Schliessen von Meldungen nach 5 Sekunden
 - Die Videogeschwindigkeit ist nur abhängig vom eingelegten Gang oder zusätzlich von der Trittfrequenz (Dynamik)
+- Die GPS-Koordinaten können direkt in der Anwendung "editiert" und als GPX Datei gespeichert werden
 
 ## Dokumentation
 
@@ -135,6 +136,14 @@ PC oder Notebook mit aktuellem 32-Bit oder 64-Bit Windows-Betriebssystem (XP, Vi
 
 ## Unterstützung
 RoomSports ist der direkte Nachfolger des kommerziellen Indoortrainingssystems [MTB-Simulator](https://www.mtbsimulator.de). Falls sie gerne indoor trainieren und ein findiger Javaprogrammierer sind: Bitte unterstützen sie das Projekt z.B. mit der Einbindung ihres Trainingsgerätes oder dem Einbau weiterer Features.
+
+Eine schnelle und unkomplizierte Spende ist über folgenden PayPal Button möglich:
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="6EMXKRHY5K99J" />
+<input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit dem PayPal-Button" />
+<img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
 
 ### technischer Hinweis
 Das aktuelle Deployment (manuell, derzeit auf Mac und PC) bis zum erstellen von setup.exe wird in deploy.sh beschrieben. Wenn sie komplett unter Windows entwickeln wollen, bitte entsprechend adaptieren.
