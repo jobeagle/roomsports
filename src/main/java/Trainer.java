@@ -292,10 +292,12 @@ public class Trainer {
   	  int erbL;
   	  int erbH;
 
+	  if (isDeepdebug())
+			Mlog.debug("(talk) Kommando:"+Kommando+" Wert:"+wert);
+
   	  switch (hatverbindung()) {
   	  	case keine:		// auch die ANT+ Werte liefern, wenn möglich (vielleicht Cadence/Speed und manuelle Rolle?)
   	  	case ant:
-		    //Mlog.debug("(talk) ...");
 			if (Rsmain.libant == null)
 				return rueckgabe;
   	  		switch (Kommando) {
@@ -2089,7 +2091,10 @@ public class Trainer {
       				Mlog.info("Puffer geleert!");
     		}
     		
-		    // zuerst 06, dann ...
+    		if (isDeepdebug())
+    				Mlog.debug("(nettalk) befehl:"+befehl.toString());
+
+    		// zuerst 06, dann ...
             os.print((char) 0x06);
             // ... Befehl senden
 		    os.print(befehl); 
@@ -2098,23 +2103,23 @@ public class Trainer {
 		    // wenn hier nur eine 1 gelesen wird, dann nochmal lesen ansonsten erstes Zeichen löschen
 
     		if (isDeepdebug())
-    			Mlog.info("cnt1: "+cnt+" - "+(new String(puff)));
+    			Mlog.debug("cnt1: "+cnt+" - "+(new String(puff)));
     		
 		    if (cnt == 1) {
 		    	cnt = in.read(puff, 0, buffersize);
 			    Ergebnis = new String(puff);
 	    		if (isDeepdebug())
-	    			Mlog.info("cnt2+: "+cnt+" - "+Ergebnis);
+	    			Mlog.debug("cnt2+: "+cnt+" - "+Ergebnis);
 		    } else {
 		    	cnt--;
 		    	Ergebnis = new String(puff).substring(1);
 	    		if (isDeepdebug())
-	    			Mlog.info("cnt2-: "+cnt+" - "+Ergebnis);
+	    			Mlog.debug("cnt2-: "+cnt+" - "+Ergebnis);
 		    }
     		if (isDeepdebug()) {
-    			Mlog.info("Zeichen gelesen: "+cnt);
+    			Mlog.debug("Zeichen gelesen: "+cnt);
     			for (int i=1; i<cnt-1; i++)
-    				Mlog.info("r:"+puff[i]);
+    				Mlog.debug("r:"+puff[i]);
     		}
     		
 		} catch (SocketTimeoutException sex) {
