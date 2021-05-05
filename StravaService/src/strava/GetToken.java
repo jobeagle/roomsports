@@ -33,8 +33,8 @@ import com.google.gson.Gson;
 @WebServlet(description = "Servlet um das Zugriffstoken von Strava zu ermitteln", urlPatterns = { "/GetToken" })
 public class GetToken extends HttpServlet {
     private static final String TOKEN_URL = "https://www.strava.com/oauth/token";
-    private int clientId = 0;				// hier die clientId einsetzen
-    private String secrete  = "";			// hier secrete einsetzen
+    private int clientId = 0;				 // hier die clientId einsetzen
+    private String secrete  = "";			 // hier secrete einsetzen
 
     private static final long serialVersionUID = 1L;
 
